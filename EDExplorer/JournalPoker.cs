@@ -47,6 +47,7 @@ namespace EDExplorer
                             .OrderByDescending(f => f.LastWriteTime).FirstOrDefault();
 
                         nTicks = 0;
+
                     }
 
                     stream = fileToPoke.Open(FileMode.Open, FileAccess.Read, FileShare.ReadWrite);

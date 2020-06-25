@@ -1,7 +1,5 @@
-﻿using System.Drawing;
-using System.Drawing.Text;
-//using System.Windows.Forms;
-//using System.Range;
+﻿using EDExplorer.Properties;
+using System.Windows.Forms;
 
 namespace EDExplorer
 {
@@ -33,61 +31,60 @@ namespace EDExplorer
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox_EDExplorer = new System.Windows.Forms.PictureBox();
             this.lblText = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_EDExplorer)).BeginInit();
+            this.image = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.image)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBox_EDExplorer
-            // 
-            this.pictureBox_EDExplorer.ErrorImage = global::EDExplorer.Properties.Resources.NOTIFY_ON;
-            this.pictureBox_EDExplorer.Location = new System.Drawing.Point(297, 9);
-            this.pictureBox_EDExplorer.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox_EDExplorer.Name = "pictureBox_EDExplorer";
-            this.pictureBox_EDExplorer.Size = new System.Drawing.Size(31, 32);
-            this.pictureBox_EDExplorer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox_EDExplorer.TabIndex = 0;
-            this.pictureBox_EDExplorer.TabStop = false;
             // 
             // lblText
             // 
             this.lblText.AutoSize = true;
-            this.lblText.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblText.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.lblText.BackColor = System.Drawing.Color.Transparent;
             this.lblText.Location = new System.Drawing.Point(13, 9);
-            this.lblText.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblText.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblText.Name = "lblText";
-            this.lblText.Size = new System.Drawing.Size(178, 20);
+            this.lblText.Size = new System.Drawing.Size(201, 22);
             this.lblText.TabIndex = 1;
             this.lblText.Text = "Prueba de Notificación";
             // 
+            // image
+            // 
+            this.image.Image = global::EDExplorer.Properties.Resources.EDExplorerPNG;
+            this.image.Location = new System.Drawing.Point(226, 7);
+            this.image.Name = "image";
+            this.image.Size = new System.Drawing.Size(30, 30);
+            this.image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.image.TabIndex = 2;
+            this.image.TabStop = false;
+            // 
             // NotifyFrm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(335, 126);
+            this.BackColor = System.Drawing.Color.Navy;
+            this.ClientSize = new System.Drawing.Size(266, 93);
+            this.Controls.Add(this.image);
             this.Controls.Add(this.lblText);
-            this.Controls.Add(this.pictureBox_EDExplorer);
+            this.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ForeColor = System.Drawing.Color.Cyan;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "NotifyFrm";
+            this.Opacity = 0.8D;
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "NotifyFrm";
-            this.TransparencyKey = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            //this.Load += new System.EventHandler(this.NotifyFrm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_EDExplorer)).EndInit();
+            this.TransparencyKey = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            ((System.ComponentModel.ISupportInitialize)(this.image)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox pictureBox_EDExplorer;
         private System.Windows.Forms.Label lblText;
+        private System.Windows.Forms.PictureBox image;
     }
 }

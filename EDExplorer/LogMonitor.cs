@@ -71,7 +71,7 @@ namespace EDExplorer
             JumponiumReported = false;
             SystemBodySignal = new Dictionary<(string, long), SaaSignalsFound>();
 
-            if (Properties.Settings.Default.AutoMonitor)
+            if (Properties.Settings.Default.AutoSTART)
                 MonitorStart();
         }
 
@@ -328,9 +328,10 @@ namespace EDExplorer
                 }
             }
 
-
+            //////////////////////////////////////////////////////////////////////////////////
             EventHandler entry = LogEntry;
             entry?.Invoke(this, EventArgs.Empty); // => Base.LogEvent
+            //////////////////////////////////////////////////////////////////////////////////
         }
 
         private void PopulatePastScans()

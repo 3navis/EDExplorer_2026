@@ -47,17 +47,22 @@
             this.TabControl = new System.Windows.Forms.TabControl();
             this.tabAlertas = new System.Windows.Forms.TabPage();
             this.checkBoxTodos = new System.Windows.Forms.CheckBox();
+            this.tabSignals = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.trackBar_Transparencia = new System.Windows.Forms.TrackBar();
             this.tabOculta = new System.Windows.Forms.TabPage();
             this.buttonAceptar = new System.Windows.Forms.Button();
             this.buttonCancelar = new System.Windows.Forms.Button();
-            this.tabSignals = new System.Windows.Forms.TabPage();
             this.groupBox_misc.SuspendLayout();
             this.groupBox_TTS.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_Volume)).BeginInit();
             this.TabControl.SuspendLayout();
             this.tabAlertas.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar_Transparencia)).BeginInit();
             this.tabOculta.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -188,7 +193,7 @@
             // cbxTts
             // 
             this.cbxTts.AutoSize = true;
-            this.cbxTts.Location = new System.Drawing.Point(315, 70);
+            this.cbxTts.Location = new System.Drawing.Point(315, 167);
             this.cbxTts.Margin = new System.Windows.Forms.Padding(4);
             this.cbxTts.Name = "cbxTts";
             this.cbxTts.Size = new System.Drawing.Size(125, 21);
@@ -205,11 +210,11 @@
             // 
             this.groupBox_TTS.Controls.Add(this.btn_TestVol);
             this.groupBox_TTS.Controls.Add(this.trackBar_Volume);
-            this.groupBox_TTS.Location = new System.Drawing.Point(350, 98);
+            this.groupBox_TTS.Location = new System.Drawing.Point(327, 196);
             this.groupBox_TTS.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox_TTS.Name = "groupBox_TTS";
             this.groupBox_TTS.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox_TTS.Size = new System.Drawing.Size(90, 91);
+            this.groupBox_TTS.Size = new System.Drawing.Size(242, 85);
             this.groupBox_TTS.TabIndex = 2;
             this.groupBox_TTS.TabStop = false;
             this.groupBox_TTS.Text = "Volumen";
@@ -217,7 +222,7 @@
             // 
             // btn_TestVol
             // 
-            this.btn_TestVol.Location = new System.Drawing.Point(8, 52);
+            this.btn_TestVol.Location = new System.Drawing.Point(165, 33);
             this.btn_TestVol.Margin = new System.Windows.Forms.Padding(4);
             this.btn_TestVol.Name = "btn_TestVol";
             this.btn_TestVol.Size = new System.Drawing.Size(64, 28);
@@ -230,7 +235,7 @@
             // 
             this.trackBar_Volume.BackColor = System.Drawing.Color.White;
             this.trackBar_Volume.LargeChange = 20;
-            this.trackBar_Volume.Location = new System.Drawing.Point(-20, 0);
+            this.trackBar_Volume.Location = new System.Drawing.Point(22, 23);
             this.trackBar_Volume.Margin = new System.Windows.Forms.Padding(4);
             this.trackBar_Volume.Maximum = 100;
             this.trackBar_Volume.Name = "trackBar_Volume";
@@ -277,8 +282,19 @@
             this.checkBoxTodos.UseVisualStyleBackColor = true;
             this.checkBoxTodos.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
+            // tabSignals
+            // 
+            this.tabSignals.Location = new System.Drawing.Point(4, 25);
+            this.tabSignals.Name = "tabSignals";
+            this.tabSignals.Padding = new System.Windows.Forms.Padding(3);
+            this.tabSignals.Size = new System.Drawing.Size(656, 380);
+            this.tabSignals.TabIndex = 4;
+            this.tabSignals.Text = "Señales";
+            this.tabSignals.UseVisualStyleBackColor = true;
+            // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.groupBox1);
             this.tabPage3.Controls.Add(this.groupBox_TTS);
             this.tabPage3.Controls.Add(this.cbxTts);
             this.tabPage3.Controls.Add(this.groupBox_misc);
@@ -291,6 +307,45 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Varios";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.trackBar_Transparencia);
+            this.groupBox1.Location = new System.Drawing.Point(327, 70);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Size = new System.Drawing.Size(242, 85);
+            this.groupBox1.TabIndex = 3;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Opacidad";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(165, 30);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(64, 28);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Probar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // trackBar_Transparencia
+            // 
+            this.trackBar_Transparencia.BackColor = System.Drawing.Color.White;
+            this.trackBar_Transparencia.LargeChange = 20;
+            this.trackBar_Transparencia.Location = new System.Drawing.Point(22, 23);
+            this.trackBar_Transparencia.Margin = new System.Windows.Forms.Padding(4);
+            this.trackBar_Transparencia.Maximum = 100;
+            this.trackBar_Transparencia.Name = "trackBar_Transparencia";
+            this.trackBar_Transparencia.Size = new System.Drawing.Size(123, 56);
+            this.trackBar_Transparencia.TabIndex = 0;
+            this.trackBar_Transparencia.TickFrequency = 10;
+            this.trackBar_Transparencia.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.trackBar_Transparencia.Scroll += new System.EventHandler(this.trackBar_Transparencia_Scroll);
             // 
             // tabOculta
             // 
@@ -333,16 +388,6 @@
             this.buttonCancelar.UseVisualStyleBackColor = true;
             this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 
-            // tabSignals
-            // 
-            this.tabSignals.Location = new System.Drawing.Point(4, 25);
-            this.tabSignals.Name = "tabSignals";
-            this.tabSignals.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSignals.Size = new System.Drawing.Size(656, 380);
-            this.tabSignals.TabIndex = 4;
-            this.tabSignals.Text = "Señales";
-            this.tabSignals.UseVisualStyleBackColor = true;
-            // 
             // ConfiguracionFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -371,6 +416,9 @@
             this.tabAlertas.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar_Transparencia)).EndInit();
             this.tabOculta.ResumeLayout(false);
             this.tabOculta.PerformLayout();
             this.ResumeLayout(false);
@@ -401,5 +449,8 @@
         private System.Windows.Forms.Button buttonCancelar;
         private System.Windows.Forms.CheckBox checkBoxTodos;
         private System.Windows.Forms.TabPage tabSignals;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TrackBar trackBar_Transparencia;
     }
 }

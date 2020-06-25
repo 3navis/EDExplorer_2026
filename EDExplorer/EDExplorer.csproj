@@ -188,6 +188,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\EDExplorer.ico" />
+    <None Include="Resources\EDExplorer.png" />
+    <None Include="Resources\EDExplorer.jpg" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

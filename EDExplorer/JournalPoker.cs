@@ -40,6 +40,8 @@ namespace EDExplorer
                                                 fileToPoke = file;
                                             }
                                         }*/
+
+                    // 120 ticks entre 4 (250mls) son 30s
                     if (fileToPoke == null || nTicks > 120)
                     {
                         fileToPoke = directoryInfo.GetFiles(Properties.Settings.Default.JournalName)
@@ -47,7 +49,6 @@ namespace EDExplorer
                             .OrderByDescending(f => f.LastWriteTime).FirstOrDefault();
 
                         nTicks = 0;
-
                     }
 
                     stream = fileToPoke.Open(FileMode.Open, FileAccess.Read, FileShare.ReadWrite);

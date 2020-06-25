@@ -14,15 +14,30 @@ namespace EDExplorer
         public ConfiguracionFrm configuracionFrm;
         public EDExplorerFrm edexplorerFrm;
         public FontElite fontElite;
+        public NotifyFrm notifyFrm;
 
         public Base()
         {
             alertas = new Alertas();
             logMonitor = new LogMonitor();
             logMonitor.LogEntry += LogEvent;
+            // Crear la Fuente una unica vez.
             fontElite = new FontElite();
 
             ActivarAudio();
+
+            ////////////////////////////////////////////////
+            //notifyFrm = new NotifyFrm("Hola\r\nque tal");
+            //notifyFrm.Show(5000);
+            //notifyFrm.ShowDialog();
+            //notifyFrm.BeginInvoke
+            //notifyFrm.Hide();
+            //notifyFrm.Invoke();
+            //notifyFrm.Modal
+            //notifyFrm.Refresh();
+            //notifyFrm.Opacity = 0.8;
+            //notifyFrm.Texto("Amo haya");
+            //notifyFrm.Refresh();
         }
         ~Base()
         { // Destuctor del codigo
@@ -132,6 +147,7 @@ namespace EDExplorer
                 {
                     NotifyFrm notifyFrm = new NotifyFrm(fullBodyName + "\r\n" + announceText.ToString());
                     notifyFrm.Show(5000);
+                    notifyFrm.Refresh();
                 }
 
                 if (Properties.Settings.Default.activarAudio)

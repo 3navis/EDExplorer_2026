@@ -158,12 +158,12 @@ namespace EDExplorer.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool AutoMonitor {
+        public bool AutoSTART {
             get {
-                return ((bool)(this["AutoMonitor"]));
+                return ((bool)(this["AutoSTART"]));
             }
             set {
-                this["AutoMonitor"] = value;
+                this["AutoSTART"] = value;
             }
         }
         
@@ -224,6 +224,18 @@ namespace EDExplorer.Properties {
             }
             set {
                 this["Alertas"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int Transparencia {
+            get {
+                return ((int)(this["Transparencia"]));
+            }
+            set {
+                this["Transparencia"] = value;
             }
         }
     }

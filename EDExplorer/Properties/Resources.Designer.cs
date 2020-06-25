@@ -83,6 +83,16 @@ namespace EDExplorer.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap EDExplorerPNG {
+            get {
+                object obj = ResourceManager.GetObject("EDExplorerPNG", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap LISTA_OFF {
             get {
                 object obj = ResourceManager.GetObject("LISTA_OFF", resourceCulture);

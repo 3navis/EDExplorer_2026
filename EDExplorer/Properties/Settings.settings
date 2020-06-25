@@ -35,7 +35,7 @@
     <Setting Name="AutoRead" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="AutoMonitor" Type="System.Boolean" Scope="User">
+    <Setting Name="AutoSTART" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="JournalPath" Type="System.String" Scope="User">
@@ -52,6 +52,9 @@
     </Setting>
     <Setting Name="Alertas" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="Transparencia" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -30,7 +30,7 @@ namespace EDExplorer
                 container.Register(Component.For<IUserNotificationInterface>().ImplementedBy<TrayIconController>().LifestyleSingleton());
                 var trayController = container.Resolve<IUserNotificationInterface>();
 
-                System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
+                //System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
                 // Application.Run(new EDExplorerFrm());
                 Application.Run();
             }

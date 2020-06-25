@@ -39,11 +39,12 @@ namespace EDExplorer
             BulkChangeInProgress = true;
             cbx_VeryInteresting.Checked = settings.VeryInteresting;
             cbxToast.Checked = settings.activarNotificaciones;
+            trackBar_Transparencia.Value = settings.Transparencia;
             cbxTts.Checked = settings.activarAudio;
             trackBar_Volume.Value = settings.TTSVolume;
             trackBar_Volume.BackColor = this.BackColor;
             btn_TestVol.Enabled = settings.activarAudio;
-            cbxAutoMonitor.Checked = settings.AutoMonitor;
+            cbxAutoMonitor.Checked = settings.AutoSTART;
             cbxAutoRead.Checked = settings.AutoRead;
             cbxCodex.Checked = settings.IncludeCodex;
             cbxBeta.Checked = settings.JournalBeta;
@@ -76,11 +77,6 @@ namespace EDExplorer
         {
             settings.activarNotificaciones = ((CheckBox)sender).Checked;
             Save();
-            if (!Loading && settings.activarNotificaciones)
-            {
-                NotifyFrm notifyFrm = new NotifyFrm("Mostrar Notificaciones");
-                notifyFrm.Show(5000);
-            }
         }
 
         private void CbxTts_CheckedChanged(object sender, EventArgs e)
@@ -135,7 +131,7 @@ namespace EDExplorer
 
         private void CbxAutoMonitor_CheckedChanged(object sender, EventArgs e)
         {
-            settings.AutoMonitor = ((CheckBox)sender).Checked;
+            settings.AutoSTART = ((CheckBox)sender).Checked;
             Save();
         }
 
@@ -225,6 +221,26 @@ namespace EDExplorer
             {
                 pa.Checked(((CheckBox)sender).Checked);
             }
+        }
+
+        private void trackBar_Transparencia_Scroll(object sender, EventArgs e)
+        {
+            settings.Transparencia = ((TrackBar)sender).Value;
+            Save();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            if (!Loading)
+            {
+                NotifyFrm notifyFrm = new NotifyFrm("Probando Notificaciones");
+                notifyFrm.Show(5000);
+            }
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

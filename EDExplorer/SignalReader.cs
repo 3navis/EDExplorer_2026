@@ -22,7 +22,7 @@ namespace EDExplorer
             this.logMonitor = b.logMonitor;
             this.settings = Properties.Settings.Default;
             Interest = new List<(string BodyName, string Description, string Detail)>();
-            isRing = logMonitor.LastScan.BodyName.Contains(" Ring");
+            isRing = logMonitor.LastSignal.BodyName.Contains(" Ring");
             this.alertas = b.alertas; // new Alertas();
         }
 

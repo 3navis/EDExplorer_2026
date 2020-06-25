@@ -2,7 +2,6 @@
 {
     using Properties;
     using System;
-    using System.ComponentModel;
     using System.Drawing;
     using System.Reflection;
     using System.Windows.Forms;
@@ -32,16 +31,20 @@
 
         private NotifyIcon CreateTrayIcon()
         {
-            var components = new Container();
-            var notifyIcon = new NotifyIcon(components)
+//            var components = new Container();
+//            var notifyIcon = new NotifyIcon(components)
+            var notifyIcon = new NotifyIcon()
             {
                 ContextMenuStrip = CreateMenuStrip(),
                 Icon = Resources.EDExplorer,
                 Text = "EDExplorer Agent",
                 Visible = true,
             };
-            notifyIcon.BalloonTipClicked += (o, e) => basi.OpenConfiguracionFrm(basi.alertas);
+
+            //notifyIcon.BalloonTipClicked += (o, e) => basi.OpenConfiguracionFrm(basi.alertas);
+            //notifyIcon.Click += (o, e) => Prueba();
             notifyIcon.DoubleClick += (o, e) => basi.OpenConfiguracionFrm(basi.alertas);
+
             return notifyIcon;
         }
 
@@ -75,7 +78,7 @@
         private string textoSTART(bool flag = true)
         {
             if (flag) // al crear el menu coge el valor por defecto
-                flag = settings.AutoMonitor;
+                flag = settings.AutoSTART;
             else
                 flag = basi.logMonitor.IsMonitoring();
 
@@ -87,7 +90,7 @@
         private Image recursoSTART(bool flag = true)
         {
             if (flag) // al crear el menu coge el valor por defecto
-                flag = settings.AutoMonitor;
+                flag = settings.AutoSTART;
             else
                 flag = basi.logMonitor.IsMonitoring();
             
@@ -165,7 +168,7 @@
 
             if (settings.activarNotificaciones)
             {
-                NotifyFrm notifyFrm = new NotifyFrm("Activadas Notificaciones.");
+                NotifyFrm notifyFrm = new NotifyFrm("Activadas Notificaciones\n\rde prueba con un texto largo.");
                 notifyFrm.Show(5000);
             }
            

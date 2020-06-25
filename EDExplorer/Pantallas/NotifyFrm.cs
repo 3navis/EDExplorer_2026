@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace EDExplorer
 {
-    public partial class NotifyFrm : Form
+    public partial class NotifyFrm : Form 
     {
         private Timer timer;
         protected override bool ShowWithoutActivation
@@ -26,16 +26,21 @@ namespace EDExplorer
         {
             InitializeComponent();
             
-            //lblText.Font = new Font(FontElite.private_fonts.Families[0], 12);
-            //lblText.UseCompatibleTextRendering = true; 
+            lblText.Font = new Font(FontElite.private_fonts.Families[0], 12);
+            lblText.UseCompatibleTextRendering = true; 
             lblText.Text = text;
             
-            pictureBox_EDExplorer.Image = Icon.ExtractAssociatedIcon(Application.ExecutablePath).ToBitmap();
+            //pictureBox_EDExplorer.Image = Icon.ExtractAssociatedIcon(Application.ExecutablePath).ToBitmap();
             StartPosition = FormStartPosition.Manual;
             Rectangle desktopArea = Screen.GetWorkingArea(this);
             Location = new Point(desktopArea.Right - Width, desktopArea.Bottom - Height);
+            this.Opacity = (double)Properties.Settings.Default.Transparencia / 100;
         }
 
+        public void Texto(string t)
+        {
+            lblText.Text = t;
+        }
         public void Show(int timeout)
         {
             timer = new Timer();

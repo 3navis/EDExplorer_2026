@@ -86,11 +86,17 @@ namespace EDExplorer
             bool flgAterrizable = scanEvent.Landable.GetValueOrDefault(false);
 
             // Aterrizable y Terraformable
+            //if (alertas.n[Alerta.Terraformable].flag && flgAterrizable && scanEvent.TerraformState.Length > 0)
+            //{
+            //    Interest.Add((scanEvent.BodyName, alertas.n[Alerta.Terraformable].nombre, string.Empty));
+            //}
             if (alertas.n[Alerta.Terraformable].flag && flgAterrizable && scanEvent.TerraformState.Length > 0)
             {
-                Interest.Add((scanEvent.BodyName, alertas.n[Alerta.Terraformable].nombre, string.Empty));
+                if (alertas.CumpleCriterios(alertas.n[Alerta.Terraformable], 0))
+                {
+                    Interest.Add((scanEvent.BodyName, alertas.n[Alerta.Terraformable].nombre, string.Empty));
+                }
             }
-
             // Aterrizable con Atmosfera. Ya me gustaria!
             if (alertas.n[Alerta.Atmosfera].flag && flgAterrizable && scanEvent.Atmosphere.Length > 0)
             {

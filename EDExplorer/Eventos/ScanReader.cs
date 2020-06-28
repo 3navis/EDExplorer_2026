@@ -34,7 +34,7 @@ namespace EDExplorer
             this.alertas = b.alertas; // new Alertas();
         }
 
-        public bool IsInteresting()
+        public bool hayAlertas()
         {
             bool interesting = !isRing && (DefaultInterest() | false);
             // Moved these outside the "DefaultInterest" method so the multiple criteria check would include user criteria, and so the "all jumponium" check would not be counted
@@ -83,49 +83,74 @@ namespace EDExplorer
         private bool DefaultInterest()
         {
             ScanEvent scanEvent = logMonitor.LastScan;
+            bool flgAterrizable = scanEvent.Landable.GetValueOrDefault(false);
 
             // Aterrizable y Terraformable
-            if (alertas.n[Alerta.Terraformable].flag && scanEvent.Landable.GetValueOrDefault(false) && scanEvent.TerraformState.Length > 0)
+            if (alertas.n[Alerta.Terraformable].flag && flgAterrizable && scanEvent.TerraformState.Length > 0)
             {
                 Interest.Add((scanEvent.BodyName, alertas.n[Alerta.Terraformable].nombre, string.Empty));
             }
 
             // Aterrizable con Atmosfera. Ya me gustaria!
-            if (alertas.n[Alerta.Atmosfera].flag && scanEvent.Landable.GetValueOrDefault(false) && scanEvent.Atmosphere.Length > 0)
+            if (alertas.n[Alerta.Atmosfera].flag && flgAterrizable && scanEvent.Atmosphere.Length > 0)
             {
                 Interest.Add((scanEvent.BodyName, alertas.n[Alerta.Atmosfera].nombre, string.Empty));
             }
 
             // Aterrizable Alto-g
-            if (alertas.n[Alerta.GravedadP].flag && scanEvent.Landable.GetValueOrDefault(false) && (double)scanEvent.SurfaceGravity / 9.81 < alertas.n[Alerta.GravedadP].desde)
+            if (alertas.n[Alerta.GravedadP].flag && flgAterrizable && (double)scanEvent.SurfaceGravity / 9.81 < alertas.n[Alerta.GravedadP].desde)
             {
                 detalle = $"Gravedad en superficie: {((double)scanEvent.SurfaceGravity / 9.81).ToString("0.0000")}g";
                 Interest.Add((scanEvent.BodyName, alertas.n[Alerta.GravedadP].nombre, detalle));
             }
 
             // Aterrizable Bajo-g
-            if (alertas.n[Alerta.GravedadG].flag && scanEvent.Landable.GetValueOrDefault(false) && (double)scanEvent.SurfaceGravity / 9.81 > alertas.n[Alerta.GravedadG].desde)
+            if (alertas.n[Alerta.GravedadG].flag && flgAterrizable && (double)scanEvent.SurfaceGravity / 9.81 > alertas.n[Alerta.GravedadG].desde)
             {
                 detalle = $"Gravedad en superficie: {((double)scanEvent.SurfaceGravity / 9.81).ToString("0.00")}g";
                 Interest.Add((scanEvent.BodyName, alertas.n[Alerta.GravedadG].nombre, detalle));
             }
 
             // Aterrizable Pequeño
-            if (alertas.n[Alerta.CuerpoP].flag && scanEvent.Landable.GetValueOrDefault(false) && scanEvent.Radius / 1000 < alertas.n[Alerta.CuerpoP].desde)
+            if (alertas.n[Alerta.CuerpoP].flag && flgAterrizable)
             {
-                detalle = $"Radio: {((double)scanEvent.Radius / 1000).ToString("0")}km";
-                Interest.Add((scanEvent.BodyName, alertas.n[Alerta.CuerpoP].nombre, detalle));
+                double Radio = (double)scanEvent.Radius / 1000;
+
+                if (alertas.CumpleCriterios(alertas.n[Alerta.CuerpoP], Radio))
+                {
+                    detalle = $"Radio: {(Radio).ToString("0")}km";
+                    Interest.Add((scanEvent.BodyName, alertas.n[Alerta.CuerpoP].nombre, detalle));
+                }
             }
 
-            // Aterrizable Gigante
-            if (alertas.n[Alerta.CuerpoG].flag && scanEvent.Landable.GetValueOrDefault(false) && scanEvent.Radius/1000 > alertas.n[Alerta.CuerpoG].desde)
+            // Aterrizable Grande
+            if (alertas.n[Alerta.CuerpoG].flag && flgAterrizable)
             {
-                detalle = $"Radio: {((double)scanEvent.Radius / 1000).ToString("0")}km";
-                Interest.Add((scanEvent.BodyName, alertas.n[Alerta.CuerpoG].nombre, detalle));
+                double Radio = (double)scanEvent.Radius / 1000;
+
+                if (alertas.CumpleCriterios(alertas.n[Alerta.CuerpoG], Radio))
+                {
+                    detalle = $"Radio: {(Radio).ToString("0")}km";
+                    Interest.Add((scanEvent.BodyName, alertas.n[Alerta.CuerpoG].nombre, detalle));
+                }
             }
+
+            //// Aterrizable Pequeño
+            //if (alertas.n[Alerta.CuerpoP].flag && scanEvent.Landable.GetValueOrDefault(false) && scanEvent.Radius / 1000 < alertas.n[Alerta.CuerpoP].desde)
+            //{
+            //    detalle = $"Radio: {((double)scanEvent.Radius / 1000).ToString("0")}km";
+            //    Interest.Add((scanEvent.BodyName, alertas.n[Alerta.CuerpoP].nombre, detalle));
+            //}
+
+            //// Aterrizable Gigante
+            //if (alertas.n[Alerta.CuerpoG].flag && scanEvent.Landable.GetValueOrDefault(false) && scanEvent.Radius/1000 > alertas.n[Alerta.CuerpoG].desde)
+            //{
+            //    detalle = $"Radio: {((double)scanEvent.Radius / 1000).ToString("0")}km";
+            //    Interest.Add((scanEvent.BodyName, alertas.n[Alerta.CuerpoG].nombre, detalle));
+            //}
 
             // Aterrizable con Anillo
-            if (alertas.n[Alerta.Anillo].flag && scanEvent.Landable.GetValueOrDefault(false) && scanEvent.Rings?.Count() > alertas.n[Alerta.Anillo].desde)
+            if (alertas.n[Alerta.Anillo].flag && flgAterrizable && scanEvent.Rings?.Count() > alertas.n[Alerta.Anillo].desde)
             {
                 detalle = $"{scanEvent.Rings?.Count().ToString("0")} anillo/s";
                 Interest.Add((scanEvent.BodyName, alertas.n[Alerta.Anillo].nombre, detalle));
@@ -170,7 +195,7 @@ namespace EDExplorer
             }
 
             // Comprobaciones relativas al Padre
-            if ((alertas.n[Alerta.OrbitaP].flag && alertas.n[Alerta.Pastor].flag || alertas.n[Alerta.AnilloP].flag) && (scanEvent.Parent?[0].ParentType == "Planet" || scanEvent.Parent?[0].ParentType == "Star") &&
+            if ((alertas.n[Alerta.OrbitaP].flag && alertas.n[Alerta.AnilloP].flag) && (scanEvent.Parent?[0].ParentType == "Planet" || scanEvent.Parent?[0].ParentType == "Star") &&
                 logMonitor.SystemBody.ContainsKey((logMonitor.CurrentSystem, scanEvent.Parent[0].Body)))
             {
                 ScanEvent parent = logMonitor.SystemBody[(logMonitor.CurrentSystem, scanEvent.Parent[0].Body)];
@@ -193,10 +218,10 @@ namespace EDExplorer
                     Interest.Add((scanEvent.BodyName, alertas.n[Alerta.OrbitaG].nombre, detalle));
                 }
                 //Luna de Pastor
-                if (alertas.n[Alerta.Pastor].flag && parent.Rings?.Last().OuterRad > scanEvent.SemiMajorAxis && !parent.Rings.Last().Name.Contains(" Belt"))
-                {
-                    Interest.Add((scanEvent.BodyName, alertas.n[Alerta.Pastor].nombre, $"Órbita: {Math.Truncate((double)scanEvent.SemiMajorAxis / 1000):N0}km, Anillo Rádio: {Math.Truncate((double)parent.Rings.Last().OuterRad / 1000):N0}km"));
-                }
+                //if (alertas.n[Alerta.Pastor].flag && parent.Rings?.Last().OuterRad > scanEvent.SemiMajorAxis && !parent.Rings.Last().Name.Contains(" Belt"))
+                //{
+                //    Interest.Add((scanEvent.BodyName, alertas.n[Alerta.Pastor].nombre, $"Órbita: {Math.Truncate((double)scanEvent.SemiMajorAxis / 1000):N0}km, Anillo Rádio: {Math.Truncate((double)parent.Rings.Last().OuterRad / 1000):N0}km"));
+                //}
 
                 // Proximo al Anillo
                 if (alertas.n[Alerta.AnilloP].flag && parent.Rings?.Count() > 0)
@@ -232,10 +257,10 @@ namespace EDExplorer
             }
 
             // Luna Anidada
-            if (alertas.n[Alerta.Anidada].flag && scanEvent.Parent?.Count() > 1 && scanEvent.Parent[0].ParentType == "Planet" && scanEvent.Parent[1].ParentType == "Planet")
-            {
-                Interest.Add((scanEvent.BodyName, alertas.n[Alerta.Anidada].nombre, string.Empty));
-            }
+            //if (alertas.n[Alerta.Anidada].flag && scanEvent.Parent?.Count() > 1 && scanEvent.Parent[0].ParentType == "Planet" && scanEvent.Parent[1].ParentType == "Planet")
+            //{
+            //    Interest.Add((scanEvent.BodyName, alertas.n[Alerta.Anidada].nombre, string.Empty));
+            //}
 
 
             // Rotacion Rápida
@@ -261,7 +286,7 @@ namespace EDExplorer
 
 
             // Good jumponium material availability
-            if (alertas.n[Alerta.Potenciar].flag && scanEvent.Landable.GetValueOrDefault(false))
+            if (alertas.n[Alerta.Potenciar].flag && flgAterrizable)
             {
                 int jumpMats = 0;
                 Materials matsNotFound = PremiumBoostMaterials;

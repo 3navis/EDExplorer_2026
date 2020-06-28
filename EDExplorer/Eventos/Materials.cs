@@ -43,7 +43,11 @@ namespace EDExplorer
         None = 0,
         Tritio                  = 0b0000000000000000000000000001,
         LowTemperatureDiamond   = 0b0000000000000000000000000010,
-        VoidOpal                = 0b0000000000000000000000000100
+        VoidOpal                = 0b0000000000000000000000000100,
+        Painita                 = 0b0000000000000000000000001000,
+        Benitoita               = 0b0000000000000000000000010000,
+        Serendibita             = 0b0000000000000000000000100000,
+        Musgravita              = 0b0000000000000000000001000000
     }
 
     //A dictionary lookup should be much more performant than comparing the journal text against Enum.ToString()

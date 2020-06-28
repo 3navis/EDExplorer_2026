@@ -26,7 +26,7 @@ namespace EDExplorer
             this.alertas = b.alertas; // new Alertas();
         }
 
-        public bool EsInteresante()
+        public bool hayAlertas()
         {
             SaaSignalsFound signalEvent = logMonitor.LastSignal;
 
@@ -36,7 +36,7 @@ namespace EDExplorer
             {
                 foreach (var signal in signalEvent.Signals.Where(signal => signal.Type == "Tritium"))
                 {
-                    if (signal.Count >= alertas.n[Alerta.Tritio].desde)
+                    if (signal.Count > alertas.n[Alerta.Tritio].desde)
                     {
                         detalle = $"{signal.Count} vetas de {signal.TypeLocalised}";
                         Interest.Add((signalEvent.BodyName, alertas.n[Alerta.Tritio].nombre, detalle));
@@ -48,7 +48,7 @@ namespace EDExplorer
             {
                 foreach (var signal in signalEvent.Signals.Where(signal => signal.Type == "LowTemperatureDiamond"))
                 {
-                    if (signal.Count >= alertas.n[Alerta.LTD].desde)
+                    if (signal.Count > alertas.n[Alerta.LTD].desde)
                     {
                         detalle = $"{signal.Count} vetas de {signal.TypeLocalised}";
                         Interest.Add((signalEvent.BodyName, alertas.n[Alerta.LTD].nombre, detalle));
@@ -60,7 +60,7 @@ namespace EDExplorer
             {
                 foreach (var signal in signalEvent.Signals.Where(signal => signal.Type == "Opal"))
                 {
-                    if (signal.Count >= alertas.n[Alerta.Opal].desde)
+                    if (signal.Count > alertas.n[Alerta.Opal].desde)
                     {
                         detalle = $"{signal.Count} vetas de {signal.TypeLocalised}";
                         Interest.Add((signalEvent.BodyName, alertas.n[Alerta.Opal].nombre, detalle));
@@ -68,15 +68,62 @@ namespace EDExplorer
                 }
             }
 
+            if (alertas.n[Alerta.Painita].flag)
+            {
+                foreach (var signal in signalEvent.Signals.Where(signal => signal.Type == "Painite"))
+                {
+                    if (signal.Count > alertas.n[Alerta.Painita].desde)
+                    {
+                        detalle = $"{signal.Count} vetas de {signal.TypeLocalised}";
+                        Interest.Add((signalEvent.BodyName, alertas.n[Alerta.Painita].nombre, detalle));
+                    }
+                }
+            }
+
+            if (alertas.n[Alerta.Benitoita].flag)
+            {
+                foreach (var signal in signalEvent.Signals.Where(signal => signal.Type == "Benitoite"))
+                {
+                    if (signal.Count > alertas.n[Alerta.Benitoita].desde)
+                    {
+                        detalle = $"{signal.Count} vetas de {signal.TypeLocalised}";
+                        Interest.Add((signalEvent.BodyName, alertas.n[Alerta.Benitoita].nombre, detalle));
+                    }
+                }
+            }
+
+            if (alertas.n[Alerta.Serendibita].flag)
+            {
+                foreach (var signal in signalEvent.Signals.Where(signal => signal.Type == "Serendibite"))
+                {
+                    if (signal.Count > alertas.n[Alerta.Serendibita].desde)
+                    {
+                        detalle = $"{signal.Count} vetas de {signal.TypeLocalised}";
+                        Interest.Add((signalEvent.BodyName, alertas.n[Alerta.Serendibita].nombre, detalle));
+                    }
+                }
+            }
+
+            if (alertas.n[Alerta.Musgravita].flag)
+            {
+                foreach (var signal in signalEvent.Signals.Where(signal => signal.Type == "Musgravite"))
+                {
+                    if (signal.Count > alertas.n[Alerta.Musgravita].desde)
+                    {
+                        detalle = $"{signal.Count} vetas de {signal.TypeLocalised}";
+                        Interest.Add((signalEvent.BodyName, alertas.n[Alerta.Musgravita].nombre, detalle));
+                    }
+                }
+            }
+
             if (alertas.n[Alerta.Geological].flag)
             {
-                foreach (var signal in signalEvent.Signals.Where(signal => signal.Type == "$SAA_SignalType_Geological;"))
+                signal = signalEvent.Signals.Where(signal => signal.Type == "$SAA_SignalType_Geological;").FirstOrDefault();
+
+                if (signal != null && signal.Count > alertas.n[Alerta.Geological].desde)
                 {
-                    if (signal.Count >= alertas.n[Alerta.Geological].desde)
-                    {
-                        detalle = $"{signal.Count} señales {signal.TypeLocalised}";
-                        Interest.Add((signalEvent.BodyName, alertas.n[Alerta.Geological].nombre, detalle));
-                    }
+                    detalle = $"{signal.Count} señales {signal.TypeLocalised}";
+                    Interest.Add((signalEvent.BodyName, alertas.n[Alerta.Geological].nombre, detalle));
                 }
             }
 
@@ -88,7 +135,7 @@ namespace EDExplorer
             {
                 signal = signalEvent.Signals.Where(signal => signal.Type == "$SAA_SignalType_Biological;").FirstOrDefault();
 
-                if (signal != null && signal.Count >= alertas.n[Alerta.Biological].desde)
+                if (signal != null && signal.Count > alertas.n[Alerta.Biological].desde)
                 {
                     detalle = $"{signal.Count} señales {signal.TypeLocalised}";
                     Interest.Add((signalEvent.BodyName, alertas.n[Alerta.Biological].nombre, detalle));

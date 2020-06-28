@@ -133,6 +133,26 @@ namespace EDExplorer.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap rango_excluido {
+            get {
+                object obj = ResourceManager.GetObject("rango_excluido", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap rango_incluido {
+            get {
+                object obj = ResourceManager.GetObject("rango_incluido", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap START {
             get {
                 object obj = ResourceManager.GetObject("START", resourceCulture);
@@ -166,6 +186,26 @@ namespace EDExplorer.Properties {
         internal static System.Drawing.Bitmap TALK_ON {
             get {
                 object obj = ResourceManager.GetObject("TALK_ON", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap valor_desde {
+            get {
+                object obj = ResourceManager.GetObject("valor_desde", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap valor_hasta {
+            get {
+                object obj = ResourceManager.GetObject("valor_hasta", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

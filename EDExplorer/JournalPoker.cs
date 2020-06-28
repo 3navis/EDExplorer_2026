@@ -26,33 +26,33 @@ namespace EDExplorer
             FileStream stream;
             FileInfo fileToPoke = null;
             int nTicks = 0; // Se verifica el archivo cada 30s
+            string JournalNameMask = Properties.Settings.Default.JournalName;
+
+            // Optimizacion definitiva
+            // mientras se van leyendo modificaciones, significa que se esta utilizando el mismo fichero
+            // usar un semaforo que marque la hora de la ultima utilización
 
             Running = true;
             await Task.Run(() =>
             {
                 while (Running)
                 {
-                    // Busca el ultimo fichero del directorio ??????
-                    /*                    foreach (var file in directoryInfo.GetFiles(Properties.Settings.Default.JournalName))
-                                        {
-                                            if (fileToPoke == null || string.Compare(file.Name, fileToPoke.Name) > 0)
-                                            {
-                                                fileToPoke = file;
-                                            }
-                                        }*/
-
-                    // 120 ticks entre 4 (250mls) son 30s
+                    // 120 ticks entre 4 (250mls cada tick. 4 ticks por segundo) son 30s
                     if (fileToPoke == null || nTicks > 120)
                     {
-                        fileToPoke = directoryInfo.GetFiles(Properties.Settings.Default.JournalName)
-                            .Where(f => f.CreationTime >= DateTime.Today.AddDays(-10))
-                            .OrderByDescending(f => f.LastWriteTime).FirstOrDefault();
+                        fileToPoke = directoryInfo.GetFiles(JournalNameMask)
+ //                           .Where(f => f.CreationTime >= DateTime.Today.AddDays(-10))
+                            .OrderByDescending(f => f.CreationTime).FirstOrDefault();
 
                         nTicks = 0;
                     }
 
-                    stream = fileToPoke.Open(FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-                    stream.Close();
+                    if (fileToPoke != null)
+                    {
+                        stream = fileToPoke.Open(FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+                        stream.Close();
+                    }
+
 
                     System.Threading.Thread.Sleep(250);
                     nTicks++;

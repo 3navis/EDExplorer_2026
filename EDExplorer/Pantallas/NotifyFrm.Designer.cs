@@ -40,7 +40,7 @@ namespace EDExplorer
             // 
             this.lblText.AutoSize = true;
             this.lblText.BackColor = System.Drawing.Color.Transparent;
-            this.lblText.Location = new System.Drawing.Point(13, 9);
+            this.lblText.Location = new System.Drawing.Point(9, 9);
             this.lblText.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblText.Name = "lblText";
             this.lblText.Size = new System.Drawing.Size(201, 22);

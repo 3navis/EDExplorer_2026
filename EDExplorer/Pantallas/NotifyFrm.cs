@@ -34,7 +34,7 @@ namespace EDExplorer
             StartPosition = FormStartPosition.Manual;
             Rectangle desktopArea = Screen.GetWorkingArea(this);
             Location = new Point(desktopArea.Right - Width, desktopArea.Bottom - Height);
-            this.Opacity = (double)Properties.Settings.Default.Transparencia / 100;
+            this.Opacity = (double)Properties.Settings.Default.Opacidad / 100;
         }
 
         public void Texto(string t)

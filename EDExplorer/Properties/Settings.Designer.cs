@@ -86,12 +86,12 @@ namespace EDExplorer.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("100")]
-        public int TTSVolume {
+        public int AudioVolumen {
             get {
-                return ((int)(this["TTSVolume"]));
+                return ((int)(this["AudioVolumen"]));
             }
             set {
-                this["TTSVolume"] = value;
+                this["AudioVolumen"] = value;
             }
         }
         
@@ -229,13 +229,73 @@ namespace EDExplorer.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int Transparencia {
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        public int Opacidad {
             get {
-                return ((int)(this["Transparencia"]));
+                return ((int)(this["Opacidad"]));
             }
             set {
-                this["Transparencia"] = value;
+                this["Opacidad"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("v1.01")]
+        public string vAlertasNew {
+            get {
+                return ((string)(this["vAlertasNew"]));
+            }
+            set {
+                this["vAlertasNew"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string vAlertas {
+            get {
+                return ((string)(this["vAlertas"]));
+            }
+            set {
+                this["vAlertas"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Records {
+            get {
+                return ((string)(this["Records"]));
+            }
+            set {
+                this["Records"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string vRecordsNew {
+            get {
+                return ((string)(this["vRecordsNew"]));
+            }
+            set {
+                this["vRecordsNew"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string vRecords {
+            get {
+                return ((string)(this["vRecords"]));
+            }
+            set {
+                this["vRecords"] = value;
             }
         }
     }

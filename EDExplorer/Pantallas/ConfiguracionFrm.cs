@@ -21,6 +21,10 @@ namespace EDExplorer
         public ConfiguracionFrm(SpeechSynthesizer s, Alertas a)
         {
             InitializeComponent();
+#if !DEBUG
+            this.tabOculta.Parent = null;
+#endif
+
             Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
             settings = Properties.Settings.Default;
             this.speech = s;
@@ -39,9 +43,9 @@ namespace EDExplorer
             BulkChangeInProgress = true;
             cbx_VeryInteresting.Checked = settings.VeryInteresting;
             cbxToast.Checked = settings.activarNotificaciones;
-            trackBar_Transparencia.Value = settings.Transparencia;
+            trackBar_Transparencia.Value = settings.Opacidad;
             cbxTts.Checked = settings.activarAudio;
-            trackBar_Volume.Value = settings.TTSVolume;
+            trackBar_Volume.Value = settings.AudioVolumen;
             trackBar_Volume.BackColor = this.BackColor;
             btn_TestVol.Enabled = settings.activarAudio;
             cbxAutoMonitor.Checked = settings.AutoSTART;
@@ -49,22 +53,42 @@ namespace EDExplorer
             cbxCodex.Checked = settings.IncludeCodex;
             cbxBeta.Checked = settings.JournalBeta;
 
-            PanelAlerta pa;
-            int n = 1;
+            //PanelAlerta pa;
+            //int n = 1;
 
-            foreach (KeyValuePair<Alerta, DetallesAlerta> alerta in alertas.n)
-            {
-                pa = new PanelAlerta(alerta);
-                this.tabAlertas.Controls.Add(pa);
-                pa.Location = new System.Drawing.Point(5, 5 + pa.Height * n);
-                pa.Name = "panel1";
-                pa.Size = new System.Drawing.Size(pa.Width, pa.Height);
-                pa.TabIndex = 10 * n ;
-                n++;
-            }
+            //foreach (KeyValuePair<Alerta, DetallesAlerta> alerta in alertas.n)
+            //{
+            //    pa = new PanelAlerta(alerta);
+            //    this.tabAlertas.Controls.Add(pa);
+            //    pa.Location = new System.Drawing.Point(5, 5 + pa.Height * n);
+            //    pa.Name = "panel1";
+            //    pa.Size = new System.Drawing.Size(pa.Width, pa.Height);
+            //    pa.TabIndex = 10 * n ;
+            //    n++;
+            //}
+            RellenarTabPage(this.tabScan, TipoEvento.Scan);
+            RellenarTabPage(this.tabSignal, TipoEvento.Signal);
+            RellenarTabPage(this.tabFSS, TipoEvento.FSS);
 
             Loading = false;
             BulkChangeInProgress = false;
+        }
+
+        private void RellenarTabPage(TabPage tab, TipoEvento TE)
+        {
+            PanelAlerta pa;
+            int n = 1;
+
+            foreach (KeyValuePair<Alerta, DetallesAlerta> alerta in alertas.n.Where(a => a.Value.tipoEvento == TE))
+            {
+                pa = new PanelAlerta(alerta);
+                tab.Controls.Add(pa);
+                pa.Location = new System.Drawing.Point(5, 5 + pa.Height * n);
+                pa.Name = "panel1";
+                pa.Size = new System.Drawing.Size(pa.Width, pa.Height);
+                pa.TabIndex = 10 * n;
+                n++;
+            }
         }
 
         private void Cbx_VeryInteresting_CheckedChanged(object sender, EventArgs e)
@@ -113,13 +137,13 @@ namespace EDExplorer
 
         private void TrackBar_Volume_Scroll(object sender, EventArgs e)
         {
-            settings.TTSVolume = ((TrackBar)sender).Value;
+            settings.AudioVolumen = ((TrackBar)sender).Value;
             Save();
         }
 
         private void Btn_TestVol_Click(object sender, EventArgs e)
         {
-            speech.Volume = settings.TTSVolume;
+            speech.Volume = settings.AudioVolumen;
             speech.SpeakAsync("Probando el volumen del Locutor.");
         }
 
@@ -197,15 +221,17 @@ namespace EDExplorer
         private void button1_Click(object sender, EventArgs e)
         {
             BulkChangeInProgress = true;
-            //foreach (var checkBox in TabControl.SelectedTab.Controls.OfType<CheckBox>())
-            foreach (var pa in this.tabAlertas.Controls.OfType<PanelAlerta>())
-            {
-                pa.Update(alertas);
-            }
+            
+            foreach (var pa in this.tabScan.Controls.OfType<PanelAlerta>())
+            { pa.Update(alertas); }
+            foreach (var pa in this.tabSignal.Controls.OfType<PanelAlerta>())
+            { pa.Update(alertas); }
+            foreach (var pa in this.tabFSS.Controls.OfType<PanelAlerta>())
+            { pa.Update(alertas); }
+
             BulkChangeInProgress = false;
 
             settings.Alertas = JsonConvert.SerializeObject(alertas.n);
-            //settings.Save();
             Save();
             this.Close();
         }
@@ -225,7 +251,7 @@ namespace EDExplorer
 
         private void trackBar_Transparencia_Scroll(object sender, EventArgs e)
         {
-            settings.Transparencia = ((TrackBar)sender).Value;
+            settings.Opacidad = ((TrackBar)sender).Value;
             Save();
         }
 
@@ -241,6 +267,14 @@ namespace EDExplorer
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void checkBox1_CheckedChanged_1(object sender, EventArgs e)
+        {
+            foreach (var pa in TabControl.SelectedTab.Controls.OfType<PanelAlerta>())
+            {
+                pa.Checked(((CheckBox)sender).Checked);
+            }
         }
     }
 }

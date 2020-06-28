@@ -17,7 +17,7 @@
     <Setting Name="activarAudio" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="TTSVolume" Type="System.Int32" Scope="User">
+    <Setting Name="AudioVolumen" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">100</Value>
     </Setting>
     <Setting Name="SettingsDefault" Type="System.Boolean" Scope="User">
@@ -53,8 +53,23 @@
     <Setting Name="Alertas" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="Transparencia" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">0</Value>
+    <Setting Name="Opacidad" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">100</Value>
+    </Setting>
+    <Setting Name="vAlertasNew" Type="System.String" Scope="User">
+      <Value Profile="(Default)">v1.01</Value>
+    </Setting>
+    <Setting Name="vAlertas" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="Records" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="vRecordsNew" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="vRecords" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>

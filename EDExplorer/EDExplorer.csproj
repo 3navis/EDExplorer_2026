@@ -96,6 +96,8 @@
     <Compile Include="Agente\TrayIconController.cs" />
     <Compile Include="Base.cs" />
     <Compile Include="Eventos\CodexEntry.cs" />
+    <Compile Include="Eventos\FSSDiscoveryScan.cs" />
+    <Compile Include="Eventos\FSSReader.cs" />
     <Compile Include="Pantallas\ColumnSorter.cs" />
     <Compile Include="Eventos\GeologicComposition.cs" />
     <Compile Include="Eventos\JournalEvent.cs" />
@@ -143,8 +145,8 @@
     <Compile Include="Pantallas\ConfiguracionFrm.Designer.cs">
       <DependentUpon>ConfiguracionFrm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ScanReader.cs" />
-    <Compile Include="SignalReader.cs" />
+    <Compile Include="Eventos\ScanReader.cs" />
+    <Compile Include="Eventos\SignalReader.cs" />
     <EmbeddedResource Include="Pantallas\NotifyFrm.resx">
       <DependentUpon>NotifyFrm.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -188,6 +190,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\EDExplorer.ico" />
+    <None Include="Resources\valor_hasta.png" />
+    <None Include="Resources\valor_desde.png" />
+    <None Include="Resources\rango_excluido.png" />
+    <None Include="Resources\rango_incluido.png" />
     <None Include="Resources\EDExplorer.png" />
     <None Include="Resources\EDExplorer.jpg" />
   </ItemGroup>

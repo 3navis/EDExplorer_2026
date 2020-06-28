@@ -23,31 +23,33 @@ namespace EDExplorer
             logMonitor = l;
         }
 
-        public void RemoveUninteresting()
-        {
-            foreach (ListViewItem listItem in listEvent.Items)
-            {
-                if (listItem.SubItems[1].Text == "Sin Interés")
-                {
-                    listEvent.Items.Remove(listItem);
-                }
-            }
-        }
+        //public void RemoveUninteresting()
+        //{
+        //    foreach (ListViewItem listItem in listEvent.Items)
+        //    {
+        //        if (listItem.SubItems[1].Text == "Sin Interés")
+        //        {
+        //            listEvent.Items.Remove(listItem);
+        //        }
+        //    }
+        //}
         public void AddListItem((string BodyName, string Description, string Detail) item)
         {
             ListViewItem newItem = new ListViewItem(
                                         new string[] {
-                                        logMonitor.LastScan.Timestamp.ToString("yyyy-MM-dd HH:mm:ss"),
+                                        //logMonitor.LastScan.Timestamp.ToString("yyyy-MM-dd HH:mm:ss"),
+                                        logMonitor.currentTime.ToString("yyyy-MM-dd HH:mm:ss"),
                                         logMonitor.CurrentSystem,
                                         item.BodyName.Replace(logMonitor.CurrentSystem,"").Trim(),
                                         item.Description,
                                         item.Detail
                                         //(logMonitor.LastScan.Landable.GetValueOrDefault(false) && !item.Description.Contains("materials in system")) ? "🌐" : string.Empty
                                         });
-            if (item.Description.Contains("Criterios Múltiples"))
+            if (item.Description.Contains("Criterios Múltiples") || item.Description.Contains("Record Personal"))
             {
                 newItem.UseItemStyleForSubItems = false;
                 newItem.SubItems[3].Font = new Font(newItem.Font, FontStyle.Bold);
+                newItem.SubItems[4].Font = new Font(newItem.Font, FontStyle.Bold);
             }
 
             listEvent.Items.Add(newItem);

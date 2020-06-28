@@ -151,4 +151,16 @@
   <data name="EDExplorerPNG" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\EDExplorer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="rango_excluido" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\rango_excluido.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="rango_incluido" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\rango_incluido.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="valor_desde" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\valor_desde.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="valor_hasta" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\valor_hasta.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

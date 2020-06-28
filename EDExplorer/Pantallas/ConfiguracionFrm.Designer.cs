@@ -45,9 +45,11 @@
             this.btn_TestVol = new System.Windows.Forms.Button();
             this.trackBar_Volume = new System.Windows.Forms.TrackBar();
             this.TabControl = new System.Windows.Forms.TabControl();
-            this.tabAlertas = new System.Windows.Forms.TabPage();
+            this.tabFSS = new System.Windows.Forms.TabPage();
+            this.tabScan = new System.Windows.Forms.TabPage();
             this.checkBoxTodos = new System.Windows.Forms.CheckBox();
-            this.tabSignals = new System.Windows.Forms.TabPage();
+            this.tabSignal = new System.Windows.Forms.TabPage();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -59,7 +61,8 @@
             this.groupBox_TTS.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_Volume)).BeginInit();
             this.TabControl.SuspendLayout();
-            this.tabAlertas.SuspendLayout();
+            this.tabScan.SuspendLayout();
+            this.tabSignal.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_Transparencia)).BeginInit();
@@ -247,29 +250,40 @@
             // 
             // TabControl
             // 
-            this.TabControl.Controls.Add(this.tabAlertas);
-            this.TabControl.Controls.Add(this.tabSignals);
+            this.TabControl.Controls.Add(this.tabFSS);
+            this.TabControl.Controls.Add(this.tabScan);
+            this.TabControl.Controls.Add(this.tabSignal);
             this.TabControl.Controls.Add(this.tabPage3);
             this.TabControl.Controls.Add(this.tabOculta);
             this.TabControl.Location = new System.Drawing.Point(12, 12);
             this.TabControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TabControl.Name = "TabControl";
             this.TabControl.SelectedIndex = 0;
-            this.TabControl.Size = new System.Drawing.Size(664, 409);
+            this.TabControl.Size = new System.Drawing.Size(855, 409);
             this.TabControl.TabIndex = 3;
             // 
-            // tabAlertas
+            // tabFSS
             // 
-            this.tabAlertas.AutoScroll = true;
-            this.tabAlertas.BackColor = System.Drawing.Color.Transparent;
-            this.tabAlertas.Controls.Add(this.checkBoxTodos);
-            this.tabAlertas.ImeMode = System.Windows.Forms.ImeMode.Disable;
-            this.tabAlertas.Location = new System.Drawing.Point(4, 25);
-            this.tabAlertas.Name = "tabAlertas";
-            this.tabAlertas.Padding = new System.Windows.Forms.Padding(3);
-            this.tabAlertas.Size = new System.Drawing.Size(656, 380);
-            this.tabAlertas.TabIndex = 3;
-            this.tabAlertas.Text = "Exploración";
+            this.tabFSS.Location = new System.Drawing.Point(4, 25);
+            this.tabFSS.Name = "tabFSS";
+            this.tabFSS.Padding = new System.Windows.Forms.Padding(3);
+            this.tabFSS.Size = new System.Drawing.Size(656, 380);
+            this.tabFSS.TabIndex = 5;
+            this.tabFSS.Text = "FSS";
+            this.tabFSS.UseVisualStyleBackColor = true;
+            // 
+            // tabScan
+            // 
+            this.tabScan.AutoScroll = true;
+            this.tabScan.BackColor = System.Drawing.Color.Transparent;
+            this.tabScan.Controls.Add(this.checkBoxTodos);
+            this.tabScan.ImeMode = System.Windows.Forms.ImeMode.Disable;
+            this.tabScan.Location = new System.Drawing.Point(4, 25);
+            this.tabScan.Name = "tabScan";
+            this.tabScan.Padding = new System.Windows.Forms.Padding(3);
+            this.tabScan.Size = new System.Drawing.Size(847, 380);
+            this.tabScan.TabIndex = 3;
+            this.tabScan.Text = "Exploración";
             // 
             // checkBoxTodos
             // 
@@ -282,15 +296,27 @@
             this.checkBoxTodos.UseVisualStyleBackColor = true;
             this.checkBoxTodos.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
-            // tabSignals
+            // tabSignal
             // 
-            this.tabSignals.Location = new System.Drawing.Point(4, 25);
-            this.tabSignals.Name = "tabSignals";
-            this.tabSignals.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSignals.Size = new System.Drawing.Size(656, 380);
-            this.tabSignals.TabIndex = 4;
-            this.tabSignals.Text = "Señales";
-            this.tabSignals.UseVisualStyleBackColor = true;
+            this.tabSignal.Controls.Add(this.checkBox1);
+            this.tabSignal.Location = new System.Drawing.Point(4, 25);
+            this.tabSignal.Name = "tabSignal";
+            this.tabSignal.Padding = new System.Windows.Forms.Padding(3);
+            this.tabSignal.Size = new System.Drawing.Size(656, 380);
+            this.tabSignal.TabIndex = 4;
+            this.tabSignal.Text = "Señales";
+            this.tabSignal.UseVisualStyleBackColor = true;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(38, 6);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(126, 21);
+            this.checkBox1.TabIndex = 28;
+            this.checkBox1.Text = "Cambiar Todos";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged_1);
             // 
             // tabPage3
             // 
@@ -366,7 +392,7 @@
             // 
             this.buttonAceptar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonAceptar.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAceptar.Location = new System.Drawing.Point(463, 430);
+            this.buttonAceptar.Location = new System.Drawing.Point(655, 430);
             this.buttonAceptar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonAceptar.Name = "buttonAceptar";
             this.buttonAceptar.Size = new System.Drawing.Size(88, 28);
@@ -379,7 +405,7 @@
             // 
             this.buttonCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonCancelar.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCancelar.Location = new System.Drawing.Point(568, 430);
+            this.buttonCancelar.Location = new System.Drawing.Point(760, 430);
             this.buttonCancelar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(88, 28);
@@ -393,7 +419,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(682, 471);
+            this.ClientSize = new System.Drawing.Size(874, 471);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.buttonAceptar);
             this.Controls.Add(this.TabControl);
@@ -412,8 +438,10 @@
             this.groupBox_TTS.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_Volume)).EndInit();
             this.TabControl.ResumeLayout(false);
-            this.tabAlertas.ResumeLayout(false);
-            this.tabAlertas.PerformLayout();
+            this.tabScan.ResumeLayout(false);
+            this.tabScan.PerformLayout();
+            this.tabSignal.ResumeLayout(false);
+            this.tabSignal.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -444,13 +472,15 @@
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.CheckBox cbxBeta;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TabPage tabAlertas;
+        private System.Windows.Forms.TabPage tabScan;
         private System.Windows.Forms.Button buttonAceptar;
         private System.Windows.Forms.Button buttonCancelar;
         private System.Windows.Forms.CheckBox checkBoxTodos;
-        private System.Windows.Forms.TabPage tabSignals;
+        private System.Windows.Forms.TabPage tabSignal;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TrackBar trackBar_Transparencia;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.TabPage tabFSS;
     }
 }

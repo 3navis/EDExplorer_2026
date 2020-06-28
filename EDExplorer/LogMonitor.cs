@@ -13,6 +13,7 @@ namespace EDExplorer
         private readonly FileSystemWatcher logWatcher;
         private string currentSystem;
         private string currentBody;
+        public DateTime currentTime;
         public string CurrentLogPath { get; private set; }
         public string CurrentLogLine { get; private set; }
         public int LastLineProcessed { get; private set; }
@@ -24,11 +25,13 @@ namespace EDExplorer
         public bool LastScanValid { get; private set; }
         public bool LastCodexValid { get; private set; }
         public bool LastSignalValid { get; private set; }
+        public bool LastFSSValid { get; private set; }
         public bool ReadAllInProgress { get; private set; }
         public bool ReadAllComplete { get; private set; }
         public ScanEvent LastScan { get; private set; }
         public CodexEntry LastCodex { get; private set; }
         public SaaSignalsFound LastSignal { get; private set; }
+        public FSSDiscoveryScan LastFSS { get; private set; }
         public Dictionary<(string System, long Body), ScanEvent> SystemBody { get; private set; }
         public Dictionary<(string System, long Body), SaaSignalsFound> SystemBodySignal { get; private set; }
         private JournalPoker Poker;
@@ -145,7 +148,7 @@ namespace EDExplorer
                 DialogResult response = MessageBox.Show("Ha ocurrido un error al leer los archivos de log. ¿Quiere ver información de Detalle adicional?", "Error Leyendo Logs", MessageBoxButtons.YesNo);
                 if (response == DialogResult.Yes)
                 {
-                    MessageBox.Show($"Journal Line: {CurrentLogLine}\r\nException message: {ex.Message}\r\nStack trace: {ex.StackTrace}", "Detalle del Error", MessageBoxButtons.OK);
+                    MessageBox.Show($"Journal Line: {CurrentLogLine}\r\nException message: {ex.Message}\r\n\r\nStack trace: {ex.StackTrace}", "Detalle del Error", MessageBoxButtons.OK);
                 }
             }
             progressBar.Visible = false;
@@ -197,24 +200,30 @@ namespace EDExplorer
                     
                     using (StreamReader currentLog = new StreamReader(File.Open(CurrentLogPath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite)))
                     {
-                        int n = 0;
-
                         // Primero salta las lineas ya procesadas anteriormente
-                        while (!currentLog.EndOfStream && n < LastLineProcessed)
-                        {
-                            CurrentLogLine = currentLog.ReadLine();
-                            n++;
-                        }
+                        for (int n = 0; !currentLog.EndOfStream && n < LastLineProcessed; n++)
+                        { currentLog.ReadLine(); }
 
-                        LinesToProcess = new List<string>();
+                        //int n = 0;
+
+                        //while (!currentLog.EndOfStream && n < LastLineProcessed)
+                        //{
+                        //    CurrentLogLine = currentLog.ReadLine();
+                        //    n++;
+                        //}
 
                         // Segundo actualiza la posicion con las nuevas lineas leidas del fichero
-                        while (!currentLog.EndOfStream)
-                        {
-                            CurrentLogLine = currentLog.ReadLine();
-                            LinesToProcess.Add(CurrentLogLine);
-                            LastLineProcessed++;
-                        }
+                        for (LinesToProcess = new List<string>(); !currentLog.EndOfStream; LastLineProcessed++)
+                        { LinesToProcess.Add(currentLog.ReadLine()); }
+
+                        //LinesToProcess = new List<string>();
+
+                        //while (!currentLog.EndOfStream)
+                        //{
+                        //    CurrentLogLine = currentLog.ReadLine();
+                        //    LinesToProcess.Add(CurrentLogLine);
+                        //    LastLineProcessed++;
+                        //}
                     }
 
                     foreach (string line in LinesToProcess)
@@ -239,6 +248,7 @@ namespace EDExplorer
                         logLine.Contains("\"event\":\"CarrierJump\"") ||
  //                       logLine.Contains("\"event\":\"CodexEntry\"") ||
                         logLine.Contains("\"event\":\"SAASignalsFound\"") ||
+                        logLine.Contains("\"event\":\"FSSDiscoveryScan\"") ||
                         logLine.Contains("\"event\":\"SupercruiseExit\""))
                     {
                         ProcessLine(logLine);
@@ -260,9 +270,11 @@ namespace EDExplorer
             if (logLine != null)
             {
                 JObject lastEvent = (JObject)JsonConvert.DeserializeObject(logLine, new JsonSerializerSettings() { DateParseHandling = DateParseHandling.None });
+                currentTime = (DateTime)lastEvent["timestamp"];
                 LastScanValid = false;
                 LastCodexValid = false;
                 LastSignalValid = false;
+                LastFSSValid = false;
 
                 switch (lastEvent["event"].ToString())
                 {
@@ -271,6 +283,7 @@ namespace EDExplorer
                         {
                             LastScan = lastEvent.ToObject<ScanEvent>();
                             LastScan.JournalEntry = logLine;
+
                             if (!SystemBody.ContainsKey((CurrentSystem, LastScan.BodyId)))
                             {
                                 SystemBody[(CurrentSystem, LastScan.BodyId)] = LastScan;
@@ -282,9 +295,6 @@ namespace EDExplorer
                         LastSignal = lastEvent.ToObject<SaaSignalsFound>();
                         //LastSignal.Body = currentBody;
 
-                        if (LastSignal.BodyName == "Antares B 5")
-                        {
-                        }
                         if (!SystemBodySignal.ContainsKey((CurrentSystem, (long)LastSignal.BodyId)))
                         {
                             SystemBodySignal[(CurrentSystem, (long)LastSignal.BodyId)] = LastSignal;
@@ -300,6 +310,13 @@ namespace EDExplorer
                         CurrentSystem = lastEvent["StarSystem"].ToString();
                         break;
                     case "FSSDiscoveryScan":
+                        LastFSS = lastEvent.ToObject<FSSDiscoveryScan>();
+                        if (LastFSS.SystemName == null) 
+                        { LastFSS.SystemName = CurrentSystem; }
+                        CurrentSystem = LastFSS.SystemName; // lastEvent["SystemName"].ToString();
+                        //if (CurrentSystem != null) { LastFSSValid = true; }
+                        LastFSSValid = true;
+                        break;
                     case "FSSAllBodiesFound":
                         if (lastEvent["SystemName"] != null)
                         {
@@ -328,10 +345,13 @@ namespace EDExplorer
                 }
             }
 
-            //////////////////////////////////////////////////////////////////////////////////
-            EventHandler entry = LogEntry;
-            entry?.Invoke(this, EventArgs.Empty); // => Base.LogEvent
-            //////////////////////////////////////////////////////////////////////////////////
+            if (LastScanValid || LastSignalValid || LastCodexValid || LastFSSValid)
+            {
+                //////////////////////////////////////////////////////////////////////////////////
+                EventHandler entry = LogEntry;
+                entry?.Invoke(this, EventArgs.Empty); // => Base.LogEvent
+                //////////////////////////////////////////////////////////////////////////////////
+            }
         }
 
         private void PopulatePastScans()

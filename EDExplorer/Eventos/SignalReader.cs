@@ -16,7 +16,9 @@ namespace EDExplorer
             Minerales.Tritio | Minerales.LowTemperatureDiamond;
         private string detalle;
         private SaaSignalsFound.Signal signal;
-
+        
+        SaaSignalsFound signalEvent;
+        DetallesAlerta da;
         public SignalReader(Base b)
         {
             this.logMonitor = b.logMonitor;
@@ -26,104 +28,156 @@ namespace EDExplorer
             this.alertas = b.alertas; // new Alertas();
         }
 
-        public bool hayAlertas()
+        private void alertaVeta(Alerta a)
         {
-            SaaSignalsFound signalEvent = logMonitor.LastSignal;
-
-            Minerales mineFound = Minerales.None;
-
-            if (alertas.n[Alerta.Tritio].flag)
+            da = alertas.n[a];
+            if (da.flag)
             {
                 foreach (var signal in signalEvent.Signals.Where(signal => signal.Type == "Tritium"))
                 {
-                    if (signal.Count > alertas.n[Alerta.Tritio].desde)
+                    if (alertas.CumpleCriterios(da, signal.Count))
                     {
                         detalle = $"{signal.Count} vetas de {signal.TypeLocalised}";
-                        Interest.Add((signalEvent.BodyName, alertas.n[Alerta.Tritio].nombre, detalle));
+                        Interest.Add((signalEvent.BodyName, da.nombre, detalle));
+
+                        if (alertas.newRecordMenor || alertas.newRecordMayor)
+                            Interest.Add((signalEvent.BodyName, "Record Personal", alertas.recordDesc));
                     }
                 }
             }
 
-            if (alertas.n[Alerta.LTD].flag)
+        }
+        public bool hayAlertas()
+        {
+            signalEvent = logMonitor.LastSignal; 
+            Minerales mineFound = Minerales.None;
+
+            alertaVeta(Alerta.Tritio);
+
+            //da = alertas.n[Alerta.Tritio];
+            //if (da.flag)
+            //{
+            //    foreach (var signal in signalEvent.Signals.Where(signal => signal.Type == "Tritium"))
+            //    {
+            //        if (alertas.CumpleCriterios(da, signal.Count))
+            //        {
+            //            detalle = $"{signal.Count} vetas de {signal.TypeLocalised}";
+            //            Interest.Add((signalEvent.BodyName, da.nombre, detalle));
+
+            //            if (alertas.newRecordMenor || alertas.newRecordMayor)
+            //                Interest.Add((signalEvent.BodyName, "Record Personal", alertas.recordDesc));
+            //        }
+            //    }
+            //}
+
+            da = alertas.n[Alerta.LTD];
+            if (da.flag)
             {
                 foreach (var signal in signalEvent.Signals.Where(signal => signal.Type == "LowTemperatureDiamond"))
                 {
-                    if (signal.Count > alertas.n[Alerta.LTD].desde)
+                    if (alertas.CumpleCriterios(da, signal.Count))
                     {
                         detalle = $"{signal.Count} vetas de {signal.TypeLocalised}";
-                        Interest.Add((signalEvent.BodyName, alertas.n[Alerta.LTD].nombre, detalle));
+                        Interest.Add((signalEvent.BodyName, da.nombre, detalle));
+
+                        if (alertas.newRecordMenor || alertas.newRecordMayor)
+                            Interest.Add((signalEvent.BodyName, "Record Personal", alertas.recordDesc));
                     }
                 }
             }
 
-            if (alertas.n[Alerta.Opal].flag)
+            da = alertas.n[Alerta.Opal];
+            if (da.flag)
             {
                 foreach (var signal in signalEvent.Signals.Where(signal => signal.Type == "Opal"))
                 {
-                    if (signal.Count > alertas.n[Alerta.Opal].desde)
+                    if (alertas.CumpleCriterios(da, signal.Count))
                     {
                         detalle = $"{signal.Count} vetas de {signal.TypeLocalised}";
-                        Interest.Add((signalEvent.BodyName, alertas.n[Alerta.Opal].nombre, detalle));
+                        Interest.Add((signalEvent.BodyName, da.nombre, detalle));
+
+                        if (alertas.newRecordMenor || alertas.newRecordMayor)
+                            Interest.Add((signalEvent.BodyName, "Record Personal", alertas.recordDesc));
                     }
                 }
             }
 
-            if (alertas.n[Alerta.Painita].flag)
+            da = alertas.n[Alerta.Painita];
+            if (da.flag)
             {
                 foreach (var signal in signalEvent.Signals.Where(signal => signal.Type == "Painite"))
                 {
-                    if (signal.Count > alertas.n[Alerta.Painita].desde)
+                    if (alertas.CumpleCriterios(da, signal.Count))
                     {
                         detalle = $"{signal.Count} vetas de {signal.TypeLocalised}";
-                        Interest.Add((signalEvent.BodyName, alertas.n[Alerta.Painita].nombre, detalle));
+                        Interest.Add((signalEvent.BodyName, da.nombre, detalle));
+
+                        if (alertas.newRecordMenor || alertas.newRecordMayor)
+                            Interest.Add((signalEvent.BodyName, "Record Personal", alertas.recordDesc));
                     }
                 }
             }
 
-            if (alertas.n[Alerta.Benitoita].flag)
+            da = alertas.n[Alerta.Benitoita];
+            if (da.flag)
             {
                 foreach (var signal in signalEvent.Signals.Where(signal => signal.Type == "Benitoite"))
                 {
-                    if (signal.Count > alertas.n[Alerta.Benitoita].desde)
+                    if (alertas.CumpleCriterios(da, signal.Count))
                     {
                         detalle = $"{signal.Count} vetas de {signal.TypeLocalised}";
-                        Interest.Add((signalEvent.BodyName, alertas.n[Alerta.Benitoita].nombre, detalle));
+                        Interest.Add((signalEvent.BodyName, da.nombre, detalle));
+
+                        if (alertas.newRecordMenor || alertas.newRecordMayor)
+                            Interest.Add((signalEvent.BodyName, "Record Personal", alertas.recordDesc));
                     }
                 }
             }
 
-            if (alertas.n[Alerta.Serendibita].flag)
+            da = alertas.n[Alerta.Serendibita];
+            if (da.flag)
             {
                 foreach (var signal in signalEvent.Signals.Where(signal => signal.Type == "Serendibite"))
                 {
-                    if (signal.Count > alertas.n[Alerta.Serendibita].desde)
+                    if (alertas.CumpleCriterios(da, signal.Count))
                     {
                         detalle = $"{signal.Count} vetas de {signal.TypeLocalised}";
-                        Interest.Add((signalEvent.BodyName, alertas.n[Alerta.Serendibita].nombre, detalle));
+                        Interest.Add((signalEvent.BodyName, da.nombre, detalle));
+
+                        if (alertas.newRecordMenor || alertas.newRecordMayor)
+                            Interest.Add((signalEvent.BodyName, "Record Personal", alertas.recordDesc));
                     }
                 }
             }
 
-            if (alertas.n[Alerta.Musgravita].flag)
+            da = alertas.n[Alerta.Musgravita];
+            if (da.flag)
             {
                 foreach (var signal in signalEvent.Signals.Where(signal => signal.Type == "Musgravite"))
                 {
-                    if (signal.Count > alertas.n[Alerta.Musgravita].desde)
+                    if (alertas.CumpleCriterios(da, signal.Count))
                     {
                         detalle = $"{signal.Count} vetas de {signal.TypeLocalised}";
-                        Interest.Add((signalEvent.BodyName, alertas.n[Alerta.Musgravita].nombre, detalle));
+                        Interest.Add((signalEvent.BodyName, da.nombre, detalle));
+
+                        if (alertas.newRecordMenor || alertas.newRecordMayor)
+                            Interest.Add((signalEvent.BodyName, "Record Personal", alertas.recordDesc));
                     }
                 }
             }
 
-            if (alertas.n[Alerta.Geological].flag)
+            da = alertas.n[Alerta.Geological];
+            if (da.flag)
             {
                 signal = signalEvent.Signals.Where(signal => signal.Type == "$SAA_SignalType_Geological;").FirstOrDefault();
 
-                if (signal != null && signal.Count > alertas.n[Alerta.Geological].desde)
+                if (signal != null && alertas.CumpleCriterios(da, signal.Count))
                 {
-                    detalle = $"{signal.Count} señales {signal.TypeLocalised}";
-                    Interest.Add((signalEvent.BodyName, alertas.n[Alerta.Geological].nombre, detalle));
+                        detalle = $"{signal.Count} señales {signal.TypeLocalised}";
+                    Interest.Add((signalEvent.BodyName, da.nombre, detalle));
+
+                    if (alertas.newRecordMenor || alertas.newRecordMayor)
+                        Interest.Add((signalEvent.BodyName, "Record Personal", alertas.recordDesc));
                 }
             }
 
@@ -131,14 +185,18 @@ namespace EDExplorer
                     {
                     }
 
-            if (alertas.n[Alerta.Biological].flag)
+            da = alertas.n[Alerta.Biological];
+            if (da.flag)
             {
                 signal = signalEvent.Signals.Where(signal => signal.Type == "$SAA_SignalType_Biological;").FirstOrDefault();
 
-                if (signal != null && signal.Count > alertas.n[Alerta.Biological].desde)
+                if (signal != null && alertas.CumpleCriterios(da, signal.Count))
                 {
                     detalle = $"{signal.Count} señales {signal.TypeLocalised}";
-                    Interest.Add((signalEvent.BodyName, alertas.n[Alerta.Biological].nombre, detalle));
+                    Interest.Add((signalEvent.BodyName, da.nombre, detalle));
+
+                    if (alertas.newRecordMenor || alertas.newRecordMayor)
+                        Interest.Add((signalEvent.BodyName, "Record Personal", alertas.recordDesc));
                 }
             }
 

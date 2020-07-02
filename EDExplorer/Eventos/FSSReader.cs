@@ -33,16 +33,11 @@ namespace EDExplorer
 
                 if (alertas.CumpleCriterios(alertas.n[Alerta.BodyCount], nCuerpos))
                 {
-                    detalle = $"{nCuerpos} cuerpos en el sistema. {fssEvent.NonBodyCount}";
+                    detalle = $"{nCuerpos} cuerpos en el sistema. ({fssEvent.NonBodyCount} otros)";
                     Interest.Add((fssEvent.SystemName, alertas.n[Alerta.BodyCount].nombre, detalle));
 
                     if (alertas.newRecordMenor || alertas.newRecordMayor)
-                    {
-                        if (alertas.newRecordMenor) detalle = "alcanzado nuevo limite inferior";
-                        else detalle = "alcanzado nuevo limite superior";
-
-                        Interest.Add((fssEvent.SystemName, "Record Personal", detalle));
-                    }
+                        Interest.Add((fssEvent.SystemName, "Record Personal", alertas.recordDesc));
                 }
             }
             //////////////////////////

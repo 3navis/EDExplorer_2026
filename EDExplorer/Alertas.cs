@@ -54,7 +54,7 @@ namespace EDExplorer
         public double? recMenor;
         public double? recMayor;
 
-        public DetallesAlerta(TipoEvento TE, string NC, string N, double D, double H, string U, TipoParametro TP = TipoParametro.RangoIncluido)
+        public DetallesAlerta(TipoEvento TE, string NC, string N, double D, double H, string U)
         {
             tipoEvento = TE;
             flag = true;
@@ -63,7 +63,7 @@ namespace EDExplorer
             unidades = U;
             desde = D;
             hasta = H;
-            tipoParam = TP;
+            tipoParam = TipoParametro.None;
             recMenor = null;
             recMayor = null;
             
@@ -71,10 +71,8 @@ namespace EDExplorer
             {
                 tipoParam = TipoParametro.None;
             }
-            if (D == 0 && H != 0)
+            else if (D == 0 && H != 0)
             {
-                desde = H;
-                hasta = 0;
                 tipoParam = TipoParametro.ValorHasta;
             }
             else if (D != 0 && H == 0)
@@ -85,6 +83,8 @@ namespace EDExplorer
             {
                 tipoParam = TipoParametro.RangoExcluido;
             }
+            else
+                tipoParam = TipoParametro.RangoIncluido;
         }
     }
     public class Alertas
@@ -92,7 +92,7 @@ namespace EDExplorer
         private readonly Properties.Settings settings = Properties.Settings.Default;
         public Alertas()
         {
-            settings.vAlertasNew = "v1.04.010";
+            settings.vAlertasNew = "v1.04.014";
 
             if (settings.vAlertas != settings.vAlertasNew)
             {
@@ -124,7 +124,7 @@ namespace EDExplorer
         }
         public void setDefault()
         {
-            try { n.Add(Alerta.Terraformable,   new DetallesAlerta(TipoEvento.Scan, "Aterrizable Terra.", "Aterrizable y Terraformable", 0, 0, "")); } catch { }
+            //try { n.Add(Alerta.Terraformable,   new DetallesAlerta(TipoEvento.Scan, "Aterrizable Terra.", "Aterrizable y Terraformable", 0, 0, "")); } catch { }
             try { n.Add(Alerta.Atmosfera,       new DetallesAlerta(TipoEvento.Scan, "Aterrizable Atmos.", "Aterrizable con Atmosfera", 0, 0, "")); } catch { }
             try { n.Add(Alerta.CuerpoP,         new DetallesAlerta(TipoEvento.Scan, "Aterrizable Pequeño", "Planeta Pequeño", 0, 300, "Km radio")); } catch { }
             try { n.Add(Alerta.CuerpoG,         new DetallesAlerta(TipoEvento.Scan, "Aterrizable Grande", "Planeta Grande", 18000, 0, "Km radio")); } catch { }
@@ -135,8 +135,8 @@ namespace EDExplorer
             try { n.Add(Alerta.GravedadG,       new DetallesAlerta(TipoEvento.Scan, "Alta Gravedad", "Planeta con Alta Gravedad", 2.75, 0, "g superficie")); } catch { }
             try { n.Add(Alerta.OrbitaP,         new DetallesAlerta(TipoEvento.Scan, "Orbita Cercana", "Orbita Cercana", 0, 1000, "Km separacion")); } catch { }
             try { n.Add(Alerta.OrbitaG,         new DetallesAlerta(TipoEvento.Scan, "Orbita Lejana", "Orbita Lejana", 50000, 0, "SL separacion")); } catch { }
-            try { n.Add(Alerta.Potenciar,       new DetallesAlerta(TipoEvento.Scan, "Potenciar Salto", "Materiales para Potenciar Salto", 5, 0, "material")); } catch { }
-            try { n.Add(Alerta.Grado5,          new DetallesAlerta(TipoEvento.Scan, "Grado 5", "Materiales de Grado 5", 0, 0, "material")); } catch { }
+            //try { n.Add(Alerta.Potenciar,       new DetallesAlerta(TipoEvento.Scan, "Potenciar Salto", "Materiales para Potenciar Salto", 5, 0, "material")); } catch { }
+            //try { n.Add(Alerta.Grado5,          new DetallesAlerta(TipoEvento.Scan, "Grado 5", "Materiales de Grado 5", 0, 0, "material")); } catch { }
             try { n.Add(Alerta.NombreEspecial,  new DetallesAlerta(TipoEvento.Scan, "Nombre Especial", "Nombre Especial", 0, 0, "")); } catch { }
             // Criterios multiples
             try { n.Add(Alerta.Crematoria,      new DetallesAlerta(TipoEvento.Scan, "Crematoria", "CREMATORIA", 0.5, 0, "dias (rotacion <)")); } catch { }
@@ -144,9 +144,9 @@ namespace EDExplorer
             //try { n.Add(Alerta.Anidada, new DetallesAlerta(true, "Luna Anidada", "Luna Anidada", 0, "")); } catch { }
             try { n.Add(Alerta.RotacionR,       new DetallesAlerta(TipoEvento.Scan, "Rotación Rápida", "Rotación Rápida", 0, 5, "horas rotación")); } catch { }
             try { n.Add(Alerta.OrbitaR,         new DetallesAlerta(TipoEvento.Scan, "Orbita Rápida", "Orbita Rápida", 0, 4, "horas periodo")); } catch { }
-            try { n.Add(Alerta.Excentricidad,   new DetallesAlerta(TipoEvento.Scan, "Orb. Excéntrica", "Orbita Excéntrica", 0.9, 0, "% excentricidad")); } catch { }
+            //try { n.Add(Alerta.Excentricidad,   new DetallesAlerta(TipoEvento.Scan, "Orb. Excéntrica", "Orbita Excéntrica", 0.9, 0, "% excentricidad")); } catch { }
             try { n.Add(Alerta.AnilloG,         new DetallesAlerta(TipoEvento.Scan, "Anillo Ancho", "Anillo Ancho", 12, 0, "x veces radio")); } catch { }
-            try { n.Add(Alerta.Binario,         new DetallesAlerta(TipoEvento.Scan, "Binaria Cercana", "Pareja Binaria Cercana", 2, 0, "radios x veces Eje")); } catch { }
+            try { n.Add(Alerta.Binario,         new DetallesAlerta(TipoEvento.Scan, "Binaria Cercana", "Pareja Binaria Cercana", 0.5, 0, "radios vs distancia")); } catch { }
             try { n.Add(Alerta.AnilloP,         new DetallesAlerta(TipoEvento.Scan, "Anillo Próximo", "Próximo al Anillo", 0, 500, "km separacion")); } catch { }
             // Señales
             try { n.Add(Alerta.Tritio,          new DetallesAlerta(TipoEvento.Signal, "Veta Tritio", "Veta Tritio", 1, 0, "número vetas")); } catch { }
@@ -166,6 +166,7 @@ namespace EDExplorer
         public ListaAlertas n;
         public bool newRecordMenor;
         public bool newRecordMayor;
+        public string recordDesc;
 
         public bool CumpleCriterios(DetallesAlerta da, double valor)
         {
@@ -178,7 +179,7 @@ namespace EDExplorer
                     { retorno = true; }
                     break;
                 case TipoParametro.ValorHasta:
-                    if (valor <= da.desde)
+                    if (valor <= da.hasta)
                     { retorno = true; }
                     break;
                 case TipoParametro.RangoExcluido:
@@ -196,94 +197,32 @@ namespace EDExplorer
                     break;
             }
 
-            if (retorno)
+            newRecordMenor = false;
+            newRecordMayor = false;
+            
+            if (retorno && da.tipoParam != TipoParametro.None)
             {
-                newRecordMenor = false;
-                newRecordMayor = false;
-
-                if (valor < da.recMenor || da.recMenor == null)
+                if (da.tipoParam == TipoParametro.ValorHasta || da.tipoParam == TipoParametro.RangoExcluido)
+                    if (valor < da.recMenor || da.recMenor == null)
+                    {
+                        da.recMenor = valor;
+                        newRecordMenor = true;
+                        recordDesc = "rebasado limite inferior";
+                    }
+                if (da.tipoParam == TipoParametro.ValorDesde || da.tipoParam == TipoParametro.RangoExcluido)
+                    if (valor > da.recMayor || da.recMayor == null)
+                    {
+                        da.recMayor = valor;
+                        newRecordMayor = true;
+                        recordDesc = "rebasado limite superior";
+                    }
+                if (newRecordMenor && newRecordMayor)
                 {
-                    da.recMenor = valor;
-                    newRecordMenor = true;
-                }
-                if (valor > da.recMayor || da.recMayor == null)
-                {
-                    da.recMayor = valor;
-                    newRecordMayor = true;
+                    recordDesc = "primer registro";
                 }
             }
 
             return retorno;
         }
     }
-
-    //private class DetallesRecord
-    //{
-    //    public double menor;
-    //    public double mayor;
-    //    public DetallesRecord(double D, double H)
-    //    {
-    //        menor = D;
-    //        mayor = H;
-    //    }
-    //}
-    //public class Records
-    //{
-    //    public Dictionary<Alerta, DetallesRecord> n;
-
-    //    private readonly Properties.Settings settings = Properties.Settings.Default;
-    //    public Records()
-    //    {
-    //        settings.vRecordsNew = "v1.01.002";
-
-    //        if (settings.vRecords != settings.vRecordsNew)
-    //        {
-    //            n = new Dictionary<Alerta, DetallesRecord>();
-    //            //setDefault();
-
-    //            settings.Records = JsonConvert.SerializeObject(n);
-    //            settings.vRecords = settings.vRecordsNew;
-    //            settings.Save();
-    //        }
-    //        else
-    //        {
-    //            try
-    //            {
-    //                n = JsonConvert.DeserializeObject<Dictionary<Alerta, DetallesRecord>>(settings.Records);
-    //            }
-    //            catch { }
-
-    //            if (n == null) n = new Dictionary<Alerta, DetallesRecord>();
-
-    //            //setDefault();
-    //        }
-    //    }
-
-    //    public bool NuevoRecord(Alerta A, double valor)
-    //    {
-    //        bool newRecord = false;
-
-    //        try
-    //        {
-    //            if (valor < n[A].menor) 
-    //            {
-    //                n[A].menor = valor;
-    //                newRecord = true;
-    //            }
-    //            if (valor > n[A].mayor)
-    //            {
-    //                n[A].mayor = valor;
-    //                newRecord = true;
-    //            }
-
-    //        }
-    //        catch (KeyNotFoundException)
-    //        {
-    //            n.Add(A, new DetallesRecord(valor, valor));
-    //            newRecord = true;
-    //        }
-
-    //        return newRecord;
-    //    }
-    //}
 }

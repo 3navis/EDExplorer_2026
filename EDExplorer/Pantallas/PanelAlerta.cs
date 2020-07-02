@@ -46,7 +46,7 @@ namespace EDExplorer.Pantallas
                     break;
                 case TipoParametro.ValorHasta:
                     picIncluir.Image = Properties.Resources.valor_hasta;
-                    textHasta.Visible = false;
+                    textDesde.Visible = false;
                     break;
                 case TipoParametro.RangoIncluido:
                     picIncluir.Image = Properties.Resources.rango_incluido;

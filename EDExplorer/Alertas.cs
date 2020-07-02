@@ -53,8 +53,9 @@ namespace EDExplorer
         public string unidades; 
         public double? recMenor;
         public double? recMayor;
+        public string TipoLog;
 
-        public DetallesAlerta(TipoEvento TE, string NC, string N, double D, double H, string U)
+        public DetallesAlerta(TipoEvento TE, string NC, string N, double D, double H, string U, string TL = "")
         {
             tipoEvento = TE;
             flag = true;
@@ -66,6 +67,7 @@ namespace EDExplorer
             tipoParam = TipoParametro.None;
             recMenor = null;
             recMayor = null;
+            TipoLog = TL;
             
             if (D == 0 && H == 0)
             {
@@ -92,7 +94,7 @@ namespace EDExplorer
         private readonly Properties.Settings settings = Properties.Settings.Default;
         public Alertas()
         {
-            settings.vAlertasNew = "v1.04.014";
+            settings.vAlertasNew = "v1.04.015";
 
             if (settings.vAlertas != settings.vAlertasNew)
             {
@@ -149,13 +151,13 @@ namespace EDExplorer
             try { n.Add(Alerta.Binario,         new DetallesAlerta(TipoEvento.Scan, "Binaria Cercana", "Pareja Binaria Cercana", 0.5, 0, "radios vs distancia")); } catch { }
             try { n.Add(Alerta.AnilloP,         new DetallesAlerta(TipoEvento.Scan, "Anillo Próximo", "Próximo al Anillo", 0, 500, "km separacion")); } catch { }
             // Señales
-            try { n.Add(Alerta.Tritio,          new DetallesAlerta(TipoEvento.Signal, "Veta Tritio", "Veta Tritio", 1, 0, "número vetas")); } catch { }
-            try { n.Add(Alerta.LTD,             new DetallesAlerta(TipoEvento.Signal, "Veta LTD", "Veta LTD", 1, 0, "número vetas")); } catch { }
-            try { n.Add(Alerta.Opal,            new DetallesAlerta(TipoEvento.Signal, "Veta Ópalos", "Veta Ópalos", 1, 0, "número vetas")); } catch { }
-            try { n.Add(Alerta.Painita,         new DetallesAlerta(TipoEvento.Signal, "Veta Painita", "Veta Painita", 1, 0, "número vetas")); } catch { }
-            try { n.Add(Alerta.Benitoita,       new DetallesAlerta(TipoEvento.Signal, "Veta Benitoita", "Veta Benitoita", 1, 0, "número vetas")); } catch { }
-            try { n.Add(Alerta.Serendibita,     new DetallesAlerta(TipoEvento.Signal, "Veta Serendibita", "Veta Serendibita", 1, 0, "número vetas")); } catch { }
-            try { n.Add(Alerta.Musgravita,      new DetallesAlerta(TipoEvento.Signal, "Veta Musgravita", "Veta Musgravita", 1, 0, "número vetas")); } catch { }
+            try { n.Add(Alerta.Tritio,          new DetallesAlerta(TipoEvento.Signal, "Veta Tritio", "Veta Tritio", 1, 0, "número vetas", "Tritium")); } catch { }
+            try { n.Add(Alerta.LTD,             new DetallesAlerta(TipoEvento.Signal, "Veta LTD", "Veta LTD", 1, 0, "número vetas", "LowTemperatureDiamond")); } catch { }
+            try { n.Add(Alerta.Opal,            new DetallesAlerta(TipoEvento.Signal, "Veta Ópalos", "Veta Ópalos", 1, 0, "número vetas", "Opal")); } catch { }
+            try { n.Add(Alerta.Painita,         new DetallesAlerta(TipoEvento.Signal, "Veta Painíta", "Veta Painíta", 1, 0, "número vetas", "Painite")); } catch { }
+            try { n.Add(Alerta.Benitoita,       new DetallesAlerta(TipoEvento.Signal, "Veta Benitoíta", "Veta Benitoíta", 1, 0, "número vetas", "Benitoite")); } catch { }
+            try { n.Add(Alerta.Serendibita,     new DetallesAlerta(TipoEvento.Signal, "Veta Serendibíta", "Veta Serendibíta", 1, 0, "número vetas", "Serendibite")); } catch { }
+            try { n.Add(Alerta.Musgravita,      new DetallesAlerta(TipoEvento.Signal, "Veta Musgravíta", "Veta Musgravíta", 1, 0, "número vetas", "Musgravite")); } catch { }
             try { n.Add(Alerta.Geological,      new DetallesAlerta(TipoEvento.Signal, "Geológica", "Geológica", 1, 0, "número señales")); } catch { }
             try { n.Add(Alerta.Biological,      new DetallesAlerta(TipoEvento.Signal, "Biológica", "Biológica", 1, 0, "número señales")); } catch { }
             // FSS
@@ -207,14 +209,14 @@ namespace EDExplorer
                     {
                         da.recMenor = valor;
                         newRecordMenor = true;
-                        recordDesc = "rebasado limite inferior";
+                        recordDesc = "nuevo limite inferior";
                     }
                 if (da.tipoParam == TipoParametro.ValorDesde || da.tipoParam == TipoParametro.RangoExcluido)
                     if (valor > da.recMayor || da.recMayor == null)
                     {
                         da.recMayor = valor;
                         newRecordMayor = true;
-                        recordDesc = "rebasado limite superior";
+                        recordDesc = "nuevo limite superior";
                     }
                 if (newRecordMenor && newRecordMayor)
                 {

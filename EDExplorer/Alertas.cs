@@ -20,7 +20,8 @@ namespace EDExplorer
         Terraformable, Atmosfera, 
         CuerpoG, CuerpoP, 
         Anillo,
-        AnilloG, AnilloP,
+        AnilloG, AnilloP, 
+        AnilloIcy, AnilloRock, AnilloMetal,
         GravedadP, GravedadG,
         OrbitaP, OrbitaG, OrbitaR, RotacionR,
         Potenciar, Grado5,
@@ -30,6 +31,7 @@ namespace EDExplorer
         Excentricidad,
         Binario,
         Tritio, LTD, Opal, Painita, Benitoita, Serendibita, Musgravita,
+        Alejandrita, Grandidierita, Monacita, Rhodplumsita, 
         Geological, Biological,
         BodyCount
     }
@@ -150,6 +152,9 @@ namespace EDExplorer
             try { n.Add(Alerta.AnilloG,         new DetallesAlerta(TipoEvento.Scan, "Anillo Ancho", "Anillo Ancho", 12, 0, "x veces radio")); } catch { }
             try { n.Add(Alerta.Binario,         new DetallesAlerta(TipoEvento.Scan, "Binaria Cercana", "Pareja Binaria Cercana", 0.5, 0, "radios vs distancia")); } catch { }
             try { n.Add(Alerta.AnilloP,         new DetallesAlerta(TipoEvento.Scan, "Anillo Próximo", "Próximo al Anillo", 0, 500, "km separacion")); } catch { }
+            
+            try { n.Add(Alerta.AnilloIcy,       new DetallesAlerta(TipoEvento.Scan, "Anillo Helado", "Anillo Helado", 1, 0, "anillos")); } catch { }
+
             // Señales
             try { n.Add(Alerta.Tritio,          new DetallesAlerta(TipoEvento.Signal, "Veta Tritio", "Veta Tritio", 1, 0, "número vetas", "Tritium")); } catch { }
             try { n.Add(Alerta.LTD,             new DetallesAlerta(TipoEvento.Signal, "Veta LTD", "Veta LTD", 1, 0, "número vetas", "LowTemperatureDiamond")); } catch { }
@@ -158,6 +163,10 @@ namespace EDExplorer
             try { n.Add(Alerta.Benitoita,       new DetallesAlerta(TipoEvento.Signal, "Veta Benitoíta", "Veta Benitoíta", 1, 0, "número vetas", "Benitoite")); } catch { }
             try { n.Add(Alerta.Serendibita,     new DetallesAlerta(TipoEvento.Signal, "Veta Serendibíta", "Veta Serendibíta", 1, 0, "número vetas", "Serendibite")); } catch { }
             try { n.Add(Alerta.Musgravita,      new DetallesAlerta(TipoEvento.Signal, "Veta Musgravíta", "Veta Musgravíta", 1, 0, "número vetas", "Musgravite")); } catch { }
+            try { n.Add(Alerta.Alejandrita,     new DetallesAlerta(TipoEvento.Signal, "Veta Alejandríta", "Veta Alejandrita", 1, 0, "número vetas", "Alexandrite")); } catch { }
+            try { n.Add(Alerta.Monacita,        new DetallesAlerta(TipoEvento.Signal, "Veta Grandidieríta", "Veta Grandidieríta", 1, 0, "número vetas", "Grandidierite")); } catch { }
+            try { n.Add(Alerta.Grandidierita,   new DetallesAlerta(TipoEvento.Signal, "Veta Monacita", "Veta Monacita", 1, 0, "número vetas", "Monazite")); } catch { }
+            try { n.Add(Alerta.Rhodplumsita,    new DetallesAlerta(TipoEvento.Signal, "Veta Rhodplumsita", "Veta Rhodplumsita", 1, 0, "número vetas", "Rhodplumsite")); } catch { }
             try { n.Add(Alerta.Geological,      new DetallesAlerta(TipoEvento.Signal, "Geológica", "Geológica", 1, 0, "número señales")); } catch { }
             try { n.Add(Alerta.Biological,      new DetallesAlerta(TipoEvento.Signal, "Biológica", "Biológica", 1, 0, "número señales")); } catch { }
             // FSS
@@ -178,19 +187,19 @@ namespace EDExplorer
             {
                 case TipoParametro.ValorDesde:
                     if (valor >= da.desde)
-                    { retorno = true; }
+                        retorno = true;
                     break;
                 case TipoParametro.ValorHasta:
                     if (valor <= da.hasta)
-                    { retorno = true; }
+                        retorno = true;
                     break;
                 case TipoParametro.RangoExcluido:
                     if (valor <= da.desde || valor >= da.hasta)
-                    { retorno = true; }
+                        retorno = true;
                     break;
                 case TipoParametro.RangoIncluido:
                     if (valor >= da.desde && valor <= da.hasta)
-                    { retorno = true; }
+                        retorno = true;
                     break;
                 case TipoParametro.None:
                     retorno = true;
@@ -209,14 +218,14 @@ namespace EDExplorer
                     {
                         da.recMenor = valor;
                         newRecordMenor = true;
-                        recordDesc = "nuevo limite inferior";
+                        recordDesc = $"nuevo limite inferior {valor:N1}";
                     }
                 if (da.tipoParam == TipoParametro.ValorDesde || da.tipoParam == TipoParametro.RangoExcluido)
                     if (valor > da.recMayor || da.recMayor == null)
                     {
                         da.recMayor = valor;
                         newRecordMayor = true;
-                        recordDesc = "nuevo limite superior";
+                        recordDesc = $"nuevo limite superior {valor:N1}";
                     }
                 if (newRecordMenor && newRecordMayor)
                 {

@@ -209,6 +209,23 @@ namespace EDExplorer
                 Interest.Add((scanEvent.BodyName, da.nombre, detalle));
             }
 
+            // Contiene un Anillo Helado
+            da = alertas.n[Alerta.AnilloIcy];
+            if (da.flag && scanEvent.Rings?.Count() > 0)
+            {
+                valor = scanEvent.Rings.Where(ring => ring.RingClass == "eRingClass_Icy").Count();
+
+                if (alertas.CumpleCriterios(da, valor))
+                {
+                    // Anillo de {valor / 1000:N0}km, 
+                    detalle = $"{valor.ToString("0")} anillos helados.";
+                    Interest.Add((scanEvent.BodyName, da.nombre, detalle));
+
+                    if (alertas.newRecordMenor || alertas.newRecordMayor)
+                        Interest.Add((scanEvent.BodyName, "Record Personal", alertas.recordDesc));
+                }
+            }
+
             // Ancho del Anillo x veces el Radio
             da = alertas.n[Alerta.AnilloG];
             if (da.flag && scanEvent.Rings?.Count() > 0)

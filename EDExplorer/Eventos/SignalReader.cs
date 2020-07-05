@@ -59,6 +59,10 @@ namespace EDExplorer
             alertaVeta(Alerta.Serendibita);
             alertaVeta(Alerta.Musgravita);
             alertaVeta(Alerta.Painita);
+            alertaVeta(Alerta.Alejandrita);
+            alertaVeta(Alerta.Grandidierita);
+            alertaVeta(Alerta.Monacita);
+            alertaVeta(Alerta.Rhodplumsita);
 
             da = alertas.n[Alerta.Geological];
             if (da.flag)
@@ -67,17 +71,13 @@ namespace EDExplorer
 
                 if (signal != null && alertas.CumpleCriterios(da, signal.Count))
                 {
-                        detalle = $"{signal.Count} señales {signal.TypeLocalised}";
+                    detalle = $"{signal.Count} señales {signal.TypeLocalised}";
                     Interest.Add((signalEvent.BodyName, da.nombre, detalle));
 
                     if (alertas.newRecordMenor || alertas.newRecordMayor)
                         Interest.Add((signalEvent.BodyName, "Record Personal", alertas.recordDesc));
                 }
             }
-
-            if (signalEvent.BodyName == "Antares B 5")
-                    {
-                    }
 
             da = alertas.n[Alerta.Biological];
             if (da.flag)

@@ -17,6 +17,8 @@ namespace EDExplorer
         public string CurrentLogPath { get; private set; }
         public string CurrentLogLine { get; private set; }
         public int LastLineProcessed { get; private set; }
+        public int bytesRead { get; private set; }
+        
         public bool JumponiumReported;
         public bool GoldSystemReported;
         private List<string> LinesToProcess;
@@ -189,6 +191,7 @@ namespace EDExplorer
                     CurrentLogPath = e.FullPath;
                     CurrentLogPath = string.Empty;
                     LastLineProcessed = 0;
+                    bytesRead = 0;
                     break;
 
                 case WatcherChangeTypes.Changed:
@@ -196,35 +199,37 @@ namespace EDExplorer
                     {
                         CurrentLogPath = e.FullPath;
                         LastLineProcessed = 0;
+                        bytesRead = 0;
                     }
-                    
+
+                    //////////////////////////////////////////////////////////////////////////////
+                    int newLineBytes = System.Environment.NewLine.Length;
+                    string linea;
+
                     using (StreamReader currentLog = new StreamReader(File.Open(CurrentLogPath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite)))
                     {
                         // Primero salta las lineas ya procesadas anteriormente
-                        for (int n = 0; !currentLog.EndOfStream && n < LastLineProcessed; n++)
-                        { currentLog.ReadLine(); }
-
-                        //int n = 0;
-
-                        //while (!currentLog.EndOfStream && n < LastLineProcessed)
-                        //{
-                        //    CurrentLogLine = currentLog.ReadLine();
-                        //    n++;
-                        //}
+                        currentLog.BaseStream.Seek(bytesRead, SeekOrigin.Begin);
 
                         // Segundo actualiza la posicion con las nuevas lineas leidas del fichero
                         for (LinesToProcess = new List<string>(); !currentLog.EndOfStream; LastLineProcessed++)
-                        { LinesToProcess.Add(currentLog.ReadLine()); }
-
-                        //LinesToProcess = new List<string>();
-
-                        //while (!currentLog.EndOfStream)
-                        //{
-                        //    CurrentLogLine = currentLog.ReadLine();
-                        //    LinesToProcess.Add(CurrentLogLine);
-                        //    LastLineProcessed++;
-                        //}
+                        {
+                            linea = currentLog.ReadLine();
+                            LinesToProcess.Add(linea);
+                            bytesRead += linea.Length + newLineBytes;
+                        }
                     }
+                    //////////////////////////////////////////////////////////////////////////////
+                    //using (StreamReader currentLog = new StreamReader(File.Open(CurrentLogPath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite)))
+                    //{
+                    //    // Primero salta las lineas ya procesadas anteriormente
+                    //    for (int n = 0; !currentLog.EndOfStream && n < LastLineProcessed; n++)
+                    //    { currentLog.ReadLine(); }
+
+                    //    // Segundo actualiza la posicion con las nuevas lineas leidas del fichero
+                    //    for (LinesToProcess = new List<string>(); !currentLog.EndOfStream; LastLineProcessed++)
+                    //    { LinesToProcess.Add(currentLog.ReadLine()); }
+                    //}
 
                     foreach (string line in LinesToProcess)
                         ProcessEvent(line);

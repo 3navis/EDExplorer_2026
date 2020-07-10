@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace EDExplorer
 {
-    partial class NotifyFrm
+     partial class NotifyFrm
     {
         /// <summary>
         /// Required designer variable.
@@ -40,7 +40,7 @@ namespace EDExplorer
             // 
             this.lblText.AutoSize = true;
             this.lblText.BackColor = System.Drawing.Color.Transparent;
-            this.lblText.Location = new System.Drawing.Point(9, 9);
+            this.lblText.Location = new System.Drawing.Point(8, 9);
             this.lblText.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblText.Name = "lblText";
             this.lblText.Size = new System.Drawing.Size(201, 22);
@@ -50,7 +50,7 @@ namespace EDExplorer
             // image
             // 
             this.image.Image = global::EDExplorer.Properties.Resources.EDExplorerPNG;
-            this.image.Location = new System.Drawing.Point(226, 7);
+            this.image.Location = new System.Drawing.Point(313, 9);
             this.image.Name = "image";
             this.image.Size = new System.Drawing.Size(30, 30);
             this.image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -61,22 +61,21 @@ namespace EDExplorer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Navy;
-            this.ClientSize = new System.Drawing.Size(266, 93);
+            this.BackColor = System.Drawing.Color.MidnightBlue;
+            this.ClientSize = new System.Drawing.Size(346, 92);
             this.Controls.Add(this.image);
             this.Controls.Add(this.lblText);
             this.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ForeColor = System.Drawing.Color.Cyan;
+            this.ForeColor = System.Drawing.Color.Gold;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "NotifyFrm";
-            this.Opacity = 0.8D;
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "NotifyFrm";
-            this.TransparencyKey = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.TransparencyKey = System.Drawing.Color.MidnightBlue;
             ((System.ComponentModel.ISupportInitialize)(this.image)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

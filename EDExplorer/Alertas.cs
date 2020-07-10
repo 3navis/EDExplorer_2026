@@ -1,12 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Dynamic;
 using Newtonsoft.Json;
-
 
 namespace EDExplorer
 {
     using ListaAlertas = Dictionary<Alerta, DetallesAlerta>;
+
+    public class Interes
+    {
+        public Interes (string B, string Des, string Det, bool R = false)
+        {
+            BodyName = B;
+            Descripcion = Des;
+            Detalle = Det;
+            isRecord = R;
+        }
+
+        public string BodyName;
+        public string Descripcion;
+        public string Detalle;
+        public bool isRecord;
+    }
     public enum TipoEvento
     {
         None,
@@ -21,7 +35,7 @@ namespace EDExplorer
         CuerpoG, CuerpoP, 
         Anillo,
         AnilloG, AnilloP, 
-        AnilloIcy, AnilloRock, AnilloMetal,
+        AnilloIcy, AnilloRock, AnilloMetal, AnilloMetalRich,
         GravedadP, GravedadG,
         OrbitaP, OrbitaG, OrbitaR, RotacionR,
         Potenciar, Grado5,
@@ -32,7 +46,7 @@ namespace EDExplorer
         Binario,
         Tritio, LTD, Opal, Painita, Benitoita, Serendibita, Musgravita,
         Alejandrita, Grandidierita, Monacita, Rhodplumsita, 
-        Geological, Biological,
+        Geological, Biological, Human, Guardian, Thargoid,
         BodyCount
     }
     public enum TipoParametro
@@ -81,6 +95,7 @@ namespace EDExplorer
             }
             else if (D != 0 && H == 0)
             {
+                if (D == -1) desde = 0;
                 tipoParam = TipoParametro.ValorDesde;
             }
             else if (D > H)
@@ -96,7 +111,7 @@ namespace EDExplorer
         private readonly Properties.Settings settings = Properties.Settings.Default;
         public Alertas()
         {
-            settings.vAlertasNew = "v1.04.015";
+            settings.vAlertasNew = "v1.04.025";
 
             if (settings.vAlertas != settings.vAlertasNew)
             {
@@ -152,8 +167,11 @@ namespace EDExplorer
             try { n.Add(Alerta.AnilloG,         new DetallesAlerta(TipoEvento.Scan, "Anillo Ancho", "Anillo Ancho", 12, 0, "x veces radio")); } catch { }
             try { n.Add(Alerta.Binario,         new DetallesAlerta(TipoEvento.Scan, "Binaria Cercana", "Pareja Binaria Cercana", 0.5, 0, "radios vs distancia")); } catch { }
             try { n.Add(Alerta.AnilloP,         new DetallesAlerta(TipoEvento.Scan, "Anillo Próximo", "Próximo al Anillo", 0, 500, "km separacion")); } catch { }
-            
-            try { n.Add(Alerta.AnilloIcy,       new DetallesAlerta(TipoEvento.Scan, "Anillo Helado", "Anillo Helado", 1, 0, "anillos")); } catch { }
+
+            try { n.Add(Alerta.AnilloIcy,       new DetallesAlerta(TipoEvento.Scan, "Anillo Helado", "Anillo Helado", -1, 0, "Mt masa")); } catch { }
+            try { n.Add(Alerta.AnilloRock,      new DetallesAlerta(TipoEvento.Scan, "Anillo Rocoso", "Anillo Rocoso", -1, 0, "Mt masa")); } catch { }
+            try { n.Add(Alerta.AnilloMetal,     new DetallesAlerta(TipoEvento.Scan, "Anillo Metálico", "Anillo Metálico", -1, 0, "Mt masa")); } catch { }
+            try { n.Add(Alerta.AnilloMetalRich, new DetallesAlerta(TipoEvento.Scan, "Anillo Met. Rich", "Anillo Metálico R", -1, 0, "Mt masa")); } catch { }
 
             // Señales
             try { n.Add(Alerta.Tritio,          new DetallesAlerta(TipoEvento.Signal, "Veta Tritio", "Veta Tritio", 1, 0, "número vetas", "Tritium")); } catch { }
@@ -167,17 +185,21 @@ namespace EDExplorer
             try { n.Add(Alerta.Monacita,        new DetallesAlerta(TipoEvento.Signal, "Veta Grandidieríta", "Veta Grandidieríta", 1, 0, "número vetas", "Grandidierite")); } catch { }
             try { n.Add(Alerta.Grandidierita,   new DetallesAlerta(TipoEvento.Signal, "Veta Monacita", "Veta Monacita", 1, 0, "número vetas", "Monazite")); } catch { }
             try { n.Add(Alerta.Rhodplumsita,    new DetallesAlerta(TipoEvento.Signal, "Veta Rhodplumsita", "Veta Rhodplumsita", 1, 0, "número vetas", "Rhodplumsite")); } catch { }
-            try { n.Add(Alerta.Geological,      new DetallesAlerta(TipoEvento.Signal, "Geológica", "Geológica", 1, 0, "número señales")); } catch { }
-            try { n.Add(Alerta.Biological,      new DetallesAlerta(TipoEvento.Signal, "Biológica", "Biológica", 1, 0, "número señales")); } catch { }
+            
+            try { n.Add(Alerta.Geological,      new DetallesAlerta(TipoEvento.Signal, "Geológica", "Geológica", 1, 0, "número señales", "$SAA_SignalType_Geological;")); } catch { }
+            try { n.Add(Alerta.Biological,      new DetallesAlerta(TipoEvento.Signal, "Biológica", "Biológica", 1, 0, "número señales", "$SAA_SignalType_Biological;")); } catch { }
+            try { n.Add(Alerta.Human,           new DetallesAlerta(TipoEvento.Signal, "Humana", "Humana", 1, 0, "número señales", "$SAA_SignalType_Human;")); } catch { }
+            try { n.Add(Alerta.Guardian,        new DetallesAlerta(TipoEvento.Signal, "Guardian", "Guardian", 1, 0, "número señales", "$SAA_SignalType_Guardian;")); } catch { }
+            try { n.Add(Alerta.Thargoid,        new DetallesAlerta(TipoEvento.Signal, "Thargoide", "Thargoide", 1, 0, "número señales", "$SAA_SignalType_Thargoid;")); } catch { }
             // FSS
             try { n.Add(Alerta.BodyCount,       new DetallesAlerta(TipoEvento.FSS, "FSS Cuerpos", "Número de Cuerpos", 20, 0, "cuerpos")); } catch { }
         }
 
         //public Dictionary<Alerta, DetallesAlerta> n;
         public ListaAlertas n;
-        public bool newRecordMenor;
-        public bool newRecordMayor;
+        public bool isRecord;
         public string recordDesc;
+        public string valorST;
 
         public bool CumpleCriterios(DetallesAlerta da, double valor)
         {
@@ -208,29 +230,47 @@ namespace EDExplorer
                     break;
             }
 
-            newRecordMenor = false;
-            newRecordMayor = false;
+            isRecord = false;
             
             if (retorno && da.tipoParam != TipoParametro.None)
             {
                 if (da.tipoParam == TipoParametro.ValorHasta || da.tipoParam == TipoParametro.RangoExcluido)
-                    if (valor < da.recMenor || da.recMenor == null)
+                    if (valor <= da.recMenor || da.recMenor == null)
                     {
-                        da.recMenor = valor;
-                        newRecordMenor = true;
-                        recordDesc = $"nuevo limite inferior {valor:N1}";
+                        if (valor == da.recMenor)
+                            recordDesc = "record actual";
+                        else
+                        {
+                            da.recMenor = valor;
+                            recordDesc = "nueva marca inferior";
+                        }
+                        
+                        isRecord = true;
                     }
                 if (da.tipoParam == TipoParametro.ValorDesde || da.tipoParam == TipoParametro.RangoExcluido)
-                    if (valor > da.recMayor || da.recMayor == null)
+                    if (valor >= da.recMayor || da.recMayor == null)
                     {
-                        da.recMayor = valor;
-                        newRecordMayor = true;
-                        recordDesc = $"nuevo limite superior {valor:N1}";
+                        if (valor == da.recMayor)
+                            recordDesc = "record actual";
+                        else
+                        {
+                            da.recMayor = valor;
+                            recordDesc = "nueva marca superior";
+                        }
+
+                        isRecord = true;
                     }
-                if (newRecordMenor && newRecordMayor)
-                {
-                    recordDesc = "primer registro";
-                }
+            }
+
+            if (isRecord)
+            {
+                if (valor == Math.Round(valor, 0)) valorST = $"{valor:N0}";
+                else if (valor == Math.Round(valor, 1)) valorST = $"{valor:N1}";
+                else if (valor == Math.Round(valor, 2)) valorST = $"{valor:N2}";
+                else if (valor == Math.Round(valor, 3)) valorST = $"{valor:N3}";
+                else valorST = $"{valor:N4}";
+
+                recordDesc = recordDesc + " " + valorST;
             }
 
             return retorno;

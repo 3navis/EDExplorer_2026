@@ -168,8 +168,7 @@
 
             if (settings.activarNotificaciones)
             {
-                NotifyFrm notifyFrm = new NotifyFrm("Activadas Notificaciones\n\rde prueba con un texto largo.");
-                notifyFrm.Show(5000);
+                basi.OpenNotifyForm("Activadas Notificaciones\n\rde prueba con un texto largo.", 3000);
             }
            
             menuItem.Image = recursoNOTIFY();

@@ -44,6 +44,8 @@
             this.copyAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.copyJournalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblTime = new System.Windows.Forms.Label();
+            this.record = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lblRecord = new System.Windows.Forms.Label();
             this.contextCopy.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,7 +60,8 @@
             this.sistema,
             this.cuerpo,
             this.alerta,
-            this.detail});
+            this.detail,
+            this.record});
             this.listEvent.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listEvent.ForeColor = System.Drawing.Color.Orange;
             this.listEvent.FullRowSelect = true;
@@ -98,6 +101,7 @@
             // 
             // detail
             // 
+            this.detail.DisplayIndex = 5;
             this.detail.Text = "Motivo de activación";
             this.detail.Width = 302;
             // 
@@ -162,11 +166,30 @@
             this.lblTime.TabIndex = 5;
             this.lblTime.Click += new System.EventHandler(this.label1_Click);
             // 
+            // record
+            // 
+            this.record.DisplayIndex = 4;
+            this.record.Text = "R";
+            this.record.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.record.Width = 27;
+            // 
+            // lblRecord
+            // 
+            this.lblRecord.AutoSize = true;
+            this.lblRecord.Font = new System.Drawing.Font("Webdings", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.lblRecord.Location = new System.Drawing.Point(948, 2);
+            this.lblRecord.Name = "lblRecord";
+            this.lblRecord.Size = new System.Drawing.Size(27, 22);
+            this.lblRecord.TabIndex = 6;
+            this.lblRecord.Text = "";
+            this.lblRecord.Visible = false;
+            // 
             // EDExplorerFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(999, 429);
+            this.Controls.Add(this.lblRecord);
             this.Controls.Add(this.btnReadAll);
             this.Controls.Add(this.lblTime);
             this.Controls.Add(this.listEvent);
@@ -198,6 +221,8 @@
         private System.Windows.Forms.ToolStripMenuItem copyJournalToolStripMenuItem;
         private System.Windows.Forms.ColumnHeader sistema;
         private System.Windows.Forms.Label lblTime;
+        private System.Windows.Forms.ColumnHeader record;
+        private System.Windows.Forms.Label lblRecord;
     }
 }
 

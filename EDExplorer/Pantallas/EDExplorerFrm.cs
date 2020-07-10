@@ -33,23 +33,28 @@ namespace EDExplorer
         //        }
         //    }
         //}
-        public void AddListItem((string BodyName, string Description, string Detail) item)
+        //public void AddListItem((string BodyName, string Description, string Detail) item)
+        public void AddListItem(Interes item)
         {
             ListViewItem newItem = new ListViewItem(
-                                        new string[] {
-                                        //logMonitor.LastScan.Timestamp.ToString("yyyy-MM-dd HH:mm:ss"),
-                                        logMonitor.currentTime.ToString("yyyy-MM-dd HH:mm:ss"),
-                                        logMonitor.CurrentSystem,
-                                        item.BodyName.Replace(logMonitor.CurrentSystem,"").Trim(),
-                                        item.Description,
-                                        item.Detail
-                                        //(logMonitor.LastScan.Landable.GetValueOrDefault(false) && !item.Description.Contains("materials in system")) ? "🌐" : string.Empty
-                                        });
-            if (item.Description.Contains("Criterios Múltiples") || item.Description.Contains("Record Personal"))
+                    new string[] {
+                    //logMonitor.LastScan.Timestamp.ToString("yyyy-MM-dd HH:mm:ss"),
+                    logMonitor.currentTime.ToString("yyyy-MM-dd HH:mm:ss"),
+                    logMonitor.CurrentSystem,
+                    item.BodyName.Replace(logMonitor.CurrentSystem,"").Trim(),
+                    item.Descripcion,
+                    item.Detalle,
+                    ""
+                    //(logMonitor.LastScan.Landable.GetValueOrDefault(false) && !item.Description.Contains("materials in system")) ? "🌐" : string.Empty
+                    });
+
+            if (item.Descripcion.Contains("Criterios Múltiples") || item.Descripcion.Contains("Record Personal"))
             {
                 newItem.UseItemStyleForSubItems = false;
                 newItem.SubItems[3].Font = new Font(newItem.Font, FontStyle.Bold);
                 newItem.SubItems[4].Font = new Font(newItem.Font, FontStyle.Bold);
+                newItem.SubItems[5].Font = lblRecord.Font;
+                newItem.SubItems[5].Text = lblRecord.Text;
             }
 
             listEvent.Items.Add(newItem);
@@ -201,8 +206,7 @@ namespace EDExplorer
 
         private void EDExplorerFrm_Shown(object sender, EventArgs e)
         {
-            if (Properties.Settings.Default.AutoRead || true)
-                ReadAllJournals(30);
+            ReadAllJournals(30);
         }
 
         private void CopyJournalToolStripMenuItem_Click(object sender, EventArgs e)

@@ -7,18 +7,22 @@ using System.Speech.Synthesis;
 using System.Windows.Forms;
 using EDExplorer.Pantallas;
 using System.Collections.Generic;
+//using System.Windows.Input;
+//using System.Windows;
 
 namespace EDExplorer
 {
     public partial class ConfiguracionFrm : Form
     {
+        private Base basi;
+
         private Properties.Settings settings;
         private bool Loading;
         private bool BulkChangeInProgress;
         private SpeechSynthesizer speech;
         private Alertas alertas;
 
-        public ConfiguracionFrm(SpeechSynthesizer s, Alertas a)
+        public ConfiguracionFrm(SpeechSynthesizer s, Base b)
         {
             InitializeComponent();
 #if !DEBUG
@@ -27,14 +31,13 @@ namespace EDExplorer
 
             Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
             settings = Properties.Settings.Default;
-            this.speech = s;
-            this.alertas = a;
+            speech = s;
+            alertas = b.alertas;
+            basi = b;
         }
-
         private void ConfiguracionFrm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            //mainForm.settingsOpen = false;
-
+            basi.configuracionFrm = null;
         }
 
         private void ConfiguracionFrm_Load(object sender, EventArgs e)
@@ -49,8 +52,7 @@ namespace EDExplorer
             trackBar_Volume.BackColor = this.BackColor;
             btn_TestVol.Enabled = settings.activarAudio;
             cbxAutoMonitor.Checked = settings.AutoSTART;
-            cbxAutoRead.Checked = settings.AutoRead;
-            cbxCodex.Checked = settings.IncludeCodex;
+            //cbxCodex.Checked = settings.IncludeCodex;
             cbxBeta.Checked = settings.JournalBeta;
 
             //PanelAlerta pa;
@@ -147,12 +149,6 @@ namespace EDExplorer
             speech.SpeakAsync("Probando el volumen del Locutor.");
         }
 
-        private void CbxAutoRead_CheckedChanged(object sender, EventArgs e)
-        {
-            settings.AutoRead = ((CheckBox)sender).Checked;
-            Save();
-        }
-
         private void CbxAutoMonitor_CheckedChanged(object sender, EventArgs e)
         {
             settings.AutoSTART = ((CheckBox)sender).Checked;
@@ -190,7 +186,21 @@ namespace EDExplorer
         private void Save()
         {
             if (!BulkChangeInProgress)
+            {
+                BulkChangeInProgress = true;
+
+                foreach (var pa in this.tabScan.Controls.OfType<PanelAlerta>())
+                { pa.Update(alertas); }
+                foreach (var pa in this.tabSignal.Controls.OfType<PanelAlerta>())
+                { pa.Update(alertas); }
+                foreach (var pa in this.tabFSS.Controls.OfType<PanelAlerta>())
+                { pa.Update(alertas); }
+
+                settings.Alertas = JsonConvert.SerializeObject(alertas.n);
                 settings.Save();
+                
+                BulkChangeInProgress = false;
+            }
         }
 
         private void ConfiguracionFrm_Paint(object sender, PaintEventArgs e)
@@ -220,25 +230,15 @@ namespace EDExplorer
 
         private void button1_Click(object sender, EventArgs e)
         {
-            BulkChangeInProgress = true;
-            
-            foreach (var pa in this.tabScan.Controls.OfType<PanelAlerta>())
-            { pa.Update(alertas); }
-            foreach (var pa in this.tabSignal.Controls.OfType<PanelAlerta>())
-            { pa.Update(alertas); }
-            foreach (var pa in this.tabFSS.Controls.OfType<PanelAlerta>())
-            { pa.Update(alertas); }
-
-            BulkChangeInProgress = false;
-
-            settings.Alertas = JsonConvert.SerializeObject(alertas.n);
+            // Guardar y Salir
             Save();
-            this.Close();
+            Close();
         }
 
         private void buttonCancelar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            // Cancelar cambios y Salir
+            Close();
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -259,8 +259,9 @@ namespace EDExplorer
         {
             if (!Loading)
             {
-                NotifyFrm notifyFrm = new NotifyFrm("Probando Notificaciones");
-                notifyFrm.Show(5000);
+                basi.OpenNotifyForm("probando pim pam toma la casitos",5000);
+                //NotifyFrm notifyFrm = new NotifyFrm("Probando Notificaciones");
+                //notifyFrm.Show(5000);
             }
         }
 
@@ -275,6 +276,23 @@ namespace EDExplorer
             {
                 pa.Checked(((CheckBox)sender).Checked);
             }
+        }
+
+        private void tabPage3_Click(object sender, EventArgs e)
+        {
+            //Mouse.Capture(this);
+            //Window mw = new Window();
+
+            //System.Windows.Point pointToWindow = Mouse.GetPosition(mw);
+            //System.Windows.Point pointToScreen = PointToScreen(pointToWindow);
+            //lblPos.Text = "X: " + pointToScreen.X +
+            //    "\n" +
+            //    "Y: " + pointToScreen.Y;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Save();
         }
     }
 }

@@ -146,18 +146,6 @@ namespace EDExplorer.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool AutoRead {
-            get {
-                return ((bool)(this["AutoRead"]));
-            }
-            set {
-                this["AutoRead"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool AutoSTART {
             get {
                 return ((bool)(this["AutoSTART"]));

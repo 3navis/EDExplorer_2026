@@ -7,9 +7,11 @@ using System.Drawing.Text;
 using System.IO;
 using System.Reflection;
 using System.Runtime.InteropServices;
+using EDExplorer.Pantallas;
 
 namespace EDExplorer
 {
+    //using ListaInteres = List<(string BodyName, string Description, string Detail)>;
     public class Base
     {
         public Alertas alertas;
@@ -20,13 +22,14 @@ namespace EDExplorer
         public EDExplorerFrm edexplorerFrm;
         public FontElite fontElite;
         public NotifyFrm notifyFrm;
+        public NotifyFormBack fondo;
 
         public Base()
         {
             alertas = new Alertas();
-            //records = new Records();
             logMonitor = new LogMonitor();
-            fontElite = new FontElite();       // Crear la Fuente una unica vez.
+            // Crear la Fuente una unica vez.
+            fontElite = new FontElite();       
             logMonitor.LogEntry += LogEvent;
 
             ActivarAudio();
@@ -45,17 +48,7 @@ namespace EDExplorer
 
                 if (scan.hayAlertas())
                 {
-                    if (edexplorerFrm != null)
-                    {
-                        //if (!logMonitor.ReadAllInProgress)
-                        //    edexplorerFrm.RemoveUninteresting();
-
-                        foreach (var item in scan.Interest)
-                            edexplorerFrm.AddListItem(item);
-                    }
-
-                    if (!logMonitor.ReadAllInProgress && scan.Interest.Count > 0)
-                        AnnounceItems(logMonitor.CurrentSystem, scan.Interest);
+                    AnnounceItems(logMonitor.CurrentSystem, scan.Interest);
                 }
             }
             else if (logMonitor.LastCodexValid)
@@ -84,17 +77,7 @@ namespace EDExplorer
 
                 if (signal.hayAlertas())
                 {
-                    if (edexplorerFrm != null)
-                    {
-                        //if (!logMonitor.ReadAllInProgress)
-                        //    edexplorerFrm.RemoveUninteresting();
-
-                        foreach (var item in signal.Interest)
-                            edexplorerFrm.AddListItem(item);
-                    }
-
-                    if (!logMonitor.ReadAllInProgress && signal.Interest.Count > 0)
-                        AnnounceItems(logMonitor.CurrentSystem, signal.Interest);
+                    AnnounceItems(logMonitor.CurrentSystem, signal.Interest);
                 }
             }
             else if (logMonitor.LastFSSValid)
@@ -103,54 +86,54 @@ namespace EDExplorer
 
                 if (fss.hayAlertas())
                 {
-                    if (edexplorerFrm != null)
-                    {
-                        //if (!logMonitor.ReadAllInProgress)
-                        //    edexplorerFrm.RemoveUninteresting();
-
-                        foreach (var item in fss.Interest)
-                            edexplorerFrm.AddListItem(item);
-                    }
-
-                    if (!logMonitor.ReadAllInProgress && fss.Interest.Count > 0)
-                        AnnounceItems(logMonitor.CurrentSystem, fss.Interest);
+                    AnnounceItems(logMonitor.CurrentSystem, fss.Interest);
                 }
 
             }
         }
-        private void AnnounceItems(string currentSystem, List<(string BodyName, string Description, string Detail)> items)
+        private void AnnounceItems(string currentSystem, List<Interes> items)
         {
-            if (Properties.Settings.Default.activarNotificaciones || Properties.Settings.Default.activarAudio)
+            if (edexplorerFrm != null)
             {
-                string fullBodyName = items[0].BodyName;
-                StringBuilder announceText = new StringBuilder();
+                //if (!logMonitor.ReadAllInProgress)
+                //    edexplorerFrm.RemoveUninteresting();
 
                 foreach (var item in items)
-                {
-                    announceText.Append(item.Description);
-                    if (!item.Equals(items.Last()))
-                    {
-                        announceText.AppendLine(", ");
-                    }
-                }
+                    edexplorerFrm.AddListItem(item);
+            }
 
-                if (Properties.Settings.Default.activarNotificaciones)
+            if (!logMonitor.ReadAllInProgress && items.Count > 0)
+            {
+                if (Properties.Settings.Default.activarNotificaciones || Properties.Settings.Default.activarAudio)
                 {
-                    NotifyFrm notifyFrm = new NotifyFrm(fullBodyName + "\r\n" + announceText.ToString());
-                    notifyFrm.Show(5000);
-                    notifyFrm.Refresh();
-                }
+                    string fullBodyName = items[0].BodyName;
+                    StringBuilder announceText = new StringBuilder();
 
-                if (Properties.Settings.Default.activarAudio)
-                {
-                    string spokenName;
-                    spokenName = fullBodyName.Replace(currentSystem, string.Empty);
-                    if (spokenName.Trim().Length > 0)
+                    foreach (var item in items)
                     {
-                        spokenName = "Cuerpo " + spokenName;
+                        announceText.Append(item.Descripcion);
+                        if (!item.Equals(items.Last()))
+                        {
+                            announceText.AppendLine(", ");
+                        }
                     }
-                    speech.Volume = Properties.Settings.Default.AudioVolumen;
-                    speech.SpeakSsmlAsync($"<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"es-ES\">{spokenName}:<break strength=\"weak\"/>{announceText}</speak>");
+
+                    if (Properties.Settings.Default.activarNotificaciones)
+                    {
+                        OpenNotifyForm(fullBodyName + "\r\n" + announceText.ToString(), 5000);
+                    }
+
+                    if (Properties.Settings.Default.activarAudio)
+                    {
+                        string spokenName;
+                        spokenName = fullBodyName.Replace(currentSystem, string.Empty);
+                        if (spokenName.Trim().Length > 0)
+                        {
+                            spokenName = "Cuerpo " + spokenName;
+                        }
+                        speech.Volume = Properties.Settings.Default.AudioVolumen;
+                        speech.SpeakSsmlAsync($"<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"es-ES\">{spokenName}:<break strength=\"weak\"/>{announceText}</speak>");
+                    }
                 }
             }
         }
@@ -175,15 +158,8 @@ namespace EDExplorer
                 return;
             }
 
-            try
-            {
-                edexplorerFrm = new EDExplorerFrm(logMonitor);
-                edexplorerFrm.Show();
-            }
-            finally
-            {
-                //edexplorerFrm = null;
-            }
+            edexplorerFrm = new EDExplorerFrm(logMonitor);
+            edexplorerFrm.Show();
         }
         public void CloseEDExplorerForm()
         {
@@ -202,17 +178,26 @@ namespace EDExplorer
                 return;
             }
 
-            try
-            {
-                using (configuracionFrm = new ConfiguracionFrm(speech,alertas))
-                    configuracionFrm.ShowDialog();
-            }
-            finally
-            {
-                configuracionFrm = null;
-            }
+            configuracionFrm = new ConfiguracionFrm(speech, this);
+            configuracionFrm.Show();
         }
+        
+        public void OpenNotifyForm(string t, int mls)
+        {
+            if (notifyFrm != null && notifyFrm.nfb != null)
+            {
+                //notifyFrm.BringToFront();
+                //return;
+                notifyFrm.Close();
+            }
 
+            fondo = new NotifyFormBack();
+            fondo.Show();
+
+            notifyFrm = new NotifyFrm(t, fondo);
+            notifyFrm.Show(mls);
+            notifyFrm.Refresh();
+        }
     }
     /// <summary>
     /// Instanciar una Fuente no instalada

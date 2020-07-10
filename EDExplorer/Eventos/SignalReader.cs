@@ -6,14 +6,10 @@ namespace EDExplorer
 {
     class SignalReader
     {
-
-        private readonly bool isRing;
-        public List<(string BodyName, string Description, string Detail)> Interest { get; private set; }
+        public List<Interes> Interest { get; private set; }
         private readonly Properties.Settings settings;
         private Alertas alertas;
         private LogMonitor logMonitor;
-        private readonly Minerales BestMinerales =
-            Minerales.Tritio | Minerales.LowTemperatureDiamond;
         private string detalle;
         private SaaSignalsFound.Signal signal;
         
@@ -23,8 +19,7 @@ namespace EDExplorer
         {
             this.logMonitor = b.logMonitor;
             this.settings = Properties.Settings.Default;
-            Interest = new List<(string BodyName, string Description, string Detail)>();
-            isRing = logMonitor.LastSignal.BodyName.Contains(" Ring");
+            Interest = new List<Interes>();
             this.alertas = b.alertas; // new Alertas();
         }
 
@@ -38,19 +33,35 @@ namespace EDExplorer
                     if (alertas.CumpleCriterios(da, signal.Count))
                     {
                         detalle = $"{signal.Count} vetas de {signal.TypeLocalised}";
-                        Interest.Add((signalEvent.BodyName, da.nombre, detalle));
+                        Interest.Add(new Interes(signalEvent.BodyName, da.nombre, detalle));
 
-                        if (alertas.newRecordMenor || alertas.newRecordMayor)
-                            Interest.Add((signalEvent.BodyName, "Record Personal", alertas.recordDesc));
+                        if (alertas.isRecord)
+                            Interest.Add(new Interes(signalEvent.BodyName, "Record Personal", alertas.recordDesc));
                     }
                 }
             }
-
         }
+        private void alertaSignal(Alerta a)
+        {
+            da = alertas.n[a];
+            if (da.flag)
+            {
+                signal = signalEvent.Signals.Where(signal => signal.Type == da.TipoLog).FirstOrDefault();
+
+                if (signal != null && alertas.CumpleCriterios(da, signal.Count))
+                {
+                    detalle = $"{signal.Count} señales {signal.TypeLocalised}";
+                    Interest.Add(new Interes(signalEvent.BodyName, da.nombre, detalle));
+
+                    if (alertas.isRecord)
+                        Interest.Add(new Interes(signalEvent.BodyName, "Record Personal", alertas.recordDesc));
+                }
+            }
+        }
+
         public bool hayAlertas()
         {
             signalEvent = logMonitor.LastSignal; 
-            //Minerales mineFound = Minerales.None;
 
             alertaVeta(Alerta.Tritio);
             alertaVeta(Alerta.LTD);
@@ -64,35 +75,11 @@ namespace EDExplorer
             alertaVeta(Alerta.Monacita);
             alertaVeta(Alerta.Rhodplumsita);
 
-            da = alertas.n[Alerta.Geological];
-            if (da.flag)
-            {
-                signal = signalEvent.Signals.Where(signal => signal.Type == "$SAA_SignalType_Geological;").FirstOrDefault();
-
-                if (signal != null && alertas.CumpleCriterios(da, signal.Count))
-                {
-                    detalle = $"{signal.Count} señales {signal.TypeLocalised}";
-                    Interest.Add((signalEvent.BodyName, da.nombre, detalle));
-
-                    if (alertas.newRecordMenor || alertas.newRecordMayor)
-                        Interest.Add((signalEvent.BodyName, "Record Personal", alertas.recordDesc));
-                }
-            }
-
-            da = alertas.n[Alerta.Biological];
-            if (da.flag)
-            {
-                signal = signalEvent.Signals.Where(signal => signal.Type == "$SAA_SignalType_Biological;").FirstOrDefault();
-
-                if (signal != null && alertas.CumpleCriterios(da, signal.Count))
-                {
-                    detalle = $"{signal.Count} señales {signal.TypeLocalised}";
-                    Interest.Add((signalEvent.BodyName, da.nombre, detalle));
-
-                    if (alertas.newRecordMenor || alertas.newRecordMayor)
-                        Interest.Add((signalEvent.BodyName, "Record Personal", alertas.recordDesc));
-                }
-            }
+            alertaSignal(Alerta.Geological);
+            alertaSignal(Alerta.Biological);
+            alertaSignal(Alerta.Human);
+            alertaSignal(Alerta.Guardian);
+            alertaSignal(Alerta.Thargoid);
 
             //////////////////////////
             return Interest.Count > 0;

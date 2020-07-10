@@ -6,11 +6,9 @@ namespace EDExplorer
 {
     class FSSReader
     {
-
         private readonly Properties.Settings settings;
-        public List<(string BodyName, string Description, string Detail)> Interest { get; private set; }
+        public List<Interes> Interest { get; private set; }
         private Alertas alertas;
-        //private Records records;
         private LogMonitor logMonitor;
         private string detalle;
 
@@ -19,7 +17,7 @@ namespace EDExplorer
             this.logMonitor = b.logMonitor;
             this.alertas = b.alertas;
             //this.records = b.records;
-            Interest = new List<(string BodyName, string Description, string Detail)>();
+            Interest = new List<Interes>();
             this.settings = Properties.Settings.Default;
         }
 
@@ -34,10 +32,10 @@ namespace EDExplorer
                 if (alertas.CumpleCriterios(alertas.n[Alerta.BodyCount], nCuerpos))
                 {
                     detalle = $"{nCuerpos} cuerpos en el sistema. ({fssEvent.NonBodyCount} otros)";
-                    Interest.Add((fssEvent.SystemName, alertas.n[Alerta.BodyCount].nombre, detalle));
+                    Interest.Add(new Interes(fssEvent.SystemName, alertas.n[Alerta.BodyCount].nombre, detalle));
 
-                    if (alertas.newRecordMenor || alertas.newRecordMayor)
-                        Interest.Add((fssEvent.SystemName, "Record Personal", alertas.recordDesc));
+                    if (alertas.isRecord)
+                        Interest.Add(new Interes(fssEvent.SystemName, "Record Personal", alertas.recordDesc));
                 }
             }
             //////////////////////////

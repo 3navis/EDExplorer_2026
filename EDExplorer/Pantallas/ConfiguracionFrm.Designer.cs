@@ -29,15 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.btnSelectAll = new System.Windows.Forms.Button();
-            this.btnSelectNone = new System.Windows.Forms.Button();
             this.cbxCodex = new System.Windows.Forms.CheckBox();
             this.cbx_VeryInteresting = new System.Windows.Forms.CheckBox();
             this.groupBox_misc = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.cbxBeta = new System.Windows.Forms.CheckBox();
             this.cbxAutoMonitor = new System.Windows.Forms.CheckBox();
-            this.cbxAutoRead = new System.Windows.Forms.CheckBox();
             this.cbxToast = new System.Windows.Forms.CheckBox();
             this.cbxTts = new System.Windows.Forms.CheckBox();
             this.tipCopy = new System.Windows.Forms.ToolTip(this.components);
@@ -55,8 +51,11 @@
             this.button1 = new System.Windows.Forms.Button();
             this.trackBar_Transparencia = new System.Windows.Forms.TrackBar();
             this.tabOculta = new System.Windows.Forms.TabPage();
+            this.lblPos = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.buttonAceptar = new System.Windows.Forms.Button();
             this.buttonCancelar = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.groupBox_misc.SuspendLayout();
             this.groupBox_TTS.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_Volume)).BeginInit();
@@ -69,33 +68,11 @@
             this.tabOculta.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btnSelectAll
-            // 
-            this.btnSelectAll.Location = new System.Drawing.Point(295, 345);
-            this.btnSelectAll.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSelectAll.Name = "btnSelectAll";
-            this.btnSelectAll.Size = new System.Drawing.Size(114, 28);
-            this.btnSelectAll.TabIndex = 22;
-            this.btnSelectAll.Text = "Marcar Todos";
-            this.btnSelectAll.UseVisualStyleBackColor = true;
-            this.btnSelectAll.Click += new System.EventHandler(this.BtnSelectAll_Click);
-            // 
-            // btnSelectNone
-            // 
-            this.btnSelectNone.Location = new System.Drawing.Point(419, 345);
-            this.btnSelectNone.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSelectNone.Name = "btnSelectNone";
-            this.btnSelectNone.Size = new System.Drawing.Size(100, 28);
-            this.btnSelectNone.TabIndex = 21;
-            this.btnSelectNone.Text = "Ninguno";
-            this.btnSelectNone.UseVisualStyleBackColor = true;
-            this.btnSelectNone.Click += new System.EventHandler(this.BtnSelectNone_Click);
-            // 
             // cbxCodex
             // 
             this.cbxCodex.AutoSize = true;
             this.cbxCodex.ForeColor = System.Drawing.Color.Black;
-            this.cbxCodex.Location = new System.Drawing.Point(19, 302);
+            this.cbxCodex.Location = new System.Drawing.Point(34, 28);
             this.cbxCodex.Margin = new System.Windows.Forms.Padding(4);
             this.cbxCodex.Name = "cbxCodex";
             this.cbxCodex.Size = new System.Drawing.Size(178, 21);
@@ -108,7 +85,7 @@
             // 
             this.cbx_VeryInteresting.AutoSize = true;
             this.cbx_VeryInteresting.ForeColor = System.Drawing.Color.Black;
-            this.cbx_VeryInteresting.Location = new System.Drawing.Point(253, 300);
+            this.cbx_VeryInteresting.Location = new System.Drawing.Point(34, 57);
             this.cbx_VeryInteresting.Margin = new System.Windows.Forms.Padding(4);
             this.cbx_VeryInteresting.Name = "cbx_VeryInteresting";
             this.cbx_VeryInteresting.Size = new System.Drawing.Size(197, 21);
@@ -119,34 +96,21 @@
             // 
             // groupBox_misc
             // 
-            this.groupBox_misc.Controls.Add(this.textBox1);
             this.groupBox_misc.Controls.Add(this.cbxBeta);
             this.groupBox_misc.Controls.Add(this.cbxAutoMonitor);
-            this.groupBox_misc.Controls.Add(this.cbxAutoRead);
             this.groupBox_misc.Location = new System.Drawing.Point(17, 20);
             this.groupBox_misc.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox_misc.Name = "groupBox_misc";
             this.groupBox_misc.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox_misc.Size = new System.Drawing.Size(259, 169);
+            this.groupBox_misc.Size = new System.Drawing.Size(259, 94);
             this.groupBox_misc.TabIndex = 1;
             this.groupBox_misc.TabStop = false;
             this.groupBox_misc.Text = "Diarios de Vuelo (Journal Logs)";
             // 
-            // textBox1
-            // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.ForeColor = System.Drawing.Color.DarkGray;
-            this.textBox1.Location = new System.Drawing.Point(141, 52);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 15);
-            this.textBox1.TabIndex = 17;
-            this.textBox1.Text = "x ultimos ficheros";
-            // 
             // cbxBeta
             // 
             this.cbxBeta.AutoSize = true;
-            this.cbxBeta.Location = new System.Drawing.Point(8, 130);
+            this.cbxBeta.Location = new System.Drawing.Point(8, 58);
             this.cbxBeta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbxBeta.Name = "cbxBeta";
             this.cbxBeta.Size = new System.Drawing.Size(143, 21);
@@ -158,7 +122,7 @@
             // cbxAutoMonitor
             // 
             this.cbxAutoMonitor.AutoSize = true;
-            this.cbxAutoMonitor.Location = new System.Drawing.Point(8, 80);
+            this.cbxAutoMonitor.Location = new System.Drawing.Point(8, 28);
             this.cbxAutoMonitor.Margin = new System.Windows.Forms.Padding(4);
             this.cbxAutoMonitor.Name = "cbxAutoMonitor";
             this.cbxAutoMonitor.Size = new System.Drawing.Size(183, 21);
@@ -167,19 +131,6 @@
             this.tipCopy.SetToolTip(this.cbxAutoMonitor, "Automaticamente comienza el monitor de logs al iniciar");
             this.cbxAutoMonitor.UseVisualStyleBackColor = true;
             this.cbxAutoMonitor.CheckedChanged += new System.EventHandler(this.CbxAutoMonitor_CheckedChanged);
-            // 
-            // cbxAutoRead
-            // 
-            this.cbxAutoRead.AutoSize = true;
-            this.cbxAutoRead.Location = new System.Drawing.Point(8, 50);
-            this.cbxAutoRead.Margin = new System.Windows.Forms.Padding(4);
-            this.cbxAutoRead.Name = "cbxAutoRead";
-            this.cbxAutoRead.Size = new System.Drawing.Size(115, 21);
-            this.cbxAutoRead.TabIndex = 15;
-            this.cbxAutoRead.Text = "Leer al Iniciar";
-            this.tipCopy.SetToolTip(this.cbxAutoRead, "Automaticamente lee los logs al iniciar");
-            this.cbxAutoRead.UseVisualStyleBackColor = true;
-            this.cbxAutoRead.CheckedChanged += new System.EventHandler(this.CbxAutoRead_CheckedChanged);
             // 
             // cbxToast
             // 
@@ -267,7 +218,7 @@
             this.tabFSS.Location = new System.Drawing.Point(4, 25);
             this.tabFSS.Name = "tabFSS";
             this.tabFSS.Padding = new System.Windows.Forms.Padding(3);
-            this.tabFSS.Size = new System.Drawing.Size(656, 380);
+            this.tabFSS.Size = new System.Drawing.Size(847, 380);
             this.tabFSS.TabIndex = 5;
             this.tabFSS.Text = "FSS";
             this.tabFSS.UseVisualStyleBackColor = true;
@@ -284,6 +235,7 @@
             this.tabScan.Size = new System.Drawing.Size(847, 380);
             this.tabScan.TabIndex = 3;
             this.tabScan.Text = "Exploración";
+            this.tabScan.UseVisualStyleBackColor = true;
             // 
             // checkBoxTodos
             // 
@@ -298,11 +250,12 @@
             // 
             // tabSignal
             // 
+            this.tabSignal.AutoScroll = true;
             this.tabSignal.Controls.Add(this.checkBox1);
             this.tabSignal.Location = new System.Drawing.Point(4, 25);
             this.tabSignal.Name = "tabSignal";
             this.tabSignal.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSignal.Size = new System.Drawing.Size(656, 380);
+            this.tabSignal.Size = new System.Drawing.Size(847, 380);
             this.tabSignal.TabIndex = 4;
             this.tabSignal.Text = "Señales";
             this.tabSignal.UseVisualStyleBackColor = true;
@@ -329,10 +282,11 @@
             this.tabPage3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage3.Size = new System.Drawing.Size(656, 380);
+            this.tabPage3.Size = new System.Drawing.Size(847, 380);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Varios";
             this.tabPage3.UseVisualStyleBackColor = true;
+            this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
             // 
             // groupBox1
             // 
@@ -376,17 +330,36 @@
             // tabOculta
             // 
             this.tabOculta.BackColor = System.Drawing.Color.White;
-            this.tabOculta.Controls.Add(this.btnSelectNone);
-            this.tabOculta.Controls.Add(this.btnSelectAll);
+            this.tabOculta.Controls.Add(this.lblPos);
+            this.tabOculta.Controls.Add(this.button2);
             this.tabOculta.Controls.Add(this.cbx_VeryInteresting);
             this.tabOculta.Controls.Add(this.cbxCodex);
             this.tabOculta.Location = new System.Drawing.Point(4, 25);
             this.tabOculta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabOculta.Name = "tabOculta";
             this.tabOculta.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabOculta.Size = new System.Drawing.Size(656, 380);
+            this.tabOculta.Size = new System.Drawing.Size(847, 380);
             this.tabOculta.TabIndex = 0;
             this.tabOculta.Text = "Exploración (old)";
+            // 
+            // lblPos
+            // 
+            this.lblPos.AutoSize = true;
+            this.lblPos.Location = new System.Drawing.Point(546, 56);
+            this.lblPos.Name = "lblPos";
+            this.lblPos.Size = new System.Drawing.Size(46, 17);
+            this.lblPos.TabIndex = 24;
+            this.lblPos.Text = "label1";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(464, 52);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(64, 28);
+            this.button2.TabIndex = 23;
+            this.button2.Text = "Mover";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // buttonAceptar
             // 
@@ -414,12 +387,26 @@
             this.buttonCancelar.UseVisualStyleBackColor = true;
             this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 
+            // button3
+            // 
+            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(552, 430);
+            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(88, 28);
+            this.button3.TabIndex = 27;
+            this.button3.Text = "Aplicar";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // ConfiguracionFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(874, 471);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.buttonAceptar);
             this.Controls.Add(this.TabControl);
@@ -462,16 +449,12 @@
         private System.Windows.Forms.GroupBox groupBox_TTS;
         private System.Windows.Forms.Button btn_TestVol;
         private System.Windows.Forms.TrackBar trackBar_Volume;
-        private System.Windows.Forms.CheckBox cbxAutoRead;
         private System.Windows.Forms.CheckBox cbxAutoMonitor;
         private System.Windows.Forms.CheckBox cbxCodex;
-        private System.Windows.Forms.Button btnSelectNone;
-        private System.Windows.Forms.Button btnSelectAll;
         private System.Windows.Forms.TabControl TabControl;
         private System.Windows.Forms.TabPage tabOculta;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.CheckBox cbxBeta;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TabPage tabScan;
         private System.Windows.Forms.Button buttonAceptar;
         private System.Windows.Forms.Button buttonCancelar;
@@ -482,5 +465,8 @@
         private System.Windows.Forms.TrackBar trackBar_Transparencia;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.TabPage tabFSS;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label lblPos;
+        private System.Windows.Forms.Button button2;
     }
 }

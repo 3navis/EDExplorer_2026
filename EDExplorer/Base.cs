@@ -8,6 +8,9 @@ using System.IO;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using EDExplorer.Pantallas;
+using System.Drawing;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace EDExplorer
 {
@@ -28,6 +31,8 @@ namespace EDExplorer
         {
             alertas = new Alertas();
             logMonitor = new LogMonitor();
+            // temporal para pruebas
+            logMonitor.basi = this; 
             // Crear la Fuente una unica vez.
             fontElite = new FontElite();       
             logMonitor.LogEntry += LogEvent;
@@ -120,7 +125,7 @@ namespace EDExplorer
 
                     if (Properties.Settings.Default.activarNotificaciones)
                     {
-                        OpenNotifyForm(fullBodyName + "\r\n" + announceText.ToString(), 5000);
+                        OpenNotifyForm(fullBodyName + "\r\n" + announceText.ToString(), 10000);
                     }
 
                     if (Properties.Settings.Default.activarAudio)
@@ -181,22 +186,42 @@ namespace EDExplorer
             configuracionFrm = new ConfiguracionFrm(speech, this);
             configuracionFrm.Show();
         }
-        
+
         public void OpenNotifyForm(string t, int mls)
         {
-            if (notifyFrm != null && notifyFrm.nfb != null)
+            //if (notifyFrm != null && notifyFrm.nfb != null)
+            //{
+            //    notifyFrm.nfb.Close();
+            //    notifyFrm.Close();
+            //}
+
+            var task = Task.Run(() =>
             {
-                //notifyFrm.BringToFront();
-                //return;
-                notifyFrm.Close();
-            }
+                fondo = new NotifyFormBack();
+                fondo.Show();
 
-            fondo = new NotifyFormBack();
-            fondo.Show();
+                notifyFrm = new NotifyFrm(t, fondo);
+                notifyFrm.Show(mls);
+                notifyFrm.Refresh();
 
-            notifyFrm = new NotifyFrm(t, fondo);
-            notifyFrm.Show(mls);
-            notifyFrm.Refresh();
+                // Probando cosas nuevas
+                Application.Run(notifyFrm);
+            });
+
+            //popupNotifier = new PopupNotifier();
+            //popupNotifier.TitleFont = new Font(FontElite.private_fonts.Families[0], 12, FontStyle.Bold);
+            //popupNotifier.ContentFont = popupNotifier.TitleFont;
+
+            //popupNotifier.TitleText = "Alerta EDExplorer";
+            //popupNotifier.ContentText = t;
+            //popupNotifier.Delay = mls;
+            //popupNotifier.Popup();
+
+            // prueba de evento ///
+            //Application.DoEvents();
+            ///////////////////////
+
+            //return await true;
         }
     }
     /// <summary>

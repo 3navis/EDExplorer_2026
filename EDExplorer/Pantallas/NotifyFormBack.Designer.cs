@@ -32,8 +32,6 @@
             // 
             // NotifyFormBack
             // 
-            //this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            //this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MidnightBlue;
             this.ClientSize = new System.Drawing.Size(346, 92);
             this.ControlBox = false;
@@ -44,7 +42,7 @@
             this.Opacity = 0.5D;
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.Text = "Form1";
+            this.Text = "FormBack";
             this.ResumeLayout(false);
 
         }

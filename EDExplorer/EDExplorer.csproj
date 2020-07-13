@@ -102,6 +102,12 @@
     <Compile Include="Eventos\CodexEntry.cs" />
     <Compile Include="Eventos\FSSDiscoveryScan.cs" />
     <Compile Include="Eventos\FSSReader.cs" />
+    <Compile Include="Notificaciones\PopupNotifier.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Notificaciones\PopupNotifierForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Pantallas\ColumnSorter.cs" />
     <Compile Include="Eventos\GeologicComposition.cs" />
     <Compile Include="Eventos\JournalEvent.cs" />
@@ -157,12 +163,6 @@
     </Compile>
     <Compile Include="Eventos\ScanReader.cs" />
     <Compile Include="Eventos\SignalReader.cs" />
-    <Compile Include="Pantallas\PanelFondo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Pantallas\PanelFondo.Designer.cs">
-      <DependentUpon>PanelFondo.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Pantallas\NotifyFormBack.resx">
       <DependentUpon>NotifyFormBack.cs</DependentUpon>
     </EmbeddedResource>
@@ -186,9 +186,6 @@
       <DependentUpon>ConfiguracionFrm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pantallas\PanelFondo.resx">
-      <DependentUpon>PanelFondo.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -211,6 +208,8 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Notificaciones\Grip.png" />
+    <None Include="Notificaciones\Icon.ico" />
     <Content Include="Resources\EDExplorer.ico" />
     <None Include="Resources\valor_hasta.png" />
     <None Include="Resources\valor_desde.png" />

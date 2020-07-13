@@ -1,12 +1,13 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Speech.Synthesis;
 using System.Windows.Forms;
 using EDExplorer.Pantallas;
 using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
 //using System.Windows.Input;
 //using System.Windows;
 
@@ -259,9 +260,11 @@ namespace EDExplorer
         {
             if (!Loading)
             {
-                basi.OpenNotifyForm("probando pim pam toma la casitos",5000);
+                basi.OpenNotifyForm("Prueba de Notificaciones",3000);
                 //NotifyFrm notifyFrm = new NotifyFrm("Probando Notificaciones");
                 //notifyFrm.Show(5000);
+
+                //System.Threading.Thread.Sleep(3000);
             }
         }
 
@@ -293,6 +296,26 @@ namespace EDExplorer
         private void button3_Click(object sender, EventArgs e)
         {
             Save();
+        }
+
+        PopupNotifier popupNotifier;
+        private void button4_Click(object sender, EventArgs e)
+        {
+            popupNotifier = new PopupNotifier();
+            popupNotifier.TitleText = "This is the notification title";
+            popupNotifier.ContentText = "This is the notification text";
+            popupNotifier.Popup();
+        }
+
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+            var t = Task.Run(() => 
+            {
+                basi.OpenNotifyForm("Prueba de Notificaciones", 3000);
+                //Console.WriteLine("Task thread ID: {0}",
+                //   Thread.CurrentThread.ManagedThreadId);
+            });
+            //t.Wait();
         }
     }
 }

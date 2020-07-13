@@ -37,6 +37,7 @@
             this.cuerpo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.alerta = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.detail = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.record = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnReadAll = new System.Windows.Forms.Button();
             this.progressReadAll = new System.Windows.Forms.ProgressBar();
             this.contextCopy = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -44,7 +45,6 @@
             this.copyAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.copyJournalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblTime = new System.Windows.Forms.Label();
-            this.record = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lblRecord = new System.Windows.Forms.Label();
             this.contextCopy.SuspendLayout();
             this.SuspendLayout();
@@ -104,6 +104,13 @@
             this.detail.DisplayIndex = 5;
             this.detail.Text = "Motivo de activación";
             this.detail.Width = 302;
+            // 
+            // record
+            // 
+            this.record.DisplayIndex = 4;
+            this.record.Text = "R";
+            this.record.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.record.Width = 27;
             // 
             // btnReadAll
             // 
@@ -165,13 +172,6 @@
             this.lblTime.Size = new System.Drawing.Size(0, 19);
             this.lblTime.TabIndex = 5;
             this.lblTime.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // record
-            // 
-            this.record.DisplayIndex = 4;
-            this.record.Text = "R";
-            this.record.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.record.Width = 27;
             // 
             // lblRecord
             // 

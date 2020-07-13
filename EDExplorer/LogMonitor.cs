@@ -10,6 +10,7 @@ namespace EDExplorer
 {
     public class LogMonitor
     {
+        public Base basi;
         private readonly FileSystemWatcher logWatcher;
         private string currentSystem;
         private string currentBody;

@@ -168,7 +168,7 @@
 
             if (settings.activarNotificaciones)
             {
-                basi.OpenNotifyForm("Activadas Notificaciones\n\rde prueba con un texto largo.", 3000);
+                basi.OpenNotifyForm("Notificaciones Activadas", 3000);
             }
            
             menuItem.Image = recursoNOTIFY();

@@ -33,6 +33,7 @@ namespace EDExplorer
         {
             this.lblText = new System.Windows.Forms.Label();
             this.image = new System.Windows.Forms.PictureBox();
+            this.lblTick = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.image)).BeginInit();
             this.SuspendLayout();
             // 
@@ -40,7 +41,7 @@ namespace EDExplorer
             // 
             this.lblText.AutoSize = true;
             this.lblText.BackColor = System.Drawing.Color.Transparent;
-            this.lblText.Location = new System.Drawing.Point(8, 9);
+            this.lblText.Location = new System.Drawing.Point(5, 9);
             this.lblText.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblText.Name = "lblText";
             this.lblText.Size = new System.Drawing.Size(201, 22);
@@ -57,12 +58,26 @@ namespace EDExplorer
             this.image.TabIndex = 2;
             this.image.TabStop = false;
             // 
+            // lblTick
+            // 
+            this.lblTick.AutoSize = true;
+            this.lblTick.BackColor = System.Drawing.Color.Transparent;
+            this.lblTick.Font = new System.Drawing.Font("Arial Black", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTick.Location = new System.Drawing.Point(309, 42);
+            this.lblTick.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.lblTick.Name = "lblTick";
+            this.lblTick.Size = new System.Drawing.Size(38, 27);
+            this.lblTick.TabIndex = 3;
+            this.lblTick.Text = "00";
+            this.lblTick.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // NotifyFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.MidnightBlue;
+            this.BackColor = System.Drawing.Color.Fuchsia;
             this.ClientSize = new System.Drawing.Size(346, 92);
+            this.Controls.Add(this.lblTick);
             this.Controls.Add(this.image);
             this.Controls.Add(this.lblText);
             this.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -75,7 +90,7 @@ namespace EDExplorer
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "NotifyFrm";
-            this.TransparencyKey = System.Drawing.Color.MidnightBlue;
+            this.TransparencyKey = System.Drawing.Color.Fuchsia;
             ((System.ComponentModel.ISupportInitialize)(this.image)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -85,5 +100,6 @@ namespace EDExplorer
         #endregion
         private System.Windows.Forms.Label lblText;
         private System.Windows.Forms.PictureBox image;
+        private Label lblTick;
     }
 }

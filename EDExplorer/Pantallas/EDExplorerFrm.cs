@@ -58,6 +58,7 @@ namespace EDExplorer
             }
 
             listEvent.Items.Add(newItem);
+
             if (!logMonitor.ReadAllInProgress)
             {
                 listEvent.Sort();

@@ -62,11 +62,11 @@ namespace EDExplorer
             // 
             this.lblTick.AutoSize = true;
             this.lblTick.BackColor = System.Drawing.Color.Transparent;
-            this.lblTick.Font = new System.Drawing.Font("Arial Black", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTick.Font = new System.Drawing.Font("Arial Black", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTick.Location = new System.Drawing.Point(309, 42);
             this.lblTick.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblTick.Name = "lblTick";
-            this.lblTick.Size = new System.Drawing.Size(38, 27);
+            this.lblTick.Size = new System.Drawing.Size(27, 19);
             this.lblTick.TabIndex = 3;
             this.lblTick.Text = "00";
             this.lblTick.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -75,7 +75,7 @@ namespace EDExplorer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Fuchsia;
+            this.BackColor = System.Drawing.Color.MidnightBlue;
             this.ClientSize = new System.Drawing.Size(346, 92);
             this.Controls.Add(this.lblTick);
             this.Controls.Add(this.image);
@@ -90,7 +90,7 @@ namespace EDExplorer
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "NotifyFrm";
-            this.TransparencyKey = System.Drawing.Color.Fuchsia;
+            this.TransparencyKey = System.Drawing.Color.MidnightBlue;
             ((System.ComponentModel.ISupportInitialize)(this.image)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

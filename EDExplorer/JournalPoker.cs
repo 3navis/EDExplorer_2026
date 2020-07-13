@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using System;
+using System.Threading;
 
 namespace EDExplorer
 {
@@ -13,9 +14,10 @@ namespace EDExplorer
 
     class JournalPoker
     {
+        public bool Reset = false;
         private bool Running = false;
         private DirectoryInfo directoryInfo;
-
+        
         public JournalPoker(string dir)
         {
             directoryInfo = new DirectoryInfo(dir);
@@ -55,7 +57,9 @@ namespace EDExplorer
 
 
                     System.Threading.Thread.Sleep(250);
-                    nTicks++;
+                    // Reset es true si se modifica el fichero
+                    nTicks = Reset ? 0 : nTicks++;
+                    Reset = false;
                 }
             });
         }

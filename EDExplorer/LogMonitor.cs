@@ -186,6 +186,8 @@ namespace EDExplorer
 
         private void LogChanged(object source, FileSystemEventArgs e)
         {
+            if (Poker != null) Poker.Reset = true;
+
             switch (e.ChangeType)
             {
                 case WatcherChangeTypes.Created:

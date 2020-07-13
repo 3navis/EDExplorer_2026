@@ -38,13 +38,13 @@ namespace EDExplorer
         //    TransparencyKey = BackColor;
         //}
 
-        //private Font fontElite = new Font(FontElite.private_fonts.Families[0], 14, FontStyle.Bold);
+        private Font fontElite = new Font(FontElite.private_fonts.Families[0], 14, FontStyle.Bold);
         public NotifyFrm(string t, NotifyFormBack n)
         {
             InitializeComponent();
 
             //lblText.Font = new Font(FontElite.private_fonts.Families[0], 14, FontStyle.Bold);
-            //lblText.Font = fontElite;
+            lblText.Font = fontElite;
             lblText.UseCompatibleTextRendering = true;
             lblText.Text = t;
 

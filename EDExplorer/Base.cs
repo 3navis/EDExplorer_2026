@@ -30,13 +30,14 @@ namespace EDExplorer
         public Base()
         {
             alertas = new Alertas();
+            
             logMonitor = new LogMonitor();
-            // temporal para pruebas
-            logMonitor.basi = this; 
+            logMonitor.basi = this;
+            logMonitor.LogEntry += LogEvent; 
+            
             // Crear la Fuente una unica vez.
             fontElite = new FontElite();       
-            logMonitor.LogEntry += LogEvent;
-
+            
             ActivarAudio();
         }
         ~Base()
@@ -204,7 +205,7 @@ namespace EDExplorer
                 notifyFrm.Show(mls);
                 notifyFrm.Refresh();
 
-                // Probando cosas nuevas
+                // Manejador de eventos para esa ventana
                 Application.Run(notifyFrm);
             });
 
@@ -216,10 +217,6 @@ namespace EDExplorer
             //popupNotifier.ContentText = t;
             //popupNotifier.Delay = mls;
             //popupNotifier.Popup();
-
-            // prueba de evento ///
-            //Application.DoEvents();
-            ///////////////////////
 
             //return await true;
         }

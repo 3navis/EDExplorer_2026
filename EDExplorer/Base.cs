@@ -8,7 +8,6 @@ using System.IO;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using EDExplorer.Pantallas;
-using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -25,7 +24,6 @@ namespace EDExplorer
         public EDExplorerFrm edexplorerFrm;
         public FontElite fontElite;
         public NotifyFrm notifyFrm;
-        public NotifyFormBack fondo;
 
         public Base()
         {
@@ -47,54 +45,37 @@ namespace EDExplorer
 
         private void LogEvent(object source, EventArgs e)
         {
-
-            if (logMonitor.LastScanValid)
+            switch (logMonitor.tipoEvento)
             {
-                ScanReader scan = new ScanReader(this);
+                case TipoEvento.Scan:
+                    ScanReader scan = new ScanReader(this);
 
-                if (scan.hayAlertas())
-                {
-                    AnnounceItems(logMonitor.CurrentSystem, scan.Interest);
-                }
-            }
-            else if (logMonitor.LastCodexValid)
-            {
-                if (Properties.Settings.Default.IncludeCodex)
-                {
-                    //Invoke((MethodInvoker)delegate ()
-                    //{
-                    //    string location;
-                    //    listEvent.BeginUpdate();
+                    if (scan.hayAlertas())
+                    {
+                        AnnounceItems(logMonitor.CurrentSystem, scan.Interest);
+                    }
+                    break;
+                case TipoEvento.Signal:
+                    SignalReader signal = new SignalReader(this);
 
-                    //    if (logMonitor.LastCodex.Category != "$Codex_Category_StellarBodies;" && logMonitor.LastCodex.NearestDestinationLocalised?.Length > 0 && logMonitor.LastCodex.Body?.Length > 0)
-                    //        location = logMonitor.LastCodex.Body;
-                    //    else
-                    //        location = logMonitor.LastCodex.System;
+                    if (signal.hayAlertas())
+                    {
+                        AnnounceItems(logMonitor.CurrentSystem, signal.Interest);
+                    }
+                    break;
+                case TipoEvento.FSS:
+                    FSSReader fss = new FSSReader(this);
 
-                    //    ListViewItem newItem = new ListViewItem(new string[] { location, logMonitor.LastCodex.NearestDestinationLocalised?.Length > 0 ? logMonitor.LastCodex.NearestDestinationLocalised : "Codex Entry", logMonitor.LastCodex.Timestamp.ToString("yyyy-MM-dd HH:mm:ss"), logMonitor.LastCodex.NameLocalised, string.Empty });
-                    //    listEvent.Items.Add(newItem).EnsureVisible();
-                    //    listEvent.EndUpdate();
-                    //});
-                }
-            }
-            else if (logMonitor.LastSignalValid)
-            {
-                SignalReader signal = new SignalReader(this);
-
-                if (signal.hayAlertas())
-                {
-                    AnnounceItems(logMonitor.CurrentSystem, signal.Interest);
-                }
-            }
-            else if (logMonitor.LastFSSValid)
-            {
-                FSSReader fss = new FSSReader(this);
-
-                if (fss.hayAlertas())
-                {
-                    AnnounceItems(logMonitor.CurrentSystem, fss.Interest);
-                }
-
+                    if (fss.hayAlertas())
+                    {
+                        AnnounceItems(logMonitor.CurrentSystem, fss.Interest);
+                    }
+                    break;
+                case TipoEvento.Codex:
+                    if (Properties.Settings.Default.IncludeCodex)
+                    {
+                    }
+                    break;
             }
         }
         private void AnnounceItems(string currentSystem, List<Interes> items)
@@ -198,10 +179,7 @@ namespace EDExplorer
 
             var task = Task.Run(() =>
             {
-                fondo = new NotifyFormBack();
-                fondo.Show();
-
-                notifyFrm = new NotifyFrm(t, fondo);
+                notifyFrm = new NotifyFrm(t);
                 notifyFrm.Show(mls);
                 notifyFrm.Refresh();
 
@@ -209,16 +187,7 @@ namespace EDExplorer
                 Application.Run(notifyFrm);
             });
 
-            //popupNotifier = new PopupNotifier();
-            //popupNotifier.TitleFont = new Font(FontElite.private_fonts.Families[0], 12, FontStyle.Bold);
-            //popupNotifier.ContentFont = popupNotifier.TitleFont;
-
-            //popupNotifier.TitleText = "Alerta EDExplorer";
-            //popupNotifier.ContentText = t;
-            //popupNotifier.Delay = mls;
-            //popupNotifier.Popup();
-
-            //return await true;
+            //task.Wait();
         }
     }
     /// <summary>

@@ -33,7 +33,7 @@ namespace EDExplorer
                     if (alertas.CumpleCriterios(da, signal.Count))
                     {
                         detalle = $"{signal.Count} vetas de {signal.TypeLocalised}";
-                        Interest.Add(new Interes(signalEvent.BodyName, da.nombre, detalle));
+                        Interest.Add(new Interes(signalEvent.BodyName, da.nombre, detalle, alertas.isRecord));
 
                         if (alertas.isRecord)
                             Interest.Add(new Interes(signalEvent.BodyName, "Record Personal", alertas.recordDesc));
@@ -51,7 +51,7 @@ namespace EDExplorer
                 if (signal != null && alertas.CumpleCriterios(da, signal.Count))
                 {
                     detalle = $"{signal.Count} señales {signal.TypeLocalised}";
-                    Interest.Add(new Interes(signalEvent.BodyName, da.nombre, detalle));
+                    Interest.Add(new Interes(signalEvent.BodyName, da.nombre, detalle, alertas.isRecord));
 
                     if (alertas.isRecord)
                         Interest.Add(new Interes(signalEvent.BodyName, "Record Personal", alertas.recordDesc));

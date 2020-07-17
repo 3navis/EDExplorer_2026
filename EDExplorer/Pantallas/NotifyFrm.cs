@@ -8,7 +8,7 @@ namespace EDExplorer
 {
     public partial class NotifyFrm : Form 
     {
-        public NotifyFormBack nfb;
+        public NotifyFormBack fondo;
         private Timer timer;
         
         //Use this property if you want to show a top-level window, 
@@ -39,32 +39,28 @@ namespace EDExplorer
         //}
 
         private Font fontElite = new Font(FontElite.private_fonts.Families[0], 14, FontStyle.Bold);
-        public NotifyFrm(string t, NotifyFormBack n)
+        public NotifyFrm(string t)
         {
             InitializeComponent();
+            fondo = new NotifyFormBack();
+            fondo.Show();
 
-            //lblText.Font = new Font(FontElite.private_fonts.Families[0], 14, FontStyle.Bold);
             lblText.Font = fontElite;
             lblText.UseCompatibleTextRendering = true;
             lblText.Text = t;
 
-            nfb = n;
-            StartPosition = nfb.StartPosition;
-            Location = nfb.Location;
+            Rectangle desktopArea = Screen.GetWorkingArea(this);
+            Location = new Point(desktopArea.Right - Width, desktopArea.Bottom - Height);
 
-            //StartPosition = FormStartPosition.Manual;
-            //Rectangle desktopArea = Screen.GetWorkingArea(this);
-            //Location = new Point(desktopArea.Right - Width, desktopArea.Bottom - Height);
-            //this.Opacity = (double)Properties.Settings.Default.Opacidad / 100;
+            fondo.Location = Location;
         }
         int nTick, maxTick;
         public void Show(int t)
         {
             timer = new Timer();
-            timer.Tick += new EventHandler(frmTick);
-
-            //timer.Tick += delegate { frm_Close(); };
-            //timer.Interval = timeout;
+            //timer.Tick += new EventHandler(frmTick);
+            //timer.Tick += delegate { frmTick(); };
+            timer.Tick += frmTick;
 
             nTick = 0;
             maxTick = t / 1000;
@@ -73,27 +69,27 @@ namespace EDExplorer
             timer.Start();
             Show();
         }
-
-        //private void frm_Close()
         private void frmTick(object sender, EventArgs e)
         {
             nTick++;
             
             if (nTick > maxTick)
             {
-                if (nfb != null)
-                {
-                    nfb.Close();
-                    nfb = null;
-                }
                 timer.Stop();
-                this.Hide();
-                this.Close();
+                //Hide();
+
+                if (fondo != null)
+                {
+                    fondo.Close();
+                    fondo = null;
+                }
+                
+                Close();
             }
             else
             {
                 lblTick.Text = nTick.ToString("00");
-                Refresh();
+                lblTick.Refresh();
             }
         }
     }

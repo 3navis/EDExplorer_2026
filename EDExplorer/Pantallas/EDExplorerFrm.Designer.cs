@@ -46,6 +46,7 @@
             this.copyJournalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblTime = new System.Windows.Forms.Label();
             this.lblRecord = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.contextCopy.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -117,7 +118,7 @@
             this.btnReadAll.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReadAll.Location = new System.Drawing.Point(3, 2);
             this.btnReadAll.Name = "btnReadAll";
-            this.btnReadAll.Size = new System.Drawing.Size(157, 23);
+            this.btnReadAll.Size = new System.Drawing.Size(145, 23);
             this.btnReadAll.TabIndex = 3;
             this.btnReadAll.Text = "Analizar Histórico";
             this.btnReadAll.UseVisualStyleBackColor = true;
@@ -167,11 +168,10 @@
             // lblTime
             // 
             this.lblTime.AutoSize = true;
-            this.lblTime.Location = new System.Drawing.Point(167, 8);
+            this.lblTime.Location = new System.Drawing.Point(318, 8);
             this.lblTime.Name = "lblTime";
             this.lblTime.Size = new System.Drawing.Size(0, 19);
             this.lblTime.TabIndex = 5;
-            this.lblTime.Click += new System.EventHandler(this.label1_Click);
             // 
             // lblRecord
             // 
@@ -184,11 +184,23 @@
             this.lblRecord.Text = "";
             this.lblRecord.Visible = false;
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(154, 2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(145, 23);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Records Personales";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // EDExplorerFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(999, 429);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.lblRecord);
             this.Controls.Add(this.btnReadAll);
             this.Controls.Add(this.lblTime);
@@ -223,6 +235,7 @@
         private System.Windows.Forms.Label lblTime;
         private System.Windows.Forms.ColumnHeader record;
         private System.Windows.Forms.Label lblRecord;
+        private System.Windows.Forms.Button button1;
     }
 }
 

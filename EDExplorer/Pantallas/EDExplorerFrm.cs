@@ -10,12 +10,12 @@ namespace EDExplorer
     public partial class EDExplorerFrm : Form
     {
         private ListViewColumnSorter columnSorter;
-        public bool settingsOpen = false;
         private LogMonitor logMonitor;
+        private bool mostrarSoloRecords = false;
         public EDExplorerFrm(LogMonitor l)
         {
             InitializeComponent();
-            //Text = $"{Text} - v{Application.ProductVersion}";
+
             Text = $"{Text} - v{Assembly.GetExecutingAssembly().GetName().Version}";
             Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
             columnSorter = new ListViewColumnSorter();
@@ -44,8 +44,7 @@ namespace EDExplorer
                     item.BodyName.Replace(logMonitor.CurrentSystem,"").Trim(),
                     item.Descripcion,
                     item.Detalle,
-                    ""
-                    //(logMonitor.LastScan.Landable.GetValueOrDefault(false) && !item.Description.Contains("materials in system")) ? "🌐" : string.Empty
+                    (item.isRecord) ? "R" : string.Empty // ? "Ꚛ🌐֍֎۞ℳ♡Ꚛ"
                     });
 
             if (item.Descripcion.Contains("Criterios Múltiples") || item.Descripcion.Contains("Record Personal"))
@@ -57,7 +56,10 @@ namespace EDExplorer
                 newItem.SubItems[5].Text = lblRecord.Text;
             }
 
-            listEvent.Items.Add(newItem);
+            if (!mostrarSoloRecords || item.isRecord)
+            {
+                listEvent.Items.Add(newItem);
+            }
 
             if (!logMonitor.ReadAllInProgress)
             {
@@ -79,11 +81,13 @@ namespace EDExplorer
             }
             DateTime start = DateTime.Now;
             ReadAllJournals();
-            lblTime.Text = (DateTime.Now - start).TotalSeconds.ToString();
+            lblTime.Text = (DateTime.Now - start).TotalSeconds.ToString("0.00")+"s.";
         }
 
-        private void ReadAllJournals(int ultimos = 0)
+        private void ReadAllJournals(int ultimos = 0, bool soloRecords = false)
         {
+            mostrarSoloRecords = soloRecords;
+
             listEvent.BeginUpdate();
             listEvent.Items.Clear();
             listEvent.ListViewItemSorter = null;
@@ -91,6 +95,8 @@ namespace EDExplorer
             listEvent.ListViewItemSorter = columnSorter;
             listEvent.Sort();
             listEvent.EndUpdate();
+
+            mostrarSoloRecords = false;
         }
 
         private void ListEvent_MouseClick(object sender, MouseEventArgs e)
@@ -234,9 +240,20 @@ namespace EDExplorer
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-
+            if (logMonitor.ReadAllComplete)
+            {
+                DialogResult confirmResult;
+                confirmResult = MessageBox.Show("Desea borrar la lista actual y volver a leer el diario de vuelo?", "Confirmar Refresco", MessageBoxButtons.OKCancel);
+                if (confirmResult == DialogResult.Cancel)
+                {
+                    return;
+                }
+            }
+            DateTime start = DateTime.Now;
+            ReadAllJournals(soloRecords : true);
+            lblTime.Text = (DateTime.Now - start).TotalSeconds.ToString("0.00") + "s.";
         }
     }
 }

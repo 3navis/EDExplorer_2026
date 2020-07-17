@@ -25,8 +25,6 @@
             
             if (settings.activarLista) 
                 basi.OpenEDExplorerForm();
-
-            //settings.Alertas = basi.alertas;
         }
 
         private NotifyIcon CreateTrayIcon()

@@ -26,14 +26,15 @@ namespace EDExplorer
         None,
         Scan,
         Signal,
-        FSS
+        FSS,
+        Codex
     }
     public enum Alerta
     {
         None,
         Terraformable, Atmosfera, 
         CuerpoG, CuerpoP, 
-        Anillo,
+        Anillo, 
         AnilloG, AnilloP, 
         AnilloIcy, AnilloRock, AnilloMetal, AnilloMetalRich,
         GravedadP, GravedadG,
@@ -111,7 +112,7 @@ namespace EDExplorer
         private readonly Properties.Settings settings = Properties.Settings.Default;
         public Alertas()
         {
-            settings.vAlertasNew = "v1.04.025";
+            settings.vAlertasNew = "v1.04.029";
 
             if (settings.vAlertas != settings.vAlertasNew)
             {
@@ -144,14 +145,14 @@ namespace EDExplorer
         public void setDefault()
         {
             //try { n.Add(Alerta.Terraformable,   new DetallesAlerta(TipoEvento.Scan, "Aterrizable Terra.", "Aterrizable y Terraformable", 0, 0, "")); } catch { }
-            try { n.Add(Alerta.Atmosfera,       new DetallesAlerta(TipoEvento.Scan, "Aterrizable Atmos.", "Aterrizable con Atmosfera", 0, 0, "")); } catch { }
-            try { n.Add(Alerta.CuerpoP,         new DetallesAlerta(TipoEvento.Scan, "Aterrizable Pequeño", "Planeta Pequeño", 0, 300, "Km radio")); } catch { }
-            try { n.Add(Alerta.CuerpoG,         new DetallesAlerta(TipoEvento.Scan, "Aterrizable Grande", "Planeta Grande", 18000, 0, "Km radio")); } catch { }
+            try { n.Add(Alerta.Atmosfera,       new DetallesAlerta(TipoEvento.Scan, "Aterrizable Atmos.", "Aterrizable Atmosférico", 0, 0, "")); } catch { }
+            try { n.Add(Alerta.CuerpoP,         new DetallesAlerta(TipoEvento.Scan, "Aterrizable Pequeño", "Aterrizable Pequeño", 0, 300, "Km radio")); } catch { }
+            try { n.Add(Alerta.CuerpoG,         new DetallesAlerta(TipoEvento.Scan, "Aterrizable Grande", "Aterrizable Grande", 18000, 0, "Km radio")); } catch { }
             //try { n.Add(Alerta.Radio,           new DetallesAlerta(TipoEvento.Scan, "Aterrizable Radio", "Aterrizable Radio", 300, 1800, "Km (radio <)",TipoParametro.RangoExcluido)); } catch { }
             
-            try { n.Add(Alerta.Anillo,          new DetallesAlerta(TipoEvento.Scan, "Aterrizable Anillado", "Aterrizable con Anillo", 1, 0, "anillos")); } catch { }
-            try { n.Add(Alerta.GravedadP,       new DetallesAlerta(TipoEvento.Scan, "Baja Gravedad", "Planeta con Baja Gravedad", 0, 0.028, "g superficie")); } catch { }
-            try { n.Add(Alerta.GravedadG,       new DetallesAlerta(TipoEvento.Scan, "Alta Gravedad", "Planeta con Alta Gravedad", 2.75, 0, "g superficie")); } catch { }
+            try { n.Add(Alerta.Anillo,          new DetallesAlerta(TipoEvento.Scan, "Aterrizable Anillado", "Aterrizable Anillado", 1, 0, "Km ancho")); } catch { }
+            try { n.Add(Alerta.GravedadP,       new DetallesAlerta(TipoEvento.Scan, "Baja Gravedad", "Aterrizable con Baja Gravedad", 0, 0.028, "g superficie")); } catch { }
+            try { n.Add(Alerta.GravedadG,       new DetallesAlerta(TipoEvento.Scan, "Alta Gravedad", "Aterrizable con Alta Gravedad", 2.75, 0, "g superficie")); } catch { }
             try { n.Add(Alerta.OrbitaP,         new DetallesAlerta(TipoEvento.Scan, "Orbita Cercana", "Orbita Cercana", 0, 1000, "Km separacion")); } catch { }
             try { n.Add(Alerta.OrbitaG,         new DetallesAlerta(TipoEvento.Scan, "Orbita Lejana", "Orbita Lejana", 50000, 0, "SL separacion")); } catch { }
             //try { n.Add(Alerta.Potenciar,       new DetallesAlerta(TipoEvento.Scan, "Potenciar Salto", "Materiales para Potenciar Salto", 5, 0, "material")); } catch { }
@@ -165,7 +166,7 @@ namespace EDExplorer
             try { n.Add(Alerta.OrbitaR,         new DetallesAlerta(TipoEvento.Scan, "Orbita Rápida", "Orbita Rápida", 0, 4, "horas periodo")); } catch { }
             //try { n.Add(Alerta.Excentricidad,   new DetallesAlerta(TipoEvento.Scan, "Orb. Excéntrica", "Orbita Excéntrica", 0.9, 0, "% excentricidad")); } catch { }
             try { n.Add(Alerta.AnilloG,         new DetallesAlerta(TipoEvento.Scan, "Anillo Ancho", "Anillo Ancho", 12, 0, "x veces radio")); } catch { }
-            try { n.Add(Alerta.Binario,         new DetallesAlerta(TipoEvento.Scan, "Binaria Cercana", "Pareja Binaria Cercana", 0.5, 0, "radios vs distancia")); } catch { }
+            try { n.Add(Alerta.Binario,         new DetallesAlerta(TipoEvento.Scan, "Binaria Cercana", "Binaria Cercana", 0.5, 0, "radios vs distancia")); } catch { }
             try { n.Add(Alerta.AnilloP,         new DetallesAlerta(TipoEvento.Scan, "Anillo Próximo", "Próximo al Anillo", 0, 500, "km separacion")); } catch { }
 
             try { n.Add(Alerta.AnilloIcy,       new DetallesAlerta(TipoEvento.Scan, "Anillo Helado", "Anillo Helado", -1, 0, "Mt masa")); } catch { }
@@ -198,39 +199,38 @@ namespace EDExplorer
         //public Dictionary<Alerta, DetallesAlerta> n;
         public ListaAlertas n;
         public bool isRecord;
+        public bool isNew;
         public string recordDesc;
         public string valorST;
 
         public bool CumpleCriterios(DetallesAlerta da, double valor)
         {
-            bool retorno = false;
+            bool retorno;
 
             switch (da.tipoParam)
             {
                 case TipoParametro.ValorDesde:
-                    if (valor >= da.desde)
-                        retorno = true;
+                    retorno = (valor >= da.desde);
                     break;
                 case TipoParametro.ValorHasta:
-                    if (valor <= da.hasta)
-                        retorno = true;
+                    retorno = (valor <= da.hasta);
                     break;
                 case TipoParametro.RangoExcluido:
-                    if (valor <= da.desde || valor >= da.hasta)
-                        retorno = true;
+                    retorno = (valor <= da.desde || valor >= da.hasta);
                     break;
                 case TipoParametro.RangoIncluido:
-                    if (valor >= da.desde && valor <= da.hasta)
-                        retorno = true;
+                    retorno = (valor >= da.desde && valor <= da.hasta);
                     break;
                 case TipoParametro.None:
                     retorno = true;
                     break;
                 default:
+                    retorno = false;
                     break;
             }
 
             isRecord = false;
+            isNew = false;
             
             if (retorno && da.tipoParam != TipoParametro.None)
             {
@@ -243,6 +243,7 @@ namespace EDExplorer
                         {
                             da.recMenor = valor;
                             recordDesc = "nueva marca inferior";
+                            isNew = true;
                         }
                         
                         isRecord = true;
@@ -256,6 +257,7 @@ namespace EDExplorer
                         {
                             da.recMayor = valor;
                             recordDesc = "nueva marca superior";
+                            isNew = true;
                         }
 
                         isRecord = true;

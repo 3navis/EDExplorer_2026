@@ -55,10 +55,10 @@ namespace EDExplorer
                         stream.Close();
                     }
 
-
                     System.Threading.Thread.Sleep(250);
-                    // Reset es true si se modifica el fichero
-                    nTicks = Reset ? 0 : nTicks++;
+                    
+                    // Reset es true si se modifica el fichero actual
+                    nTicks = Reset ? 0 : nTicks + 1;
                     Reset = false;
                 }
             });

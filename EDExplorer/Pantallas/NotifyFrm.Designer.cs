@@ -60,16 +60,17 @@ namespace EDExplorer
             // 
             // lblTick
             // 
+            this.lblTick.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTick.AutoSize = true;
             this.lblTick.BackColor = System.Drawing.Color.Transparent;
             this.lblTick.Font = new System.Drawing.Font("Arial Black", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTick.Location = new System.Drawing.Point(309, 42);
+            this.lblTick.Location = new System.Drawing.Point(321, 42);
             this.lblTick.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblTick.Name = "lblTick";
             this.lblTick.Size = new System.Drawing.Size(27, 19);
             this.lblTick.TabIndex = 3;
             this.lblTick.Text = "00";
-            this.lblTick.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblTick.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // NotifyFrm
             // 
@@ -89,6 +90,7 @@ namespace EDExplorer
             this.Name = "NotifyFrm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "NotifyFrm";
             this.TransparencyKey = System.Drawing.Color.MidnightBlue;
             ((System.ComponentModel.ISupportInitialize)(this.image)).EndInit();

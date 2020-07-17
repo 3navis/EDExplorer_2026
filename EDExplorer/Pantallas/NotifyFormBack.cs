@@ -27,9 +27,8 @@ namespace EDExplorer.Pantallas
         public NotifyFormBack()
         {
             InitializeComponent();
-
             Opacity = (double)Properties.Settings.Default.Opacidad / 100;
-            StartPosition = FormStartPosition.Manual;
+
             Rectangle desktopArea = Screen.GetWorkingArea(this);
             Location = new Point(desktopArea.Right - Width, desktopArea.Bottom - Height);
         }

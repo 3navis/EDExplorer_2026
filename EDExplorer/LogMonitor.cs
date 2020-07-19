@@ -16,11 +16,12 @@ namespace EDExplorer
 
         private readonly FileSystemWatcher logWatcher;
         private string currentSystem;
+        public double[] posInicial; // XYZ
+        public double acumuladoJump = 0;
         private string currentBody;
         public DateTime currentTime;
         public string CurrentLogPath { get; private set; }
         public string CurrentLogLine { get; private set; }
-        public int LastLineProcessed { get; private set; }
         public int bytesRead { get; private set; }
         
         public bool JumponiumReported;
@@ -34,6 +35,7 @@ namespace EDExplorer
         public CodexEntry LastCodex { get; private set; }
         public SaaSignalsFound LastSignal { get; private set; }
         public FSSDiscoveryScan LastFSS { get; private set; }
+        public FsdJump LastJump { get; private set; }
         public Dictionary<(string System, long Body), ScanEvent> SystemBody { get; private set; }
         public Dictionary<(string System, long Body), SaaSignalsFound> SystemBodySignal { get; private set; }
         private JournalPoker Poker;
@@ -62,29 +64,26 @@ namespace EDExplorer
             LogName = Properties.Settings.Default.JournalName;
             Properties.Settings.Default.Save();
 
-            //            logWatcher = new FileSystemWatcher(LogDirectory, "Journal.????????????.??.log")
+            // Examina cambios producidos en el directorio indicado
             logWatcher = new FileSystemWatcher(LogDirectory, LogName)
             {
                 NotifyFilter = NotifyFilters.LastWrite | NotifyFilters.Size | NotifyFilters.FileName
             };
             logWatcher.Changed += LogChanged;
             logWatcher.Created += LogChanged;
-            SystemBody = new Dictionary<(string, long), ScanEvent>();
             ReadAllInProgress = false;
             ReadAllComplete = false;
             CurrentSystem = string.Empty;
             JumponiumReported = false;
+            SystemBody = new Dictionary<(string, long), ScanEvent>();
             SystemBodySignal = new Dictionary<(string, long), SaaSignalsFound>();
-
-            if (Properties.Settings.Default.AutoSTART)
-                MonitorStart();
         }
 
         public void MonitorStart()
         {
             if (!IsMonitoring())
             {
-                PopulatePastScans();
+                //PopulatePastScans();
                 logWatcher.EnableRaisingEvents = true;
                 Poker = new JournalPoker(LogDirectory);
                 Poker.Start();
@@ -100,7 +99,10 @@ namespace EDExplorer
                 Poker = null;
             }
         }
-
+        public bool IsMonitoring()
+        {
+            return logWatcher.EnableRaisingEvents;
+        }
         public void ReadAll(ProgressBar progressBar, int ultimos = 1000)
         {
             MonitorStop();
@@ -146,6 +148,9 @@ namespace EDExplorer
                     progressBar.Value = (progress++ * 100) / allJournals.Count();
                     progressBar.Refresh();
                 }
+
+                CurrentLogPath = allJournals[allJournals.Count()-1].FullName;
+                bytesRead = (int)allJournals[allJournals.Count() - 1].Length;
             }
             catch (Exception ex)
             {
@@ -163,24 +168,19 @@ namespace EDExplorer
             MonitorStart();
         }
 
-        public bool IsMonitoring()
-        {
-            return logWatcher.EnableRaisingEvents;
-        }
-
         private string CheckLogPath()
         {
             LogDirectory = string.IsNullOrEmpty(LogDirectory) ? Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Saved Games\\Frontier Developments\\Elite Dangerous" : LogDirectory;
             if (!Directory.Exists(LogDirectory) || new DirectoryInfo(LogDirectory).GetFiles(Properties.Settings.Default.JournalName).Count() == 0)
             {
-                System.Windows.Forms.FolderBrowserDialog folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog
+                FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog
                 {
                     RootFolder = Environment.SpecialFolder.MyComputer,
                     ShowNewFolderButton = false,
                     Description = "Seleccionar la carpeta de Elite Dangerous Journal"
                 };
-                System.Windows.Forms.DialogResult result = folderBrowserDialog.ShowDialog();
-                if (result == System.Windows.Forms.DialogResult.OK && !string.IsNullOrWhiteSpace(folderBrowserDialog.SelectedPath))
+                DialogResult result = folderBrowserDialog.ShowDialog();
+                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(folderBrowserDialog.SelectedPath))
                 {
                     LogDirectory = folderBrowserDialog.SelectedPath;
                 }
@@ -197,7 +197,6 @@ namespace EDExplorer
                 case WatcherChangeTypes.Created:
                     CurrentLogPath = e.FullPath;
                     CurrentLogPath = string.Empty;
-                    LastLineProcessed = 0;
                     bytesRead = 0;
                     break;
 
@@ -205,7 +204,6 @@ namespace EDExplorer
                     if (CurrentLogPath != e.FullPath)
                     {
                         CurrentLogPath = e.FullPath;
-                        LastLineProcessed = 0;
                         bytesRead = 0;
                     }
 
@@ -219,7 +217,7 @@ namespace EDExplorer
                         currentLog.BaseStream.Seek(bytesRead, SeekOrigin.Begin);
 
                         // Segundo actualiza la posicion con las nuevas lineas leidas del fichero
-                        for (LinesToProcess = new List<string>(); !currentLog.EndOfStream; LastLineProcessed++)
+                        for (LinesToProcess = new List<string>(); !currentLog.EndOfStream; )
                         {
                             linea = currentLog.ReadLine();
                             LinesToProcess.Add(linea);
@@ -258,7 +256,7 @@ namespace EDExplorer
             /////////////////////////////////////////////////////////
             /// Esta funcion se utiliza para verificar que existe un
             /// evento procesable, antes de empezar a manipularlo.
-            /// Sirve para optimizar velocidad en el procesado.
+            /// Sirve para optimizar velocidad del procesado.
 
             int pa = logLine.IndexOf("\"event\":");
             if (pa > 0)
@@ -269,45 +267,19 @@ namespace EDExplorer
 
                 string eventos = "Scan,Location,FSDJump,CarrierJump,SAASignalsFound" +
                     "FSSDiscoveryScan,SupercruiseExit";
+                // evento ProspectedAsteroid (mineria)
 
                 if (eventos.Contains(evento))
                 {
                     ProcessLine(evento, logLine);
-                }
+                } 
             }
-
-            //if (logLine.Contains("\"event\":\"Scan\"") ||
-            //            logLine.Contains("\"event\":\"Location\"") ||
-            //            logLine.Contains("\"event\":\"FSDJump\"") ||
-            //            logLine.Contains("\"event\":\"CarrierJump\"") ||
-            //            //                       logLine.Contains("\"event\":\"CodexEntry\"") ||
-            //            logLine.Contains("\"event\":\"SAASignalsFound\"") ||
-            //            logLine.Contains("\"event\":\"FSSDiscoveryScan\"") ||
-            //            logLine.Contains("\"event\":\"SupercruiseExit\""))
-            //{
-            //    ProcessLine(logLine);
-            //}
-            //    }
-            //    else if (false) // modo minero
-            //    {
-            //        if (logLine.Contains("\"event\":\"SAASignalsFound\"") ||
-            //            logLine.Contains("\"event\":\"ProspectedAsteroid\""))
-            //        {
-            //            ProcessLine(logLine);
-            //        }
-            //    }
-            //}
         }
         private void ProcessLine(string evento, string logLine)
         {
             JObject lastEvent = (JObject)JsonConvert.DeserializeObject(logLine, new JsonSerializerSettings() { DateParseHandling = DateParseHandling.None });
             currentTime = (DateTime)lastEvent["timestamp"];
             tipoEvento = TipoEvento.None;
-
-            //LastScanValid = false;
-            //LastCodexValid = false;
-            //LastSignalValid = false;
-            //LastFSSValid = false;
 
             switch (evento) // lastEvent["event"].ToString()
             {
@@ -320,7 +292,6 @@ namespace EDExplorer
                         if (!SystemBody.ContainsKey((CurrentSystem, LastScan.BodyId)))
                         {
                             SystemBody[(CurrentSystem, LastScan.BodyId)] = LastScan;
-                            //LastScanValid = true;
                             tipoEvento = TipoEvento.Scan;
                         }
                     }
@@ -332,11 +303,14 @@ namespace EDExplorer
                     if (!SystemBodySignal.ContainsKey((CurrentSystem, (long)LastSignal.BodyId)))
                     {
                         SystemBodySignal[(CurrentSystem, (long)LastSignal.BodyId)] = LastSignal;
-                        //LastSignalValid = true;
                         tipoEvento = TipoEvento.Signal;
                     }
                     break;
                 case "FSDJump":
+                    LastJump = lastEvent.ToObject<FsdJump>();
+                    CurrentSystem = lastEvent["StarSystem"].ToString();
+                    tipoEvento = TipoEvento.Jump;
+                    break;
                 case "CarrierJump":
                     // Al entrar los Carriers no se actualizaba el nombre en el salto
                     CurrentSystem = lastEvent["StarSystem"].ToString();
@@ -346,11 +320,8 @@ namespace EDExplorer
                     break;
                 case "FSSDiscoveryScan":
                     LastFSS = lastEvent.ToObject<FSSDiscoveryScan>();
-                    if (LastFSS.SystemName == null)
-                    { LastFSS.SystemName = CurrentSystem; }
-                    CurrentSystem = LastFSS.SystemName; // lastEvent["SystemName"].ToString();
-                                                        //if (CurrentSystem != null) { LastFSSValid = true; }
-                    //LastFSSValid = true;
+                    if (LastFSS.SystemName == null) LastFSS.SystemName = CurrentSystem;  // Location
+                    CurrentSystem = LastFSS.SystemName; 
                     tipoEvento = TipoEvento.FSS;
                     break;
                 case "FSSAllBodiesFound":
@@ -391,59 +362,59 @@ namespace EDExplorer
             }
         }
 
-        private void PopulatePastScans()
-        {
-            FileInfo fileToRead = null;
+        //private void PopulatePastScans()
+        //{
+        //    FileInfo fileToRead = null;
 
-            foreach (var file in new DirectoryInfo(LogDirectory).GetFiles(Properties.Settings.Default.JournalName))
-            {
-                if (fileToRead == null || string.Compare(file.Name, fileToRead.Name) > 0)
-                {
-                    fileToRead = file;
-                }
-            }
+        //    foreach (var file in new DirectoryInfo(LogDirectory).GetFiles(Properties.Settings.Default.JournalName))
+        //    {
+        //        if (fileToRead == null || string.Compare(file.Name, fileToRead.Name) > 0)
+        //        {
+        //            fileToRead = file;
+        //        }
+        //    }
 
-            if (fileToRead != null)
-                using (StreamReader currentLog = new StreamReader(fileToRead.Open(FileMode.Open, FileAccess.Read, FileShare.ReadWrite)))
-                {
-                    while (!currentLog.EndOfStream)
-                    {
-                        string logLine = currentLog.ReadLine();
-                        if (logLine.Trim().StartsWith("{") && logLine.Trim().EndsWith("}") && logLine.Contains("\"event\":\"Scan\"") || logLine.Contains("\"event\":\"Location\"") || logLine.Contains("\"event\":\"FSDJump\""))
-                        {
+        //    if (fileToRead != null)
+        //        using (StreamReader currentLog = new StreamReader(fileToRead.Open(FileMode.Open, FileAccess.Read, FileShare.ReadWrite)))
+        //        {
+        //            while (!currentLog.EndOfStream)
+        //            {
+        //                string logLine = currentLog.ReadLine();
+        //                if (logLine.Trim().StartsWith("{") && logLine.Trim().EndsWith("}") && logLine.Contains("\"event\":\"Scan\"") || logLine.Contains("\"event\":\"Location\"") || logLine.Contains("\"event\":\"FSDJump\""))
+        //                {
 
-                            JObject scanEvent = (JObject)JsonConvert.DeserializeObject(logLine, new JsonSerializerSettings() { DateParseHandling = DateParseHandling.None });
+        //                    JObject scanEvent = (JObject)JsonConvert.DeserializeObject(logLine, new JsonSerializerSettings() { DateParseHandling = DateParseHandling.None });
 
-                            switch (scanEvent["event"].ToString())
-                            {
-                                case "Scan":
+        //                    switch (scanEvent["event"].ToString())
+        //                    {
+        //                        case "Scan":
 
-                                    if (!scanEvent["BodyName"].ToString().Contains("Belt Cluster"))
-                                    {
-                                        ScanEvent scan = scanEvent.ToObject<ScanEvent>();
-                                        if (!SystemBody.ContainsKey((CurrentSystem, scan.BodyId)))
-                                        {
-                                            SystemBody[(CurrentSystem, scan.BodyId)] = scan;
-                                        }
-                                    }
-                                    break;
-                                case "SAASignalsFound":
-                                    SaaSignalsFound signal = scanEvent.ToObject<SaaSignalsFound>();
+        //                            if (!scanEvent["BodyName"].ToString().Contains("Belt Cluster"))
+        //                            {
+        //                                ScanEvent scan = scanEvent.ToObject<ScanEvent>();
+        //                                if (!SystemBody.ContainsKey((CurrentSystem, scan.BodyId)))
+        //                                {
+        //                                    SystemBody[(CurrentSystem, scan.BodyId)] = scan;
+        //                                }
+        //                            }
+        //                            break;
+        //                        case "SAASignalsFound":
+        //                            SaaSignalsFound signal = scanEvent.ToObject<SaaSignalsFound>();
 
-                                    if (!SystemBodySignal.ContainsKey((CurrentSystem, (long)signal.BodyId)))
-                                    {
-                                        SystemBodySignal[(CurrentSystem, (long)signal.BodyId)] = signal;
-                                    }
-                                    break;
-                                case "FSDJump":
-                                case "Location":
-                                    CurrentSystem = scanEvent["StarSystem"].ToString();
-                                    break;
-                            }
-                        }
-                    }
-                }
-        }
+        //                            if (!SystemBodySignal.ContainsKey((CurrentSystem, (long)signal.BodyId)))
+        //                            {
+        //                                SystemBodySignal[(CurrentSystem, (long)signal.BodyId)] = signal;
+        //                            }
+        //                            break;
+        //                        case "FSDJump":
+        //                        case "Location":
+        //                            CurrentSystem = scanEvent["StarSystem"].ToString();
+        //                            break;
+        //                    }
+        //                }
+        //            }
+        //        }
+        //}
 
         //Frontier's codex name localisations are frequently lacking detail or otherwise unhelpful.
         //Need to fix that to display useful descriptions.

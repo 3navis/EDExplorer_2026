@@ -56,22 +56,10 @@ namespace EDExplorer
             //cbxCodex.Checked = settings.IncludeCodex;
             cbxBeta.Checked = settings.JournalBeta;
 
-            //PanelAlerta pa;
-            //int n = 1;
-
-            //foreach (KeyValuePair<Alerta, DetallesAlerta> alerta in alertas.n)
-            //{
-            //    pa = new PanelAlerta(alerta);
-            //    this.tabAlertas.Controls.Add(pa);
-            //    pa.Location = new System.Drawing.Point(5, 5 + pa.Height * n);
-            //    pa.Name = "panel1";
-            //    pa.Size = new System.Drawing.Size(pa.Width, pa.Height);
-            //    pa.TabIndex = 10 * n ;
-            //    n++;
-            //}
             RellenarTabPage(this.tabScan, TipoEvento.Scan);
             RellenarTabPage(this.tabSignal, TipoEvento.Signal);
             RellenarTabPage(this.tabFSS, TipoEvento.FSS);
+            RellenarTabPage(this.tabFSS, TipoEvento.Jump);
 
             Loading = false;
             BulkChangeInProgress = false;
@@ -80,7 +68,7 @@ namespace EDExplorer
         private void RellenarTabPage(TabPage tab, TipoEvento TE)
         {
             PanelAlerta pa;
-            int n = 1;
+            int n = 1 + tab.Controls.OfType<PanelAlerta>().Count();
 
             foreach (KeyValuePair<Alerta, DetallesAlerta> alerta in alertas.n.Where(a => a.Value.tipoEvento == TE))
             {
@@ -260,11 +248,7 @@ namespace EDExplorer
         {
             if (!Loading)
             {
-                basi.OpenNotifyForm("Prueba de Notificaciones",3000);
-                //NotifyFrm notifyFrm = new NotifyFrm("Probando Notificaciones");
-                //notifyFrm.Show(5000);
-
-                //System.Threading.Thread.Sleep(3000);
+                basi.OpenNotifyForm("Prueba de Notificaciones\r\ndos líneas.", 3000);
             }
         }
 

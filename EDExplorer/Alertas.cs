@@ -23,11 +23,12 @@ namespace EDExplorer
     }
     public enum TipoEvento
     {
-        None,
+        None, 
         Scan,
         Signal,
         FSS,
-        Codex
+        Codex,
+        Jump
     }
     public enum Alerta
     {
@@ -48,7 +49,8 @@ namespace EDExplorer
         Tritio, LTD, Opal, Painita, Benitoita, Serendibita, Musgravita,
         Alejandrita, Grandidierita, Monacita, Rhodplumsita, 
         Geological, Biological, Human, Guardian, Thargoid,
-        BodyCount
+        BodyCount,
+        DistanciaStart, DistanciaSol, DistanciaJump
     }
     public enum TipoParametro
     {
@@ -101,6 +103,8 @@ namespace EDExplorer
             }
             else if (D > H)
             {
+                desde = -D;
+                hasta = -H;
                 tipoParam = TipoParametro.RangoExcluido;
             }
             else
@@ -112,7 +116,7 @@ namespace EDExplorer
         private readonly Properties.Settings settings = Properties.Settings.Default;
         public Alertas()
         {
-            settings.vAlertasNew = "v1.04.029";
+            settings.vAlertasNew = "v1.04.033";
 
             if (settings.vAlertas != settings.vAlertasNew)
             {
@@ -194,6 +198,9 @@ namespace EDExplorer
             try { n.Add(Alerta.Thargoid,        new DetallesAlerta(TipoEvento.Signal, "Thargoide", "Thargoide", 1, 0, "número señales", "$SAA_SignalType_Thargoid;")); } catch { }
             // FSS
             try { n.Add(Alerta.BodyCount,       new DetallesAlerta(TipoEvento.FSS, "FSS Cuerpos", "Número de Cuerpos", 20, 0, "cuerpos")); } catch { }
+            // Ejes de Coordenadas
+ //           try { n.Add(Alerta.DistanciaStart,  new DetallesAlerta(TipoEvento.Jump, "Alejado", "Distancia Alejada", 10, 0, "al separación")); } catch { }
+            try { n.Add(Alerta.DistanciaJump, new DetallesAlerta(TipoEvento.Jump, "Acumulado", "Distancia Acumulada", 1000, 0, "al acumulados")); } catch { }
         }
 
         //public Dictionary<Alerta, DetallesAlerta> n;

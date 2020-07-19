@@ -221,9 +221,16 @@ namespace EDExplorer
             StringBuilder copyText = new StringBuilder();
             foreach (ListViewItem item in listEvent.SelectedItems)
             {
-                var bodyData = logMonitor.SystemBody.Where(body => body.Value.BodyName == item.SubItems[0].Text);
+                string bodyName = item.SubItems[1].Text + " " + item.SubItems[2].Text;
+
+                var bodyData = logMonitor.SystemBody.Where(body => body.Value.BodyName == bodyName);
+                if (bodyData.Count() == 0)
+                {
+                    bodyName = item.SubItems[2].Text;
+                    bodyData = logMonitor.SystemBody.Where(body => body.Value.BodyName == bodyName);
+                }
                 if (bodyData.Count() > 0)
-                    copyText.AppendLine(logMonitor.SystemBody.Where(body => body.Value.BodyName == item.SubItems[0].Text).First().Value.JournalEntry);
+                    copyText.AppendLine(logMonitor.SystemBody.Where(body => body.Value.BodyName == bodyName).First().Value.JournalEntry);
             }
             if (copyText.Length == 0)
             {

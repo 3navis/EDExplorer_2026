@@ -42,18 +42,22 @@ namespace EDExplorer.Pantallas
                     break;
                 case TipoParametro.ValorDesde:
                     picIncluir.Image = Properties.Resources.valor_desde;
+                    textDesde.Visible = true;
                     textHasta.Visible = false;
                     break;
                 case TipoParametro.ValorHasta:
                     picIncluir.Image = Properties.Resources.valor_hasta;
                     textDesde.Visible = false;
+                    textHasta.Visible = true;
                     break;
                 case TipoParametro.RangoIncluido:
                     picIncluir.Image = Properties.Resources.rango_incluido;
+                    textDesde.Visible = true;
                     textHasta.Visible = true;
                     break;
                 case TipoParametro.RangoExcluido:
                     picIncluir.Image = Properties.Resources.rango_excluido;
+                    textDesde.Visible = true;
                     textHasta.Visible = true;
                     break;
                 default:

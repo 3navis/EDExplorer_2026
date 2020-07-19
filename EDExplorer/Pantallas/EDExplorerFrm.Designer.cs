@@ -138,9 +138,12 @@
             // 
             this.contextCopy.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextCopy.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.copyNameToolStripMenuItem,
-            this.copyAllToolStripMenuItem,
-            this.copyJournalToolStripMenuItem});
+            this.copyNameToolStripMenuItem
+#if DEBUG
+            ,this.copyAllToolStripMenuItem
+            ,this.copyJournalToolStripMenuItem
+#endif
+            });
             this.contextCopy.Name = "contextCopy";
             this.contextCopy.Size = new System.Drawing.Size(263, 76);
             // 
@@ -157,6 +160,7 @@
             this.copyAllToolStripMenuItem.Size = new System.Drawing.Size(262, 24);
             this.copyAllToolStripMenuItem.Text = "Copiar toda la Línea";
             this.copyAllToolStripMenuItem.Click += new System.EventHandler(this.CopyAllToolStripMenuItem_Click);
+
             // 
             // copyJournalToolStripMenuItem
             // 

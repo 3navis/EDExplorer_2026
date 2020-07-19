@@ -299,7 +299,7 @@ namespace EDExplorer
                 }
             }
 
-            // Pareja Binaria Cercana
+            // Binaria Cercana
             da = alertas.n[Alerta.Binario];
             if (da.flag && scanEvent.Parent?[0].ParentType == "Null" && scanEvent.Radius / scanEvent.SemiMajorAxis > 0.4)
             {

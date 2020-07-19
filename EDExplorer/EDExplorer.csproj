@@ -100,6 +100,7 @@
     <Compile Include="Agente\TrayIconController.cs" />
     <Compile Include="Base.cs" />
     <Compile Include="Eventos\CodexEntry.cs" />
+    <Compile Include="Eventos\FsdJump.cs" />
     <Compile Include="Eventos\FSSDiscoveryScan.cs" />
     <Compile Include="Eventos\FSSReader.cs" />
     <Compile Include="Notificaciones\PopupNotifier.cs">
@@ -163,6 +164,7 @@
     </Compile>
     <Compile Include="Eventos\ScanReader.cs" />
     <Compile Include="Eventos\SignalReader.cs" />
+    <Compile Include="Eventos\JumpReader.cs" />
     <EmbeddedResource Include="Pantallas\NotifyFormBack.resx">
       <DependentUpon>NotifyFormBack.cs</DependentUpon>
     </EmbeddedResource>

@@ -1,6 +1,5 @@
 ﻿namespace EDExplorer
 {
-    //using DW.ELA.Interfaces;
     using Newtonsoft.Json;
 
     public class SaaSignalsFound : JournalEvent
@@ -12,7 +11,7 @@
         public long? SystemAddress { get; set; }
 
         [JsonProperty("BodyID")]
-        public long? BodyId { get; set; }
+        public long BodyId { get; set; }
 
         [JsonProperty("Signals")]
         public Signal[] Signals { get; set; }

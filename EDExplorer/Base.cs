@@ -23,7 +23,7 @@ namespace EDExplorer
         public ConfiguracionFrm configuracionFrm;
         public EDExplorerFrm edexplorerFrm;
         public FontElite fontElite;
-        public NotifyFrm notifyFrm;
+//        public NotifyFrm notifyFrm;
 
         public Base()
         {
@@ -69,6 +69,14 @@ namespace EDExplorer
                     if (fss.hayAlertas())
                     {
                         AnnounceItems(logMonitor.CurrentSystem, fss.Interest);
+                    }
+                    break;
+                case TipoEvento.Jump:
+                    JumpReader jump = new JumpReader(this);
+
+                    if (jump.hayAlertas())
+                    {
+                        AnnounceItems(logMonitor.CurrentSystem, jump.Interest);
                     }
                     break;
                 case TipoEvento.Codex:
@@ -146,7 +154,7 @@ namespace EDExplorer
             }
 
             edexplorerFrm = new EDExplorerFrm(logMonitor);
-            edexplorerFrm.Show();
+            edexplorerFrm.Show(); // Carga ReadAllJournals(30);
         }
         public void CloseEDExplorerForm()
         {
@@ -179,6 +187,8 @@ namespace EDExplorer
 
             var task = Task.Run(() =>
             {
+                NotifyFrm notifyFrm;
+
                 notifyFrm = new NotifyFrm(t);
                 notifyFrm.Show(mls);
                 notifyFrm.Refresh();
@@ -187,7 +197,7 @@ namespace EDExplorer
                 Application.Run(notifyFrm);
             });
 
-            //task.Wait();
+            task.Wait();
         }
     }
     /// <summary>

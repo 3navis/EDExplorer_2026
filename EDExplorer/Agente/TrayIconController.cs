@@ -25,6 +25,10 @@
             
             if (settings.activarLista) 
                 basi.OpenEDExplorerForm();
+
+            // Esperar a que se abra la ventana
+            if (settings.AutoSTART)
+                basi.logMonitor.MonitorStart();
         }
 
         private NotifyIcon CreateTrayIcon()

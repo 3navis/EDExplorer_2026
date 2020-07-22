@@ -52,7 +52,6 @@ namespace EDExplorer
             trackBar_Volume.Value = settings.AudioVolumen;
             trackBar_Volume.BackColor = this.BackColor;
             btn_TestVol.Enabled = settings.activarAudio;
-            cbxAutoMonitor.Checked = settings.AutoSTART;
             //cbxCodex.Checked = settings.IncludeCodex;
             cbxBeta.Checked = settings.JournalBeta;
 
@@ -136,12 +135,6 @@ namespace EDExplorer
         {
             speech.Volume = settings.AudioVolumen;
             speech.SpeakAsync("Probando el volumen del Locutor.");
-        }
-
-        private void CbxAutoMonitor_CheckedChanged(object sender, EventArgs e)
-        {
-            settings.AutoSTART = ((CheckBox)sender).Checked;
-            Save();
         }
 
         private void CbxCodex_CheckedChanged(object sender, EventArgs e)

@@ -18,6 +18,9 @@ namespace EDExplorer
         private string currentSystem;
         public double[] posInicial; // XYZ
         public double acumuladoJump = 0;
+        public double sesion_acumuladoJump = 0;
+        public int numeroJump = 0;
+        public int sesion_numeroJump = 0;
         private string currentBody;
         public DateTime currentTime;
         public string CurrentLogPath { get; private set; }
@@ -258,107 +261,123 @@ namespace EDExplorer
             /// evento procesable, antes de empezar a manipularlo.
             /// Sirve para optimizar velocidad del procesado.
 
-            int pa = logLine.IndexOf("\"event\":");
-            if (pa > 0)
+            // Parece ser que en algunos casos las lineas estan incompletas
+            if (logLine.Trim().StartsWith("{") && logLine.Trim().EndsWith("}"))
             {
-                pa += 9;
-                int pb = logLine.IndexOf("\"", pa + 1);
-                evento = logLine.Substring(pa, pb - pa);
-
-                string eventos = "Scan,Location,FSDJump,CarrierJump,SAASignalsFound" +
-                    "FSSDiscoveryScan,SupercruiseExit";
-                // evento ProspectedAsteroid (mineria)
-
-                if (eventos.Contains(evento))
+                int pa = logLine.IndexOf("\"event\":");
+                if (pa > 0)
                 {
-                    ProcessLine(evento, logLine);
-                } 
+                    pa += 9;
+                    int pb = logLine.IndexOf("\"", pa + 1);
+                    evento = logLine.Substring(pa, pb - pa);
+
+                    string eventos = "Scan,Location,FSDJump,CarrierJump,SAASignalsFound" +
+                        "FSSDiscoveryScan,SupercruiseExit";
+                    // evento ProspectedAsteroid (mineria)
+
+                    if (eventos.Contains(evento))
+                    {
+                        ProcessLine(evento, logLine);
+                    }
+                }
             }
         }
         private void ProcessLine(string evento, string logLine)
         {
-            JObject lastEvent = (JObject)JsonConvert.DeserializeObject(logLine, new JsonSerializerSettings() { DateParseHandling = DateParseHandling.None });
-            currentTime = (DateTime)lastEvent["timestamp"];
-            tipoEvento = TipoEvento.None;
-
-            switch (evento) // lastEvent["event"].ToString()
+            try
             {
-                case "Scan":
-                    if (!lastEvent["BodyName"].ToString().Contains("Belt Cluster"))
-                    {
-                        LastScan = lastEvent.ToObject<ScanEvent>();
-                        LastScan.JournalEntry = logLine;
+                JObject lastEvent = (JObject)JsonConvert.DeserializeObject(logLine, new JsonSerializerSettings() { DateParseHandling = DateParseHandling.None });
+                currentTime = (DateTime)lastEvent["timestamp"];
+                tipoEvento = TipoEvento.None;
 
-                        if (!SystemBody.ContainsKey((CurrentSystem, LastScan.BodyId)))
+                switch (evento) // lastEvent["event"].ToString()
+                {
+                    case "Scan":
+                        if (!lastEvent["BodyName"].ToString().Contains("Belt Cluster"))
                         {
-                            SystemBody[(CurrentSystem, LastScan.BodyId)] = LastScan;
-                            tipoEvento = TipoEvento.Scan;
+                            LastScan = lastEvent.ToObject<ScanEvent>();
+                            LastScan.JournalEntry = logLine;
+
+                            if (!SystemBody.ContainsKey((CurrentSystem, LastScan.BodyId)))
+                            {
+                                SystemBody[(CurrentSystem, LastScan.BodyId)] = LastScan;
+                                tipoEvento = TipoEvento.Scan;
+                            }
                         }
-                    }
-                    break;
-                case "SAASignalsFound":
-                    LastSignal = lastEvent.ToObject<SaaSignalsFound>();
-                    //LastSignal.Body = currentBody;
+                        break;
+                    case "SAASignalsFound":
+                        LastSignal = lastEvent.ToObject<SaaSignalsFound>();
+                        //LastSignal.Body = currentBody;
 
-                    if (!SystemBodySignal.ContainsKey((CurrentSystem, (long)LastSignal.BodyId)))
-                    {
-                        SystemBodySignal[(CurrentSystem, (long)LastSignal.BodyId)] = LastSignal;
-                        tipoEvento = TipoEvento.Signal;
-                    }
-                    break;
-                case "FSDJump":
-                    LastJump = lastEvent.ToObject<FsdJump>();
-                    CurrentSystem = lastEvent["StarSystem"].ToString();
-                    tipoEvento = TipoEvento.Jump;
-                    break;
-                case "CarrierJump":
-                    // Al entrar los Carriers no se actualizaba el nombre en el salto
-                    CurrentSystem = lastEvent["StarSystem"].ToString();
-                    break;
-                case "Location":
-                    CurrentSystem = lastEvent["StarSystem"].ToString();
-                    break;
-                case "FSSDiscoveryScan":
-                    LastFSS = lastEvent.ToObject<FSSDiscoveryScan>();
-                    if (LastFSS.SystemName == null) LastFSS.SystemName = CurrentSystem;  // Location
-                    CurrentSystem = LastFSS.SystemName; 
-                    tipoEvento = TipoEvento.FSS;
-                    break;
-                case "FSSAllBodiesFound":
-                    if (lastEvent["SystemName"] != null)
-                    {
-                        CurrentSystem = lastEvent["SystemName"].ToString();
-                    }
-                    break;
-                case "CodexEntry":
-                    if (LastCodex?.Timestamp != lastEvent.ToObject<CodexEntry>().Timestamp)
-                    {
-                        LastCodex = lastEvent.ToObject<CodexEntry>();
-                        LastCodex.Body = currentBody;
-                        LocaliseLastCodex();
-                        //LastCodexValid = true;
-                        tipoEvento = TipoEvento.Codex;
-                    }
-                    break;
-                case "SupercruiseExit":
-                    if (lastEvent["Body"]?.ToString().Length > 0)
-                        currentBody = lastEvent["Body"].ToString();
-                    else
-                        currentBody = null;
-                    break;
-                case "ProspectedAsteroid":
-                    break;
-                default:
-                    break;
+                        if (!SystemBodySignal.ContainsKey((CurrentSystem, (long)LastSignal.BodyId)))
+                        {
+                            SystemBodySignal[(CurrentSystem, (long)LastSignal.BodyId)] = LastSignal;
+                            tipoEvento = TipoEvento.Signal;
+                        }
+                        break;
+                    case "FSDJump":
+                        LastJump = lastEvent.ToObject<FsdJump>();
+                        CurrentSystem = lastEvent["StarSystem"].ToString();
+                        tipoEvento = TipoEvento.Jump;
+                        break;
+                    case "CarrierJump":
+                        // Al entrar los Carriers no se actualizaba el nombre en el salto
+                        CurrentSystem = lastEvent["StarSystem"].ToString();
+                        break;
+                    case "Location":
+                        CurrentSystem = lastEvent["StarSystem"].ToString();
+                        break;
+                    case "FSSDiscoveryScan":
+                        LastFSS = lastEvent.ToObject<FSSDiscoveryScan>();
+                        if (LastFSS.SystemName == null) LastFSS.SystemName = CurrentSystem;  // Location
+                        CurrentSystem = LastFSS.SystemName;
+                        tipoEvento = TipoEvento.FSS;
+                        break;
+                    case "FSSAllBodiesFound":
+                        if (lastEvent["SystemName"] != null)
+                        {
+                            CurrentSystem = lastEvent["SystemName"].ToString();
+                        }
+                        break;
+                    case "CodexEntry":
+                        if (LastCodex?.Timestamp != lastEvent.ToObject<CodexEntry>().Timestamp)
+                        {
+                            LastCodex = lastEvent.ToObject<CodexEntry>();
+                            LastCodex.Body = currentBody;
+                            LocaliseLastCodex();
+                            //LastCodexValid = true;
+                            tipoEvento = TipoEvento.Codex;
+                        }
+                        break;
+                    case "SupercruiseExit":
+                        if (lastEvent["Body"]?.ToString().Length > 0)
+                            currentBody = lastEvent["Body"].ToString();
+                        else
+                            currentBody = null;
+                        break;
+                    case "ProspectedAsteroid":
+                        break;
+                    default:
+                        break;
+                }
+
+                //if (LastScanValid || LastSignalValid || LastCodexValid || LastFSSValid)
+                if (tipoEvento != TipoEvento.None)
+                {
+                    //////////////////////////////////////////////////////////////////////////////////
+                    EventHandler entry = LogEntry;
+                    entry?.Invoke(this, EventArgs.Empty); // => Base.LogEvent
+                                                          //////////////////////////////////////////////////////////////////////////////////
+                }
+
             }
-
-            //if (LastScanValid || LastSignalValid || LastCodexValid || LastFSSValid)
-            if (tipoEvento != TipoEvento.None)
+            catch (Exception ex)
             {
-                //////////////////////////////////////////////////////////////////////////////////
-                EventHandler entry = LogEntry;
-                entry?.Invoke(this, EventArgs.Empty); // => Base.LogEvent
-                //////////////////////////////////////////////////////////////////////////////////
+                DialogResult response = MessageBox.Show("Ha ocurrido un error en ProcessLine. ¿Quiere ver información de Detalle adicional?", "Error Procesando Linea", MessageBoxButtons.YesNo);
+                if (response == DialogResult.Yes)
+                {
+                    MessageBox.Show($"Evento: {evento}\r\nLinea: {logLine}\r\nException message: {ex.Message}\r\n\r\nStack trace: {ex.StackTrace}", "Detalle del Error", MessageBoxButtons.OK);
+                }
             }
         }
 

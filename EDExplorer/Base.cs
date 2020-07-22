@@ -7,7 +7,6 @@ using System.Drawing.Text;
 using System.IO;
 using System.Reflection;
 using System.Runtime.InteropServices;
-using EDExplorer.Pantallas;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -20,6 +19,7 @@ namespace EDExplorer
         //public Records records;
         public LogMonitor logMonitor;
         public SpeechSynthesizer speech;
+        public bool autoStart = true;
         public ConfiguracionFrm configuracionFrm;
         public EDExplorerFrm edexplorerFrm;
         public FontElite fontElite;
@@ -112,20 +112,21 @@ namespace EDExplorer
                             announceText.AppendLine(", ");
                         }
                     }
+                    
+                    string spokenName;
+                    spokenName = fullBodyName.Replace(currentSystem, string.Empty);
+                    if (spokenName.Trim().Length > 0)
+                    {
+                        spokenName = "Cuerpo " + spokenName;
+                    }
 
                     if (Properties.Settings.Default.activarNotificaciones)
                     {
-                        OpenNotifyForm(fullBodyName + "\r\n" + announceText.ToString(), 10000);
+                        OpenNotifyForm(spokenName + "\r\n" + announceText.ToString(), 10000);
                     }
 
                     if (Properties.Settings.Default.activarAudio)
                     {
-                        string spokenName;
-                        spokenName = fullBodyName.Replace(currentSystem, string.Empty);
-                        if (spokenName.Trim().Length > 0)
-                        {
-                            spokenName = "Cuerpo " + spokenName;
-                        }
                         speech.Volume = Properties.Settings.Default.AudioVolumen;
                         speech.SpeakSsmlAsync($"<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"es-ES\">{spokenName}:<break strength=\"weak\"/>{announceText}</speak>");
                     }
@@ -197,7 +198,7 @@ namespace EDExplorer
                 Application.Run(notifyFrm);
             });
 
-            task.Wait();
+            //task.Wait();
         }
     }
     /// <summary>

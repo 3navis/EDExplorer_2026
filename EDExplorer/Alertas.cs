@@ -50,7 +50,7 @@ namespace EDExplorer
         Alejandrita, Grandidierita, Monacita, Rhodplumsita, 
         Geological, Biological, Human, Guardian, Thargoid,
         BodyCount,
-        DistanciaStart, DistanciaSol, DistanciaJump
+        DistanciaStart, DistanciaSol, AcumuladoJump, NumeroJump
     }
     public enum TipoParametro
     {
@@ -116,7 +116,7 @@ namespace EDExplorer
         private readonly Properties.Settings settings = Properties.Settings.Default;
         public Alertas()
         {
-            settings.vAlertasNew = "v1.04.033";
+            settings.vAlertasNew = "v1.04.034";
 
             if (settings.vAlertas != settings.vAlertasNew)
             {
@@ -173,10 +173,10 @@ namespace EDExplorer
             try { n.Add(Alerta.Binario,         new DetallesAlerta(TipoEvento.Scan, "Binaria Cercana", "Binaria Cercana", 0.5, 0, "radios vs distancia")); } catch { }
             try { n.Add(Alerta.AnilloP,         new DetallesAlerta(TipoEvento.Scan, "Anillo Próximo", "Próximo al Anillo", 0, 500, "km separacion")); } catch { }
 
-            try { n.Add(Alerta.AnilloIcy,       new DetallesAlerta(TipoEvento.Scan, "Anillo Helado", "Anillo Helado", -1, 0, "Mt masa")); } catch { }
-            try { n.Add(Alerta.AnilloRock,      new DetallesAlerta(TipoEvento.Scan, "Anillo Rocoso", "Anillo Rocoso", -1, 0, "Mt masa")); } catch { }
-            try { n.Add(Alerta.AnilloMetal,     new DetallesAlerta(TipoEvento.Scan, "Anillo Metálico", "Anillo Metálico", -1, 0, "Mt masa")); } catch { }
-            try { n.Add(Alerta.AnilloMetalRich, new DetallesAlerta(TipoEvento.Scan, "Anillo Met. Rich", "Anillo Metálico R", -1, 0, "Mt masa")); } catch { }
+            try { n.Add(Alerta.AnilloIcy,       new DetallesAlerta(TipoEvento.Scan, "Anillo Helado", "Anillo Helado", -1, 0, "Mt masa (x10^12)")); } catch { }
+            try { n.Add(Alerta.AnilloRock,      new DetallesAlerta(TipoEvento.Scan, "Anillo Rocoso", "Anillo Rocoso", -1, 0, "Mt masa (x10^12)")); } catch { }
+            try { n.Add(Alerta.AnilloMetal,     new DetallesAlerta(TipoEvento.Scan, "Anillo Metálico", "Anillo Metálico", -1, 0, "Mt masa (x10^12)")); } catch { }
+            try { n.Add(Alerta.AnilloMetalRich, new DetallesAlerta(TipoEvento.Scan, "Anillo Met. Rich", "Anillo Metálico R", -1, 0, "Mt masa (x10^12)")); } catch { }
 
             // Señales
             try { n.Add(Alerta.Tritio,          new DetallesAlerta(TipoEvento.Signal, "Veta Tritio", "Veta Tritio", 1, 0, "número vetas", "Tritium")); } catch { }
@@ -200,7 +200,8 @@ namespace EDExplorer
             try { n.Add(Alerta.BodyCount,       new DetallesAlerta(TipoEvento.FSS, "FSS Cuerpos", "Número de Cuerpos", 20, 0, "cuerpos")); } catch { }
             // Ejes de Coordenadas
  //           try { n.Add(Alerta.DistanciaStart,  new DetallesAlerta(TipoEvento.Jump, "Alejado", "Distancia Alejada", 10, 0, "al separación")); } catch { }
-            try { n.Add(Alerta.DistanciaJump, new DetallesAlerta(TipoEvento.Jump, "Acumulado", "Distancia Acumulada", 1000, 0, "al acumulados")); } catch { }
+            try { n.Add(Alerta.AcumuladoJump, new DetallesAlerta(TipoEvento.Jump, "Acumulado", "Mostrar Resumen", 1000, 0, "al acumulados")); } catch { }
+            try { n.Add(Alerta.NumeroJump, new DetallesAlerta(TipoEvento.Jump, "Saltos", "Mostrar Resumen", 10, 0, "saltos acumulados")); } catch { }
         }
 
         //public Dictionary<Alerta, DetallesAlerta> n;

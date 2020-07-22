@@ -26,9 +26,8 @@
             if (settings.activarLista) 
                 basi.OpenEDExplorerForm();
 
-            // Esperar a que se abra la ventana
-            if (settings.AutoSTART)
-                basi.logMonitor.MonitorStart();
+            // Esperar a la ventana para comenzar
+            basi.logMonitor.MonitorStart();
         }
 
         private NotifyIcon CreateTrayIcon()
@@ -80,7 +79,7 @@
         private string textoSTART(bool flag = true)
         {
             if (flag) // al crear el menu coge el valor por defecto
-                flag = settings.AutoSTART;
+                flag = basi.autoStart;
             else
                 flag = basi.logMonitor.IsMonitoring();
 
@@ -92,7 +91,7 @@
         private Image recursoSTART(bool flag = true)
         {
             if (flag) // al crear el menu coge el valor por defecto
-                flag = settings.AutoSTART;
+                flag = basi.autoStart;
             else
                 flag = basi.logMonitor.IsMonitoring();
             
@@ -207,8 +206,7 @@
             menuItem.Text = textoTALK();
         }
 
-        public void ShowErrorNotification(string error) => trayIcon.ShowBalloonTip(30000, "Elite Log Agent: Error", error, ToolTipIcon.Error);
-        //        private void OpenReportIssueLink() => Process.Start(Resources.GitHubReportIssueLink);
+        public void ShowErrorNotification(string error) => trayIcon.ShowBalloonTip(30000, "EDExplorer: Error", error, ToolTipIcon.Error);
 
         protected virtual void Dispose(bool disposing)
         {
@@ -224,6 +222,7 @@
                 // TODO: set large fields to null.
                 disposedValue = true;
 
+                settings.Save();
                 if (basi.speech != null) basi.speech.Dispose();
             }
         }

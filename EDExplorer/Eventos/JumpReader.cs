@@ -27,21 +27,36 @@ namespace EDExplorer
         {
             jumpEvent = logMonitor.LastJump;
 
+            logMonitor.sesion_numeroJump++;
+            logMonitor.numeroJump++;
+            logMonitor.acumuladoJump += jumpEvent.JumpDist;
+            logMonitor.sesion_acumuladoJump += jumpEvent.JumpDist;
+
             // Contabilizar distancia acumulada en saltos
-            da = alertas.n[Alerta.DistanciaJump];
+            da = alertas.n[Alerta.AcumuladoJump];
             if (da.flag)
             {
-                valor = logMonitor.acumuladoJump + jumpEvent.JumpDist;
+                valor = logMonitor.acumuladoJump;
 
                 if (alertas.CumpleCriterios(da, valor))
                 {
                     detalle = $"{valor:N0}al acumulados en saltos.";
-                    Interest.Add(new Interes(jumpEvent.StarSystem, da.nombre, detalle, alertas.isRecord));
+                    Interest.Add(new Interes(jumpEvent.StarSystem, da.nombre, detalle, false));
                     logMonitor.acumuladoJump = 0;
                 }
-                else
+            }
+
+            // Contabilizar distancia acumulada en saltos
+            da = alertas.n[Alerta.NumeroJump];
+            if (da.flag)
+            {
+                valor = logMonitor.numeroJump;
+
+                if (alertas.CumpleCriterios(da, valor))
                 {
-                    logMonitor.acumuladoJump = valor;
+                    detalle = $"{valor:N0} saltos acumulados.";
+                    Interest.Add(new Interes(jumpEvent.StarSystem, da.nombre, detalle, false));
+                    logMonitor.numeroJump = 0;
                 }
             }
 

@@ -417,12 +417,12 @@ namespace EDExplorer
 
                     if (!r.Name.Contains(" Belt"))
                     {
-                        valor = (double)r.MassMT / 1000000000000000;
+                        valor = (double)r.MassMT / Math.Pow(10,12);
 
                         if (alertas.CumpleCriterios(da, valor))
                         {
                             // Anillo de {valor / 1000:N0}km, 
-                            detalle = $"masa {valor:N2} Mt. (x10^15)";
+                            detalle = $"masa {valor:N2} Mt. (x10^12)";
                             Interest.Add(new Interes(r.Name, da.nombre, detalle, alertas.isRecord));
 
                             if (alertas.isRecord)

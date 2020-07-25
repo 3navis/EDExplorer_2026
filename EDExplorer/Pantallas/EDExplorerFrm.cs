@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
@@ -19,6 +20,7 @@ namespace EDExplorer
             Text = $"{Text} - v{Assembly.GetExecutingAssembly().GetName().Version}";
             Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
             columnSorter = new ListViewColumnSorter();
+            columnSorter.Order = SortOrder.Ascending;
             listEvent.ListViewItemSorter = columnSorter;
             logMonitor = l;
         }
@@ -42,12 +44,13 @@ namespace EDExplorer
                     logMonitor.currentTime.ToString("yyyy-MM-dd HH:mm:ss"),
                     logMonitor.CurrentSystem,
                     item.BodyName.Replace(logMonitor.CurrentSystem,"").Trim(),
-                    item.Descripcion,
+                    item.Nombre,
                     item.Detalle,
-                    (item.isRecord) ? "R" : string.Empty // ? "Ꚛ🌐֍֎۞ℳ♡Ꚛ"
+                    (item.isRecord) ? "R" : string.Empty, // ? "Ꚛ🌐֍֎۞ℳ♡Ꚛ"
+                    item.ValorST
                     });
 
-            if (item.Descripcion.Contains("Criterios Múltiples") || item.Descripcion.Contains("Record Personal"))
+            if (item.Nombre.Contains("Criterios Múltiples") || item.Nombre.Contains("Record Personal"))
             {
                 newItem.UseItemStyleForSubItems = false;
                 newItem.SubItems[3].Font = new Font(newItem.Font, FontStyle.Bold);
@@ -190,6 +193,8 @@ namespace EDExplorer
 
         private void ListEvent_ColumnClick(object sender, ColumnClickEventArgs e)
         {
+            bool isNumber;
+
             if (e.Column == columnSorter.SortColumn)
             {
                 // Reverse the current sort direction for this column.
@@ -208,7 +213,40 @@ namespace EDExplorer
                 columnSorter.SortColumn = e.Column;
                 columnSorter.Order = SortOrder.Ascending;
             }
+
+            isNumber = (sender as ListView).Columns[e.Column].Tag == "number";
+
+            listEvent.ListViewItemSorter = new DoubleComparer(e.Column, isNumber, columnSorter.Order);     
             listEvent.Sort();
+        }
+
+        public class DoubleComparer : IComparer
+        {
+            private int _colIndex = 0;
+            private SortOrder _order = SortOrder.Ascending;
+            private bool _tipoNumber = false;
+            public DoubleComparer(int colIndex, bool tipoNumber, SortOrder order)
+            {
+                _colIndex = colIndex;
+                _order = order;
+                _tipoNumber = tipoNumber;
+            }
+            public int Compare(object x, object y)
+            {
+                if (_tipoNumber)
+                {
+                    double nx, ny;
+                    if (!double.TryParse((x as ListViewItem).SubItems[_colIndex].Text, out nx)) nx = -1;
+                    if (!double.TryParse((y as ListViewItem).SubItems[_colIndex].Text, out ny)) ny = -1;
+                    return (_order == SortOrder.Ascending) ? nx.CompareTo(ny) : ny.CompareTo(nx);
+                }
+                else
+                {
+                    string s1 = (x as ListViewItem).SubItems[_colIndex].Text;
+                    string s2 = (y as ListViewItem).SubItems[_colIndex].Text;
+                    return (_order == SortOrder.Ascending) ? s1.CompareTo(s2) : s2.CompareTo(s1);
+                }
+            }
         }
 
         private void EDExplorerFrm_Shown(object sender, EventArgs e)
@@ -240,11 +278,6 @@ namespace EDExplorer
             {
                 Clipboard.SetText(copyText.ToString());
             }
-        }
-
-        private void listEvent_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void button1_Click(object sender, EventArgs e)

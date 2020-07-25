@@ -11,7 +11,6 @@ namespace EDExplorer
         private Alertas alertas;
         private LogMonitor logMonitor;
         private string detalle;
-        private double valor;
 
         public JumpReader(Base b)
         {
@@ -27,6 +26,7 @@ namespace EDExplorer
         {
             jumpEvent = logMonitor.LastJump;
 
+            // Calculo de datos para Resumen
             logMonitor.sesion_numeroJump++;
             logMonitor.numeroJump++;
             logMonitor.acumuladoJump += jumpEvent.JumpDist;
@@ -36,12 +36,13 @@ namespace EDExplorer
             da = alertas.n[Alerta.AcumuladoJump];
             if (da.flag)
             {
-                valor = logMonitor.acumuladoJump;
+                alertas.valor = logMonitor.acumuladoJump;
 
-                if (alertas.CumpleCriterios(da, valor))
+                if (alertas.CumpleCriterios(da))
                 {
-                    detalle = $"{valor:N0}al acumulados en saltos.";
-                    Interest.Add(new Interes(jumpEvent.StarSystem, da.nombre, detalle, false));
+                    //detalle = $"{alertas.valor:N0}al acumulados en saltos.";
+                    detalle = "al de distancia en saltos acumulada.";
+                    Interest.Add(new Interes(jumpEvent.StarSystem, da.nombre, alertas.valorST, detalle, false));
                     logMonitor.acumuladoJump = 0;
                 }
             }
@@ -50,12 +51,13 @@ namespace EDExplorer
             da = alertas.n[Alerta.NumeroJump];
             if (da.flag)
             {
-                valor = logMonitor.numeroJump;
+                alertas.valor = logMonitor.numeroJump;
 
-                if (alertas.CumpleCriterios(da, valor))
+                if (alertas.CumpleCriterios(da))
                 {
-                    detalle = $"{valor:N0} saltos acumulados.";
-                    Interest.Add(new Interes(jumpEvent.StarSystem, da.nombre, detalle, false));
+                    //detalle = $"{alertas.valor:N0} saltos acumulados.";
+                    detalle = "saltos acumulados.";
+                    Interest.Add(new Interes(jumpEvent.StarSystem, da.nombre, alertas.valorST, detalle, false));
                     logMonitor.numeroJump = 0;
                 }
             }

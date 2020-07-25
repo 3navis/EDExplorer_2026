@@ -106,7 +106,7 @@ namespace EDExplorer
 
                     foreach (var item in items)
                     {
-                        announceText.Append(item.Descripcion);
+                        announceText.Append(item.Nombre);
                         if (!item.Equals(items.Last()))
                         {
                             announceText.AppendLine(", ");

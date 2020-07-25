@@ -38,6 +38,7 @@
             this.alerta = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.detail = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.record = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.valor = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnReadAll = new System.Windows.Forms.Button();
             this.progressReadAll = new System.Windows.Forms.ProgressBar();
             this.contextCopy = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -62,7 +63,8 @@
             this.cuerpo,
             this.alerta,
             this.detail,
-            this.record});
+            this.record,
+            this.valor});
             this.listEvent.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listEvent.ForeColor = System.Drawing.Color.Orange;
             this.listEvent.FullRowSelect = true;
@@ -75,7 +77,6 @@
             this.listEvent.UseCompatibleStateImageBehavior = false;
             this.listEvent.View = System.Windows.Forms.View.Details;
             this.listEvent.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.ListEvent_ColumnClick);
-            this.listEvent.SelectedIndexChanged += new System.EventHandler(this.listEvent_SelectedIndexChanged);
             this.listEvent.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ListEvent_KeyDown);
             this.listEvent.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ListEvent_MouseClick);
             // 
@@ -102,7 +103,7 @@
             // 
             // detail
             // 
-            this.detail.DisplayIndex = 5;
+            this.detail.DisplayIndex = 6;
             this.detail.Text = "Motivo de activación";
             this.detail.Width = 302;
             // 
@@ -112,6 +113,14 @@
             this.record.Text = "R";
             this.record.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.record.Width = 27;
+            // 
+            // valor
+            // 
+            this.valor.DisplayIndex = 5;
+            this.valor.Tag = "number";
+            this.valor.Text = "Valor";
+            this.valor.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.valor.Width = 80;
             // 
             // btnReadAll
             // 
@@ -138,12 +147,9 @@
             // 
             this.contextCopy.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextCopy.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.copyNameToolStripMenuItem
-#if DEBUG
-            ,this.copyAllToolStripMenuItem
-            ,this.copyJournalToolStripMenuItem
-#endif
-            });
+            this.copyNameToolStripMenuItem,
+            this.copyAllToolStripMenuItem,
+            this.copyJournalToolStripMenuItem});
             this.contextCopy.Name = "contextCopy";
             this.contextCopy.Size = new System.Drawing.Size(263, 76);
             // 
@@ -160,7 +166,6 @@
             this.copyAllToolStripMenuItem.Size = new System.Drawing.Size(262, 24);
             this.copyAllToolStripMenuItem.Text = "Copiar toda la Línea";
             this.copyAllToolStripMenuItem.Click += new System.EventHandler(this.CopyAllToolStripMenuItem_Click);
-
             // 
             // copyJournalToolStripMenuItem
             // 
@@ -240,6 +245,7 @@
         private System.Windows.Forms.ColumnHeader record;
         private System.Windows.Forms.Label lblRecord;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ColumnHeader valor;
     }
 }
 

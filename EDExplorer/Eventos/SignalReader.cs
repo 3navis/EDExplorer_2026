@@ -30,13 +30,15 @@ namespace EDExplorer
             {
                 foreach (var signal in signalEvent.Signals.Where(signal => signal.Type == da.TipoLog))
                 {
-                    if (alertas.CumpleCriterios(da, signal.Count))
+                    alertas.valor = signal.Count;
+                    if (alertas.CumpleCriterios(da))
                     {
-                        detalle = $"{signal.Count} vetas de {signal.TypeLocalised}";
-                        Interest.Add(new Interes(signalEvent.BodyName, da.nombre, detalle, alertas.isRecord));
+                        //detalle = $"{alertas.valor} vetas de {signal.TypeLocalised}";
+                        detalle = $"vetas de {signal.TypeLocalised}";
+                        Interest.Add(new Interes(signalEvent.BodyName, da.nombre, alertas.valorST, detalle, alertas.isRecord));
 
                         if (alertas.isRecord)
-                            Interest.Add(new Interes(signalEvent.BodyName, "Record Personal", alertas.recordDesc));
+                            Interest.Add(new Interes(signalEvent.BodyName, "Record Personal", alertas.valorST, alertas.recordDesc));
                     }
                 }
             }
@@ -48,13 +50,19 @@ namespace EDExplorer
             {
                 signal = signalEvent.Signals.Where(signal => signal.Type == da.TipoLog).FirstOrDefault();
 
-                if (signal != null && alertas.CumpleCriterios(da, signal.Count))
+                if (signal != null) 
                 {
-                    detalle = $"{signal.Count} señales {signal.TypeLocalised}";
-                    Interest.Add(new Interes(signalEvent.BodyName, da.nombre, detalle, alertas.isRecord));
+                    alertas.valor = signal.Count;
 
-                    if (alertas.isRecord)
-                        Interest.Add(new Interes(signalEvent.BodyName, "Record Personal", alertas.recordDesc));
+                    if (alertas.CumpleCriterios(da))
+                    {
+                        //detalle = $"{alertas.valor} señales {signal.TypeLocalised}";
+                        detalle = $"señales {signal.TypeLocalised}";
+                        Interest.Add(new Interes(signalEvent.BodyName, da.nombre, alertas.valorST, detalle, alertas.isRecord));
+
+                        if (alertas.isRecord)
+                            Interest.Add(new Interes(signalEvent.BodyName, "Record Personal", alertas.valorST, alertas.recordDesc));
+                    }
                 }
             }
         }

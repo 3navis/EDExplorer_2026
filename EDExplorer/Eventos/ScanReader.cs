@@ -38,22 +38,21 @@ namespace EDExplorer
         {
             bool interesting = !isRing && DefaultInterest();
             
-            if (settings.VeryInteresting && Interest.Count() > 1)
-            {
-                detalle = $"{Interest.Count()} Criterios Satisfechos";
-                Interest.Add(new Interes(logMonitor.LastScan.BodyName, "Criterios Múltiples", detalle));
-            }
+            //if (settings.VeryInteresting && Interest.Count() > 1)
+            //{
+            //    detalle = $"{Interest.Count()} Criterios Satisfechos";
+            //    Interest.Add(new Interes(logMonitor.LastScan.BodyName, "Criterios Múltiples", "", detalle));
+            //}
 
             if (Interest.Count() == 0)
             {
-                Interest.Add(new Interes(logMonitor.LastScan.BodyName, "Sin Interés", string.Empty));
+                Interest.Add(new Interes(logMonitor.LastScan.BodyName, "Sin Interés", "", string.Empty));
             }
             return interesting;
         }
 
         ScanEvent scanEvent;
         DetallesAlerta da;
-        double valor;
         private bool DefaultInterest()
         {
             scanEvent = logMonitor.LastScan;
@@ -78,9 +77,9 @@ namespace EDExplorer
                 da = alertas.n[Alerta.Atmosfera];
                 if (da.flag && scanEvent.Atmosphere.Length > 0)
                 {
-                    if (alertas.CumpleCriterios(da, 0))
+                    if (alertas.CumpleCriterios(da))
                     {
-                        Interest.Add(new Interes(scanEvent.BodyName, da.nombre, string.Empty));
+                        Interest.Add(new Interes(scanEvent.BodyName, da.nombre, "", string.Empty));
                     }
                 }
 
@@ -88,20 +87,20 @@ namespace EDExplorer
                 da = alertas.n[Alerta.Anillo];
                 if (da.flag && scanEvent.Rings != null)
                 {
-                    valor = (double)scanEvent.Rings[scanEvent.Rings.Count()-1].OuterRad;
-                    valor = (valor - (double)scanEvent.Rings[0].InnerRad);
-                    valor = valor / 1000;
+                    alertas.valor = (double)scanEvent.Rings[scanEvent.Rings.Count()-1].OuterRad;
+                    alertas.valor -= (double)scanEvent.Rings[0].InnerRad;
+                    alertas.valor /= 1000;
                     //valor = (ring.OuterRad.GetValueOrDefault(0) - ring.InnerRad.GetValueOrDefault(0)) / (double)scanEvent.Radius;
                     //valor = scanEvent.Rings?.Count() ?? 0;
 
-                    if (alertas.CumpleCriterios(da, valor))
+                    if (alertas.CumpleCriterios(da))
                     {
-                        //detalle = $"{valor.ToString("0")} anillo/s";
-                        detalle = $"{valor:N0} Km anchura anillo/s";
-                        Interest.Add(new Interes(scanEvent.BodyName, da.nombre, detalle, alertas.isRecord));
+                        //detalle = $"{alertas.valor:N0} Km anchura anillo/s";
+                        detalle = "Km anchura anillo/s";
+                        Interest.Add(new Interes(scanEvent.BodyName, da.nombre, alertas.valorST, detalle, alertas.isRecord));
 
                         if (alertas.isRecord)
-                            Interest.Add(new Interes(scanEvent.BodyName, "Record Personal", alertas.recordDesc));
+                            Interest.Add(new Interes(scanEvent.BodyName, "Record Personal", alertas.valorST, alertas.recordDesc));
                     }
                 }
 
@@ -110,15 +109,16 @@ namespace EDExplorer
                 da = alertas.n[Alerta.GravedadP];
                 if (da.flag)
                 {
-                    valor = (double)scanEvent.SurfaceGravity / 9.81;
+                    alertas.valor = (double)scanEvent.SurfaceGravity / 9.81;
 
-                    if (alertas.CumpleCriterios(da, valor))
+                    if (alertas.CumpleCriterios(da))
                     {
-                        detalle = $"Gravedad en superficie: {valor:0.0000}g";
-                        Interest.Add(new Interes(scanEvent.BodyName, da.nombre, detalle, alertas.isRecord));
+                        //detalle = $"Gravedad en superficie: {alertas.valor:0.0000}g";
+                        detalle = "g Gravedad en superficie.";
+                        Interest.Add(new Interes(scanEvent.BodyName, da.nombre, alertas.valorST, detalle, alertas.isRecord));
 
                         if (alertas.isRecord)
-                            Interest.Add(new Interes(scanEvent.BodyName, "Record Personal", alertas.recordDesc));
+                            Interest.Add(new Interes(scanEvent.BodyName, "Record Personal", alertas.valorST, alertas.recordDesc));
                     }
                 }
 
@@ -126,15 +126,16 @@ namespace EDExplorer
                 da = alertas.n[Alerta.GravedadG];
                 if (da.flag)
                 {
-                    valor = (double)scanEvent.SurfaceGravity / 9.81;
+                    alertas.valor = (double)scanEvent.SurfaceGravity / 9.81;
 
-                    if (alertas.CumpleCriterios(da, valor))
+                    if (alertas.CumpleCriterios(da))
                     {
-                        detalle = $"Gravedad en superficie: {valor:0.00}g";
-                        Interest.Add(new Interes(scanEvent.BodyName, da.nombre, detalle, alertas.isRecord));
+                        //detalle = $"Gravedad en superficie: {alertas.valor:0.00}g";
+                        detalle = "g Gravedad en superficie.";
+                        Interest.Add(new Interes(scanEvent.BodyName, da.nombre, alertas.valorST, detalle, alertas.isRecord));
 
                         if (alertas.isRecord)
-                            Interest.Add(new Interes(scanEvent.BodyName, "Record Personal", alertas.recordDesc));
+                            Interest.Add(new Interes(scanEvent.BodyName, "Record Personal", alertas.valorST, alertas.recordDesc));
                     }
                 }
 
@@ -142,15 +143,16 @@ namespace EDExplorer
                 da = alertas.n[Alerta.CuerpoP];
                 if (da.flag)
                 {
-                    valor = (double)scanEvent.Radius / 1000;
+                    alertas.valor = (double)scanEvent.Radius / 1000;
 
-                    if (alertas.CumpleCriterios(da, valor))
+                    if (alertas.CumpleCriterios(da))
                     {
-                        detalle = $"Radio: {valor:0}km";
-                        Interest.Add(new Interes(scanEvent.BodyName, da.nombre, detalle, alertas.isRecord));
+                        //detalle = $"Radio: {alertas.valor:0}km";
+                        detalle = "Km de Radio.";
+                        Interest.Add(new Interes(scanEvent.BodyName, da.nombre, alertas.valorST, detalle, alertas.isRecord));
 
                         if (alertas.isRecord)
-                            Interest.Add(new Interes(scanEvent.BodyName, "Record Personal", alertas.recordDesc));
+                            Interest.Add(new Interes(scanEvent.BodyName, "Record Personal", alertas.valorST, alertas.recordDesc));
                     }
                 }
 
@@ -158,15 +160,16 @@ namespace EDExplorer
                 da = alertas.n[Alerta.CuerpoG];
                 if (da.flag)
                 {
-                    valor = (double)scanEvent.Radius / 1000;
+                    alertas.valor = (double)scanEvent.Radius / 1000;
 
-                    if (alertas.CumpleCriterios(da, valor))
+                    if (alertas.CumpleCriterios(da))
                     {
-                        detalle = $"Radio: {valor:0}km";
-                        Interest.Add(new Interes(scanEvent.BodyName, da.nombre, detalle, alertas.isRecord));
+                        //detalle = $"Radio: {alertas.valor:0}km";
+                        detalle = "Km de Radio.";
+                        Interest.Add(new Interes(scanEvent.BodyName, da.nombre, alertas.valorST, detalle, alertas.isRecord));
 
                         if (alertas.isRecord)
-                            Interest.Add(new Interes(scanEvent.BodyName, "Record Personal", alertas.recordDesc));
+                            Interest.Add(new Interes(scanEvent.BodyName, "Record Personal", alertas.valorST, alertas.recordDesc));
                     }
                 }
             }
@@ -180,7 +183,8 @@ namespace EDExplorer
                 double d = (double)scanEvent.OrbitalPeriod / 86400;
                 double g = Math.Abs((double)scanEvent.SurfaceTemperature);
                 detalle = $"{scanEvent.DistanceFromArrivalLs.ToString("0")} LS  {d.ToString("0.00")} dias  {g.ToString("0")} grados";
-                Interest.Add(new Interes(scanEvent.BodyName, da.nombre, detalle));
+                detalle = $"{scanEvent.DistanceFromArrivalLs.ToString("0")} LS  {d.ToString("0.00")} dias  {g.ToString("0")} grados";
+                Interest.Add(new Interes(scanEvent.BodyName, da.nombre, "", detalle));
             }
 
             // Nombre especial
@@ -188,7 +192,7 @@ namespace EDExplorer
             if (da.flag && !scanEvent.BodyName.Contains(logMonitor.CurrentSystem))
             {
                 detalle = "Nombre del cuerpo independiente del Sistema";
-                Interest.Add(new Interes(scanEvent.BodyName, da.nombre, detalle));
+                Interest.Add(new Interes(scanEvent.BodyName, da.nombre, "", detalle));
             }
 
             //if (scanEvent.BodyName == "Byeia Eurk CQ-X b56-1 13")
@@ -224,16 +228,17 @@ namespace EDExplorer
             {
                 foreach (Ring ring in scanEvent.Rings.Where(ring => !ring.Name.Contains("Belt")))
                 {
-                    valor = (ring.OuterRad.GetValueOrDefault(0) - ring.InnerRad.GetValueOrDefault(0)) / (double)scanEvent.Radius;
+                    alertas.valor = (ring.OuterRad.GetValueOrDefault(0) - ring.InnerRad.GetValueOrDefault(0)) / (double)scanEvent.Radius;
 
-                    if (alertas.CumpleCriterios(da, valor))
+                    if (alertas.CumpleCriterios(da))
                     {
                         // Anillo de {valor / 1000:N0}km, 
-                        detalle = $"{valor.ToString("0.0")} veces el radio del Planeta.";
-                        Interest.Add(new Interes(ring.Name, da.nombre, detalle, alertas.isRecord));
+                        //detalle = $"{alertas.valor.ToString("0.0")} veces el radio del Planeta.";
+                        detalle = "veces el radio del Planeta.";
+                        Interest.Add(new Interes(ring.Name, da.nombre, alertas.valorST, detalle, alertas.isRecord));
 
                         if (alertas.isRecord)
-                            Interest.Add(new Interes(scanEvent.BodyName, "Record Personal", alertas.recordDesc));
+                            Interest.Add(new Interes(scanEvent.BodyName, "Record Personal", alertas.valorST, alertas.recordDesc));
                     }
                 }
             }
@@ -246,31 +251,33 @@ namespace EDExplorer
                 ScanEvent parent = logMonitor.SystemBody[(logMonitor.CurrentSystem, scanEvent.Parent[0].Body)];
 
                 // Distancia entre superficies
-                valor = Math.Truncate(((double)scanEvent.SemiMajorAxis - (double)parent.Radius - (double)scanEvent.Radius) / 1000);
+                alertas.valor = Math.Truncate(((double)scanEvent.SemiMajorAxis - (double)parent.Radius - (double)scanEvent.Radius) / 1000);
 
                 //Orbita Pequeña
                 da = alertas.n[Alerta.OrbitaP];
-                if (da.flag && alertas.CumpleCriterios(da, valor))    
+                if (da.flag && alertas.CumpleCriterios(da))    
                 {
-                    detalle = $"Distancia entre superficies {valor:N0} Km";
-                    Interest.Add(new Interes(scanEvent.BodyName, da.nombre, detalle, alertas.isRecord));
+                    //detalle = $"Distancia entre superficies {alertas.valor:N0} Km";
+                    detalle = "Km de distancia entre superficies.";
+                    Interest.Add(new Interes(scanEvent.BodyName, da.nombre, alertas.valorST, detalle, alertas.isRecord));
 
                     if (alertas.isRecord)
-                        Interest.Add(new Interes(scanEvent.BodyName, "Record Personal", alertas.recordDesc));
+                        Interest.Add(new Interes(scanEvent.BodyName, "Record Personal", alertas.valorST, alertas.recordDesc));
                 }
 
                 // distancia en SL (1 SL = 299.792,36 Km)
-                valor = valor / 299792.36; 
+                alertas.valor /= 299792.36; 
 
                 //Orbita Grande
                 da = alertas.n[Alerta.OrbitaG];
-                if (da.flag && alertas.CumpleCriterios(da, valor))
+                if (da.flag && alertas.CumpleCriterios(da))
                 {
-                    detalle = $"Distancia entre superficies {valor:N0} sl";
-                    Interest.Add(new Interes(scanEvent.BodyName, da.nombre, detalle, alertas.isRecord));
+                    //detalle = $"Distancia entre superficies {alertas.valor:N0} sl";
+                    detalle = "Km de distancia entre superficies.";
+                    Interest.Add(new Interes(scanEvent.BodyName, da.nombre, alertas.valorST, detalle, alertas.isRecord));
 
                     if (alertas.isRecord)
-                        Interest.Add(new Interes(scanEvent.BodyName, "Record Personal", alertas.recordDesc));
+                        Interest.Add(new Interes(scanEvent.BodyName, "Record Personal", alertas.valorST, alertas.recordDesc));
                 }
 
                 //Luna de Pastor
@@ -285,15 +292,16 @@ namespace EDExplorer
                 {
                     foreach (var ring in parent.Rings)
                     {
-                        valor = Math.Min(Math.Abs(scanEvent.SemiMajorAxis.GetValueOrDefault(0) - (double)scanEvent.Radius - ring.OuterRad.GetValueOrDefault(0)) / 1000, Math.Abs(ring.InnerRad.GetValueOrDefault(0) - (double)scanEvent.Radius - scanEvent.SemiMajorAxis.GetValueOrDefault(0)) / 1000);
+                        alertas.valor = Math.Min(Math.Abs(scanEvent.SemiMajorAxis.GetValueOrDefault(0) - (double)scanEvent.Radius - ring.OuterRad.GetValueOrDefault(0)) / 1000, Math.Abs(ring.InnerRad.GetValueOrDefault(0) - (double)scanEvent.Radius - scanEvent.SemiMajorAxis.GetValueOrDefault(0)) / 1000);
 
-                        if (alertas.CumpleCriterios(da, valor))
+                        if (alertas.CumpleCriterios(da))
                         {
-                            detalle = $"Distancia al anillo {valor:N0} km";
-                            Interest.Add(new Interes(scanEvent.BodyName, da.nombre, detalle, alertas.isRecord));
+                            //detalle = $"Distancia al anillo {alertas.valor:N0} km";
+                            detalle = "Km de distancia al borde del anillo.";
+                            Interest.Add(new Interes(scanEvent.BodyName, da.nombre, alertas.valorST, detalle, alertas.isRecord));
 
                             if (alertas.isRecord)
-                                Interest.Add(new Interes(scanEvent.BodyName, "Record Personal", alertas.recordDesc));
+                                Interest.Add(new Interes(scanEvent.BodyName, "Record Personal", alertas.valorST, alertas.recordDesc));
                         }
                     }
                 }
@@ -306,17 +314,18 @@ namespace EDExplorer
                 var binaryPartner = logMonitor.SystemBody.Where(system => system.Key.System == logMonitor.CurrentSystem && scanEvent.Parent?[0].Body == system.Value.Parent?[0].Body && scanEvent.BodyId != system.Value.BodyId);
                 if (binaryPartner.Count() == 1)
                 {
-                    valor = (double)(binaryPartner.First().Value.SemiMajorAxis * (1 - binaryPartner.First().Value.Eccentricity) + scanEvent.SemiMajorAxis * (1 - scanEvent.Eccentricity));
-                    valor = valor - (double)(binaryPartner.First().Value.Radius - scanEvent.Radius);
-                    valor = (double)(binaryPartner.First().Value.Radius + scanEvent.Radius) / valor;
+                    alertas.valor = (double)(binaryPartner.First().Value.SemiMajorAxis * (1 - binaryPartner.First().Value.Eccentricity) + scanEvent.SemiMajorAxis * (1 - scanEvent.Eccentricity));
+                    alertas.valor = alertas.valor - (double)(binaryPartner.First().Value.Radius - scanEvent.Radius);
+                    alertas.valor = (double)(binaryPartner.First().Value.Radius + scanEvent.Radius) / alertas.valor;
 
-                    if (alertas.CumpleCriterios(da, valor))
+                    if (alertas.CumpleCriterios(da))
                     {
-                        detalle = $"Radios vs Distancia relacion: {valor.ToString("0.0")}";
-                        Interest.Add(new Interes(scanEvent.BodyName, da.nombre, detalle, alertas.isRecord));
+                        //detalle = $"Radios vs Distancia relacion: {alertas.valor.ToString("0.0")}";
+                        detalle = "relaion Radios vs Distancia.";
+                        Interest.Add(new Interes(scanEvent.BodyName, da.nombre, alertas.valorST, detalle, alertas.isRecord));
 
                         if (alertas.isRecord)
-                            Interest.Add(new Interes(scanEvent.BodyName, "Record Personal", alertas.recordDesc));
+                            Interest.Add(new Interes(scanEvent.BodyName, "Record Personal", alertas.valorST, alertas.recordDesc));
                     }
                 }
             }
@@ -331,15 +340,16 @@ namespace EDExplorer
             da = alertas.n[Alerta.RotacionR];
             if (alertas.n[Alerta.RotacionR].flag && scanEvent.RotationPeriod != null && !scanEvent.TidalLock.GetValueOrDefault(true) && !isRing)
             {
-                valor = Math.Abs((double)scanEvent.RotationPeriod / 3600);
+                alertas.valor = Math.Abs((double)scanEvent.RotationPeriod / 3600);
 
-                if (alertas.CumpleCriterios(da, valor))
+                if (alertas.CumpleCriterios(da))
                 {
-                    detalle = $"Periodo rotacional de {valor:0.0} horas";
-                    Interest.Add(new Interes(scanEvent.BodyName, da.nombre, detalle, alertas.isRecord));
+                    //detalle = $"Periodo rotacional de {alertas.valor:0.0} horas";
+                    detalle = "horas para completar una rotación.";
+                    Interest.Add(new Interes(scanEvent.BodyName, da.nombre, alertas.valorST, detalle, alertas.isRecord));
 
                     if (alertas.isRecord)
-                        Interest.Add(new Interes(scanEvent.BodyName, "Record Personal", alertas.recordDesc));
+                        Interest.Add(new Interes(scanEvent.BodyName, "Record Personal", alertas.valorST, alertas.recordDesc));
                 }
             }
 
@@ -347,15 +357,16 @@ namespace EDExplorer
             da = alertas.n[Alerta.OrbitaR];
             if (da.flag && scanEvent.OrbitalPeriod != null && !isRing)
             {
-                valor = (double)scanEvent.OrbitalPeriod / 3600;
+                alertas.valor = (double)scanEvent.OrbitalPeriod / 3600;
 
-                if (alertas.CumpleCriterios(da, valor))
+                if (alertas.CumpleCriterios(da))
                 {
-                    detalle = $"Orbita completa en {valor.ToString("0.0")} horas";
-                    Interest.Add(new Interes(scanEvent.BodyName, da.nombre, detalle, alertas.isRecord));
+                    //detalle = $"Orbita completa en {alertas.valor.ToString("0.0")} horas";
+                    detalle = "horas para completar una Orbita.";
+                    Interest.Add(new Interes(scanEvent.BodyName, da.nombre, alertas.valorST, detalle, alertas.isRecord));
 
                     if (alertas.isRecord)
-                        Interest.Add(new Interes(scanEvent.BodyName, "Record Personal", alertas.recordDesc));
+                        Interest.Add(new Interes(scanEvent.BodyName, "Record Personal", alertas.valorST, alertas.recordDesc));
                 }
             }
 
@@ -417,16 +428,17 @@ namespace EDExplorer
 
                     if (!r.Name.Contains(" Belt"))
                     {
-                        valor = (double)r.MassMT / Math.Pow(10,12);
+                        alertas.valor = (double)r.MassMT / Math.Pow(10,12);
 
-                        if (alertas.CumpleCriterios(da, valor))
+                        if (alertas.CumpleCriterios(da))
                         {
                             // Anillo de {valor / 1000:N0}km, 
-                            detalle = $"masa {valor:N2} Mt. (x10^12)";
-                            Interest.Add(new Interes(r.Name, da.nombre, detalle, alertas.isRecord));
+                            //detalle = $"masa {alertas.valor:N2} Mt. (x10^12)";
+                            detalle = "Mt. (x10^12) de masa.";
+                            Interest.Add(new Interes(r.Name, da.nombre, alertas.valorST, detalle, alertas.isRecord));
 
                             if (alertas.isRecord)
-                                Interest.Add(new Interes(r.Name, "Record Personal", alertas.recordDesc));
+                                Interest.Add(new Interes(r.Name, "Record Personal", alertas.valorST, alertas.recordDesc));
                         }
                     }
                 }

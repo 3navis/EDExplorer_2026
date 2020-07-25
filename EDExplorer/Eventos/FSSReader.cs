@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 
 namespace EDExplorer
 {
@@ -29,15 +27,16 @@ namespace EDExplorer
             da = alertas.n[Alerta.BodyCount];
             if (da.flag)
             {
-                double nCuerpos = (double)fssEvent.BodyCount;
+                alertas.valor = (double)fssEvent.BodyCount;
 
-                if (alertas.CumpleCriterios(da, nCuerpos))
+                if (alertas.CumpleCriterios(da))
                 {
-                    detalle = $"{nCuerpos} cuerpos en el sistema. ({fssEvent.NonBodyCount} otros)";
-                    Interest.Add(new Interes(fssEvent.SystemName, da.nombre, detalle, alertas.isRecord));
+                    //detalle = $"{alertas.valor} cuerpos en el sistema. ({fssEvent.NonBodyCount} otros)";
+                    detalle = $"cuerpos en el sistema. ({fssEvent.NonBodyCount} otros)";
+                    Interest.Add(new Interes(fssEvent.SystemName, da.nombre, alertas.valorST, detalle, alertas.isRecord));
 
                     if (alertas.isRecord)
-                        Interest.Add(new Interes(fssEvent.SystemName, "Record Personal", alertas.recordDesc));
+                        Interest.Add(new Interes(fssEvent.SystemName, "Record Personal", alertas.valorST, alertas.recordDesc));
                 }
             }
             //////////////////////////

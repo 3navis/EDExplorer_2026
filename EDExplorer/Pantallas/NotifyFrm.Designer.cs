@@ -35,7 +35,7 @@ namespace EDExplorer
             this.image = new System.Windows.Forms.PictureBox();
             this.lblTick = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.image)).BeginInit();
             this.SuspendLayout();
             // 
@@ -88,15 +88,15 @@ namespace EDExplorer
             this.lblTitulo.TabIndex = 4;
             this.lblTitulo.Text = "TITULO";
             // 
-            // groupBox1
+            // progressBar1
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.MidnightBlue;
-            this.groupBox1.ForeColor = System.Drawing.Color.Lime;
-            this.groupBox1.Location = new System.Drawing.Point(-10, -7);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(305, 37);
-            this.groupBox1.TabIndex = 5;
-            this.groupBox1.TabStop = false;
+            this.progressBar1.ForeColor = System.Drawing.Color.Blue;
+            this.progressBar1.Location = new System.Drawing.Point(-8, 28);
+            this.progressBar1.Margin = new System.Windows.Forms.Padding(0);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(300, 2);
+            this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.progressBar1.TabIndex = 5;
             // 
             // NotifyFrm
             // 
@@ -104,11 +104,11 @@ namespace EDExplorer
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.MidnightBlue;
             this.ClientSize = new System.Drawing.Size(284, 113);
-            this.Controls.Add(this.lblTitulo);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.lblTick);
             this.Controls.Add(this.image);
             this.Controls.Add(this.lblText);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.lblTitulo);
             this.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Gold;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -132,6 +132,6 @@ namespace EDExplorer
         private System.Windows.Forms.PictureBox image;
         private Label lblTick;
         private Label lblTitulo;
-        private GroupBox groupBox1;
+        private ProgressBar progressBar1;
     }
 }

@@ -121,7 +121,7 @@ namespace EDExplorer
         private readonly Properties.Settings settings = Properties.Settings.Default;
         public Alertas()
         {
-            settings.vAlertasNew = "v1.04.036";
+            settings.vAlertasNew = "v1.04.037";
 
             if (settings.vAlertas != settings.vAlertasNew)
             {

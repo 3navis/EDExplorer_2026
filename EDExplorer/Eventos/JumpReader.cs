@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Media.Animation;
 
 namespace EDExplorer
 {
@@ -59,6 +60,21 @@ namespace EDExplorer
                     detalle = "saltos acumulados.";
                     Interest.Add(new Interes(jumpEvent.StarSystem, da.nombre, alertas.valorST, detalle, false));
                     logMonitor.numeroJump = 0;
+                }
+            }
+
+            // Poblacion
+            da = alertas.n[Alerta.Poblacion];
+            if (da.flag)
+            {
+                alertas.valor = jumpEvent.Population / Math.Pow(10,6);
+                //alertas.valor = jumpEvent.Population;
+
+                if (alertas.CumpleCriterios(da))
+                {
+                    //detalle = $"{alertas.valor:N0} saltos acumulados.";
+                    detalle = "M habitantes.";
+                    Interest.Add(new Interes(jumpEvent.StarSystem, da.nombre, alertas.valorST, detalle, false));
                 }
             }
 

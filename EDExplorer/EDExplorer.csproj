@@ -165,6 +165,7 @@
     <Compile Include="Eventos\ScanReader.cs" />
     <Compile Include="Eventos\SignalReader.cs" />
     <Compile Include="Eventos\JumpReader.cs" />
+    <Compile Include="StatusMonitor.cs" />
     <EmbeddedResource Include="Pantallas\NotifyFormBack.resx">
       <DependentUpon>NotifyFormBack.cs</DependentUpon>
     </EmbeddedResource>

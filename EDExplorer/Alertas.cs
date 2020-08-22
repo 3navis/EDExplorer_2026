@@ -52,7 +52,8 @@ namespace EDExplorer
         Alejandrita, Grandidierita, Monacita, Rhodplumsita, 
         Geological, Biological, Human, Guardian, Thargoid,
         BodyCount,
-        DistanciaStart, DistanciaSol, AcumuladoJump, NumeroJump
+        DistanciaStart, DistanciaSol, AcumuladoJump, NumeroJump,
+        Poblacion
     }
     public enum TipoParametro
     {
@@ -107,8 +108,8 @@ namespace EDExplorer
             }
             else if (D > H)
             {
-                desde = -D;
-                hasta = -H;
+                desde = H;
+                hasta = D;
                 tipoParam = TipoParametro.RangoExcluido;
             }
             else
@@ -167,7 +168,7 @@ namespace EDExplorer
             //try { n.Add(Alerta.Grado5,          new DetallesAlerta(TipoEvento.Scan, "Grado 5", "Materiales de Grado 5", 0, 0, "material")); } catch { }
             try { n.Add(Alerta.NombreEspecial,  new DetallesAlerta(TipoEvento.Scan, "Nombre Especial", "Nombre Especial", 0, 0, -1, "")); } catch { }
             // Criterios multiples
-            try { n.Add(Alerta.Crematoria,      new DetallesAlerta(TipoEvento.Scan, "Crematoria", "CREMATORIA", 0.5, 0, 2, "dias (rotacion <)")); } catch { }
+            try { n.Add(Alerta.Crematoria,      new DetallesAlerta(TipoEvento.Scan, "Crematoria", "CREMATORIA", 0, 0.5, 2, "dias rotación")); } catch { }
             //try { n.Add(Alerta.Pastor, new DetallesAlerta(true, "Luna Pastor", "Luna de Pastor", 0, "")); } catch { }
             //try { n.Add(Alerta.Anidada, new DetallesAlerta(true, "Luna Anidada", "Luna Anidada", 0, "")); } catch { }
             try { n.Add(Alerta.RotacionR,       new DetallesAlerta(TipoEvento.Scan, "Rotación Rápida", "Rotación Rápida", 0, 5, 1, "horas rotación")); } catch { }
@@ -177,6 +178,7 @@ namespace EDExplorer
             try { n.Add(Alerta.Binario,         new DetallesAlerta(TipoEvento.Scan, "Binaria Cercana", "Binaria Cercana", 0.5, 0, 2, "radios vs distancia")); } catch { }
             try { n.Add(Alerta.AnilloP,         new DetallesAlerta(TipoEvento.Scan, "Anillo Próximo", "Próximo al Anillo", 0, 500, 0, "km separacion")); } catch { }
 
+            // Diferentes tipos de Anillo (eliminado Belt)
             try { n.Add(Alerta.AnilloIcy,       new DetallesAlerta(TipoEvento.Scan, "Anillo Helado", "Anillo Helado", -1, 0, 4, "Mt masa (x10^12)")); } catch { }
             try { n.Add(Alerta.AnilloRock,      new DetallesAlerta(TipoEvento.Scan, "Anillo Rocoso", "Anillo Rocoso", -1, 0, 4, "Mt masa (x10^12)")); } catch { }
             try { n.Add(Alerta.AnilloMetal,     new DetallesAlerta(TipoEvento.Scan, "Anillo Metálico", "Anillo Metálico", -1, 0, 4, "Mt masa (x10^12)")); } catch { }
@@ -195,17 +197,19 @@ namespace EDExplorer
             try { n.Add(Alerta.Grandidierita,   new DetallesAlerta(TipoEvento.Signal, "Veta Monacita", "Veta Monacita", 1, 0, 0, "número vetas", "Monazite")); } catch { }
             try { n.Add(Alerta.Rhodplumsita,    new DetallesAlerta(TipoEvento.Signal, "Veta Rhodplumsita", "Veta Rhodplumsita", 1, 0, 0, "número vetas", "Rhodplumsite")); } catch { }
             
-            try { n.Add(Alerta.Geological,      new DetallesAlerta(TipoEvento.Signal, "Geológica", "Geológica", 1, 0, 0, "número señales", "$SAA_SignalType_Geological;")); } catch { }
-            try { n.Add(Alerta.Biological,      new DetallesAlerta(TipoEvento.Signal, "Biológica", "Biológica", 1, 0, 0, "número señales", "$SAA_SignalType_Biological;")); } catch { }
-            try { n.Add(Alerta.Human,           new DetallesAlerta(TipoEvento.Signal, "Humana", "Humana", 1, 0, 0, "número señales", "$SAA_SignalType_Human;")); } catch { }
-            try { n.Add(Alerta.Guardian,        new DetallesAlerta(TipoEvento.Signal, "Guardian", "Guardian", 1, 0, 0, "número señales", "$SAA_SignalType_Guardian;")); } catch { }
-            try { n.Add(Alerta.Thargoid,        new DetallesAlerta(TipoEvento.Signal, "Thargoide", "Thargoide", 1, 0, 0, "número señales", "$SAA_SignalType_Thargoid;")); } catch { }
+            try { n.Add(Alerta.Geological,      new DetallesAlerta(TipoEvento.Signal, "Señal Geológica", "Geológica", 1, 0, 0, "número señales", "$SAA_SignalType_Geological;")); } catch { }
+            try { n.Add(Alerta.Biological,      new DetallesAlerta(TipoEvento.Signal, "Señal Biológica", "Biológica", 1, 0, 0, "número señales", "$SAA_SignalType_Biological;")); } catch { }
+            try { n.Add(Alerta.Human,           new DetallesAlerta(TipoEvento.Signal, "Señal Humana", "Humana", 1, 0, 0, "número señales", "$SAA_SignalType_Human;")); } catch { }
+            try { n.Add(Alerta.Guardian,        new DetallesAlerta(TipoEvento.Signal, "Señal Guardian", "Guardian", 1, 0, 0, "número señales", "$SAA_SignalType_Guardian;")); } catch { }
+            try { n.Add(Alerta.Thargoid,        new DetallesAlerta(TipoEvento.Signal, "Señal Thargoide", "Thargoide", 1, 0, 0, "número señales", "$SAA_SignalType_Thargoid;")); } catch { }
+            
             // FSS
             try { n.Add(Alerta.BodyCount,       new DetallesAlerta(TipoEvento.FSS, "FSS Cuerpos", "Número de Cuerpos", 20, 0, 0, "cuerpos")); } catch { }
             // Ejes de Coordenadas
  //           try { n.Add(Alerta.DistanciaStart,  new DetallesAlerta(TipoEvento.Jump, "Alejado", "Distancia Alejada", 10, 0, "al separación")); } catch { }
-            try { n.Add(Alerta.AcumuladoJump, new DetallesAlerta(TipoEvento.Jump, "Acumulado", "Mostrar Resumen", 1000, 0, 0, "al acumulados")); } catch { }
-            try { n.Add(Alerta.NumeroJump, new DetallesAlerta(TipoEvento.Jump, "Saltos", "Mostrar Resumen", 10, 0, 0, "saltos acumulados")); } catch { }
+            try { n.Add(Alerta.AcumuladoJump,   new DetallesAlerta(TipoEvento.Jump, "Acumulado", "Mostrar Resumen", 1000, 0, 0, "al acumulados")); } catch { }
+            try { n.Add(Alerta.NumeroJump,      new DetallesAlerta(TipoEvento.Jump, "Saltos", "Mostrar Resumen", 10, 0, 0, "saltos acumulados")); } catch { }
+            try { n.Add(Alerta.Poblacion,       new DetallesAlerta(TipoEvento.Jump, "Poblacion", "Poblacion", 1, 0, 2, "M habitantes")); } catch { }
         }
 
         //public Dictionary<Alerta, DetallesAlerta> n;

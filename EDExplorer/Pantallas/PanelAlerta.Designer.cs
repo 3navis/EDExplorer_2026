@@ -42,7 +42,7 @@
             // 
             this.labelUnidades.AutoSize = true;
             this.labelUnidades.ForeColor = System.Drawing.Color.Black;
-            this.labelUnidades.Location = new System.Drawing.Point(379, 5);
+            this.labelUnidades.Location = new System.Drawing.Point(592, 5);
             this.labelUnidades.Name = "labelUnidades";
             this.labelUnidades.Size = new System.Drawing.Size(74, 17);
             this.labelUnidades.TabIndex = 41;
@@ -51,7 +51,7 @@
             // textDesde
             // 
             this.textDesde.ForeColor = System.Drawing.Color.Black;
-            this.textDesde.Location = new System.Drawing.Point(510, 1);
+            this.textDesde.Location = new System.Drawing.Point(387, 1);
             this.textDesde.Name = "textDesde";
             this.textDesde.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.textDesde.Size = new System.Drawing.Size(68, 22);
@@ -80,7 +80,7 @@
             // textHasta
             // 
             this.textHasta.ForeColor = System.Drawing.Color.Black;
-            this.textHasta.Location = new System.Drawing.Point(637, 1);
+            this.textHasta.Location = new System.Drawing.Point(514, 1);
             this.textHasta.Name = "textHasta";
             this.textHasta.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.textHasta.Size = new System.Drawing.Size(68, 22);
@@ -90,7 +90,7 @@
             // picIncluir
             // 
             this.picIncluir.Image = ((System.Drawing.Image)(resources.GetObject("picIncluir.Image")));
-            this.picIncluir.Location = new System.Drawing.Point(584, 0);
+            this.picIncluir.Location = new System.Drawing.Point(461, 0);
             this.picIncluir.Name = "picIncluir";
             this.picIncluir.Size = new System.Drawing.Size(48, 22);
             this.picIncluir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -110,7 +110,7 @@
             this.Controls.Add(this.textAlerta);
             this.Controls.Add(this.checkAlerta);
             this.Name = "PanelAlerta";
-            this.Size = new System.Drawing.Size(711, 26);
+            this.Size = new System.Drawing.Size(782, 26);
             ((System.ComponentModel.ISupportInitialize)(this.picIncluir)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

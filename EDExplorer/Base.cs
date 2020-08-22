@@ -23,7 +23,8 @@ namespace EDExplorer
         public ConfiguracionFrm configuracionFrm;
         public EDExplorerFrm edexplorerFrm;
         public FontElite fontElite;
-//        public NotifyFrm notifyFrm;
+        //        public NotifyFrm notifyFrm;
+        public StatusMonitor statusMonitor;
 
         public Base()
         {
@@ -37,10 +38,18 @@ namespace EDExplorer
             fontElite = new FontElite();       
             
             ActivarAudio();
+
+            statusMonitor = new StatusMonitor();
+            statusMonitor.StatusEntry += StatusEvent;
+            statusMonitor.MonitorStart();
         }
         ~Base()
         { // Destuctor del codigo
   //          this.Dispose(false);
+        }
+
+        private void StatusEvent(object source, EventArgs e)
+        {
         }
 
         private void LogEvent(object source, EventArgs e)

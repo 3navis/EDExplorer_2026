@@ -39,7 +39,7 @@ namespace EDExplorer
                 while (Running)
                 {
                     // 120 ticks entre 4 (250mls cada tick. 4 ticks por segundo) son 30s
-                    if (fileToPoke == null || nTicks > 120)
+                    if (fileToPoke == null || nTicks > 200)
                     {
                         fileToPoke = directoryInfo.GetFiles(JournalNameMask)
  //                           .Where(f => f.CreationTime >= DateTime.Today.AddDays(-10))

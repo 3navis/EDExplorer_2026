@@ -23,6 +23,7 @@ namespace EDExplorer
         public int sesion_numeroJump = 0;
         private string currentBody;
         public DateTime currentTime;
+        public DateTime session_Time = DateTime.Now;
         public string CurrentLogPath { get; private set; }
         public string CurrentLogLine { get; private set; }
         public int bytesRead { get; private set; }
@@ -227,17 +228,6 @@ namespace EDExplorer
                             bytesRead += linea.Length + newLineBytes;
                         }
                     }
-                    //////////////////////////////////////////////////////////////////////////////
-                    //using (StreamReader currentLog = new StreamReader(File.Open(CurrentLogPath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite)))
-                    //{
-                    //    // Primero salta las lineas ya procesadas anteriormente
-                    //    for (int n = 0; !currentLog.EndOfStream && n < LastLineProcessed; n++)
-                    //    { currentLog.ReadLine(); }
-
-                    //    // Segundo actualiza la posicion con las nuevas lineas leidas del fichero
-                    //    for (LinesToProcess = new List<string>(); !currentLog.EndOfStream; LastLineProcessed++)
-                    //    { LinesToProcess.Add(currentLog.ReadLine()); }
-                    //}
 
                     foreach (string line in LinesToProcess)
                         ProcessEvent(line);
@@ -251,17 +241,12 @@ namespace EDExplorer
 
         private void ProcessEvent(string logLine)
         {
-            //if (logLine.Trim().StartsWith("{") && logLine.Trim().EndsWith("}"))
-            //{
-            //    if (true) // modo exploracion
-            //    {
-
             /////////////////////////////////////////////////////////
             /// Esta funcion se utiliza para verificar que existe un
             /// evento procesable, antes de empezar a manipularlo.
             /// Sirve para optimizar velocidad del procesado.
 
-            // Parece ser que en algunos casos las lineas estan incompletas
+            // Proteccion contra lineas incompletas
             if (logLine.Trim().StartsWith("{") && logLine.Trim().EndsWith("}"))
             {
                 int pa = logLine.IndexOf("\"event\":");
@@ -361,13 +346,12 @@ namespace EDExplorer
                         break;
                 }
 
-                //if (LastScanValid || LastSignalValid || LastCodexValid || LastFSSValid)
                 if (tipoEvento != TipoEvento.None)
                 {
-                    //////////////////////////////////////////////////////////////////////////////////
+                    /////////////////////////////////////////
                     EventHandler entry = LogEntry;
                     entry?.Invoke(this, EventArgs.Empty); // => Base.LogEvent
-                                                          //////////////////////////////////////////////////////////////////////////////////
+                    ////////////////////////////////////////
                 }
 
             }

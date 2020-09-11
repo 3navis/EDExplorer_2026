@@ -141,7 +141,7 @@ namespace EDExplorer
             string evento;
 
             // Proteccion contra lineas incompletas
-            if (logLine.Trim().StartsWith("{") && logLine.Trim().EndsWith("}"))
+            if (logLine != null && logLine.Trim().StartsWith("{") && logLine.Trim().EndsWith("}"))
             {
                 ProcessLine(logLine);
             }

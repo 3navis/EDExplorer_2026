@@ -121,7 +121,7 @@ namespace EDExplorer
         private readonly Properties.Settings settings = Properties.Settings.Default;
         public Alertas()
         {
-            settings.vAlertasNew = "v1.04.037";
+            settings.vAlertasNew = "v1.04.038";
 
             if (settings.vAlertas != settings.vAlertasNew)
             {
@@ -185,7 +185,7 @@ namespace EDExplorer
             try { n.Add(Alerta.AnilloMetalRich, new DetallesAlerta(TipoEvento.Scan, "Anillo Met. Rich", "Anillo Metálico R", -1, 0, 4, "Mt masa (x10^12)")); } catch { }
 
             // Señales
-            try { n.Add(Alerta.Tritio,          new DetallesAlerta(TipoEvento.Signal, "Veta Tritio", "Veta Tritio", 1, 0, 0, "número vetas", "Tritium")); } catch { }
+            try { n.Add(Alerta.Tritio,          new DetallesAlerta(TipoEvento.Signal, "Veta Tritio", "Veta Tritio", 1, 0, 0, "número vetas", "tritium")); } catch { }
             try { n.Add(Alerta.LTD,             new DetallesAlerta(TipoEvento.Signal, "Veta LTD", "Veta LTD", 1, 0, 0, "número vetas", "LowTemperatureDiamond")); } catch { }
             try { n.Add(Alerta.Opal,            new DetallesAlerta(TipoEvento.Signal, "Veta Ópalos", "Veta Ópalos", 1, 0, 0, "número vetas", "Opal")); } catch { }
             try { n.Add(Alerta.Painita,         new DetallesAlerta(TipoEvento.Signal, "Veta Painíta", "Veta Painíta", 1, 0, 0, "número vetas", "Painite")); } catch { }

@@ -95,6 +95,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="About\UserAbout.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="About\UserAbout.Designer.cs">
+      <DependentUpon>UserAbout.cs</DependentUpon>
+    </Compile>
     <Compile Include="Alertas.cs" />
     <Compile Include="Agente\ClickOnceAutorunManager.cs" />
     <Compile Include="Agente\TrayIconController.cs" />
@@ -116,6 +122,12 @@
     <Compile Include="Eventos\Scan.cs" />
     <Compile Include="JournalPoker.cs" />
     <Compile Include="Eventos\Materials.cs" />
+    <Compile Include="About\AboutFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="About\AboutFrm.Designer.cs">
+      <DependentUpon>AboutFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pantallas\NotifyFormBack.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,6 +178,12 @@
     <Compile Include="Eventos\SignalReader.cs" />
     <Compile Include="Eventos\JumpReader.cs" />
     <Compile Include="StatusMonitor.cs" />
+    <EmbeddedResource Include="About\AboutFrm.resx">
+      <DependentUpon>AboutFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="About\UserAbout.resx">
+      <DependentUpon>UserAbout.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\NotifyFormBack.resx">
       <DependentUpon>NotifyFormBack.cs</DependentUpon>
     </EmbeddedResource>

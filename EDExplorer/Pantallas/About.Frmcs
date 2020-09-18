@@ -295,11 +295,12 @@ namespace EDExplorer
             //t.Wait();
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        protected override void OnPaint(PaintEventArgs e)
         {
-            AboutFrm aboutFrm;
-            aboutFrm = new AboutFrm();
-            aboutFrm.Show();
+            Graphics g = e.Graphics;
+            Pen pen = new Pen(Color.Green, 1);
+
+            g.DrawLine(pen, 1,1, 100,100);
         }
     }
 }

@@ -182,7 +182,7 @@ namespace EDExplorer
             try { n.Add(Alerta.AnilloIcy,       new DetallesAlerta(TipoEvento.Scan, "Anillo Helado", "Anillo Helado", -1, 0, 4, "Mt masa (x10^12)")); } catch { }
             try { n.Add(Alerta.AnilloRock,      new DetallesAlerta(TipoEvento.Scan, "Anillo Rocoso", "Anillo Rocoso", -1, 0, 4, "Mt masa (x10^12)")); } catch { }
             try { n.Add(Alerta.AnilloMetal,     new DetallesAlerta(TipoEvento.Scan, "Anillo Metálico", "Anillo Metálico", -1, 0, 4, "Mt masa (x10^12)")); } catch { }
-            try { n.Add(Alerta.AnilloMetalRich, new DetallesAlerta(TipoEvento.Scan, "Anillo Met. Rich", "Anillo Metálico R", -1, 0, 4, "Mt masa (x10^12)")); } catch { }
+            try { n.Add(Alerta.AnilloMetalRich, new DetallesAlerta(TipoEvento.Scan, "Anillo Rico Metal", "Anillo Rico en Metal", -1, 0, 4, "Mt masa (x10^12)")); } catch { }
 
             // Señales
             try { n.Add(Alerta.Tritio,          new DetallesAlerta(TipoEvento.Signal, "Veta Tritio", "Veta Tritio", 1, 0, 0, "número vetas", "tritium")); } catch { }

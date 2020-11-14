@@ -14,65 +14,48 @@ namespace EDExplorer.Pantallas
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            //f_Main();
         }
 
-        protected override void OnPaint(PaintEventArgs e)
+        void Dibujar3(System.Windows.Forms.PictureBox pb, PointF[,] t)
         {
-            Graphics g = e.Graphics;
-
-            Main(g);
-        }
-
-        Boolean flgDirect = true;
-
-        void Dibujar(Graphics g, PointF[,] t)
-        {
-            int j, k, l;
-            Pen pen = new Pen(Color.Green, 1);
-            l = t.GetLength(1) - 1;
-
-            for (j = 0; j < l; j++)
-            {
-                for (k = 0; k <= j; k++)
-                {
-                    g.DrawLine(pen, t[j, k].X, t[j, k].Y, t[j + 1, k].X, t[j + 1, k].Y);
-                    g.DrawLine(pen, t[j, k].X, t[j, k].Y, t[j + 1, k + 1].X, t[j + 1, k + 1].Y);
-                    g.DrawLine(pen, t[j + 1, k].X, t[j + 1, k].Y, t[j + 1, k + 1].X, t[j + 1, k + 1].Y);
-                }
-
-            }
-        }
-
-        void Dibujar2(Graphics g, PointF[,] t)
-        {
-            int j, k, l;
             GraphicsPath path = new GraphicsPath(); ;
-            Pen pen = new Pen(Color.Green, 1);
+            int j, k, l;
             l = t.GetLength(1) - 1;
 
             for (j = 0; j < l; j++)
             {
                 for (k = 0; k <= j; k++)
                 {
-                    path.AddLine(t[j+1, k], t[j, k]);
+                    path.AddLine(t[j + 1, k], t[j, k]);
                     path.AddLine(t[j, k], t[j + 1, k + 1]);
                 }
-                for (k = j; k > 0; k--)
+                for (k = j; k >= 0; k--)
                 {
-                    path.AddLine(t[j+1, k+1], t[j + 1, k]);
+                    path.AddLine(t[j + 1, k + 1], t[j + 1, k]);
                 }
             }
 
-            g.DrawPath(pen, path);
-        }
+            //////////////////////////////////////////////////////////
+            Graphics g;
+            float ex, ey;
 
-        float ValorM(float a, float b)
-        {
-            float c;
-            if (a > b) { c = a; a = b; b = c; }
-            c = rnd.Next(0, (int)(b - a)) + a;
-            return c;
+            g = pb.CreateGraphics();
+
+            g.SmoothingMode = SmoothingMode.AntiAlias;
+            g.InterpolationMode = InterpolationMode.HighQualityBicubic;
+            g.PixelOffsetMode = PixelOffsetMode.HighQuality;
+
+            ex = pb.Size.Width / 1000f;
+            ey = pb.Size.Height / 1000f;
+
+            Matrix myMatrix = new Matrix();
+            myMatrix.Scale(ex, ey);
+            g.Transform = myMatrix;
+
+            Pen pen = new Pen(Color.Green, 1);
+            
+            g.DrawPath(pen, path);
         }
 
         float ValorM2(float a, float b, float ff)
@@ -100,7 +83,7 @@ namespace EDExplorer.Pantallas
             return pm;
         }
 
-        Random rnd = new Random();
+        readonly Random rnd = new Random();
 
         PointF Rnd(PointF p, int n)
         {
@@ -113,8 +96,8 @@ namespace EDExplorer.Pantallas
 
             return p;
         }
-
-        void Main(Graphics g)
+        
+        void f_Main()
         {
             PointF[,] p1, p2;
 
@@ -122,9 +105,9 @@ namespace EDExplorer.Pantallas
             p1 = new PointF[n, n];
             p2 = new PointF[n, n];
 
-            p2[0, 0] = new PointF(200, 20);
-            p2[1, 0] = new PointF(30, 300);
-            p2[1, 1] = new PointF(400, 300);
+            p2[0, 0] = new PointF(1000 / 2, 50);
+            p2[1, 0] = new PointF(50, 1000 - 3*50);
+            p2[1, 1] = new PointF(1000 - 50, 1000 - 3*50);
 
             int j, k, j2, k2;
             int prof = 7;
@@ -155,15 +138,24 @@ namespace EDExplorer.Pantallas
 
                     }
                 }
+
+                switch (i)
+                {
+                    case 1: Dibujar3(paso1, p2); break;
+                    case 2: Dibujar3(paso2, p2); break;
+                    case 3: Dibujar3(paso3, p2); break;
+                    default: break;
+                }
             }
 
-            if (flgDirect) Dibujar2(g, p2);
-            else Dibujar(g, p2);
+            Dibujar3(frmLienzo, p2);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             Refresh();
+
+            f_Main();
         }
     }
 }

@@ -49,17 +49,17 @@ namespace EDExplorer
     {
         private readonly FileSystemWatcher statusWatcher;
         public string CurrentLogPath { get; private set; }
-        private string LogDirectory;
+        private string StatusDirectory;
         private string StatusName = "Status.json";
         public StatusMonitor()
         {
-            LogDirectory = Properties.Settings.Default.JournalPath;
+            StatusDirectory = Properties.Settings.Default.JournalPath;
             //LogDirectory = CheckLogPath();
             //Properties.Settings.Default.JournalPath = LogDirectory;
             //Properties.Settings.Default.Save();
 
             // Examina cambios producidos en el directorio indicado
-            statusWatcher = new FileSystemWatcher(LogDirectory, StatusName)
+            statusWatcher = new FileSystemWatcher(StatusDirectory, StatusName)
             {
                 NotifyFilter = NotifyFilters.LastWrite | NotifyFilters.Size | NotifyFilters.FileName
             };
@@ -88,8 +88,8 @@ namespace EDExplorer
 
         private string CheckLogPath()
         {
-            LogDirectory = string.IsNullOrEmpty(LogDirectory) ? Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Saved Games\\Frontier Developments\\Elite Dangerous" : LogDirectory;
-            if (!Directory.Exists(LogDirectory) || new DirectoryInfo(LogDirectory).GetFiles(Properties.Settings.Default.JournalName).Count() == 0)
+            StatusDirectory = string.IsNullOrEmpty(StatusDirectory) ? Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Saved Games\\Frontier Developments\\Elite Dangerous" : StatusDirectory;
+            if (!Directory.Exists(StatusDirectory) || new DirectoryInfo(StatusDirectory).GetFiles(Properties.Settings.Default.JournalName).Count() == 0)
             {
                 FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog
                 {
@@ -100,10 +100,10 @@ namespace EDExplorer
                 DialogResult result = folderBrowserDialog.ShowDialog();
                 if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(folderBrowserDialog.SelectedPath))
                 {
-                    LogDirectory = folderBrowserDialog.SelectedPath;
+                    StatusDirectory = folderBrowserDialog.SelectedPath;
                 }
             }
-            return LogDirectory;
+            return StatusDirectory;
         }
 
         private void StatusChanged(object source, FileSystemEventArgs e)

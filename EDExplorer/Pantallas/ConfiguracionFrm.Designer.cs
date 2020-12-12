@@ -52,13 +52,13 @@
             this.button1 = new System.Windows.Forms.Button();
             this.trackBar_Transparencia = new System.Windows.Forms.TrackBar();
             this.tabOculta = new System.Windows.Forms.TabPage();
+            this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.lblPos = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.buttonAceptar = new System.Windows.Forms.Button();
             this.buttonCancelar = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
             this.groupBox_misc.SuspendLayout();
             this.groupBox_TTS.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_Volume)).BeginInit();
@@ -362,6 +362,17 @@
             this.tabOculta.TabIndex = 0;
             this.tabOculta.Text = "Exploración (old)";
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(464, 171);
+            this.button5.Margin = new System.Windows.Forms.Padding(4);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(64, 28);
+            this.button5.TabIndex = 26;
+            this.button5.Text = "About";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // button4
             // 
             this.button4.Location = new System.Drawing.Point(464, 107);
@@ -430,17 +441,6 @@
             this.button3.Text = "Aplicar";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(391, 176);
-            this.button5.Margin = new System.Windows.Forms.Padding(4);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(64, 28);
-            this.button5.TabIndex = 26;
-            this.button5.Text = "About";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // ConfiguracionFrm
             // 

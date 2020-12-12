@@ -102,7 +102,7 @@
             this.Controls.Add(this.frmLienzo);
             this.Controls.Add(this.button1);
             this.Name = "AboutFrm";
-            this.Text = "Form1";
+            this.Text = "Desarrollado por 3navis";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.frmLienzo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.paso1)).EndInit();

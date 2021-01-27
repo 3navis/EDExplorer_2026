@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Speech.Synthesis;
-using System.Text;
 using System.Drawing.Text;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
+using System.Speech.Synthesis;
+using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -25,8 +25,7 @@ namespace EDExplorer
         public FontElite fontElite;
         //        public NotifyFrm notifyFrm;
         public StatusMonitor statusMonitor;
-        //public SQLBase sqlBase;
-
+        
         public Base()
         {
             alertas = new Alertas();
@@ -44,7 +43,7 @@ namespace EDExplorer
             statusMonitor.StatusEntry += StatusEvent;
             //statusMonitor.MonitorStart();
 
-            //SQLBase.Up();
+            SQLBase.Up();
         }
         ~Base()
         { // Destuctor del codigo

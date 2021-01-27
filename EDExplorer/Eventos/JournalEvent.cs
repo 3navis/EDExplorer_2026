@@ -1,8 +1,8 @@
 ﻿namespace EDExplorer
 {
-    using System;
     using Newtonsoft.Json;
     using Newtonsoft.Json.Linq;
+    using System;
 
     public class JournalEvent
     {

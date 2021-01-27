@@ -1,10 +1,5 @@
-﻿//using System.Data.SQLite;
-using System;
+﻿using System.Data.SQLite;
 using System.IO;
-using System.Linq;
-using System.Windows.Forms;
-using Microsoft.Data.Sqlite;
-//using Microsoft.Data.SQLite;
 
 // CREATE TABLE Systems (edsmid INTEGER PRIMARY KEY NOT NULL , sectorid INTEGER, nameid INTEGER, x INTEGER, y INTEGER, z INTEGER)
 // CREATE TABLE JournalEntries ( Id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,TravelLogId INTEGER NOT NULL REFERENCES TravelLogUnit(Id), CommanderId INTEGER NOT NULL DEFAULT 0,EventTypeId INTEGER NOT NULL, EventType TEXT, EventTime DATETIME NOT NULL, EventData TEXT, EdsmId INTEGER, Synced INTEGER )
@@ -16,54 +11,100 @@ namespace EDExplorer
     {
         private const string DBName = "EDExplorer.sqlite";
         private static bool IsDbRecentlyCreated = false;
-        private static SqliteConnection ctx;
-        
+        private static SQLiteConnection con;
+        private SQLiteCommand command;
+        private string sql;
 
         public static void Up()
         {
+            var type = typeof(System.Data.Entity.SqlServer.SqlProviderServices);
+
             // Crea la base de datos y registra usuario solo una vez
             if (!File.Exists(Path.GetFullPath(DBName)))
             {
-                //SqliteConnection.CreateFile(DBName);
+                SQLiteConnection.CreateFile(DBName);
                 IsDbRecentlyCreated = true;
             }
 
-            ctx = GetInstance();
-            //using (var ctx = GetInstance())
+            con = GetInstance();
+            //using (var con = GetInstance())
             //{
             if (IsDbRecentlyCreated)
             {
-                string sql = "create table FileLog (filename varchar(200))";
+                ExecuteSQL("create table FileLog (filename varchar(200))");
+                ExecuteSQL("CREATE UNIQUE INDEX[IDX_FILELOG_] ON [FileLog]([filename])");
 
-                SqliteCommand command = new SqliteCommand(sql, ctx);
-                command.ExecuteNonQuery();
+                ExecuteSQL("CREATE TABLE Sistema (Id INTEGER NOT NULL PRIMARY KEY, Nombre varchar(200))");
+                ExecuteSQL("CREATE TABLE Cuerpo (Id INTEGER NOT NULL PRIMARY KEY, Nombre varchar(200))");
 
-                sql = "CREATE UNIQUE INDEX[IDX_FILELOG_] ON [FileLog]([filename])";
-
-                command = new SqliteCommand(sql, ctx);
-                command.ExecuteNonQuery();
-            }
-
-            for (var i = 1; i <= 100; i++)
-            {
-                var query = "INSERT INTO FileLog (filename) VALUES (?)";
-
-                using (var comando = new SqliteCommand(query, ctx))
-                {
-                    comando.Parameters.Add(new SqliteParameter("filename", "Name " + i));
-                    //comando.ExecuteNonQuery();
-                }
+                AddSystem(1, "Tierra");
+                AddSystem(2, "Sol");
             }
         }
 
-        public static SqliteConnection GetInstance()
+        public static SQLiteConnection GetInstance()
         {
-            var db = new SqliteConnection(string.Format("Data Source={0}", DBName));
-            //SQLitePCL.raw.SetProvider(new SQLitePCL.SQLite3Provider_e_sqlite3());
-            //SQLitePCL.raw.SetProvider(new SQLitePCL.SQLite3Provider_dynamic_cdecl());
+            var db = new SQLiteConnection(string.Format("Data Source={0}", DBName));
             db.Open();
 
             return db;
         }
+
+        private void SetConnection()
+        {
+            con = new SQLiteConnection
+                ("Data Source=c:\\Dev\\MYApp.sqlite;Version=3;New=False;Compress=True;");
+        }
+
+        private void ExecuteQuery(string txtQuery)
+        {
+            SetConnection();
+            con.Open();
+
+            SQLiteCommand cmd = new SQLiteCommand();
+
+            using (cmd = new SQLiteCommand(con))
+            {
+                using (var transaction = con.BeginTransaction())
+                {
+                    for (var i = 0; i < 1000000; i++)
+                    {
+                        cmd.CommandText = "insert into Student(FirstName,LastName) values ('John','Doe')";
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    transaction.Commit();
+                }
+            }
+
+
+            con.Close();
+            return;
+        }
+
+        public static void ExecuteSQL(string sql)
+        {
+            SQLiteCommand command = new SQLiteCommand(sql, con);
+            command.ExecuteNonQuery();
+            
+            return;
+        }
+
+        public static long AddSystem(long id, string name)
+        {
+            SQLiteCommand cmd = new SQLiteCommand();
+
+            using (var transaction = con.BeginTransaction())
+            {
+                cmd.CommandText = "INSERT INTO Sistema (Id, Nombre) ";
+                cmd.CommandText += string.Format("VALUES ({0},\"{1}\")", id, name);
+                cmd.ExecuteNonQuery();
+
+                transaction.Commit();
+            }
+
+            return 0;
+        }
+
     }
 }

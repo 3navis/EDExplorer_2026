@@ -1,8 +1,8 @@
-﻿using System;
-using System.Windows.Forms;
-// TrayIcon
+﻿// TrayIcon
 using Castle.MicroKernel.Registration;
 using Castle.Windsor;
+using System;
+using System.Windows.Forms;
 
 namespace EDExplorer
 {

@@ -304,6 +304,8 @@ namespace EDExplorer
                         LastJump = lastEvent.ToObject<FsdJump>();
                         CurrentSystem = lastEvent["StarSystem"].ToString();
                         tipoEvento = TipoEvento.Jump;
+
+                        //SQLBase.AddSystem(LastJump.SystemAddress??(ulong)0, LastJump.StarSystem, LastJump.Timestamp);
                         break;
                     case "CarrierJump":
                         // Al entrar los Carriers no se actualizaba el nombre en el salto

@@ -43,6 +43,7 @@ namespace EDExplorer
         public Dictionary<(string System, long Body), ScanEvent> SystemBody { get; private set; }
         public Dictionary<(string System, long Body), SaaSignalsFound> SystemBodySignal { get; private set; }
         private JournalPoker Poker;
+        private ulong? CurrentAddress = 0;
         public string CurrentSystem
         {
             get
@@ -283,6 +284,12 @@ namespace EDExplorer
                             LastScan = lastEvent.ToObject<ScanEvent>();
                             LastScan.JournalEntry = logLine;
 
+                            if (CurrentAddress == null) // Si en JUMP no estaba el systemID
+                            {
+                                CurrentAddress = LastScan.SystemAddress ?? (ulong)0;
+                                SQLBase.AddSystem((ulong)CurrentAddress, LastScan.StarSystem);
+                            }
+
                             if (!SystemBody.ContainsKey((CurrentSystem, LastScan.BodyId)))
                             {
                                 SystemBody[(CurrentSystem, LastScan.BodyId)] = LastScan;
@@ -303,6 +310,7 @@ namespace EDExplorer
                     case "FSDJump":
                         LastJump = lastEvent.ToObject<FsdJump>();
                         CurrentSystem = lastEvent["StarSystem"].ToString();
+                        CurrentAddress = (ulong?)lastEvent["SystemAddress"];
                         tipoEvento = TipoEvento.Jump;
 
                         //SQLBase.AddSystem(LastJump.SystemAddress??(ulong)0, LastJump.StarSystem, LastJump.Timestamp);

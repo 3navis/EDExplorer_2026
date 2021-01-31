@@ -25,8 +25,11 @@ namespace EDExplorer
         {
             jumpEvent = logMonitor.LastJump;
 
-            SQLBase.AddSystem(jumpEvent.SystemAddress??(ulong)0, jumpEvent.StarSystem, jumpEvent.Timestamp);
+            SQLBase.JumpSystem(jumpEvent.SystemAddress??(ulong)0, jumpEvent.StarSystem, jumpEvent.Timestamp, jumpEvent.StarPos[0], jumpEvent.StarPos[1], jumpEvent.StarPos[2]);
             
+            //if (jumpEvent.Body != jumpEvent.StarSystem)
+            //{ string a = "a"; }
+
             // Calculo de datos para Resumen
             logMonitor.sesion_numeroJump++;
             logMonitor.numeroJump++;

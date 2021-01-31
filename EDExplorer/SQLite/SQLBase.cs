@@ -17,6 +17,8 @@ namespace EDExplorer
         private static SQLiteConnection con;
         private SQLiteCommand command;
         private string sql;
+        //private static string ftUS = "CultureInfo.CreateSpecificCulture(\"en-US\")";
+        private static System.Globalization.CultureInfo ftGB = new System.Globalization.CultureInfo("en-GB");
 
         public static void Up()
         {
@@ -36,14 +38,11 @@ namespace EDExplorer
                 ExecuteSQL("create table FileLog (filename varchar(200))");
                 ExecuteSQL("CREATE UNIQUE INDEX[IDX_FILELOG_] ON [FileLog]([filename])");
 
-                ExecuteSQL("CREATE TABLE Sistema (Id INTEGER, Nombre varchar(200) NOT NULL PRIMARY KEY, PrimeraVisita varchar(20), UltimaVisita varchar(20), NumVisitas integer)");
+                ExecuteSQL("CREATE TABLE Sistema (Id INTEGER, Nombre varchar(200) NOT NULL PRIMARY KEY, PrimeraVisita varchar(20), UltimaVisita varchar(20), NumVisitas integer, PosX real, PosY real, PosZ real)");
                 ExecuteSQL("CREATE UNIQUE INDEX[IDX_SISTEMAID_] ON [Sistema]([Nombre])");
 
                 ExecuteSQL("CREATE TABLE Cuerpo (Id INTEGER NOT NULL PRIMARY KEY, Nombre varchar(200))");
             }
-
- //           AddSystem(1, "Tierra");
- //           AddSystem(2, "Sol");
         }
 
         public static SQLiteConnection GetInstance()
@@ -62,66 +61,119 @@ namespace EDExplorer
             return;
         }
 
-        public static long AddSystem(ulong id, string name, DateTime fecha)
+        public static long JumpSystem(ulong id, string name, DateTime fecha, double x, double y, double z)
         {
             try
             {
-                //if (id == 0) return 0;
-
                 SQLiteDataReader dr;
                 SQLiteCommand cmd = new SQLiteCommand();
 
                 cmd = con.CreateCommand();
-                cmd.CommandText = "SELECT id, PrimeraVisita, UltimaVisita FROM Sistema ";
+                cmd.CommandText = "SELECT id, PrimeraVisita, UltimaVisita, PosX, PosY, PosZ FROM Sistema ";
                 cmd.CommandText += string.Format("WHERE (Nombre=\"{0}\")", name);
 
                 dr = cmd.ExecuteReader();
                 if (dr.Read())
                 {
-                    //ulong id2 = dr.GetInt64(0);
-                    //string myreader = dr.GetString(1);
-                    //var name = reader.GetString(0);
-                    //long l = (long)reader[0];
+                    //double dx = (double)dr[3];
+                    //double dy = (double)dr[4];
+                    //double dz = (double)dr[5];
 
-                    string PrimeraVisita = (string)dr[1];
+                    //if (Math.Round(dx) != Math.Round(x) || Math.Round(dy) != Math.Round(y) || Math.Round(dz) != Math.Round(z))
+                    //{ name = name; } // NO HAY SISTEMAS QUE SE MUEVAN
+
+                    string setSQL = ""; // "SET NumVisitas = NumVisitas + 1 ";
+                    ulong SistemaID = (ulong)dr.GetInt64(0); // (ulong)dr[0];
+
+                    if (SistemaID == 0 & id != 0)
+                        setSQL += string.Format(", id = {0} ", id);
+
+                    string PrimeraVisita = (string)dr[1]; // GetString(1);
                     string UltimaVisita = (string)dr[2];
-                    string date = fecha.ToString("u", DateTimeFormatInfo.InvariantInfo);
+                    string f = fecha.ToString("u", DateTimeFormatInfo.InvariantInfo);
 
-                    if ((String.Compare(UltimaVisita, date, StringComparison.Ordinal) < 0)
-                      | (String.Compare(PrimeraVisita, date, StringComparison.Ordinal) > 0))
+                    if (String.Compare(UltimaVisita, f, StringComparison.Ordinal) < 0)
+                        setSQL += string.Format(", UltimaVisita = \"{0}\" ", f);
+
+                    if (String.Compare(PrimeraVisita, f, StringComparison.Ordinal) > 0)
+                        setSQL += string.Format(", PrimeraVisita = \"{0}\" ", f);
+
+                    if (setSQL != "")
                         using (var transaction = con.BeginTransaction())
                         {
                             //cmd = new SQLiteCommand();
                             cmd = con.CreateCommand();
 
                             cmd.CommandText = "UPDATE Sistema ";
-                            if (String.Compare(UltimaVisita, date, StringComparison.Ordinal) < 0)
-                                cmd.CommandText += string.Format("SET UltimaVisita = \"{0}\" ", date);
-                            else
-                                cmd.CommandText += string.Format("SET PrimeraVisita = \"{0}\" ", date);
-                            cmd.CommandText += string.Format("  , NumVisitas = NumVisitas + 1 ", date);
+                            cmd.CommandText += "SET NumVisitas = NumVisitas + 1 ";
+                            cmd.CommandText += setSQL;
                             cmd.CommandText += string.Format("WHERE (Nombre=\"{0}\")", name);
                             cmd.ExecuteNonQuery();
 
                             transaction.Commit();
                         }
                 }
-                else
+                else 
                 {
                     using (var transaction = con.BeginTransaction())
                     {
-                        String date;
-                        date = fecha.ToString("u", DateTimeFormatInfo.InvariantInfo);
+                        String f;
+                        f = fecha.ToString("u", DateTimeFormatInfo.InvariantInfo);
 
                         //cmd = new SQLiteCommand();
                         cmd = con.CreateCommand();
 
-                        cmd.CommandText = "INSERT INTO Sistema (Id, Nombre, PrimeraVisita, UltimaVisita, NumVisitas) ";
-                        cmd.CommandText += string.Format("VALUES ({0},\"{1}\",\"{2}\",\"{3}\",1)", id, name, date, date);
+                        cmd.CommandText = "INSERT INTO Sistema (Id, Nombre, PrimeraVisita, UltimaVisita, NumVisitas, PosX, PosY, PosZ) ";
+                        cmd.CommandText += string.Format(ftGB,"VALUES ({0},\"{1}\",\"{2}\",\"{3}\",1,{4},{5},{6})", id,name,f,f,x,y,z);
                         cmd.ExecuteNonQuery();
 
                         transaction.Commit();
                     }
+                }
+
+                dr.Dispose();
+                return 0;
+            }
+            catch (Exception ex)
+            {
+                DialogResult response = MessageBox.Show("Ha ocurrido un error en ProcessLine. ¿Quiere ver información de Detalle adicional?", "Error Procesando Linea", MessageBoxButtons.YesNo);
+                if (response == DialogResult.Yes)
+                {
+                    MessageBox.Show($"Evento: \r\nLinea: \r\nException message: {ex.Message}\r\n\r\nStack trace: {ex.StackTrace}", "Detalle del Error", MessageBoxButtons.OK);
+                }
+                return -1;
+            }
+        }
+
+        public static long AddSystem(ulong id, string name)
+        {
+            try
+            {
+                SQLiteDataReader dr;
+                SQLiteCommand cmd = new SQLiteCommand();
+
+                cmd = con.CreateCommand();
+                cmd.CommandText = "SELECT id FROM Sistema ";
+                cmd.CommandText += string.Format("WHERE (Nombre=\"{0}\")", name);
+
+                dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    ulong SistemaID = (ulong)dr.GetInt64(0); 
+
+                    if (SistemaID == 0 & id != 0)
+                        using (var transaction = con.BeginTransaction())
+                        {
+                            //cmd = new SQLiteCommand();
+                            cmd = con.CreateCommand();
+
+                            cmd.CommandText = "UPDATE Sistema ";
+                            cmd.CommandText += string.Format("SET id = {0} ", id);
+                            cmd.CommandText += string.Format("WHERE (Nombre=\"{0}\")", name);
+                            cmd.ExecuteNonQuery();
+
+                            transaction.Commit();
+                        }
                 }
 
                 dr.Dispose();

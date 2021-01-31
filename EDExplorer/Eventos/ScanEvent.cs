@@ -13,6 +13,9 @@ namespace EDExplorer
         [JsonProperty("StarSystem")]
         public string StarSystem { get; set; }
 
+        [JsonProperty("SystemAddress")]
+        public ulong? SystemAddress { get; set; }
+
         [JsonProperty("timestamp")]
         public DateTime Timestamp { get; set; }
 

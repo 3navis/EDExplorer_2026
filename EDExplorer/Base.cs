@@ -95,8 +95,15 @@ namespace EDExplorer
                     {
                     }
                     break;
+                case TipoEvento.Hyperspace:
+                    if (!logMonitor.ReadAllInProgress)
+                    { 
+                        OpenNotifyForm("Hyperspace\r\nStart Jump.", 2000);
+                    }
+                    break;
             }
         }
+
         private void AnnounceItems(string currentSystem, List<Interes> items)
         {
             if (edexplorerFrm != null)

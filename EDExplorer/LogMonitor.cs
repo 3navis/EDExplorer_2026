@@ -258,7 +258,8 @@ namespace EDExplorer
                     evento = logLine.Substring(pa, pb - pa);
 
                     string eventos = "Scan,Location,FSDJump,CarrierJump,SAASignalsFound" +
-                        "FSSDiscoveryScan,SupercruiseExit";
+                        "FSSDiscoveryScan,SupercruiseExit" +
+                        "StartJump";
                     // evento ProspectedAsteroid (mineria)
 
                     if (eventos.Contains(evento))
@@ -290,6 +291,8 @@ namespace EDExplorer
                                 SQLBase.AddSystem((ulong)CurrentAddress, LastScan.StarSystem);
                             }
 
+                            SQLBase.AddCuerpo((ulong)CurrentAddress,LastScan.BodyId, LastScan.BodyName);
+
                             if (!SystemBody.ContainsKey((CurrentSystem, LastScan.BodyId)))
                             {
                                 SystemBody[(CurrentSystem, LastScan.BodyId)] = LastScan;
@@ -305,6 +308,13 @@ namespace EDExplorer
                         {
                             SystemBodySignal[(CurrentSystem, (long)LastSignal.BodyId)] = LastSignal;
                             tipoEvento = TipoEvento.Signal;
+                        }
+                        break;
+                    case "StartJump":
+                        if (lastEvent["JumpType"].ToString() == "Hyperspace")
+                        {
+                            //Mostrar nensaje resumen durante el salto
+                            tipoEvento = TipoEvento.Hyperspace;
                         }
                         break;
                     case "FSDJump":

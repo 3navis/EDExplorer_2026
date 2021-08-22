@@ -29,7 +29,8 @@ namespace EDExplorer
         Signal,
         FSS,
         Codex,
-        Jump
+        Jump,
+        Hyperspace
     }
     public enum Alerta
     {

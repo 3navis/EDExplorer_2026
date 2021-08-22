@@ -33,15 +33,18 @@ namespace EDExplorer
 
             con = GetInstance();
 
+            IsDbRecentlyCreated = true;
             if (IsDbRecentlyCreated)
             {
-                ExecuteSQL("create table FileLog (filename varchar(200))");
-                ExecuteSQL("CREATE UNIQUE INDEX[IDX_FILELOG_] ON [FileLog]([filename])");
+                //ExecuteSQL("create table FileLog (filename varchar(200))");
+                //ExecuteSQL("CREATE UNIQUE INDEX[IDX_FILELOG_] ON [FileLog]([filename])");
 
-                ExecuteSQL("CREATE TABLE Sistema (Id INTEGER, Nombre varchar(200) NOT NULL PRIMARY KEY, PrimeraVisita varchar(20), UltimaVisita varchar(20), NumVisitas integer, PosX real, PosY real, PosZ real)");
-                ExecuteSQL("CREATE UNIQUE INDEX[IDX_SISTEMAID_] ON [Sistema]([Nombre])");
+                //ExecuteSQL("CREATE TABLE Sistema (Id INTEGER, Nombre varchar(200) NOT NULL PRIMARY KEY, PrimeraVisita varchar(20), UltimaVisita varchar(20), NumVisitas integer, PosX real, PosY real, PosZ real)");
+                //ExecuteSQL("CREATE UNIQUE INDEX[IDX_SISTEMAID_] ON [Sistema]([Nombre])");
 
-                ExecuteSQL("CREATE TABLE Cuerpo (Id INTEGER NOT NULL PRIMARY KEY, Nombre varchar(200))");
+                ExecuteSQL("DROP TABLE Cuerpo");
+                ExecuteSQL("CREATE TABLE Cuerpo (SistemaId INTEGER, Id INTEGER, Nombre varchar(200) NOT NULL PRIMARY KEY)");
+                ExecuteSQL("CREATE UNIQUE INDEX[IDX_CUERPOID_] ON [Cuerpo]([Nombre])");
             }
         }
 
@@ -124,7 +127,7 @@ namespace EDExplorer
                         cmd = con.CreateCommand();
 
                         cmd.CommandText = "INSERT INTO Sistema (Id, Nombre, PrimeraVisita, UltimaVisita, NumVisitas, PosX, PosY, PosZ) ";
-                        cmd.CommandText += string.Format(ftGB,"VALUES ({0},\"{1}\",\"{2}\",\"{3}\",1,{4},{5},{6})", id,name,f,f,x,y,z);
+                        cmd.CommandText += string.Format(ftGB, "VALUES ({0},\"{1}\",\"{2}\",\"{3}\",1,{4},{5},{6})", id,name,f,f,x,y,z);
                         cmd.ExecuteNonQuery();
 
                         transaction.Commit();
@@ -190,5 +193,63 @@ namespace EDExplorer
             }
         }
 
+        public static long AddCuerpo(ulong SistemaId, long id, string name)
+        {
+            try
+            {
+                SQLiteDataReader dr;
+                SQLiteCommand cmd = new SQLiteCommand();
+
+                cmd = con.CreateCommand();
+                cmd.CommandText = "SELECT id FROM Cuerpo ";
+                cmd.CommandText += string.Format("WHERE (Nombre=\"{0}\")", name);
+
+                dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    long CuerpoID = (long)dr.GetInt64(0);
+
+                    if (CuerpoID == 0 & id != 0)
+                        using (var transaction = con.BeginTransaction())
+                        {
+                            //cmd = new SQLiteCommand();
+                            cmd = con.CreateCommand();
+
+                            cmd.CommandText = "UPDATE Cuerpo ";
+                            cmd.CommandText += string.Format("SET id = {0} ", id);
+                            cmd.CommandText += string.Format("WHERE (Nombre=\"{0}\")", name);
+                            cmd.ExecuteNonQuery();
+
+                            transaction.Commit();
+                        }
+                }
+                else
+                {
+                    using (var transaction = con.BeginTransaction())
+                    {
+                        //cmd = new SQLiteCommand();
+                        cmd = con.CreateCommand();
+
+                        cmd.CommandText = "INSERT INTO Cuerpo (SistemaId, Id, Nombre) ";
+                        cmd.CommandText += string.Format(ftGB, "VALUES ({0},{1},\"{2}\")", SistemaId, id, name);
+                        cmd.ExecuteNonQuery();
+
+                        transaction.Commit();
+                    }
+                }
+
+                dr.Dispose();
+                return 0;
+            }
+            catch (Exception ex)
+            {
+                DialogResult response = MessageBox.Show("Ha ocurrido un error en ProcessLine. ¿Quiere ver información de Detalle adicional?", "Error Procesando Linea", MessageBoxButtons.YesNo);
+                if (response == DialogResult.Yes)
+                {
+                    MessageBox.Show($"Evento: \r\nLinea: \r\nException message: {ex.Message}\r\n\r\nStack trace: {ex.StackTrace}", "Detalle del Error", MessageBoxButtons.OK);
+                }
+                return -1;
+            }
+        }
     }
 }

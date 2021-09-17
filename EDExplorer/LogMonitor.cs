@@ -257,7 +257,7 @@ namespace EDExplorer
                     int pb = logLine.IndexOf("\"", pa + 1);
                     evento = logLine.Substring(pa, pb - pa);
 
-                    string eventos = "Scan,Location,FSDJump,CarrierJump,SAASignalsFound" +
+                    const string eventos = "Scan,Location,FSDJump,CarrierJump,SAASignalsFound" +
                         "FSSDiscoveryScan,SupercruiseExit" +
                         "StartJump";
                     // evento ProspectedAsteroid (mineria)
@@ -369,8 +369,7 @@ namespace EDExplorer
                 if (tipoEvento != TipoEvento.None)
                 {
                     /////////////////////////////////////////
-                    EventHandler entry = LogEntry;
-                    entry?.Invoke(this, EventArgs.Empty); // => Base.LogEvent
+                    LogEntry?.Invoke(this, EventArgs.Empty); // => Base.LogEvent
                     ////////////////////////////////////////
                 }
 

@@ -142,28 +142,21 @@ namespace EDExplorer
             // Proteccion contra lineas incompletas
             if (logLine != null && logLine.Trim().StartsWith("{") && logLine.Trim().EndsWith("}"))
             {
-                ProcessLine(logLine);
-            }
-        }
-        private void ProcessLine(string logLine)
-        {
-            try
-            {
-                JObject lastEvent = (JObject)JsonConvert.DeserializeObject(logLine, new JsonSerializerSettings() { DateParseHandling = DateParseHandling.None });
-
-
-                /////////////////////////////////////////
-                //EventHandler entry = StatusEntry;
-                //entry?.Invoke(this, EventArgs.Empty); // => Base.ScanEvent
-                StatusEntry.Invoke(this, EventArgs.Empty);
-                ////////////////////////////////////////
-            }
-            catch (Exception ex)
-            {
-                DialogResult response = MessageBox.Show("Ha ocurrido un error en ProcessLine. ¿Quiere ver información de Detalle adicional?", "Error Procesando Linea", MessageBoxButtons.YesNo);
-                if (response == DialogResult.Yes)
+                try
                 {
-                    MessageBox.Show($"Status.json\r\nLinea: {logLine}\r\nException message: {ex.Message}\r\n\r\nStack trace: {ex.StackTrace}", "Detalle del Error", MessageBoxButtons.OK);
+                    JObject lastEvent = (JObject)JsonConvert.DeserializeObject(logLine, new JsonSerializerSettings() { DateParseHandling = DateParseHandling.None });
+
+                    /////////////////////////////////////////
+                    StatusEntry.Invoke(this, EventArgs.Empty);
+                    ////////////////////////////////////////
+                }
+                catch (Exception ex)
+                {
+                    DialogResult response = MessageBox.Show("Ha ocurrido un error en ProcessLine. ¿Quiere ver información de Detalle adicional?", "Error Procesando Linea", MessageBoxButtons.YesNo);
+                    if (response == DialogResult.Yes)
+                    {
+                        MessageBox.Show($"Status.json\r\nLinea: {logLine}\r\nException message: {ex.Message}\r\n\r\nStack trace: {ex.StackTrace}", "Detalle del Error", MessageBoxButtons.OK);
+                    }
                 }
             }
         }

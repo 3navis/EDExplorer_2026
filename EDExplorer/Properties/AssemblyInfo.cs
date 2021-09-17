@@ -10,8 +10,8 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("KASA")]
 [assembly: AssemblyProduct("Elite Dangerous Explorer")]
-[assembly: AssemblyCopyright("2020 3navis")]
-[assembly: AssemblyTrademark("Adaptación")]
+[assembly: AssemblyCopyright("2021 3navis")]
+[assembly: AssemblyTrademark("Adaptación Odyssey")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.2.01.001")]
-[assembly: AssemblyFileVersion("0.2.01.001")]
+[assembly: AssemblyVersion("2.0.01.001")]
+[assembly: AssemblyFileVersion("2.0.01.001")]

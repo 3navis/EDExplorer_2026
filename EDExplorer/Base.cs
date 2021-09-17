@@ -25,7 +25,8 @@ namespace EDExplorer
         public FontElite fontElite;
         //        public NotifyFrm notifyFrm;
         public StatusMonitor statusMonitor;
-        
+        private Properties.Settings settings = Properties.Settings.Default;
+
         public Base()
         {
             alertas = new Alertas();
@@ -44,6 +45,11 @@ namespace EDExplorer
             //statusMonitor.MonitorStart();
 
             SQLBase.Up();
+
+            if (settings.activarLista)
+                OpenEDExplorerForm();
+
+            logMonitor.MonitorStart();
         }
         ~Base()
         { // Destuctor del codigo

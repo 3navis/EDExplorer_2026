@@ -189,6 +189,9 @@ namespace EDExplorer
             Properties.Settings.Default.WindowSize = Size;
             Properties.Settings.Default.WindowLocation = Location;
             Properties.Settings.Default.Save();
+
+            // Intento cerrar la aplicacion al cerrar la ventana.
+            Application.Exit();
         }
 
         private void ListEvent_ColumnClick(object sender, ColumnClickEventArgs e)
@@ -251,7 +254,11 @@ namespace EDExplorer
 
         private void EDExplorerFrm_Shown(object sender, EventArgs e)
         {
+#if !DEBUG
             ReadAllJournals(30);
+#else
+            ReadAllJournals(3);
+#endif
         }
 
         private void CopyJournalToolStripMenuItem_Click(object sender, EventArgs e)

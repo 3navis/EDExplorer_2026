@@ -22,6 +22,12 @@
         {
             basi = new Base();
             trayIcon = CreateTrayIcon();
+
+            //if (settings.activarLista)
+            //    basi.OpenEDExplorerForm();
+
+            //// Esperar a la ventana para comenzar
+            //basi.logMonitor.MonitorStart();
         }
 
         private NotifyIcon CreateTrayIcon()

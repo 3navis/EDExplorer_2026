@@ -25,16 +25,6 @@ namespace EDExplorer
             logMonitor = l;
         }
 
-        //public void RemoveUninteresting()
-        //{
-        //    foreach (ListViewItem listItem in listEvent.Items)
-        //    {
-        //        if (listItem.SubItems[1].Text == "Sin Interés")
-        //        {
-        //            listEvent.Items.Remove(listItem);
-        //        }
-        //    }
-        //}
         //public void AddListItem((string BodyName, string Description, string Detail) item)
         public void AddListItem(Interes item)
         {

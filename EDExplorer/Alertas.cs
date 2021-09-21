@@ -126,7 +126,7 @@ namespace EDExplorer
             if (settings.vAlertas != settings.vAlertasNew)
             {
                 // Si se cambia la version se resetean todas las alertas
-                // Esto hay que hacerlo solo si cambia la estructura
+                // Solo hay que hacerlo si cambia la estructura de las mismas
 
                 //n = new Dictionary<Alerta, DetallesAlerta>();
                 n = new ListaAlertas();

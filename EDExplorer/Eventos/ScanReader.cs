@@ -6,9 +6,8 @@ namespace EDExplorer
 {
     class ScanReader
     {
-        private readonly bool isRing;
+        private bool isRing;
         public List<Interes> Interest { get; private set; }
-        private readonly Properties.Settings settings;
         private Alertas alertas;
         private LogMonitor logMonitor;
         private readonly Materials PremiumBoostMaterials =
@@ -26,16 +25,15 @@ namespace EDExplorer
 
         public ScanReader(Base b)
         {
-            this.settings = Properties.Settings.Default;
             this.logMonitor = b.logMonitor;
             this.alertas = b.alertas; // new Alertas();
             
             Interest = new List<Interes>();
-            isRing = logMonitor.LastScan.BodyName.Contains(" Ring");
         }
 
         public bool hayAlertas()
         {
+            isRing = logMonitor.LastScan.BodyName.Contains(" Ring");
             bool interesting = !isRing && DefaultInterest();
             
             //if (settings.VeryInteresting && Interest.Count() > 1)
@@ -44,10 +42,6 @@ namespace EDExplorer
             //    Interest.Add(new Interes(logMonitor.LastScan.BodyName, "Criterios Múltiples", "", detalle));
             //}
 
-            if (Interest.Count() == 0)
-            {
-                Interest.Add(new Interes(logMonitor.LastScan.BodyName, "Sin Interés", "", string.Empty));
-            }
             return interesting;
         }
 
@@ -187,7 +181,7 @@ namespace EDExplorer
             da = alertas.n[Alerta.NombreEspecial];
             if (da.flag && !scanEvent.BodyName.Contains(logMonitor.CurrentSystem))
             {
-                detalle = "Nombre del cuerpo independiente del Sistema";
+                detalle = "El nombre del cuerpo no incluye al Sistema";
                 Interest.Add(new Interes(scanEvent.BodyName, da.nombre, "", detalle));
             }
 

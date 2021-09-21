@@ -15,18 +15,19 @@ namespace EDExplorer
     //using ListaInteres = List<(string BodyName, string Description, string Detail)>;
     public class Base
     {
-        public Alertas alertas;
-        //public Records records;
-        public LogMonitor logMonitor;
-        public SpeechSynthesizer speech;
         public bool autoStart = true;
+        
+        public Alertas alertas;
+        
+        public LogMonitor logMonitor;
+        public StatusMonitor statusMonitor;
+
+        public SpeechSynthesizer speech;
         public ConfiguracionFrm configuracionFrm;
         public EDExplorerFrm edexplorerFrm;
         public FontElite fontElite;
-        //        public NotifyFrm notifyFrm;
-        public StatusMonitor statusMonitor;
-        private Properties.Settings settings = Properties.Settings.Default;
-
+        // public NotifyFrm notifyFrm;
+        
         public Base()
         {
             alertas = new Alertas();
@@ -46,7 +47,7 @@ namespace EDExplorer
 
             SQLBase.Up();
 
-            if (settings.activarLista)
+            if (Properties.Settings.Default.activarLista)
                 OpenEDExplorerForm();
 
             logMonitor.MonitorStart();
@@ -69,7 +70,7 @@ namespace EDExplorer
 
                     if (scan.hayAlertas())
                     {
-                        AnnounceItems(logMonitor.CurrentSystem, scan.Interest);
+                        AnnounceItems(scan.Interest);
                     }
                     break;
                 case TipoEvento.Signal:
@@ -77,7 +78,7 @@ namespace EDExplorer
 
                     if (signal.hayAlertas())
                     {
-                        AnnounceItems(logMonitor.CurrentSystem, signal.Interest);
+                        AnnounceItems(signal.Interest);
                     }
                     break;
                 case TipoEvento.FSS:
@@ -85,7 +86,7 @@ namespace EDExplorer
 
                     if (fss.hayAlertas())
                     {
-                        AnnounceItems(logMonitor.CurrentSystem, fss.Interest);
+                        AnnounceItems(fss.Interest);
                     }
                     break;
                 case TipoEvento.Jump:
@@ -93,7 +94,7 @@ namespace EDExplorer
 
                     if (jump.hayAlertas())
                     {
-                        AnnounceItems(logMonitor.CurrentSystem, jump.Interest);
+                        AnnounceItems(jump.Interest);
                     }
                     break;
                 case TipoEvento.Codex:
@@ -102,21 +103,80 @@ namespace EDExplorer
                     }
                     break;
                 case TipoEvento.Hyperspace:
-                    if (!logMonitor.ReadAllInProgress)
-                    { 
-                        OpenNotifyForm("Hyperspace\r\nStart Jump.", 2000);
-                    }
+                    // aprovecha la preparación del salto para mostrar info
+                    InfoStartJump();
                     break;
             }
         }
 
-        private void AnnounceItems(string currentSystem, List<Interes> items)
+        private void InfoStartJump()
         {
+            string tipoStar = "";
+            string alertaStar = "";
+
+            switch (logMonitor.nextStar.Substring(0,1))
+            {
+                case "N":
+                    tipoStar = "Neutrones";
+                    alertaStar = "saltando a estrella de Neutrones";
+                    break;
+                case "D":
+                    tipoStar = "enana Blanca";
+                    alertaStar = "saltando a estrella enana Blanca";
+                    break;
+                case "H":
+                    tipoStar = "agujero Negro";
+                    break;
+                case "X":
+                    tipoStar = "Exótica";
+                    break;
+                case "O":
+                case "B":
+                case "A":
+                case "F":
+                case "G":
+                case "K":
+                case "M":
+                    tipoStar = "permite repostar";
+                    break;
+            }
+
+            if (Properties.Settings.Default.activarAudio)
+                if (alertaStar.Length > 0)
+            {
+                speech.Volume = Properties.Settings.Default.AudioVolumen;
+                speech.SpeakSsmlAsync($"<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"es-ES\">Atención:<break strength=\"weak\"/>{alertaStar}</speak>");
+            }
+
+            if (Properties.Settings.Default.activarNotificaciones)
+            {
+                // Resumen de la sesión
+                StringBuilder announceText = new StringBuilder();
+
+                announceText.AppendLine("Saltos: " + logMonitor.sesion_numeroJump.ToString());
+                announceText.AppendLine("Distancia: " + Math.Round(logMonitor.sesion_acumuladoJump,1).ToString() + " al");
+
+                // Poner el tiempo transcurrido, no la hora de inicio.
+                TimeSpan difFechas = DateTime.Now - logMonitor.session_Time;
+                
+                string tiempoSt = "";
+
+                if (difFechas.Hours > 0) tiempoSt = difFechas.Hours + " h ";
+                if (difFechas.Minutes > 0) tiempoSt += difFechas.Minutes + " m ";
+                if (difFechas.Seconds > 0) tiempoSt += difFechas.Seconds + " s";
+
+                announceText.AppendLine("Tiempo: " + tiempoSt);
+                
+                OpenNotifyForm("Resumen sesión" + "\r\n" + announceText.ToString(), 10000);
+            }
+        }
+
+        private void AnnounceItems(List<Interes> items)
+        {
+            string currentSystem = logMonitor.CurrentSystem;
+
             if (edexplorerFrm != null)
             {
-                //if (!logMonitor.ReadAllInProgress)
-                //    edexplorerFrm.RemoveUninteresting();
-
                 foreach (var item in items)
                     edexplorerFrm.AddListItem(item);
             }

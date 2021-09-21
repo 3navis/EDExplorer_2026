@@ -21,6 +21,7 @@ namespace EDExplorer
         public double sesion_acumuladoJump = 0;
         public int numeroJump = 0;
         public int sesion_numeroJump = 0;
+        public string nextStar;
         private string currentBody;
         public DateTime currentTime;
         public DateTime session_Time = DateTime.Now;
@@ -285,13 +286,13 @@ namespace EDExplorer
                             LastScan = lastEvent.ToObject<ScanEvent>();
                             LastScan.JournalEntry = logLine;
 
-                            if (CurrentAddress == null) // Si en JUMP no estaba el systemID
+                            if (!(CurrentAddress > 0)) // Si en JUMP no estaba el systemID
                             {
                                 CurrentAddress = LastScan.SystemAddress ?? (ulong)0;
-                                SQLBase.AddSystem((ulong)CurrentAddress, LastScan.StarSystem);
+ //                               SQLBase.AddSystem((ulong)CurrentAddress, LastScan.StarSystem);
                             }
 
-                            SQLBase.AddCuerpo((ulong)CurrentAddress,LastScan.BodyId, LastScan.BodyName);
+ //                           SQLBase.AddCuerpo((ulong)CurrentAddress,LastScan.BodyId, LastScan.BodyName);
 
                             if (!SystemBody.ContainsKey((CurrentSystem, LastScan.BodyId)))
                             {
@@ -311,9 +312,11 @@ namespace EDExplorer
                         }
                         break;
                     case "StartJump":
-                        if (lastEvent["JumpType"].ToString() == "Hyperspace")
+                        if (!ReadAllInProgress)
+                            if (lastEvent["JumpType"].ToString() == "Hyperspace")
                         {
-                            //Mostrar nensaje resumen durante el salto
+                            //Mostrar mensaje resumen mientras prepara el salto
+                            nextStar = lastEvent["StarClass"].ToString();
                             tipoEvento = TipoEvento.Hyperspace;
                         }
                         break;
@@ -321,9 +324,11 @@ namespace EDExplorer
                         LastJump = lastEvent.ToObject<FsdJump>();
                         CurrentSystem = lastEvent["StarSystem"].ToString();
                         CurrentAddress = (ulong?)lastEvent["SystemAddress"];
-                        tipoEvento = TipoEvento.Jump;
 
                         //SQLBase.AddSystem(LastJump.SystemAddress??(ulong)0, LastJump.StarSystem, LastJump.Timestamp);
+
+                        // No contabilizar dentro de la Sesion
+                        if (!ReadAllInProgress) tipoEvento = TipoEvento.Jump;
                         break;
                     case "CarrierJump":
                         // Al entrar los Carriers no se actualizaba el nombre en el salto
@@ -369,7 +374,9 @@ namespace EDExplorer
                 if (tipoEvento != TipoEvento.None)
                 {
                     /////////////////////////////////////////
-                    LogEntry?.Invoke(this, EventArgs.Empty); // => Base.LogEvent
+                    EventHandler entry = LogEntry;
+                    entry?.Invoke(this, EventArgs.Empty); // => Base.LogEvent
+                    //LogEntry?.Invoke(this, EventArgs.Empty); // => Base.LogEvent
                     ////////////////////////////////////////
                 }
 

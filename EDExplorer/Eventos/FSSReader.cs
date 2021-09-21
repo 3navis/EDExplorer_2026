@@ -4,7 +4,6 @@ namespace EDExplorer
 {
     class FSSReader
     {
-        private readonly Properties.Settings settings;
         public List<Interes> Interest { get; private set; }
         private Alertas alertas;
         private LogMonitor logMonitor;
@@ -14,8 +13,7 @@ namespace EDExplorer
         {
             this.logMonitor = b.logMonitor;
             this.alertas = b.alertas;
-            Interest = new List<Interes>();
-            this.settings = Properties.Settings.Default;
+            Interest = new List<Interes>();    
         }
 
         FSSDiscoveryScan fssEvent;

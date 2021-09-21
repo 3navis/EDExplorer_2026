@@ -5,7 +5,6 @@ namespace EDExplorer
 {
     class JumpReader
     {
-        private readonly Properties.Settings settings;
         public List<Interes> Interest { get; private set; }
         private Alertas alertas;
         private LogMonitor logMonitor;
@@ -16,7 +15,6 @@ namespace EDExplorer
             this.logMonitor = b.logMonitor;
             this.alertas = b.alertas;
             Interest = new List<Interes>();
-            this.settings = Properties.Settings.Default;
         }
 
         FsdJump jumpEvent;
@@ -25,7 +23,7 @@ namespace EDExplorer
         {
             jumpEvent = logMonitor.LastJump;
 
-            SQLBase.JumpSystem(jumpEvent.SystemAddress??(ulong)0, jumpEvent.StarSystem, jumpEvent.Timestamp, jumpEvent.StarPos[0], jumpEvent.StarPos[1], jumpEvent.StarPos[2]);
+            //SQLBase.JumpSystem(jumpEvent.SystemAddress??(ulong)0, jumpEvent.StarSystem, jumpEvent.Timestamp, jumpEvent.StarPos[0], jumpEvent.StarPos[1], jumpEvent.StarPos[2]);
             
             //if (jumpEvent.Body != jumpEvent.StarSystem)
             //{ string a = "a"; }
@@ -45,7 +43,7 @@ namespace EDExplorer
                 if (alertas.CumpleCriterios(da))
                 {
                     //detalle = $"{alertas.valor:N0}al acumulados en saltos.";
-                    detalle = "al de distancia en saltos acumulada.";
+                    detalle = "al de distancia acumulada en saltos.";
                     Interest.Add(new Interes(jumpEvent.StarSystem, da.nombre, alertas.valorST, detalle, false));
                     logMonitor.acumuladoJump = 0;
                 }

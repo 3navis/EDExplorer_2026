@@ -6,7 +6,6 @@ namespace EDExplorer
     class SignalReader
     {
         public List<Interes> Interest { get; private set; }
-        private readonly Properties.Settings settings;
         private Alertas alertas;
         private LogMonitor logMonitor;
         private string detalle;
@@ -17,7 +16,6 @@ namespace EDExplorer
         public SignalReader(Base b)
         {
             this.logMonitor = b.logMonitor;
-            this.settings = Properties.Settings.Default;
             Interest = new List<Interes>();
             this.alertas = b.alertas; // new Alertas();
         }

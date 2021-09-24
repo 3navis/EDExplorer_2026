@@ -104,42 +104,59 @@ namespace EDExplorer
                     break;
                 case TipoEvento.Hyperspace:
                     // aprovecha la preparación del salto para mostrar info
-                    InfoStartJump();
+                    ResumenSesion();
                     break;
             }
         }
 
-        private void InfoStartJump()
+        private void ResumenSesion()
         {
             string tipoStar = "";
             string alertaStar = "";
+            string repostable = "";
 
             switch (logMonitor.nextStar.Substring(0,1))
             {
                 case "N":
-                    tipoStar = "Neutrones";
+                    tipoStar = "estrella de Neutrones";
                     alertaStar = "saltando a estrella de Neutrones";
                     break;
                 case "D":
-                    tipoStar = "enana Blanca";
+                    tipoStar = "enana Blanca <10.000K";
                     alertaStar = "saltando a estrella enana Blanca";
                     break;
                 case "H":
-                    tipoStar = "agujero Negro";
-                    break;
+                    tipoStar = "agujero Negro"; break;
+                case "C":
+                    tipoStar = "estrella de carbono"; break;
                 case "X":
-                    tipoStar = "Exótica";
-                    break;
+                    tipoStar = "Exótica"; break;
+                case "W":
+                    tipoStar = "Wolf-Rayet <50.000K"; break;
                 case "O":
+                    repostable = "{R} "; tipoStar = "masiva luminosa <52.000K"; break;
                 case "B":
+                    repostable = "{R} "; tipoStar = "azul blanco luminosa <30.000K"; break;
                 case "A":
+                    repostable = "{R} "; tipoStar = "caliente blanca/azulada <10.000K"; break;
                 case "F":
+                    repostable = "{R} "; tipoStar = "blanca <7.600K"; break;
                 case "G":
+                    repostable = "{R} "; tipoStar = "blanco-amarilla <6.000K"; break;
                 case "K":
+                    repostable = "{R} "; tipoStar = "amarillo-naranja <5.000K"; break;
                 case "M":
-                    tipoStar = "permite repostar";
-                    break;
+                    repostable = "{R} "; tipoStar = "roja"; break;
+                case "L":
+                    tipoStar = "enana roja <2.400K"; break;
+                case "T":
+                    if (logMonitor.nextStar == "TTS") tipoStar = "T Tauri";
+                    else tipoStar = "enana marron <1.300K"; break;
+                case "Y":
+                    tipoStar = "enana marron <700K"; break;
             }
+
+            if (tipoStar != "") tipoStar = repostable + tipoStar + "(" + logMonitor.nextStar + ")";
 
             if (Properties.Settings.Default.activarAudio)
                 if (alertaStar.Length > 0)
@@ -154,20 +171,23 @@ namespace EDExplorer
                 StringBuilder announceText = new StringBuilder();
 
                 announceText.AppendLine("Saltos: " + logMonitor.sesion_numeroJump.ToString());
-                announceText.AppendLine("Distancia: " + Math.Round(logMonitor.sesion_acumuladoJump,1).ToString() + " al");
+                announceText.AppendLine("Distancia: " + Math.Round(logMonitor.sesion_acumuladoJump).ToString() + " al");
 
-                // Poner el tiempo transcurrido, no la hora de inicio.
+                // Poner el tiempo transcurrido en la sesion.
                 TimeSpan difFechas = DateTime.Now - logMonitor.session_Time;
-                
                 string tiempoSt = "";
 
-                if (difFechas.Hours > 0) tiempoSt = difFechas.Hours + " h ";
+                if (difFechas.Days > 0) tiempoSt = difFechas.Days + " d ";
+                if (difFechas.Hours > 0) tiempoSt += difFechas.Hours + " h ";
                 if (difFechas.Minutes > 0) tiempoSt += difFechas.Minutes + " m ";
                 if (difFechas.Seconds > 0) tiempoSt += difFechas.Seconds + " s";
 
                 announceText.AppendLine("Tiempo: " + tiempoSt);
-                
-                OpenNotifyForm("Resumen sesión" + "\r\n" + announceText.ToString(), 10000);
+
+                announceText.AppendLine("-------------"); 
+                announceText.AppendLine(tipoStar);
+
+                OpenNotifyForm("Resumen sesión actual" + "\r\n" + announceText.ToString(), 10000);
             }
         }
 
@@ -274,7 +294,7 @@ namespace EDExplorer
             {
                 NotifyFrm notifyFrm;
 
-                notifyFrm = new NotifyFrm(t);
+                notifyFrm = new NotifyFrm(t, logMonitor.tipoEvento);
                 notifyFrm.Show(mls);
                 notifyFrm.Refresh();
 

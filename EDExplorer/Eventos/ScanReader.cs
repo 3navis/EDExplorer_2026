@@ -27,7 +27,7 @@ namespace EDExplorer
         {
             this.logMonitor = b.logMonitor;
             this.alertas = b.alertas; // new Alertas();
-            
+
             Interest = new List<Interes>();
         }
 
@@ -35,7 +35,7 @@ namespace EDExplorer
         {
             isRing = logMonitor.LastScan.BodyName.Contains(" Ring");
             bool interesting = !isRing && DefaultInterest();
-            
+
             //if (settings.VeryInteresting && Interest.Count() > 1)
             //{
             //    detalle = $"{Interest.Count()} Criterios Satisfechos";
@@ -67,7 +67,7 @@ namespace EDExplorer
 
             if (flgAterrizable)
             {
-                // Aterrizable con Atmosfera. Ya me gustaria!
+                // Aterrizable con Atmosfera. 
                 da = alertas.n[Alerta.Atmosfera];
                 if (da.flag && scanEvent.Atmosphere.Length > 0)
                 {
@@ -81,7 +81,7 @@ namespace EDExplorer
                 da = alertas.n[Alerta.Anillo];
                 if (da.flag && scanEvent.Rings != null)
                 {
-                    alertas.valor = (double)scanEvent.Rings[scanEvent.Rings.Count()-1].OuterRad;
+                    alertas.valor = (double)scanEvent.Rings[scanEvent.Rings.Count() - 1].OuterRad;
                     alertas.valor -= (double)scanEvent.Rings[0].InnerRad;
                     alertas.valor /= 1000;
 
@@ -185,10 +185,6 @@ namespace EDExplorer
                 Interest.Add(new Interes(scanEvent.BodyName, da.nombre, "", detalle));
             }
 
-            //if (scanEvent.BodyName == "Byeia Eurk CQ-X b56-1 13")
-            //{
-            //}
-
             alertaAnillo(Alerta.AnilloIcy);
             alertaAnillo(Alerta.AnilloRock);
             alertaAnillo(Alerta.AnilloMetal);
@@ -217,60 +213,37 @@ namespace EDExplorer
                 }
             }
 
-            // Comprobaciones relativas al Padre
-            if ((alertas.n[Alerta.OrbitaP].flag || alertas.n[Alerta.OrbitaG].flag || alertas.n[Alerta.AnilloP].flag) && 
-                (scanEvent.Parent?[0].ParentType == "Planet" || scanEvent.Parent?[0].ParentType == "Star") &&
-                logMonitor.SystemBody.ContainsKey((logMonitor.CurrentSystem, scanEvent.Parent[0].Body)))
+            // Comprobaciones relativas al Padre (puede no haberse escaneado todavía)
+            if ((alertas.n[Alerta.OrbitaP].flag || alertas.n[Alerta.OrbitaG].flag || alertas.n[Alerta.AnilloP].flag) &&
+                (scanEvent.Parent?[0].ParentType == "Planet" || scanEvent.Parent?[0].ParentType == "Star"))
+                if (logMonitor.SystemBody.ContainsKey((logMonitor.CurrentSystem, scanEvent.Parent[0].Body)))
+                {
+                    ScanEvent parent = logMonitor.SystemBody[(logMonitor.CurrentSystem, scanEvent.Parent[0].Body)];
+                    alertaPadreHijo(parent, scanEvent);
+                }
+                else
+                {
+                    // ** POSIBLE ERROR si el padre no se ha escaneado antes no hay info.
+                    if (!logMonitor.EsperandoPadre.ContainsKey((logMonitor.CurrentSystem, scanEvent.Parent[0].Body)))
+                        logMonitor.EsperandoPadre[(logMonitor.CurrentSystem, scanEvent.Parent[0].Body)] = new List<long>() { scanEvent.BodyId };
+                    else
+                        logMonitor.EsperandoPadre[(logMonitor.CurrentSystem, scanEvent.Parent[0].Body)].Insert(0, scanEvent.BodyId); 
+                }
+
+            // ** Realizar las llamadas pendientes de los hijos.
+            if (logMonitor.EsperandoPadre.ContainsKey((logMonitor.CurrentSystem, scanEvent.BodyId)))
             {
-                ScanEvent parent = logMonitor.SystemBody[(logMonitor.CurrentSystem, scanEvent.Parent[0].Body)];
+                ScanEvent hijo;
+                List<long> Hijos = logMonitor.EsperandoPadre[(logMonitor.CurrentSystem, scanEvent.BodyId)];
 
-                // Distancia entre superficies
-                alertas.valor = Math.Truncate(((double)scanEvent.SemiMajorAxis - (double)parent.Radius - (double)scanEvent.Radius) / 1000);
-
-                //Orbita Pequeña
-                da = alertas.n[Alerta.OrbitaP];
-                if (da.flag && alertas.CumpleCriterios(da))    
+                for (int i = 0; i < Hijos.Count; i++)
                 {
-                    detalle = "Km de distancia entre superficies.";
-                    Interest.Add(new Interes(scanEvent.BodyName, da.nombre, alertas.valorST, detalle, alertas.isRecord));
-
-                    if (alertas.isRecord)
-                        Interest.Add(new Interes(scanEvent.BodyName, "Record Personal", alertas.valorST, alertas.recordDesc));
-                }
-
-                // distancia en SL (1 SL = 299.792,36 Km)
-                alertas.valor /= 299792.36; 
-
-                //Orbita Grande
-                da = alertas.n[Alerta.OrbitaG];
-                if (da.flag && alertas.CumpleCriterios(da))
-                {
-                    detalle = "Km de distancia entre superficies.";
-                    Interest.Add(new Interes(scanEvent.BodyName, da.nombre, alertas.valorST, detalle, alertas.isRecord));
-
-                    if (alertas.isRecord)
-                        Interest.Add(new Interes(scanEvent.BodyName, "Record Personal", alertas.valorST, alertas.recordDesc));
-                }
-
-                // Proximo al Anillo
-                da = alertas.n[Alerta.AnilloP];
-                if (da.flag && parent.Rings != null)
-                {
-                    alertas.valor = Math.Min(Math.Abs(scanEvent.SemiMajorAxis.GetValueOrDefault(0) - (double)scanEvent.Radius - (double)parent.Rings[parent.Rings.Count() - 1].OuterRad) / 1000,
-                                             Math.Abs((double)parent.Rings[0].InnerRad - (double)scanEvent.Radius - scanEvent.SemiMajorAxis.GetValueOrDefault(0)) / 1000);
-
-                    if (alertas.CumpleCriterios(da))
-                    {
-                        detalle = "Km de distancia al borde del anillo.";
-                        Interest.Add(new Interes(scanEvent.BodyName, da.nombre, alertas.valorST, detalle, alertas.isRecord));
-
-                        if (alertas.isRecord)
-                            Interest.Add(new Interes(scanEvent.BodyName, "Record Personal", alertas.valorST, alertas.recordDesc));
-                    }
+                    hijo = logMonitor.SystemBody[(logMonitor.CurrentSystem, Hijos[i])];
+                    alertaPadreHijo(scanEvent, hijo);
                 }
             }
 
-            // Binaria Cercana
+            // Binaria Cercana (dos objetos orbitando entre si)
             da = alertas.n[Alerta.Binario];
             if (da.flag && scanEvent.Parent?[0].ParentType == "Null") // && scanEvent.Radius / scanEvent.SemiMajorAxis > 0.4)
             {
@@ -282,14 +255,14 @@ namespace EDExplorer
 
                 //alertas.valor = (double)scanEvent.SemiMajorAxis;
                 //alertas.valor = Math.Abs((double)(alertas.valor - scanEvent.Radius)) / alertas.valor;
-                
+
                 alertas.valor = (double)(scanEvent.Radius / scanEvent.SemiMajorAxis);
 
                 if (alertas.CumpleCriterios(da))
                 {
                     detalle = "relación Radio vs Distancia.";
                     Interest.Add(new Interes(scanEvent.BodyName, da.nombre, alertas.valorST, detalle, false));
-                    
+
                     if (alertas.isRecord)
                         Interest.Add(new Interes(scanEvent.BodyName, "Record Personal", alertas.valorST, alertas.recordDesc));
                 }
@@ -387,6 +360,7 @@ namespace EDExplorer
 
             return Interest.Count > 0;
         }
+
         private void alertaAnillo(Alerta a)
         {
             // Contiene un Anillo del tipo indicado?
@@ -395,12 +369,12 @@ namespace EDExplorer
             {
                 string clase = "";
 
-                switch (a) 
+                switch (a)
                 {
-                    case Alerta.AnilloIcy:       { clase = "eRingClass_Icy"; break; }
-                    case Alerta.AnilloMetal:     { clase = "eRingClass_Metalic"; break; }
+                    case Alerta.AnilloIcy: { clase = "eRingClass_Icy"; break; }
+                    case Alerta.AnilloMetal: { clase = "eRingClass_Metalic"; break; }
                     case Alerta.AnilloMetalRich: { clase = "eRingClass_MetalRich"; break; }
-                    case Alerta.AnilloRock:      { clase = "eRingClass_Rocky"; break; }
+                    case Alerta.AnilloRock: { clase = "eRingClass_Rocky"; break; }
                 }
 
                 if (scanEvent.Rings.Where(ring => ring.RingClass == clase).Count() > 0)
@@ -409,7 +383,7 @@ namespace EDExplorer
 
                     if (!r.Name.Contains(" Belt"))
                     {
-                        alertas.valor = (double)r.MassMT / Math.Pow(10,12);
+                        alertas.valor = (double)r.MassMT / Math.Pow(10, 12);
 
                         if (alertas.CumpleCriterios(da))
                         {
@@ -426,6 +400,54 @@ namespace EDExplorer
                     {
 
                     }
+                }
+            }
+        }
+
+        private void alertaPadreHijo(ScanEvent Padre, ScanEvent Hijo)
+        {
+            // Distancia entre superficies
+            alertas.valor = Math.Truncate(((double)Hijo.SemiMajorAxis - (double)Padre.Radius - (double)Hijo.Radius) / 1000);
+
+            //Orbita Pequeña
+            da = alertas.n[Alerta.OrbitaP];
+            if (da.flag && alertas.CumpleCriterios(da))
+            {
+                detalle = "Km de distancia entre superficies.";
+                Interest.Add(new Interes(Hijo.BodyName, da.nombre, alertas.valorST, detalle, alertas.isRecord));
+
+                if (alertas.isRecord)
+                    Interest.Add(new Interes(Hijo.BodyName, "Record Personal", alertas.valorST, alertas.recordDesc));
+            }
+
+            // distancia en SL (1 SL = 299.792,36 Km)
+            alertas.valor /= 299792.36;
+
+            //Orbita Grande
+            da = alertas.n[Alerta.OrbitaG];
+            if (da.flag && alertas.CumpleCriterios(da))
+            {
+                detalle = "Km de distancia entre superficies.";
+                Interest.Add(new Interes(Hijo.BodyName, da.nombre, alertas.valorST, detalle, alertas.isRecord));
+
+                if (alertas.isRecord)
+                    Interest.Add(new Interes(Hijo.BodyName, "Record Personal", alertas.valorST, alertas.recordDesc));
+            }
+
+            // Proximo al Anillo
+            da = alertas.n[Alerta.AnilloP];
+            if (da.flag && Padre.Rings != null)
+            {
+                alertas.valor = Math.Min(Math.Abs(Hijo.SemiMajorAxis.GetValueOrDefault(0) - (double)Hijo.Radius - (double)Padre.Rings[Padre.Rings.Count() - 1].OuterRad) / 1000,
+                                         Math.Abs((double)Padre.Rings[0].InnerRad - (double)Hijo.Radius - Hijo.SemiMajorAxis.GetValueOrDefault(0)) / 1000);
+
+                if (alertas.CumpleCriterios(da))
+                {
+                    detalle = "Km de distancia al borde del anillo.";
+                    Interest.Add(new Interes(Hijo.BodyName, da.nombre, alertas.valorST, detalle, alertas.isRecord));
+
+                    if (alertas.isRecord)
+                        Interest.Add(new Interes(Hijo.BodyName, "Record Personal", alertas.valorST, alertas.recordDesc));
                 }
             }
         }

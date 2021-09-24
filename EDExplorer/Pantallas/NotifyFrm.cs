@@ -37,16 +37,32 @@ namespace EDExplorer
         //    TransparencyKey = BackColor;
         //}
 
-        private Font fontElite = new Font(FontElite.private_fonts.Families[0], 10, FontStyle.Bold);
-        public NotifyFrm(string t)
+        private Font fontElite = new Font(FontElite.private_fonts.Families[0], 11, FontStyle.Bold);
+        public NotifyFrm(string t, TipoEvento e)
         {
             InitializeComponent();
             fondo = new NotifyFormBack();
             fondo.Show();
 
+            /////////////////////////////////////////////////////////////
+            // Recolocar en funcion de la pantalla en la que se encuentra
             Rectangle desktopArea = Screen.GetWorkingArea(this);
-            Location = new Point(desktopArea.Right - Width, desktopArea.Bottom - 2*Height);
+            int dx, dy;
 
+            dx = desktopArea.Right - Width;
+            
+            switch (e) 
+            {
+                case TipoEvento.Hyperspace:
+                case TipoEvento.Jump:
+                    dy = desktopArea.Bottom / 2;
+                    break;
+                default:
+                    dy = desktopArea.Bottom - 2 * Height;
+                    break;
+            }
+
+            Location = new Point(dx, dy);
             fondo.Location = Location;
 
             lblText.Font = fontElite;

@@ -43,8 +43,6 @@
             this.progressReadAll = new System.Windows.Forms.ProgressBar();
             this.contextCopy = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.copyNameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.copyAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.copyJournalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblTime = new System.Windows.Forms.Label();
             this.lblRecord = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -147,9 +145,7 @@
             // 
             this.contextCopy.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextCopy.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.copyNameToolStripMenuItem,
-            this.copyAllToolStripMenuItem,
-            this.copyJournalToolStripMenuItem});
+            this.copyNameToolStripMenuItem});
             this.contextCopy.Name = "contextCopy";
             this.contextCopy.Size = new System.Drawing.Size(263, 76);
             // 
@@ -157,22 +153,8 @@
             // 
             this.copyNameToolStripMenuItem.Name = "copyNameToolStripMenuItem";
             this.copyNameToolStripMenuItem.Size = new System.Drawing.Size(262, 24);
-            this.copyNameToolStripMenuItem.Text = "Copiar Nombre del Sistema";
+            this.copyNameToolStripMenuItem.Text = "Copiar nombre del Sistema";
             this.copyNameToolStripMenuItem.Click += new System.EventHandler(this.CopyNameToolStripMenuItem_Click);
-            // 
-            // copyAllToolStripMenuItem
-            // 
-            this.copyAllToolStripMenuItem.Name = "copyAllToolStripMenuItem";
-            this.copyAllToolStripMenuItem.Size = new System.Drawing.Size(262, 24);
-            this.copyAllToolStripMenuItem.Text = "Copiar toda la Línea";
-            this.copyAllToolStripMenuItem.Click += new System.EventHandler(this.CopyAllToolStripMenuItem_Click);
-            // 
-            // copyJournalToolStripMenuItem
-            // 
-            this.copyJournalToolStripMenuItem.Name = "copyJournalToolStripMenuItem";
-            this.copyJournalToolStripMenuItem.Size = new System.Drawing.Size(262, 24);
-            this.copyJournalToolStripMenuItem.Text = "Copiar Journal Log";
-            this.copyJournalToolStripMenuItem.Click += new System.EventHandler(this.CopyJournalToolStripMenuItem_Click);
             // 
             // lblTime
             // 
@@ -238,8 +220,6 @@
         private System.Windows.Forms.ColumnHeader detail;
         private System.Windows.Forms.ContextMenuStrip contextCopy;
         private System.Windows.Forms.ToolStripMenuItem copyNameToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem copyAllToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem copyJournalToolStripMenuItem;
         private System.Windows.Forms.ColumnHeader sistema;
         private System.Windows.Forms.Label lblTime;
         private System.Windows.Forms.ColumnHeader record;

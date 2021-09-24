@@ -110,11 +110,6 @@ namespace EDExplorer
             //Clipboard.SetText(listEvent.FocusedItem.Text);
         }
 
-        private void CopyAllToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            CopyAllSelected();
-        }
-
         private void ListEvent_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.C && e.Control)
@@ -249,32 +244,6 @@ namespace EDExplorer
 #else
             ReadAllJournals(3);
 #endif
-        }
-
-        private void CopyJournalToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            StringBuilder copyText = new StringBuilder();
-            foreach (ListViewItem item in listEvent.SelectedItems)
-            {
-                string bodyName = item.SubItems[1].Text + " " + item.SubItems[2].Text;
-
-                var bodyData = logMonitor.SystemBody.Where(body => body.Value.BodyName == bodyName);
-                if (bodyData.Count() == 0)
-                {
-                    bodyName = item.SubItems[2].Text;
-                    bodyData = logMonitor.SystemBody.Where(body => body.Value.BodyName == bodyName);
-                }
-                if (bodyData.Count() > 0)
-                    copyText.AppendLine(logMonitor.SystemBody.Where(body => body.Value.BodyName == bodyName).First().Value.JournalEntry);
-            }
-            if (copyText.Length == 0)
-            {
-                MessageBox.Show("No hay entradas seleccionadas en el Journal para copiar.", "Sin Datos", MessageBoxButtons.OK);
-            }
-            else
-            {
-                Clipboard.SetText(copyText.ToString());
-            }
         }
 
         private void button1_Click(object sender, EventArgs e)

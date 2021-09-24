@@ -42,7 +42,10 @@ namespace EDExplorer
         public FSSDiscoveryScan LastFSS { get; private set; }
         public FsdJump LastJump { get; private set; }
         public Dictionary<(string System, long Body), ScanEvent> SystemBody { get; private set; }
-        public Dictionary<(string System, long Body), SaaSignalsFound> SystemBodySignal { get; private set; }
+        public Dictionary<(string System, long Body), bool> SystemBodySignal { get; private set; }
+        
+        public Dictionary<(string System, long Body), List<long>> EsperandoPadre;
+
         private JournalPoker Poker;
         private ulong? CurrentAddress = 0;
         public string CurrentSystem
@@ -82,7 +85,9 @@ namespace EDExplorer
             CurrentSystem = string.Empty;
             JumponiumReported = false;
             SystemBody = new Dictionary<(string, long), ScanEvent>();
-            SystemBodySignal = new Dictionary<(string, long), SaaSignalsFound>();
+            //SystemBodySignal = new Dictionary<(string, long), SaaSignalsFound>();
+            SystemBodySignal = new Dictionary<(string, long), bool>();
+            EsperandoPadre = new Dictionary<(string, long), List<long>>();
         }
 
         public void MonitorStart()
@@ -118,6 +123,7 @@ namespace EDExplorer
             progressBar.Visible = true;
             SystemBody.Clear();
             SystemBodySignal.Clear();
+            EsperandoPadre.Clear();
             DirectoryInfo logDir = new DirectoryInfo(CheckLogPath());
             
             int progress = 0;
@@ -204,6 +210,7 @@ namespace EDExplorer
                     CurrentLogPath = e.FullPath;
                     CurrentLogPath = string.Empty;
                     bytesRead = 0;
+                    session_Time = DateTime.Now;
                     break;
 
                 case WatcherChangeTypes.Changed:
@@ -211,6 +218,7 @@ namespace EDExplorer
                     {
                         CurrentLogPath = e.FullPath;
                         bytesRead = 0;
+                        session_Time = DateTime.Now;
                     }
 
                     //////////////////////////////////////////////////////////////////////////////
@@ -303,11 +311,11 @@ namespace EDExplorer
                         break;
                     case "SAASignalsFound":
                         LastSignal = lastEvent.ToObject<SaaSignalsFound>();
-                        //LastSignal.Body = currentBody;
+                        LastSignal.Body = currentBody;
 
                         if (!SystemBodySignal.ContainsKey((CurrentSystem, (long)LastSignal.BodyId)))
                         {
-                            SystemBodySignal[(CurrentSystem, (long)LastSignal.BodyId)] = LastSignal;
+                            SystemBodySignal[(CurrentSystem, (long)LastSignal.BodyId)] = true;
                             tipoEvento = TipoEvento.Signal;
                         }
                         break;
@@ -324,6 +332,11 @@ namespace EDExplorer
                         LastJump = lastEvent.ToObject<FsdJump>();
                         CurrentSystem = lastEvent["StarSystem"].ToString();
                         CurrentAddress = (ulong?)lastEvent["SystemAddress"];
+                        
+                        // Solo es necesario cachear el sistema actual
+                        SystemBody.Clear();
+                        SystemBodySignal.Clear();
+                        EsperandoPadre.Clear();
 
                         //SQLBase.AddSystem(LastJump.SystemAddress??(ulong)0, LastJump.StarSystem, LastJump.Timestamp);
 
@@ -374,9 +387,7 @@ namespace EDExplorer
                 if (tipoEvento != TipoEvento.None)
                 {
                     /////////////////////////////////////////
-                    EventHandler entry = LogEntry;
-                    entry?.Invoke(this, EventArgs.Empty); // => Base.LogEvent
-                    //LogEntry?.Invoke(this, EventArgs.Empty); // => Base.LogEvent
+                    LogEntry?.Invoke(this, EventArgs.Empty); // => Base.LogEvent
                     ////////////////////////////////////////
                 }
 

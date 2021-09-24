@@ -44,8 +44,7 @@ namespace EDExplorer
             this.lblText.AutoSize = true;
             this.lblText.BackColor = System.Drawing.Color.Transparent;
             this.lblText.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblText.Location = new System.Drawing.Point(5, 36);
-            this.lblText.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.lblText.Location = new System.Drawing.Point(5, 34);
             this.lblText.Name = "lblText";
             this.lblText.Size = new System.Drawing.Size(176, 19);
             this.lblText.TabIndex = 1;
@@ -81,8 +80,7 @@ namespace EDExplorer
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.BackColor = System.Drawing.Color.Transparent;
             this.lblTitulo.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(5, 6);
-            this.lblTitulo.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.lblTitulo.Location = new System.Drawing.Point(5, 4);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(68, 19);
             this.lblTitulo.TabIndex = 4;

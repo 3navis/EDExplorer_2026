@@ -21,7 +21,7 @@ namespace EDExplorer
         public double sesion_acumuladoJump = 0;
         public int numeroJump = 0;
         public int sesion_numeroJump = 0;
-        public string nextStar;
+        public string claseStar;
         private string currentBody;
         public DateTime currentTime;
         public DateTime session_Time = DateTime.Now;
@@ -249,36 +249,31 @@ namespace EDExplorer
             }
         }
 
-        private void ProcessEvent(string logLine)
+        private void ProcessEvent(in string logLine)
         {
             /////////////////////////////////////////////////////////
             /// Esta funcion se utiliza para verificar que existe un
             /// evento procesable, antes de empezar a manipularlo.
             /// Sirve para optimizar velocidad del procesado.
 
-            // Proteccion contra lineas incompletas
-            if (logLine.Trim().StartsWith("{") && logLine.Trim().EndsWith("}"))
+            int pa = logLine.IndexOf("\"event\":");
+            if (pa > 0)
             {
-                int pa = logLine.IndexOf("\"event\":");
-                if (pa > 0)
+                pa += 9;
+                int pb = logLine.IndexOf("\"", pa + 1);
+                evento = logLine.Substring(pa, pb - pa);
+                const string eventos = "Scan,Location,FSDJump,CarrierJump,SAASignalsFound" +
+                    "FSSDiscoveryScan,SupercruiseExit,StartJump";  
+
+                if (eventos.Contains(evento))
                 {
-                    pa += 9;
-                    int pb = logLine.IndexOf("\"", pa + 1);
-                    evento = logLine.Substring(pa, pb - pa);
-
-                    const string eventos = "Scan,Location,FSDJump,CarrierJump,SAASignalsFound" +
-                        "FSSDiscoveryScan,SupercruiseExit" +
-                        "StartJump";
-                    // evento ProspectedAsteroid (mineria)
-
-                    if (eventos.Contains(evento))
-                    {
+                    // Proteccion contra lineas incompletas
+                    if (logLine.StartsWith("{") && logLine.EndsWith("}"))
                         ProcessLine(evento, logLine);
-                    }
                 }
             }
         }
-        private void ProcessLine(string evento, string logLine)
+        private void ProcessLine(in string evento, in string logLine)
         {
             try
             {
@@ -286,7 +281,7 @@ namespace EDExplorer
                 currentTime = (DateTime)lastEvent["timestamp"];
                 tipoEvento = TipoEvento.None;
 
-                switch (evento) // lastEvent["event"].ToString()
+                switch (evento)
                 {
                     case "Scan":
                         if (!lastEvent["BodyName"].ToString().Contains("Belt Cluster"))
@@ -323,8 +318,8 @@ namespace EDExplorer
                         if (!ReadAllInProgress)
                             if (lastEvent["JumpType"].ToString() == "Hyperspace")
                         {
-                            //Mostrar mensaje resumen mientras prepara el salto
-                            nextStar = lastEvent["StarClass"].ToString();
+                                //Mostrar mensaje resumen mientras prepara el salto
+                                claseStar = lastEvent["StarClass"].ToString();
                             tipoEvento = TipoEvento.Hyperspace;
                         }
                         break;

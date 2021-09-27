@@ -1,4 +1,6 @@
-﻿namespace EDExplorer
+﻿using System.Windows.Forms;
+
+namespace EDExplorer
 {
     partial class EDExplorerFrm
     {
@@ -43,9 +45,12 @@
             this.progressReadAll = new System.Windows.Forms.ProgressBar();
             this.contextCopy = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.copyNameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.filterNameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.filterAlertToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.filterRecordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.removeFilterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblTime = new System.Windows.Forms.Label();
             this.lblRecord = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.contextCopy.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,6 +80,7 @@
             this.listEvent.UseCompatibleStateImageBehavior = false;
             this.listEvent.View = System.Windows.Forms.View.Details;
             this.listEvent.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.ListEvent_ColumnClick);
+            this.listEvent.DrawItem += new System.Windows.Forms.DrawListViewItemEventHandler(this.listEvent_DrawItem);
             this.listEvent.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ListEvent_KeyDown);
             this.listEvent.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ListEvent_MouseClick);
             // 
@@ -102,7 +108,7 @@
             // detail
             // 
             this.detail.DisplayIndex = 6;
-            this.detail.Text = "Motivo de activación";
+            this.detail.Text = "Descripción";
             this.detail.Width = 302;
             // 
             // record
@@ -125,7 +131,7 @@
             this.btnReadAll.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReadAll.Location = new System.Drawing.Point(3, 2);
             this.btnReadAll.Name = "btnReadAll";
-            this.btnReadAll.Size = new System.Drawing.Size(145, 23);
+            this.btnReadAll.Size = new System.Drawing.Size(145, 25);
             this.btnReadAll.TabIndex = 3;
             this.btnReadAll.Text = "Analizar Histórico";
             this.btnReadAll.UseVisualStyleBackColor = true;
@@ -145,21 +151,53 @@
             // 
             this.contextCopy.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextCopy.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.copyNameToolStripMenuItem});
+            this.copyNameToolStripMenuItem,
+            this.filterNameToolStripMenuItem,
+            this.filterAlertToolStripMenuItem,
+            this.filterRecordToolStripMenuItem,
+            this.removeFilterToolStripMenuItem});
             this.contextCopy.Name = "contextCopy";
-            this.contextCopy.Size = new System.Drawing.Size(263, 76);
+            this.contextCopy.Size = new System.Drawing.Size(260, 124);
             // 
             // copyNameToolStripMenuItem
             // 
             this.copyNameToolStripMenuItem.Name = "copyNameToolStripMenuItem";
-            this.copyNameToolStripMenuItem.Size = new System.Drawing.Size(262, 24);
+            this.copyNameToolStripMenuItem.Size = new System.Drawing.Size(259, 24);
             this.copyNameToolStripMenuItem.Text = "Copiar nombre del Sistema";
             this.copyNameToolStripMenuItem.Click += new System.EventHandler(this.CopyNameToolStripMenuItem_Click);
+            // 
+            // filterNameToolStripMenuItem
+            // 
+            this.filterNameToolStripMenuItem.Name = "filterNameToolStripMenuItem";
+            this.filterNameToolStripMenuItem.Size = new System.Drawing.Size(259, 24);
+            this.filterNameToolStripMenuItem.Text = "Filtrar Sistema";
+            this.filterNameToolStripMenuItem.Click += new System.EventHandler(this.FilterNameToolStripMenuItem_Click);
+            // 
+            // filterAlertToolStripMenuItem
+            // 
+            this.filterAlertToolStripMenuItem.Name = "filterAlertToolStripMenuItem";
+            this.filterAlertToolStripMenuItem.Size = new System.Drawing.Size(259, 24);
+            this.filterAlertToolStripMenuItem.Text = "Filtrar Alerta";
+            this.filterAlertToolStripMenuItem.Click += new System.EventHandler(this.FilterAlertToolStripMenuItem_Click);
+            // 
+            // filterRecordToolStripMenuItem
+            // 
+            this.filterRecordToolStripMenuItem.Name = "filterRecordToolStripMenuItem";
+            this.filterRecordToolStripMenuItem.Size = new System.Drawing.Size(259, 24);
+            this.filterRecordToolStripMenuItem.Text = "Filtrar Records";
+            this.filterRecordToolStripMenuItem.Click += new System.EventHandler(this.FilterRecordToolStripMenuItem_Click);
+            // 
+            // removeFilterToolStripMenuItem
+            // 
+            this.removeFilterToolStripMenuItem.Name = "removeFilterToolStripMenuItem";
+            this.removeFilterToolStripMenuItem.Size = new System.Drawing.Size(259, 24);
+            this.removeFilterToolStripMenuItem.Text = "Eliminar Filtro";
+            this.removeFilterToolStripMenuItem.Click += new System.EventHandler(this.RemoveFilterToolStripMenuItem_Click);
             // 
             // lblTime
             // 
             this.lblTime.AutoSize = true;
-            this.lblTime.Location = new System.Drawing.Point(318, 8);
+            this.lblTime.Location = new System.Drawing.Point(163, 8);
             this.lblTime.Name = "lblTime";
             this.lblTime.Size = new System.Drawing.Size(0, 19);
             this.lblTime.TabIndex = 5;
@@ -175,23 +213,11 @@
             this.lblRecord.Text = "";
             this.lblRecord.Visible = false;
             // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(154, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(145, 23);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Records Personales";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // EDExplorerFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(999, 429);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.lblRecord);
             this.Controls.Add(this.btnReadAll);
             this.Controls.Add(this.lblTime);
@@ -211,21 +237,24 @@
         }
 
         #endregion
-        private System.Windows.Forms.ListView listEvent;
-        private System.Windows.Forms.ColumnHeader cuerpo;
-        private System.Windows.Forms.ColumnHeader alerta;
-        private System.Windows.Forms.Button btnReadAll;
-        private System.Windows.Forms.ProgressBar progressReadAll;
-        private System.Windows.Forms.ColumnHeader timestamp;
-        private System.Windows.Forms.ColumnHeader detail;
-        private System.Windows.Forms.ContextMenuStrip contextCopy;
-        private System.Windows.Forms.ToolStripMenuItem copyNameToolStripMenuItem;
-        private System.Windows.Forms.ColumnHeader sistema;
-        private System.Windows.Forms.Label lblTime;
-        private System.Windows.Forms.ColumnHeader record;
-        private System.Windows.Forms.Label lblRecord;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ColumnHeader valor;
+        private ListView listEvent;
+        private ColumnHeader cuerpo;
+        private ColumnHeader alerta;
+        private Button btnReadAll;
+        private ProgressBar progressReadAll;
+        private ColumnHeader timestamp;
+        private ColumnHeader detail;
+        private ContextMenuStrip contextCopy;
+        private ToolStripMenuItem copyNameToolStripMenuItem;
+        private ToolStripMenuItem filterNameToolStripMenuItem;
+        private ToolStripMenuItem filterAlertToolStripMenuItem;
+        private ToolStripMenuItem filterRecordToolStripMenuItem;
+        private ToolStripMenuItem removeFilterToolStripMenuItem;
+        private ColumnHeader sistema;
+        private Label lblTime;
+        private ColumnHeader record;
+        private Label lblRecord;
+        private ColumnHeader valor;
     }
 }
 

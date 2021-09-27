@@ -21,7 +21,6 @@ namespace EDExplorer
             Materials.Sulphur | Materials.Technetium | Materials.Tellurium | Materials.Tin |
             Materials.Tungsten | Materials.Vanadium | Materials.Yttrium | Materials.Zinc |
             Materials.Zirconium;
-        private string detalle;
 
         public ScanReader(Base b)
         {
@@ -31,28 +30,17 @@ namespace EDExplorer
             Interest = new List<Interes>();
         }
 
+        ScanEvent scanEvent;
+        DetallesAlerta da;
         public bool hayAlertas()
         {
             isRing = logMonitor.LastScan.BodyName.Contains(" Ring");
-            bool interesting = !isRing && DefaultInterest();
+            if (isRing) return false;
 
-            //if (settings.VeryInteresting && Interest.Count() > 1)
-            //{
-            //    detalle = $"{Interest.Count()} Criterios Satisfechos";
-            //    Interest.Add(new Interes(logMonitor.LastScan.BodyName, "Criterios Múltiples", "", detalle));
-            //}
-
-            return interesting;
-        }
-
-        ScanEvent scanEvent;
-        DetallesAlerta da;
-        private bool DefaultInterest()
-        {
             scanEvent = logMonitor.LastScan;
             bool flgAterrizable = scanEvent.Landable.GetValueOrDefault(false);
 
-            //if (scanEvent.BodyName == "Byeia Eurk CQ-X b56-1 13")
+            //if (scanEvent.BodyName == "Cl Pismis 13 5")
             //{
             //}
 
@@ -73,7 +61,7 @@ namespace EDExplorer
                 {
                     if (alertas.CumpleCriterios(da))
                     {
-                        Interest.Add(new Interes(scanEvent.BodyName, da.nombre, "", string.Empty));
+                        Interest.Add(new Interes(scanEvent.BodyName, da.nombre, "", ""));
                     }
                 }
 
@@ -82,19 +70,15 @@ namespace EDExplorer
                 if (da.flag && scanEvent.Rings != null)
                 {
                     alertas.valor = (double)scanEvent.Rings[scanEvent.Rings.Count() - 1].OuterRad;
-                    alertas.valor -= (double)scanEvent.Rings[0].InnerRad;
+                    alertas.valor -= (double)scanEvent.Rings[0].InnerRad; // metros
                     alertas.valor /= 1000;
 
                     if (alertas.CumpleCriterios(da))
                     {
-                        detalle = "Km anchura anillo/s";
-                        Interest.Add(new Interes(scanEvent.BodyName, da.nombre, alertas.valorST, detalle, alertas.isRecord));
-
-                        if (alertas.isRecord)
-                            Interest.Add(new Interes(scanEvent.BodyName, "Record Personal", alertas.valorST, alertas.recordDesc));
+                        //detalle = "Km anchura anillo/s";
+                        Interest.Add(new Interes(scanEvent.BodyName, da.nombre, alertas.valorST, alertas.detalle, alertas.isRecord, alertas.recordDesc));
                     }
                 }
-
 
                 // Aterrizable Bajo-g
                 da = alertas.n[Alerta.GravedadP];
@@ -104,11 +88,8 @@ namespace EDExplorer
 
                     if (alertas.CumpleCriterios(da))
                     {
-                        detalle = "g Gravedad en superficie.";
-                        Interest.Add(new Interes(scanEvent.BodyName, da.nombre, alertas.valorST, detalle, alertas.isRecord));
-
-                        if (alertas.isRecord)
-                            Interest.Add(new Interes(scanEvent.BodyName, "Record Personal", alertas.valorST, alertas.recordDesc));
+                        //detalle = "g Gravedad en superficie";
+                        Interest.Add(new Interes(scanEvent.BodyName, da.nombre, alertas.valorST, alertas.detalle, alertas.isRecord, alertas.recordDesc));
                     }
                 }
 
@@ -120,11 +101,8 @@ namespace EDExplorer
 
                     if (alertas.CumpleCriterios(da))
                     {
-                        detalle = "g Gravedad en superficie.";
-                        Interest.Add(new Interes(scanEvent.BodyName, da.nombre, alertas.valorST, detalle, alertas.isRecord));
-
-                        if (alertas.isRecord)
-                            Interest.Add(new Interes(scanEvent.BodyName, "Record Personal", alertas.valorST, alertas.recordDesc));
+                        //detalle = "g Gravedad en superficie";
+                        Interest.Add(new Interes(scanEvent.BodyName, da.nombre, alertas.valorST, alertas.detalle, alertas.isRecord, alertas.recordDesc));
                     }
                 }
 
@@ -136,11 +114,8 @@ namespace EDExplorer
 
                     if (alertas.CumpleCriterios(da))
                     {
-                        detalle = "Km de Radio.";
-                        Interest.Add(new Interes(scanEvent.BodyName, da.nombre, alertas.valorST, detalle, alertas.isRecord));
-
-                        if (alertas.isRecord)
-                            Interest.Add(new Interes(scanEvent.BodyName, "Record Personal", alertas.valorST, alertas.recordDesc));
+                        //detalle = "Km de Radio";
+                        Interest.Add(new Interes(scanEvent.BodyName, da.nombre, alertas.valorST, alertas.detalle, alertas.isRecord, alertas.recordDesc));
                     }
                 }
 
@@ -152,28 +127,23 @@ namespace EDExplorer
 
                     if (alertas.CumpleCriterios(da))
                     {
-                        detalle = "Km de Radio.";
-                        Interest.Add(new Interes(scanEvent.BodyName, da.nombre, alertas.valorST, detalle, alertas.isRecord));
-
-                        if (alertas.isRecord)
-                            Interest.Add(new Interes(scanEvent.BodyName, "Record Personal", alertas.valorST, alertas.recordDesc));
+                        //detalle = "Km de Radio.";
+                        Interest.Add(new Interes(scanEvent.BodyName, da.nombre, alertas.valorST, alertas.detalle, alertas.isRecord, alertas.recordDesc));
                     }
                 }
-            }
 
-            // CREMATORIA - Skardee I
-            // scanEvent.Parent?[0].ParentType == "Star"
-            //if (alertas.n[Alerta.Crematoria].flag && scanEvent.Landable.GetValueOrDefault(false) && scanEvent.DistanceFromArrivalLs < 8 && (double)scanEvent.OrbitalPeriod / 86400 < alertas.n[Alerta.Crematoria].desde)
-            da = alertas.n[Alerta.Crematoria];
-            if (da.flag && scanEvent.DistanceFromArrivalLs > 0 && scanEvent.DistanceFromArrivalLs < 8)
-            {
-                alertas.valor = (double)scanEvent.OrbitalPeriod / 86400;
-
-                if (alertas.CumpleCriterios(da))
+                // Aterrizable CREMATORIA - Skardee I
+                da = alertas.n[Alerta.Crematoria];
+                if (da.flag && scanEvent.DistanceFromArrivalLs > 0 && scanEvent.DistanceFromArrivalLs < 10 && scanEvent.Parent?[0].ParentType == "Star")
                 {
-                    double g = Math.Abs((double)scanEvent.SurfaceTemperature);
-                    detalle = $"dias rotación  {scanEvent.DistanceFromArrivalLs.ToString("0")} LS  {g.ToString("0")} grados";
-                    Interest.Add(new Interes(scanEvent.BodyName, da.nombre, alertas.valorST, detalle));
+                    alertas.valor = (double)scanEvent.OrbitalPeriod / 86400; // segundos a días
+
+                    if (alertas.CumpleCriterios(da))
+                    {
+                        double g = Math.Abs((double)scanEvent.SurfaceTemperature);
+                        //detalle = $"dias rotación  {scanEvent.DistanceFromArrivalLs.ToString("0")} LS  {g.ToString("0")} grados";
+                        Interest.Add(new Interes(scanEvent.BodyName, da.nombre, alertas.valorST, alertas.detalle));
+                    }
                 }
             }
 
@@ -181,8 +151,9 @@ namespace EDExplorer
             da = alertas.n[Alerta.NombreEspecial];
             if (da.flag && !scanEvent.BodyName.Contains(logMonitor.CurrentSystem))
             {
-                detalle = "El nombre del cuerpo no incluye al Sistema";
-                Interest.Add(new Interes(scanEvent.BodyName, da.nombre, "", detalle));
+                // No entra en la funcion normal de alertas
+                alertas.detalle = da.detalle;
+                Interest.Add(new Interes(scanEvent.BodyName, da.nombre, "", alertas.detalle));
             }
 
             alertaAnillo(Alerta.AnilloIcy);
@@ -190,25 +161,20 @@ namespace EDExplorer
             alertaAnillo(Alerta.AnilloMetal);
             alertaAnillo(Alerta.AnilloMetalRich);
 
-            // Ancho del Anillo x veces el Radio
+            // Ancho del Anillo x veces el Radio (unidades distintas)
             da = alertas.n[Alerta.AnilloG];
             if (da.flag && scanEvent.Rings != null)
             {
                 // Si el primero no es un Belt ya no hay luego
                 if (!scanEvent.Rings[0].Name.Contains("Belt"))
-                //foreach (Ring ring in scanEvent.Rings.Where(ring => !ring.Name.Contains("Belt")))
                 {
-                    //alertas.valor = (ring.OuterRad.GetValueOrDefault(0) - ring.InnerRad.GetValueOrDefault(0)) / (double)scanEvent.Radius;
                     alertas.valor = ((double)scanEvent.Rings[scanEvent.Rings.Count() - 1].OuterRad - (double)scanEvent.Rings[0].InnerRad) / (double)scanEvent.Radius;
 
                     if (alertas.CumpleCriterios(da))
                     {
                         // Anillo de {valor / 1000:N0}km, 
-                        detalle = "veces el radio del Planeta.";
-                        Interest.Add(new Interes(scanEvent.Rings[0].Name, da.nombre, alertas.valorST, detalle, alertas.isRecord));
-
-                        if (alertas.isRecord)
-                            Interest.Add(new Interes(scanEvent.BodyName, "Record Personal", alertas.valorST, alertas.recordDesc));
+                        //detalle = "veces el radio del Planeta.";
+                        Interest.Add(new Interes(scanEvent.Rings[0].Name, da.nombre, alertas.valorST, alertas.detalle, alertas.isRecord, alertas.recordDesc));
                     }
                 }
             }
@@ -243,68 +209,29 @@ namespace EDExplorer
                 }
             }
 
-            // Binaria Cercana (dos objetos orbitando entre si)
+            // Binaria Cercana (dos cuerpos orbitando entre si)
             da = alertas.n[Alerta.Binario];
             if (da.flag && scanEvent.Parent?[0].ParentType == "Null") // && scanEvent.Radius / scanEvent.SemiMajorAxis > 0.4)
             {
-                //alertas.valor = (double)(scanEvent.SemiMajorAxis * (1 - scanEvent.Eccentricity));
-                //alertas.valor = alertas.valor - (double)scanEvent.Radius;
-                //alertas.valor = (double)(scanEvent.Radius) / alertas.valor;
-
-                //alertas.valor = Math.Abs((double)scanEvent.Radius / (double)(scanEvent.SemiMajorAxis - scanEvent.Radius));
-
-                //alertas.valor = (double)scanEvent.SemiMajorAxis;
-                //alertas.valor = Math.Abs((double)(alertas.valor - scanEvent.Radius)) / alertas.valor;
-
                 alertas.valor = (double)(scanEvent.Radius / scanEvent.SemiMajorAxis);
 
                 if (alertas.CumpleCriterios(da))
                 {
-                    detalle = "relación Radio vs Distancia.";
-                    Interest.Add(new Interes(scanEvent.BodyName, da.nombre, alertas.valorST, detalle, false));
-
-                    if (alertas.isRecord)
-                        Interest.Add(new Interes(scanEvent.BodyName, "Record Personal", alertas.valorST, alertas.recordDesc));
+                    //detalle = "relación Radio vs Distancia.";
+                    Interest.Add(new Interes(scanEvent.BodyName, da.nombre, alertas.valorST, alertas.detalle, alertas.isRecord, alertas.recordDesc));
                 }
-
-                //var binaryPartner = logMonitor.SystemBody.Where(system => system.Key.System == logMonitor.CurrentSystem && scanEvent.Parent?[0].Body == system.Value.Parent?[0].Body && scanEvent.BodyId != system.Value.BodyId);
-                //if (binaryPartner.Count() == 1)
-                //{
-                //    alertas.valor = (double)(binaryPartner.First().Value.SemiMajorAxis * (1 - binaryPartner.First().Value.Eccentricity) + scanEvent.SemiMajorAxis * (1 - scanEvent.Eccentricity));
-                //    alertas.valor = alertas.valor - (double)(binaryPartner.First().Value.Radius - scanEvent.Radius);
-                //    alertas.valor = (double)(binaryPartner.First().Value.Radius + scanEvent.Radius) / alertas.valor;
-
-                //    if (alertas.CumpleCriterios(da))
-                //    {
-                //        //detalle = $"Radios vs Distancia relacion: {alertas.valor.ToString("0.0")}";
-                //        detalle = "relacion Radios vs Distancia. (old)";
-                //        Interest.Add(new Interes(scanEvent.BodyName, da.nombre, alertas.valorST, detalle, alertas.isRecord));
-
-                //        if (alertas.isRecord)
-                //            Interest.Add(new Interes(scanEvent.BodyName, "Record Personal", alertas.valorST, alertas.recordDesc));
-                //    }
-                //}
             }
-
-            // Luna Anidada
-            //if (alertas.n[Alerta.Anidada].flag && scanEvent.Parent?.Count() > 1 && scanEvent.Parent[0].ParentType == "Planet" && scanEvent.Parent[1].ParentType == "Planet")
-            //{
-            //    Interest.Add((scanEvent.BodyName, alertas.n[Alerta.Anidada].nombre, string.Empty));
-            //}
 
             // Rotacion Rápida
             da = alertas.n[Alerta.RotacionR];
             if (alertas.n[Alerta.RotacionR].flag && scanEvent.RotationPeriod != null && !scanEvent.TidalLock.GetValueOrDefault(true))
             {
                 alertas.valor = Math.Abs((double)scanEvent.RotationPeriod / 3600);
-
+                
                 if (alertas.CumpleCriterios(da))
                 {
-                    detalle = "horas para completar una rotación.";
-                    Interest.Add(new Interes(scanEvent.BodyName, da.nombre, alertas.valorST, detalle, alertas.isRecord));
-
-                    if (alertas.isRecord)
-                        Interest.Add(new Interes(scanEvent.BodyName, "Record Personal", alertas.valorST, alertas.recordDesc));
+                    //detalle = "horas para completar una rotación.";
+                    Interest.Add(new Interes(scanEvent.BodyName, da.nombre, alertas.valorST, alertas.detalle, alertas.isRecord, alertas.recordDesc));
                 }
             }
 
@@ -312,15 +239,12 @@ namespace EDExplorer
             da = alertas.n[Alerta.OrbitaR];
             if (da.flag && scanEvent.OrbitalPeriod != null && !isRing)
             {
-                alertas.valor = (double)scanEvent.OrbitalPeriod / 3600;
+                alertas.valor = Math.Abs((double)scanEvent.OrbitalPeriod / 3600);
 
                 if (alertas.CumpleCriterios(da))
                 {
-                    detalle = "horas para completar una Orbita.";
-                    Interest.Add(new Interes(scanEvent.BodyName, da.nombre, alertas.valorST, detalle, alertas.isRecord));
-
-                    if (alertas.isRecord)
-                        Interest.Add(new Interes(scanEvent.BodyName, "Record Personal", alertas.valorST, alertas.recordDesc));
+                    //detalle = "horas para completar una Orbita.";
+                    Interest.Add(new Interes(scanEvent.BodyName, da.nombre, alertas.valorST, alertas.detalle, alertas.isRecord, alertas.recordDesc));
                 }
             }
 
@@ -329,33 +253,6 @@ namespace EDExplorer
             //{
             //    detalle = $"Excentricidad de {Math.Round((decimal)scanEvent.Eccentricity, 2)}";
             //    Interest.Add((scanEvent.BodyName, alertas.n[Alerta.Excentricidad].nombre, detalle));
-            //}
-
-
-            // Good jumponium material availability
-            //if (alertas.n[Alerta.Potenciar].flag && flgAterrizable)
-            //{
-            //    int jumpMats = 0;
-            //    Materials matsNotFound = PremiumBoostMaterials;
-            //    foreach (MaterialComposition material in scanEvent.Materials)
-            //    {
-            //        Materials matFound = (Materials)MaterialLookup.ByName(material.Name.ToLower()); //(Materials)Enum.Parse(typeof(Materials), material.Name, true);
-
-            //        if ((matFound & PremiumBoostMaterials) == matFound)
-            //        {
-            //            jumpMats++;
-            //            matsNotFound ^= matFound;
-            //        }
-
-            //    }
-            //    if (jumpMats == 6)
-            //    {
-            //        Interest.Add((scanEvent.BodyName, alertas.n[Alerta.Potenciar].nombre, "Todos los materiales necesarios disponibles en un solo Planeta"));
-            //    }
-            //    else if (jumpMats == 5)
-            //    {
-            //        Interest.Add((scanEvent.BodyName, alertas.n[Alerta.Potenciar].nombre, $"Disponibles 5 materiales de 6, ausencia de {matsNotFound}"));
-            //    }
             //}
 
             return Interest.Count > 0;
@@ -377,28 +274,16 @@ namespace EDExplorer
                     case Alerta.AnilloRock: { clase = "eRingClass_Rocky"; break; }
                 }
 
-                if (scanEvent.Rings.Where(ring => ring.RingClass == clase).Count() > 0)
+                if (scanEvent.Rings.Where(ring => ring.RingClass == clase && !ring.Name.Contains(" Belt")).Count() > 0)
                 {
-                    Ring r = scanEvent.Rings.Where(ring => ring.RingClass == clase).OrderByDescending(ring => ring.MassMT).First();
+                    Ring r = scanEvent.Rings.Where(ring => ring.RingClass == clase && !ring.Name.Contains(" Belt")).OrderByDescending(ring => ring.MassMT).First();
 
-                    if (!r.Name.Contains(" Belt"))
+                    alertas.valor = (double)r.MassMT / Math.Pow(10, 12);
+
+                    if (alertas.CumpleCriterios(da))
                     {
-                        alertas.valor = (double)r.MassMT / Math.Pow(10, 12);
-
-                        if (alertas.CumpleCriterios(da))
-                        {
-                            // Anillo de {valor / 1000:N0}km, 
-                            //detalle = $"masa {alertas.valor:N2} Mt. (x10^12)";
-                            detalle = "Mt. (x10^12) de masa.";
-                            Interest.Add(new Interes(r.Name, da.nombre, alertas.valorST, detalle, alertas.isRecord));
-
-                            if (alertas.isRecord)
-                                Interest.Add(new Interes(r.Name, "Record Personal", alertas.valorST, alertas.recordDesc));
-                        }
-                    }
-                    else
-                    {
-
+                        //detalle = "Mt. (x10^12) de masa.";
+                        Interest.Add(new Interes(r.Name, da.nombre, alertas.valorST, alertas.detalle, alertas.isRecord, alertas.recordDesc));
                     }
                 }
             }
@@ -413,11 +298,8 @@ namespace EDExplorer
             da = alertas.n[Alerta.OrbitaP];
             if (da.flag && alertas.CumpleCriterios(da))
             {
-                detalle = "Km de distancia entre superficies.";
-                Interest.Add(new Interes(Hijo.BodyName, da.nombre, alertas.valorST, detalle, alertas.isRecord));
-
-                if (alertas.isRecord)
-                    Interest.Add(new Interes(Hijo.BodyName, "Record Personal", alertas.valorST, alertas.recordDesc));
+                //detalle = "Km de distancia entre superficies";
+                Interest.Add(new Interes(Hijo.BodyName, da.nombre, alertas.valorST, alertas.detalle, alertas.isRecord, alertas.recordDesc));
             }
 
             // distancia en SL (1 SL = 299.792,36 Km)
@@ -427,11 +309,8 @@ namespace EDExplorer
             da = alertas.n[Alerta.OrbitaG];
             if (da.flag && alertas.CumpleCriterios(da))
             {
-                detalle = "Km de distancia entre superficies.";
-                Interest.Add(new Interes(Hijo.BodyName, da.nombre, alertas.valorST, detalle, alertas.isRecord));
-
-                if (alertas.isRecord)
-                    Interest.Add(new Interes(Hijo.BodyName, "Record Personal", alertas.valorST, alertas.recordDesc));
+                //detalle = "SL de distancia entre superficies.";
+                Interest.Add(new Interes(Hijo.BodyName, da.nombre, alertas.valorST, alertas.detalle, alertas.isRecord, alertas.recordDesc));
             }
 
             // Proximo al Anillo
@@ -443,11 +322,8 @@ namespace EDExplorer
 
                 if (alertas.CumpleCriterios(da))
                 {
-                    detalle = "Km de distancia al borde del anillo.";
-                    Interest.Add(new Interes(Hijo.BodyName, da.nombre, alertas.valorST, detalle, alertas.isRecord));
-
-                    if (alertas.isRecord)
-                        Interest.Add(new Interes(Hijo.BodyName, "Record Personal", alertas.valorST, alertas.recordDesc));
+                    //detalle = "Km de distancia al borde del anillo.";
+                    Interest.Add(new Interes(Hijo.BodyName, da.nombre, alertas.valorST, alertas.detalle, alertas.isRecord, alertas.recordDesc));
                 }
             }
         }

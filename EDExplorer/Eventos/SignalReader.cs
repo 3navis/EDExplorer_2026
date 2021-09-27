@@ -8,7 +8,6 @@ namespace EDExplorer
         public List<Interes> Interest { get; private set; }
         private Alertas alertas;
         private LogMonitor logMonitor;
-        private string detalle;
         private SaaSignalsFound.Signal signal;
         
         SaaSignalsFound signalEvent;
@@ -31,11 +30,8 @@ namespace EDExplorer
                     if (alertas.CumpleCriterios(da))
                     {
                         //detalle = $"{alertas.valor} vetas de {signal.TypeLocalised}";
-                        detalle = $"vetas de {signal.TypeLocalised}";
-                        Interest.Add(new Interes(signalEvent.BodyName, da.nombre, alertas.valorST, detalle, alertas.isRecord));
-
-                        if (alertas.isRecord)
-                            Interest.Add(new Interes(signalEvent.BodyName, "Record Personal", alertas.valorST, alertas.recordDesc));
+                        //detalle = $"vetas de {signal.TypeLocalised}";
+                        Interest.Add(new Interes(signalEvent.BodyName, da.nombre, alertas.valorST, alertas.detalle, alertas.isRecord, alertas.recordDesc));
                     }
                 }
             }
@@ -54,11 +50,8 @@ namespace EDExplorer
                     if (alertas.CumpleCriterios(da))
                     {
                         //detalle = $"{alertas.valor} señales {signal.TypeLocalised}";
-                        detalle = $"señales {signal.TypeLocalised}";
-                        Interest.Add(new Interes(signalEvent.BodyName, da.nombre, alertas.valorST, detalle, alertas.isRecord));
-
-                        if (alertas.isRecord)
-                            Interest.Add(new Interes(signalEvent.BodyName, "Record Personal", alertas.valorST, alertas.recordDesc));
+                        //detalle = $"señales {signal.TypeLocalised}";
+                        Interest.Add(new Interes(signalEvent.BodyName, da.nombre, alertas.valorST, alertas.detalle, alertas.isRecord, alertas.recordDesc));
                     }
                 }
             }

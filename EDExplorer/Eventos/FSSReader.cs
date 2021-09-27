@@ -30,11 +30,8 @@ namespace EDExplorer
                 if (alertas.CumpleCriterios(da))
                 {
                     //detalle = $"{alertas.valor} cuerpos en el sistema. ({fssEvent.NonBodyCount} otros)";
-                    detalle = $"cuerpos en el sistema. ({fssEvent.NonBodyCount} otros)";
-                    Interest.Add(new Interes(fssEvent.SystemName, da.nombre, alertas.valorST, detalle, alertas.isRecord));
-
-                    if (alertas.isRecord)
-                        Interest.Add(new Interes(fssEvent.SystemName, "Record Personal", alertas.valorST, alertas.recordDesc));
+                    //detalle = $"cuerpos en el sistema. ({fssEvent.NonBodyCount} otros)";
+                    Interest.Add(new Interes(fssEvent.SystemName, da.nombre, alertas.valorST, alertas.detalle, alertas.isRecord, alertas.recordDesc));
                 }
             }
             //////////////////////////

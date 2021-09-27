@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
@@ -10,6 +12,7 @@ namespace EDExplorer
 {
     public partial class EDExplorerFrm : Form
     {
+        private Properties.Settings settings = Properties.Settings.Default;
         private ListViewColumnSorter columnSorter;
         private LogMonitor logMonitor;
         private bool mostrarSoloRecords = false;
@@ -25,28 +28,30 @@ namespace EDExplorer
             logMonitor = l;
         }
 
-        //public void AddListItem((string BodyName, string Description, string Detail) item)
         public void AddListItem(Interes item)
         {
             ListViewItem newItem = new ListViewItem(
                     new string[] {
-                    //logMonitor.LastScan.Timestamp.ToString("yyyy-MM-dd HH:mm:ss"),
                     logMonitor.currentTime.ToString("yyyy-MM-dd HH:mm:ss"),
                     logMonitor.CurrentSystem,
                     item.BodyName.Replace(logMonitor.CurrentSystem,"").Trim(),
                     item.Nombre,
                     item.Detalle,
-                    (item.isRecord) ? "R" : string.Empty, // ? "Ꚛ🌐֍֎۞ℳ♡Ꚛ"
+                    string.Empty, // ? "Ꚛ🌐֍֎۞ℳ♡Ꚛ"
                     item.ValorST
                     });
 
-            if (item.Nombre.Contains("Criterios Múltiples") || item.Nombre.Contains("Record Personal"))
+            if (item.isRecord)
             {
+                Font fontBold = new Font(newItem.Font, FontStyle.Bold);
+
                 newItem.UseItemStyleForSubItems = false;
-                newItem.SubItems[3].Font = new Font(newItem.Font, FontStyle.Bold);
-                newItem.SubItems[4].Font = new Font(newItem.Font, FontStyle.Bold);
+                newItem.SubItems[3].Font = fontBold;
+                newItem.SubItems[4].Font = fontBold;
+                newItem.SubItems[4].Text += " (" + item.RecordDesc + ")";
                 newItem.SubItems[5].Font = lblRecord.Font;
                 newItem.SubItems[5].Text = lblRecord.Text;
+                newItem.SubItems[6].Font = fontBold;
             }
 
             if (!mostrarSoloRecords || item.isRecord)
@@ -58,6 +63,9 @@ namespace EDExplorer
             {
                 listEvent.Sort();
                 newItem.EnsureVisible();
+                
+                // ** Limnpiar el guardado si estaba realizado
+                itemsTodos = null;
             }
         }
 
@@ -75,6 +83,9 @@ namespace EDExplorer
             DateTime start = DateTime.Now;
             ReadAllJournals();
             lblTime.Text = (DateTime.Now - start).TotalSeconds.ToString("0.00")+"s.";
+
+            // ** Limpiar el guardado si estaba realizado
+            itemsTodos = null;
         }
 
         private void ReadAllJournals(int ultimos = 0, bool soloRecords = false)
@@ -90,6 +101,10 @@ namespace EDExplorer
             listEvent.EndUpdate();
 
             mostrarSoloRecords = false;
+
+            // Guardar Records despues de leer fichero.
+            settings.Alertas = JsonConvert.SerializeObject(logMonitor.basi.alertas.n);
+            settings.Save(); 
         }
 
         private void ListEvent_MouseClick(object sender, MouseEventArgs e)
@@ -100,6 +115,9 @@ namespace EDExplorer
                 {
                     contextCopy.Show(Cursor.Position);
                     contextCopy.Items[0].Enabled = listEvent.SelectedItems.Count == 1;
+                    
+                    this.filterNameToolStripMenuItem.Text = "Filtrar Sistema \"" + listEvent.FocusedItem.SubItems[1].Text + "\"";
+                    this.filterAlertToolStripMenuItem.Text = "Filtrar Alerta \"" + listEvent.FocusedItem.SubItems[3].Text + "\"";
                 }
             }
         }
@@ -108,6 +126,108 @@ namespace EDExplorer
         {
             Clipboard.SetText(listEvent.FocusedItem.SubItems[1].Text);
             //Clipboard.SetText(listEvent.FocusedItem.Text);
+        }
+
+        // Guardar la lista completa para poder restaurarla
+        ListViewItem[] itemsTodos;
+
+        private void FilterNameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string Sistema = listEvent.FocusedItem.SubItems[1].Text;
+            string AlertasIncluidas = "";
+
+            if (itemsTodos == null)
+            {
+                itemsTodos = new ListViewItem[listEvent.Items.Count];
+                listEvent.Items.CopyTo(itemsTodos, 0);
+            }
+
+            listEvent.Items.Clear();  //Borra el ListView
+            List<ListViewItem> itemsAUX = new List<ListViewItem>();  //Lista Auxiliar para el filtrado
+
+            //Recorre todos los items
+            foreach (ListViewItem lvi in itemsTodos)
+            {
+                //Filtra los items que comienzan con el valor de textBox1.Text
+                if (lvi.SubItems[1].Text == Sistema)
+                {
+                    // verificar que no existe ya esa alerta antes de insertar.
+                    if (!AlertasIncluidas.Contains(lvi.SubItems[2].Text + lvi.SubItems[3].Text))
+                    {
+                        AlertasIncluidas += lvi.SubItems[2].Text + lvi.SubItems[3].Text + ",";
+                        itemsAUX.Add(lvi);
+                    }
+                }
+            }
+            listEvent.Items.AddRange(itemsAUX.ToArray()); //Recargar el ListView
+        }
+
+        private void FilterAlertToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string Alerta = listEvent.FocusedItem.SubItems[3].Text;
+            string AlertasIncluidas = "";
+
+            if (itemsTodos == null)
+            {
+                itemsTodos = new ListViewItem[listEvent.Items.Count];
+                listEvent.Items.CopyTo(itemsTodos, 0);
+            }
+
+            listEvent.Items.Clear();  //Borra el ListView
+            List<ListViewItem> itemsAUX = new List<ListViewItem>();  //Lista Auxiliar para el filtrado
+
+            //Recorre todos los items
+            foreach (ListViewItem lvi in itemsTodos)
+            {
+                if (lvi.SubItems[3].Text == Alerta)
+                    // verificar que no existe ya esa alerta antes de insertar.
+                    if (!AlertasIncluidas.Contains(lvi.SubItems[1].Text + lvi.SubItems[2].Text))
+                    {
+                        AlertasIncluidas += lvi.SubItems[1].Text + lvi.SubItems[2].Text + ",";
+                        itemsAUX.Add(lvi);
+                    }
+            }
+            listEvent.Items.AddRange(itemsAUX.ToArray()); //Recargar el ListView
+        }
+
+        private void FilterRecordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string Record = listEvent.FocusedItem.SubItems[5].Text;
+            string AlertasIncluidas = "";
+
+            if (itemsTodos == null)
+            {
+                itemsTodos = new ListViewItem[listEvent.Items.Count];
+                listEvent.Items.CopyTo(itemsTodos, 0);
+            }
+
+            listEvent.Items.Clear();  //Borra el ListView
+            List<ListViewItem> itemsAUX = new List<ListViewItem>();  //Lista Auxiliar para el filtrado
+
+            //Recorre todos los items
+            foreach (ListViewItem lvi in itemsTodos)
+            {
+                //Filtra los items que comienzan con el valor de textBox1.Text
+                if (lvi.SubItems[5].Text != "")
+                {
+                    // verificar que no existe ya esa alerta antes de insertar.
+                    if (!AlertasIncluidas.Contains(lvi.SubItems[3].Text))
+                    {
+                        AlertasIncluidas += lvi.SubItems[3].Text + ",";
+                        itemsAUX.Add(lvi);
+                    }
+                }
+            }
+            listEvent.Items.AddRange(itemsAUX.ToArray()); //Recargar el ListView
+        }
+
+        private void RemoveFilterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (itemsTodos != null)
+            {
+                listEvent.Items.Clear();
+                listEvent.Items.AddRange(itemsTodos.ToArray()); //Recargar el ListView
+            }
         }
 
         private void ListEvent_KeyDown(object sender, KeyEventArgs e)
@@ -242,24 +362,18 @@ namespace EDExplorer
 #if !DEBUG
             ReadAllJournals(30);
 #else
-            ReadAllJournals(3);
+            ReadAllJournals(30);
 #endif
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        void listEvent_DrawItem(object sender, DrawListViewItemEventArgs e)
         {
-            if (logMonitor.ReadAllComplete)
-            {
-                DialogResult confirmResult;
-                confirmResult = MessageBox.Show("Desea borrar la lista actual y volver a leer el diario de vuelo?", "Confirmar Refresco", MessageBoxButtons.OKCancel);
-                if (confirmResult == DialogResult.Cancel)
-                {
-                    return;
-                }
-            }
-            DateTime start = DateTime.Now;
-            ReadAllJournals(soloRecords : true);
-            lblTime.Text = (DateTime.Now - start).TotalSeconds.ToString("0.00") + "s.";
+            // Asociado a la propiedad {OwnerDraw = true}
+            //if (Should_Filter(e.Item) == false)
+            //if (true)
+                //e.DrawDefault = true;
+            //else
+            //    e.DrawDefault = false;
         }
     }
 }

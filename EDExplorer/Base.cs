@@ -115,7 +115,7 @@ namespace EDExplorer
             string alertaStar = "";
             string repostable = "";
 
-            switch (logMonitor.nextStar.Substring(0,1))
+            switch (logMonitor.claseStar.Substring(0,1))
             {
                 case "N":
                     tipoStar = "estrella de Neutrones";
@@ -150,13 +150,13 @@ namespace EDExplorer
                 case "L":
                     tipoStar = "enana roja <2.400K"; break;
                 case "T":
-                    if (logMonitor.nextStar == "TTS") tipoStar = "T Tauri";
+                    if (logMonitor.claseStar == "TTS") tipoStar = "T Tauri";
                     else tipoStar = "enana marron <1.300K"; break;
                 case "Y":
                     tipoStar = "enana marron <700K"; break;
             }
 
-            if (tipoStar != "") tipoStar = repostable + tipoStar + "(" + logMonitor.nextStar + ")";
+            if (tipoStar != "") tipoStar = repostable + tipoStar + " (" + logMonitor.claseStar + ")";
 
             if (Properties.Settings.Default.activarAudio)
                 if (alertaStar.Length > 0)
@@ -211,6 +211,8 @@ namespace EDExplorer
                     foreach (var item in items)
                     {
                         announceText.Append(item.Nombre);
+                        if (item.isRecord) announceText.Append(" - " + item.RecordDesc);
+                        
                         if (!item.Equals(items.Last()))
                         {
                             announceText.AppendLine(", ");
@@ -219,10 +221,10 @@ namespace EDExplorer
                     
                     string spokenName;
                     spokenName = fullBodyName.Replace(currentSystem, string.Empty);
-                    if (spokenName.Trim().Length > 0)
-                    {
-                        spokenName = "Cuerpo " + spokenName;
-                    }
+                    
+                    if (spokenName.Trim().Length > 0) 
+                         spokenName = "Cuerpo " + spokenName;
+                    else spokenName = "Sistema " + currentSystem;
 
                     if (Properties.Settings.Default.activarNotificaciones)
                     {

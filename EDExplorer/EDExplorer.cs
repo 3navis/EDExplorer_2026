@@ -16,10 +16,6 @@ namespace EDExplorer
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            //CultureInfo.CurrentCulture = new CultureInfo("es-ES", false);
-            Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("es-ES");
-            //Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("fr-FR");
-
             if (SingleLaunch.IsRunning)
                 return; // Si se encuentra en ejecucion salir
 
@@ -29,6 +25,12 @@ namespace EDExplorer
                 Properties.Settings.Default.Upgrade();
                 Properties.Settings.Default.SettingsDefault = false;
                 Properties.Settings.Default.Save();
+            }
+
+            //CultureInfo.CurrentCulture = new CultureInfo("es-ES", false);
+            if (System.Globalization.CultureInfo.CurrentUICulture.Name != Properties.Settings.Default.Idioma)
+            {
+                Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(Properties.Settings.Default.Idioma);
             }
 
             using (var container = new WindsorContainer())

@@ -65,5 +65,8 @@
     <Setting Name="vRecords" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="Idioma" Type="System.String" Scope="User">
+      <Value Profile="(Default)">es-ES</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

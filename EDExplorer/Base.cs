@@ -371,8 +371,8 @@ namespace EDExplorer
                 {
                     Nombre = "English",
                     Abreviacion = "en",
-                    Pais = "Estados Unidos",
-                    AbreviacionPais = "US"
+                    Pais = "Reino Unido",
+                    AbreviacionPais = "GB"
                 },
                  new Idioma
                 {
@@ -385,9 +385,24 @@ namespace EDExplorer
                 {
                     Nombre = "português",
                     Abreviacion = "pt",
-                    Pais = "Brazil",
-                    AbreviacionPais = "BR"
+                    Pais = "Portugal",
+                    AbreviacionPais = "PT"
+                },
+                  new Idioma
+                {
+                    Nombre = "euskera",
+                    Abreviacion = "eu",
+                    Pais = "Euskadi",
+                    AbreviacionPais = "ES"
+                },
+                  new Idioma
+                {
+                    Nombre = "catalan",
+                    Abreviacion = "ca",
+                    Pais = "Cataluña",
+                    AbreviacionPais = "ES"
                 }
+
             };
         }
 

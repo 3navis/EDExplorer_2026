@@ -117,116 +117,181 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="cbxCodex.Size" type="System.Drawing.Size, System.Drawing">
-    <value>144, 21</value>
+  <data name="cbxCodex.ToolTip" xml:space="preserve">
+    <value />
   </data>
-  <data name="cbxCodex.Text" xml:space="preserve">
-    <value>Codex discoveries</value>
+  <data name="cbx_VeryInteresting.ToolTip" xml:space="preserve">
+    <value />
   </data>
-  <data name="cbx_VeryInteresting.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 21</value>
+  <data name="cbxBeta.ToolTip" xml:space="preserve">
+    <value />
   </data>
-  <data name="cbx_VeryInteresting.Text" xml:space="preserve">
-    <value>Report Multiple Criteria</value>
+  <data name="groupBox_misc.ToolTip" xml:space="preserve">
+    <value />
   </data>
-  <data name="cbxBeta.Size" type="System.Drawing.Size, System.Drawing">
-    <value>148, 21</value>
+  <data name="cbxToast.ToolTip" xml:space="preserve">
+    <value />
   </data>
-  <data name="cbxBeta.Text" xml:space="preserve">
-    <value>Read Journal Beta</value>
+  <data name="cbxTts.ToolTip" xml:space="preserve">
+    <value />
   </data>
-  <data name="groupBox_misc.Text" xml:space="preserve">
-    <value>Flight Logs (Journal Logs)</value>
+  <data name="btn_TestVol.ToolTip" xml:space="preserve">
+    <value />
   </data>
-  <data name="cbxToast.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 21</value>
+  <data name="trackBar_Volume.ToolTip" xml:space="preserve">
+    <value />
   </data>
-  <data name="cbxToast.Text" xml:space="preserve">
-    <value>Show Notifications</value>
+  <data name="groupBox_TTS.ToolTip" xml:space="preserve">
+    <value />
   </data>
-  <data name="cbxTts.Size" type="System.Drawing.Size, System.Drawing">
-    <value>153, 21</value>
+  <data name="tabFSS.ToolTip" xml:space="preserve">
+    <value />
   </data>
-  <data name="cbxTts.Text" xml:space="preserve">
-    <value>Activate Announcer</value>
+  <data name="checkBoxTodos.ToolTip" xml:space="preserve">
+    <value />
   </data>
-  <data name="btn_TestVol.Text" xml:space="preserve">
-    <value>Try</value>
+  <data name="tabScan.ToolTip" xml:space="preserve">
+    <value />
   </data>
-  <data name="groupBox_TTS.Text" xml:space="preserve">
-    <value>Volume</value>
+  <data name="checkBox1.ToolTip" xml:space="preserve">
+    <value />
   </data>
-  <data name="checkBoxTodos.Size" type="System.Drawing.Size, System.Drawing">
-    <value>98, 21</value>
+  <data name="tabSignal.ToolTip" xml:space="preserve">
+    <value />
   </data>
-  <data name="checkBoxTodos.Text" xml:space="preserve">
-    <value>Change All</value>
+  <data name="label2.ToolTip" xml:space="preserve">
+    <value />
   </data>
-  <data name="tabScan.Text" xml:space="preserve">
-    <value>Exploration</value>
-  </data>
-  <data name="checkBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>98, 21</value>
-  </data>
-  <data name="checkBox1.Text" xml:space="preserve">
-    <value>Change All</value>
-  </data>
-  <data name="tabSignal.Text" xml:space="preserve">
-    <value>Signs</value>
-  </data>
-  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>278, 17</value>
-  </data>
-  <data name="label2.Text" xml:space="preserve">
-    <value>Exit and re-entry required to view changes.</value>
-  </data>
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>45, 17</value>
-  </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Idiom:</value>
+  <data name="label1.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="cbx_idioma.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="button1.Text" xml:space="preserve">
-    <value>Try</value>
+  <data name="trackAlto.ToolTip" xml:space="preserve">
+    <value />
   </data>
-  <data name="groupBox1.Text" xml:space="preserve">
-    <value>Opacity</value>
+  <data name="groupBox2.ToolTip" xml:space="preserve">
+    <value />
   </data>
-  <data name="tabPage3.Text" xml:space="preserve">
-    <value>Several</value>
+  <data name="button1.ToolTip" xml:space="preserve">
+    <value />
   </data>
-  <data name="button2.Text" xml:space="preserve">
-    <value>Move</value>
+  <data name="trackBar_Transparencia.ToolTip" xml:space="preserve">
+    <value />
   </data>
-  <data name="tabOculta.Text" xml:space="preserve">
-    <value>Exploration (old)</value>
+  <data name="groupBox1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="tabPage3.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="button4.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblPos.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="button2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="tabOculta.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TabControl.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="buttonAceptar.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="buttonCancelar.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="button3.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="$this.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="buttonAceptar.Text" xml:space="preserve">
-    <value>To accept</value>
+    <value>Accepter</value>
   </data>
-  <data name="buttonCancelar.Text" xml:space="preserve">
-    <value>Cancel</value>
+  <data name="cbxTts.Text" xml:space="preserve">
+    <value>Activer l'annonceur</value>
   </data>
   <data name="button3.Text" xml:space="preserve">
-    <value>Apply</value>
+    <value>Appliquer</value>
+  </data>
+  <data name="checkBoxTodos.Text" xml:space="preserve">
+    <value>Changer tout</value>
+  </data>
+  <data name="checkBox1.Text" xml:space="preserve">
+    <value>Changer tout</value>
+  </data>
+  <data name="buttonCancelar.Text" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
+  <data name="cbxCodex.Text" xml:space="preserve">
+    <value>Découvertes du Codex</value>
+  </data>
+  <data name="groupBox_misc.Text" xml:space="preserve">
+    <value>Journaux de bord</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>EDExplorer Settings</value>
+    <value>Configuration d'EDExplorer</value>
+  </data>
+  <data name="tabScan.Text" xml:space="preserve">
+    <value>Exploration</value>
+  </data>
+  <data name="tabOculta.Text" xml:space="preserve">
+    <value>Exploration (ancien)</value>
   </data>
   <data name="tabFSS.Text" xml:space="preserve">
     <value>FSS</value>
   </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Langue :</value>
+  </data>
   <data name="lblPos.Text" xml:space="preserve">
-    <value>label1</value>
+    <value>Étiquette 1</value>
+  </data>
+  <data name="cbxBeta.Text" xml:space="preserve">
+    <value>Lire le Journal Beta</value>
+  </data>
+  <data name="cbxToast.Text" xml:space="preserve">
+    <value>Afficher les notifications</value>
+  </data>
+  <data name="button2.Text" xml:space="preserve">
+    <value>Déplacements</value>
+  </data>
+  <data name="cbx_VeryInteresting.Text" xml:space="preserve">
+    <value>Notifier des critères multiples</value>
+  </data>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>Opacité</value>
+  </data>
+  <data name="button1.Text" xml:space="preserve">
+    <value>Test</value>
+  </data>
+  <data name="btn_TestVol.Text" xml:space="preserve">
+    <value>Test</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Il faut sortir et entrer à nouveau pour voir les changements.</value>
+  </data>
+  <data name="tabSignal.Text" xml:space="preserve">
+    <value>Signaux</value>
   </data>
   <data name="button4.Text" xml:space="preserve">
     <value>Thyead</value>
   </data>
+  <data name="tabPage3.Text" xml:space="preserve">
+    <value>Divers</value>
+  </data>
   <data name="groupBox2.Text" xml:space="preserve">
     <value>Vertical</value>
+  </data>
+  <data name="groupBox_TTS.Text" xml:space="preserve">
+    <value>Volume</value>
   </data>
 </root>

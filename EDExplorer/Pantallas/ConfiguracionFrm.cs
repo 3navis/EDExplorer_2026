@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Speech.Synthesis;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 //using System.Windows.Input;
@@ -63,9 +64,13 @@ namespace EDExplorer
             Loading = false;
             BulkChangeInProgress = false;
 
-            cbx_idioma.DataSource = Idioma.ObtenerIdiomas();
+            // Prueba de precarga Idioma
             cbx_idioma.DisplayMember = "NombrePais";
             cbx_idioma.ValueMember = "CultureInfo";
+            cbx_idioma.DataSource = Idioma.ObtenerIdiomas();
+            cbx_idioma.SelectedValue = settings.Idioma;
+            // Se pone el Handler aqui para evitar la primera llamada al cargar el Combo
+            cbx_idioma.SelectedIndexChanged += new System.EventHandler(this.cbx_idioma_SelectedIndexChanged);
         }
 
         private void RellenarTabPage(TabPage tab, TipoEvento TE)
@@ -313,6 +318,20 @@ namespace EDExplorer
             AboutFrm aboutFrm;
             aboutFrm = new AboutFrm();
             aboutFrm.Show();
+        }
+
+        private void cbx_idioma_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbx_idioma.SelectedValue != null)
+            {
+                string idioma = (string)cbx_idioma.SelectedValue;
+                if (idioma != System.Globalization.CultureInfo.CurrentUICulture.Name)
+                {
+                    Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(idioma);
+                    settings.Idioma = idioma;
+                }
+                    
+            }
         }
     }
 }

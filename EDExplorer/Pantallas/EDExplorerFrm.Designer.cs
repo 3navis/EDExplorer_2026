@@ -44,12 +44,12 @@ namespace EDExplorer
             this.progressReadAll = new System.Windows.Forms.ProgressBar();
             this.contextCopy = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.copyNameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            Separador1 = new ToolStripSeparator();
+            this.Separador1 = new System.Windows.Forms.ToolStripSeparator();
             this.filterNameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.filterAlertToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.filterRecordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeFilterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            Separador2 = new ToolStripSeparator();
+            this.Separador2 = new System.Windows.Forms.ToolStripSeparator();
             this.HistoricoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblRecord = new System.Windows.Forms.Label();
             this.contextCopy.SuspendLayout();
@@ -57,9 +57,7 @@ namespace EDExplorer
             // 
             // listEvent
             // 
-            this.listEvent.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.listEvent, "listEvent");
             this.listEvent.BackColor = System.Drawing.Color.Black;
             this.listEvent.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.timestamp,
@@ -69,15 +67,11 @@ namespace EDExplorer
             this.detail,
             this.record,
             this.valor});
-            this.listEvent.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listEvent.ForeColor = System.Drawing.Color.Orange;
             this.listEvent.FullRowSelect = true;
             this.listEvent.GridLines = true;
             this.listEvent.HideSelection = false;
-            this.listEvent.Location = new System.Drawing.Point(3, 5);
             this.listEvent.Name = "listEvent";
-            this.listEvent.Size = new System.Drawing.Size(991, 421);
-            this.listEvent.TabIndex = 2;
             this.listEvent.UseCompatibleStateImageBehavior = false;
             this.listEvent.View = System.Windows.Forms.View.Details;
             this.listEvent.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.ListEvent_ColumnClick);
@@ -87,58 +81,41 @@ namespace EDExplorer
             // 
             // timestamp
             // 
-            this.timestamp.Text = "Fecha / Hora";
-            this.timestamp.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.timestamp.Width = 117;
+            resources.ApplyResources(this.timestamp, "timestamp");
             // 
             // sistema
             // 
-            this.sistema.Text = "Sistema";
-            this.sistema.Width = 207;
+            resources.ApplyResources(this.sistema, "sistema");
             // 
             // cuerpo
             // 
-            this.cuerpo.Text = "Cuerpo";
-            this.cuerpo.Width = 90;
+            resources.ApplyResources(this.cuerpo, "cuerpo");
             // 
             // alerta
             // 
-            this.alerta.Text = "Alerta";
-            this.alerta.Width = 147;
+            resources.ApplyResources(this.alerta, "alerta");
             // 
             // detail
             // 
-            this.detail.DisplayIndex = 6;
-            this.detail.Text = "Descripción";
-            this.detail.Width = 302;
+            resources.ApplyResources(this.detail, "detail");
             // 
             // record
             // 
-            this.record.DisplayIndex = 4;
-            this.record.Text = "R";
-            this.record.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.record.Width = 27;
+            resources.ApplyResources(this.record, "record");
             // 
             // valor
             // 
-            this.valor.DisplayIndex = 5;
+            resources.ApplyResources(this.valor, "valor");
             this.valor.Tag = "number";
-            this.valor.Text = "Valor";
-            this.valor.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.valor.Width = 80;
             // 
             // progressReadAll
             // 
-            this.progressReadAll.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.progressReadAll.Location = new System.Drawing.Point(3, -1);
+            resources.ApplyResources(this.progressReadAll, "progressReadAll");
             this.progressReadAll.Name = "progressReadAll";
-            this.progressReadAll.Size = new System.Drawing.Size(991, 10);
-            this.progressReadAll.TabIndex = 4;
-            this.progressReadAll.Visible = false;
             // 
             // contextCopy
             // 
+            resources.ApplyResources(this.contextCopy, "contextCopy");
             this.contextCopy.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextCopy.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.copyNameToolStripMenuItem,
@@ -150,73 +127,66 @@ namespace EDExplorer
             this.Separador2,
             this.HistoricoToolStripMenuItem});
             this.contextCopy.Name = "contextCopy";
-            this.contextCopy.Size = new System.Drawing.Size(260, 148);
             // 
             // copyNameToolStripMenuItem
             // 
+            resources.ApplyResources(this.copyNameToolStripMenuItem, "copyNameToolStripMenuItem");
             this.copyNameToolStripMenuItem.Name = "copyNameToolStripMenuItem";
-            this.copyNameToolStripMenuItem.Size = new System.Drawing.Size(259, 24);
-            this.copyNameToolStripMenuItem.Text = "Copiar nombre del Sistema";
             this.copyNameToolStripMenuItem.Click += new System.EventHandler(this.CopyNameToolStripMenuItem_Click);
+            // 
+            // Separador1
+            // 
+            resources.ApplyResources(this.Separador1, "Separador1");
+            this.Separador1.Name = "Separador1";
             // 
             // filterNameToolStripMenuItem
             // 
+            resources.ApplyResources(this.filterNameToolStripMenuItem, "filterNameToolStripMenuItem");
             this.filterNameToolStripMenuItem.Name = "filterNameToolStripMenuItem";
-            this.filterNameToolStripMenuItem.Size = new System.Drawing.Size(259, 24);
-            this.filterNameToolStripMenuItem.Text = "Filtrar Sistema";
             this.filterNameToolStripMenuItem.Click += new System.EventHandler(this.FilterNameToolStripMenuItem_Click);
             // 
             // filterAlertToolStripMenuItem
             // 
+            resources.ApplyResources(this.filterAlertToolStripMenuItem, "filterAlertToolStripMenuItem");
             this.filterAlertToolStripMenuItem.Name = "filterAlertToolStripMenuItem";
-            this.filterAlertToolStripMenuItem.Size = new System.Drawing.Size(259, 24);
-            this.filterAlertToolStripMenuItem.Text = "Filtrar Alerta";
             this.filterAlertToolStripMenuItem.Click += new System.EventHandler(this.FilterAlertToolStripMenuItem_Click);
             // 
             // filterRecordToolStripMenuItem
             // 
+            resources.ApplyResources(this.filterRecordToolStripMenuItem, "filterRecordToolStripMenuItem");
             this.filterRecordToolStripMenuItem.Name = "filterRecordToolStripMenuItem";
-            this.filterRecordToolStripMenuItem.Size = new System.Drawing.Size(259, 24);
-            this.filterRecordToolStripMenuItem.Text = "Filtrar Records";
             this.filterRecordToolStripMenuItem.Click += new System.EventHandler(this.FilterRecordToolStripMenuItem_Click);
             // 
             // removeFilterToolStripMenuItem
             // 
+            resources.ApplyResources(this.removeFilterToolStripMenuItem, "removeFilterToolStripMenuItem");
             this.removeFilterToolStripMenuItem.Name = "removeFilterToolStripMenuItem";
-            this.removeFilterToolStripMenuItem.Size = new System.Drawing.Size(259, 24);
-            this.removeFilterToolStripMenuItem.Text = "Eliminar Filtro";
             this.removeFilterToolStripMenuItem.Click += new System.EventHandler(this.RemoveFilterToolStripMenuItem_Click);
+            // 
+            // Separador2
+            // 
+            resources.ApplyResources(this.Separador2, "Separador2");
+            this.Separador2.Name = "Separador2";
             // 
             // HistoricoToolStripMenuItem
             // 
+            resources.ApplyResources(this.HistoricoToolStripMenuItem, "HistoricoToolStripMenuItem");
             this.HistoricoToolStripMenuItem.Name = "HistoricoToolStripMenuItem";
-            this.HistoricoToolStripMenuItem.Size = new System.Drawing.Size(259, 24);
-            this.HistoricoToolStripMenuItem.Text = "Leer Historico Completo";
             this.HistoricoToolStripMenuItem.Click += new System.EventHandler(this.HistoricoToolStripMenuItem_Click);
             // 
             // lblRecord
             // 
-            this.lblRecord.AutoSize = true;
-            this.lblRecord.Font = new System.Drawing.Font("Webdings", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.lblRecord.Location = new System.Drawing.Point(948, 2);
+            resources.ApplyResources(this.lblRecord, "lblRecord");
             this.lblRecord.Name = "lblRecord";
-            this.lblRecord.Size = new System.Drawing.Size(27, 22);
-            this.lblRecord.TabIndex = 6;
-            this.lblRecord.Text = "";
-            this.lblRecord.Visible = false;
             // 
             // EDExplorerFrm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(999, 429);
             this.Controls.Add(this.listEvent);
             this.Controls.Add(this.progressReadAll);
             this.Controls.Add(this.lblRecord);
-            this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "EDExplorerFrm";
-            this.Text = "Elite EDExplorer";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.EDExplorerFrm_FormClosing);
             this.Load += new System.EventHandler(this.EDExplorerFrm_Load);
             this.Shown += new System.EventHandler(this.EDExplorerFrm_Shown);

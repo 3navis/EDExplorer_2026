@@ -225,15 +225,15 @@
     <Compile Include="Eventos\ScanReader.cs" />
     <Compile Include="Eventos\SignalReader.cs" />
     <Compile Include="Eventos\JumpReader.cs" />
-    <Compile Include="Properties\Textos.en.Designer.cs">
-      <DependentUpon>Textos.en.resx</DependentUpon>
+    <Compile Include="Properties\Textos.en-GB.Designer.cs">
+      <DependentUpon>Textos.en-GB.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Properties\Textos.fr.Designer.cs">
+    <Compile Include="Properties\Textos.fr-FR.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Textos.fr.resx</DependentUpon>
+      <DependentUpon>Textos.fr-FR.resx</DependentUpon>
     </Compile>
     <Compile Include="SQLite\SQLBase.cs" />
     <Compile Include="StatusMonitor.cs" />
@@ -244,15 +244,42 @@
     <EmbeddedResource Include="About\UserAbout.resx">
       <DependentUpon>UserAbout.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\ConfiguracionFrm.ca-ES.resx">
+      <DependentUpon>ConfiguracionFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\ConfiguracionFrm.en-GB.resx">
       <DependentUpon>ConfiguracionFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\ConfiguracionFrm.es-ES.resx">
       <DependentUpon>ConfiguracionFrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\ConfiguracionFrm.eu-ES.resx">
+      <DependentUpon>ConfiguracionFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\ConfiguracionFrm.fr-FR.resx">
+      <DependentUpon>ConfiguracionFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\ConfiguracionFrm.pt-PT.resx">
+      <DependentUpon>ConfiguracionFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\ConfiguracionFrm.resx">
       <DependentUpon>ConfiguracionFrm.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\EDExplorerFrm.ca-ES.resx">
+      <DependentUpon>EDExplorerFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\EDExplorerFrm.en-GB.resx">
+      <DependentUpon>EDExplorerFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\EDExplorerFrm.eu-ES.resx">
+      <DependentUpon>EDExplorerFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\EDExplorerFrm.fr-FR.resx">
+      <DependentUpon>EDExplorerFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\EDExplorerFrm.pt-PT.resx">
+      <DependentUpon>EDExplorerFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\NotifyFormBack.resx">
       <DependentUpon>NotifyFormBack.cs</DependentUpon>
@@ -268,9 +295,9 @@
     <EmbeddedResource Include="Pantallas\PanelAlerta.resx">
       <DependentUpon>PanelAlerta.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Textos.en.resx">
+    <EmbeddedResource Include="Properties\Textos.en-GB.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Textos.en.Designer.cs</LastGenOutput>
+      <LastGenOutput>Textos.en-GB.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Textos.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -288,9 +315,9 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <EmbeddedResource Include="Properties\Textos.fr.resx">
+    <EmbeddedResource Include="Properties\Textos.fr-FR.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Textos.fr.Designer.cs</LastGenOutput>
+      <LastGenOutput>Textos.fr-FR.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\elitedanger.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

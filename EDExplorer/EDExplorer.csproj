@@ -171,6 +171,12 @@
     <Compile Include="About\AboutFrm.Designer.cs">
       <DependentUpon>AboutFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pantallas\ConfiguracionFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\ConfiguracionFrm.Designer.cs">
+      <DependentUpon>ConfiguracionFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pantallas\NotifyFormBack.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -216,9 +222,6 @@
     <Compile Include="LogMonitor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Agente\SingleLaunch.cs" />
-    <Compile Include="Pantallas\ConfiguracionFrm.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Eventos\ScanReader.cs" />
     <Compile Include="Eventos\SignalReader.cs" />
     <Compile Include="Eventos\JumpReader.cs" />
@@ -240,6 +243,16 @@
     </EmbeddedResource>
     <EmbeddedResource Include="About\UserAbout.resx">
       <DependentUpon>UserAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\ConfiguracionFrm.en-GB.resx">
+      <DependentUpon>ConfiguracionFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\ConfiguracionFrm.es-ES.resx">
+      <DependentUpon>ConfiguracionFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\ConfiguracionFrm.resx">
+      <DependentUpon>ConfiguracionFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\NotifyFormBack.resx">
       <DependentUpon>NotifyFormBack.cs</DependentUpon>
@@ -268,12 +281,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Pantallas\ConfiguracionFrm.resx">
-      <DependentUpon>ConfiguracionFrm.cs</DependentUpon>
-      <SubType>Designer</SubType>
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>ConfiguracionFrm.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="EDExplorer2_TemporaryKey.pfx" />
     <None Include="packages.config" />

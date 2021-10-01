@@ -17,7 +17,7 @@ namespace EDExplorer
             Application.SetCompatibleTextRenderingDefault(false);
 
             //CultureInfo.CurrentCulture = new CultureInfo("es-ES", false);
-            Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en-US");
+            Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("es-ES");
             //Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("fr-FR");
 
             if (SingleLaunch.IsRunning)

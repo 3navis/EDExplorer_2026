@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfiguracionFrm));
             this.cbxCodex = new System.Windows.Forms.CheckBox();
             this.cbx_VeryInteresting = new System.Windows.Forms.CheckBox();
             this.groupBox_misc = new System.Windows.Forms.GroupBox();
@@ -47,8 +46,6 @@
             this.tabSignal = new System.Windows.Forms.TabPage();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cbx_idioma = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.trackAlto = new System.Windows.Forms.TrackBar();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -61,7 +58,7 @@
             this.buttonAceptar = new System.Windows.Forms.Button();
             this.buttonCancelar = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.tabAbout = new System.Windows.Forms.TabPage();
             this.groupBox_misc.SuspendLayout();
             this.groupBox_TTS.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_Volume)).BeginInit();
@@ -78,45 +75,75 @@
             // 
             // cbxCodex
             // 
-            resources.ApplyResources(this.cbxCodex, "cbxCodex");
+            this.cbxCodex.AutoSize = true;
             this.cbxCodex.ForeColor = System.Drawing.Color.Black;
+            this.cbxCodex.Location = new System.Drawing.Point(34, 28);
+            this.cbxCodex.Margin = new System.Windows.Forms.Padding(4);
             this.cbxCodex.Name = "cbxCodex";
+            this.cbxCodex.Size = new System.Drawing.Size(178, 21);
+            this.cbxCodex.TabIndex = 20;
+            this.cbxCodex.Text = "Descubrimientos Codex";
             this.cbxCodex.UseVisualStyleBackColor = true;
             this.cbxCodex.CheckedChanged += new System.EventHandler(this.CbxCodex_CheckedChanged);
             // 
             // cbx_VeryInteresting
             // 
-            resources.ApplyResources(this.cbx_VeryInteresting, "cbx_VeryInteresting");
+            this.cbx_VeryInteresting.AutoSize = true;
             this.cbx_VeryInteresting.ForeColor = System.Drawing.Color.Black;
+            this.cbx_VeryInteresting.Location = new System.Drawing.Point(34, 57);
+            this.cbx_VeryInteresting.Margin = new System.Windows.Forms.Padding(4);
             this.cbx_VeryInteresting.Name = "cbx_VeryInteresting";
+            this.cbx_VeryInteresting.Size = new System.Drawing.Size(197, 21);
+            this.cbx_VeryInteresting.TabIndex = 15;
+            this.cbx_VeryInteresting.Text = "Notificar Criterios Multiples";
             this.cbx_VeryInteresting.UseVisualStyleBackColor = true;
             this.cbx_VeryInteresting.CheckedChanged += new System.EventHandler(this.Cbx_VeryInteresting_CheckedChanged);
             // 
             // groupBox_misc
             // 
             this.groupBox_misc.Controls.Add(this.cbxBeta);
-            resources.ApplyResources(this.groupBox_misc, "groupBox_misc");
+            this.groupBox_misc.Location = new System.Drawing.Point(17, 20);
+            this.groupBox_misc.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox_misc.Name = "groupBox_misc";
+            this.groupBox_misc.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox_misc.Size = new System.Drawing.Size(259, 61);
+            this.groupBox_misc.TabIndex = 1;
             this.groupBox_misc.TabStop = false;
+            this.groupBox_misc.Text = "Diarios de Vuelo (Journal Logs)";
             // 
             // cbxBeta
             // 
-            resources.ApplyResources(this.cbxBeta, "cbxBeta");
+            this.cbxBeta.AutoSize = true;
+            this.cbxBeta.Location = new System.Drawing.Point(8, 28);
+            this.cbxBeta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbxBeta.Name = "cbxBeta";
+            this.cbxBeta.Size = new System.Drawing.Size(143, 21);
+            this.cbxBeta.TabIndex = 2;
+            this.cbxBeta.Text = "Leer Journal Beta";
             this.cbxBeta.UseVisualStyleBackColor = true;
             this.cbxBeta.CheckedChanged += new System.EventHandler(this.cbxBeta_CheckedChanged);
             // 
             // cbxToast
             // 
-            resources.ApplyResources(this.cbxToast, "cbxToast");
+            this.cbxToast.AutoSize = true;
+            this.cbxToast.Location = new System.Drawing.Point(315, 41);
+            this.cbxToast.Margin = new System.Windows.Forms.Padding(4);
             this.cbxToast.Name = "cbxToast";
+            this.cbxToast.Size = new System.Drawing.Size(170, 21);
+            this.cbxToast.TabIndex = 8;
+            this.cbxToast.Text = "Mostrar Notificaciones";
             this.cbxToast.UseVisualStyleBackColor = true;
             this.cbxToast.CheckedChanged += new System.EventHandler(this.CbxToast_CheckedChanged);
             // 
             // cbxTts
             // 
-            resources.ApplyResources(this.cbxTts, "cbxTts");
+            this.cbxTts.AutoSize = true;
+            this.cbxTts.Location = new System.Drawing.Point(22, 95);
+            this.cbxTts.Margin = new System.Windows.Forms.Padding(4);
             this.cbxTts.Name = "cbxTts";
+            this.cbxTts.Size = new System.Drawing.Size(125, 21);
+            this.cbxTts.TabIndex = 9;
+            this.cbxTts.Text = "Activar Locutor";
             this.cbxTts.UseVisualStyleBackColor = true;
             this.cbxTts.CheckedChanged += new System.EventHandler(this.CbxTts_CheckedChanged);
             // 
@@ -128,15 +155,24 @@
             // 
             this.groupBox_TTS.Controls.Add(this.btn_TestVol);
             this.groupBox_TTS.Controls.Add(this.trackBar_Volume);
-            resources.ApplyResources(this.groupBox_TTS, "groupBox_TTS");
+            this.groupBox_TTS.Location = new System.Drawing.Point(34, 124);
+            this.groupBox_TTS.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox_TTS.Name = "groupBox_TTS";
+            this.groupBox_TTS.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox_TTS.Size = new System.Drawing.Size(242, 85);
+            this.groupBox_TTS.TabIndex = 2;
             this.groupBox_TTS.TabStop = false;
+            this.groupBox_TTS.Text = "Volumen";
             this.groupBox_TTS.Enter += new System.EventHandler(this.groupBox_TTS_Enter);
             // 
             // btn_TestVol
             // 
-            resources.ApplyResources(this.btn_TestVol, "btn_TestVol");
+            this.btn_TestVol.Location = new System.Drawing.Point(165, 33);
+            this.btn_TestVol.Margin = new System.Windows.Forms.Padding(4);
             this.btn_TestVol.Name = "btn_TestVol";
+            this.btn_TestVol.Size = new System.Drawing.Size(64, 28);
+            this.btn_TestVol.TabIndex = 1;
+            this.btn_TestVol.Text = "Probar";
             this.btn_TestVol.UseVisualStyleBackColor = true;
             this.btn_TestVol.Click += new System.EventHandler(this.Btn_TestVol_Click);
             // 
@@ -144,9 +180,12 @@
             // 
             this.trackBar_Volume.BackColor = System.Drawing.Color.White;
             this.trackBar_Volume.LargeChange = 20;
-            resources.ApplyResources(this.trackBar_Volume, "trackBar_Volume");
+            this.trackBar_Volume.Location = new System.Drawing.Point(22, 23);
+            this.trackBar_Volume.Margin = new System.Windows.Forms.Padding(4);
             this.trackBar_Volume.Maximum = 100;
             this.trackBar_Volume.Name = "trackBar_Volume";
+            this.trackBar_Volume.Size = new System.Drawing.Size(123, 56);
+            this.trackBar_Volume.TabIndex = 0;
             this.trackBar_Volume.TickFrequency = 10;
             this.trackBar_Volume.TickStyle = System.Windows.Forms.TickStyle.Both;
             this.trackBar_Volume.Scroll += new System.EventHandler(this.TrackBar_Volume_Scroll);
@@ -157,87 +196,114 @@
             this.TabControl.Controls.Add(this.tabScan);
             this.TabControl.Controls.Add(this.tabSignal);
             this.TabControl.Controls.Add(this.tabPage3);
+            this.TabControl.Controls.Add(this.tabAbout);
             this.TabControl.Controls.Add(this.tabOculta);
-            resources.ApplyResources(this.TabControl, "TabControl");
+            this.TabControl.Location = new System.Drawing.Point(12, 12);
+            this.TabControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TabControl.Name = "TabControl";
             this.TabControl.SelectedIndex = 0;
+            this.TabControl.Size = new System.Drawing.Size(855, 409);
+            this.TabControl.TabIndex = 3;
             // 
             // tabFSS
             // 
-            resources.ApplyResources(this.tabFSS, "tabFSS");
+            this.tabFSS.Location = new System.Drawing.Point(4, 25);
             this.tabFSS.Name = "tabFSS";
+            this.tabFSS.Padding = new System.Windows.Forms.Padding(3);
+            this.tabFSS.Size = new System.Drawing.Size(847, 380);
+            this.tabFSS.TabIndex = 5;
+            this.tabFSS.Text = "FSS";
             this.tabFSS.UseVisualStyleBackColor = true;
             // 
             // tabScan
             // 
-            resources.ApplyResources(this.tabScan, "tabScan");
+            this.tabScan.AutoScroll = true;
             this.tabScan.BackColor = System.Drawing.Color.Transparent;
             this.tabScan.Controls.Add(this.checkBoxTodos);
+            this.tabScan.ImeMode = System.Windows.Forms.ImeMode.Disable;
+            this.tabScan.Location = new System.Drawing.Point(4, 25);
             this.tabScan.Name = "tabScan";
+            this.tabScan.Padding = new System.Windows.Forms.Padding(3);
+            this.tabScan.Size = new System.Drawing.Size(847, 380);
+            this.tabScan.TabIndex = 3;
+            this.tabScan.Text = "Exploración";
             this.tabScan.UseVisualStyleBackColor = true;
             // 
             // checkBoxTodos
             // 
-            resources.ApplyResources(this.checkBoxTodos, "checkBoxTodos");
+            this.checkBoxTodos.AutoSize = true;
+            this.checkBoxTodos.Location = new System.Drawing.Point(38, 6);
             this.checkBoxTodos.Name = "checkBoxTodos";
+            this.checkBoxTodos.Size = new System.Drawing.Size(126, 21);
+            this.checkBoxTodos.TabIndex = 27;
+            this.checkBoxTodos.Text = "Cambiar Todos";
             this.checkBoxTodos.UseVisualStyleBackColor = true;
             this.checkBoxTodos.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // tabSignal
             // 
-            resources.ApplyResources(this.tabSignal, "tabSignal");
+            this.tabSignal.AutoScroll = true;
             this.tabSignal.Controls.Add(this.checkBox1);
+            this.tabSignal.Location = new System.Drawing.Point(4, 25);
             this.tabSignal.Name = "tabSignal";
+            this.tabSignal.Padding = new System.Windows.Forms.Padding(3);
+            this.tabSignal.Size = new System.Drawing.Size(847, 380);
+            this.tabSignal.TabIndex = 4;
+            this.tabSignal.Text = "Señales";
             this.tabSignal.UseVisualStyleBackColor = true;
             // 
             // checkBox1
             // 
-            resources.ApplyResources(this.checkBox1, "checkBox1");
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(38, 6);
             this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(126, 21);
+            this.checkBox1.TabIndex = 28;
+            this.checkBox1.Text = "Cambiar Todos";
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged_1);
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.label2);
-            this.tabPage3.Controls.Add(this.label1);
-            this.tabPage3.Controls.Add(this.cbx_idioma);
             this.tabPage3.Controls.Add(this.groupBox2);
             this.tabPage3.Controls.Add(this.groupBox1);
             this.tabPage3.Controls.Add(this.groupBox_TTS);
             this.tabPage3.Controls.Add(this.cbxTts);
             this.tabPage3.Controls.Add(this.groupBox_misc);
             this.tabPage3.Controls.Add(this.cbxToast);
-            resources.ApplyResources(this.tabPage3, "tabPage3");
+            this.tabPage3.Location = new System.Drawing.Point(4, 25);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage3.Size = new System.Drawing.Size(847, 380);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Varios";
             this.tabPage3.UseVisualStyleBackColor = true;
             this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
-            // 
-            // label1
-            // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.Name = "label1";
-            // 
-            // cbx_idioma
-            // 
-            this.cbx_idioma.FormattingEnabled = true;
-            resources.ApplyResources(this.cbx_idioma, "cbx_idioma");
-            this.cbx_idioma.Name = "cbx_idioma";
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.trackAlto);
-            resources.ApplyResources(this.groupBox2, "groupBox2");
+            this.groupBox2.Location = new System.Drawing.Point(592, 36);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox2.Size = new System.Drawing.Size(76, 119);
+            this.groupBox2.TabIndex = 11;
             this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Vertical";
             // 
             // trackAlto
             // 
             this.trackAlto.BackColor = System.Drawing.Color.White;
             this.trackAlto.LargeChange = 20;
-            resources.ApplyResources(this.trackAlto, "trackAlto");
+            this.trackAlto.Location = new System.Drawing.Point(13, 19);
+            this.trackAlto.Margin = new System.Windows.Forms.Padding(4);
             this.trackAlto.Maximum = 100;
             this.trackAlto.Name = "trackAlto";
+            this.trackAlto.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.trackAlto.Size = new System.Drawing.Size(56, 95);
+            this.trackAlto.TabIndex = 10;
             this.trackAlto.TickFrequency = 10;
             this.trackAlto.TickStyle = System.Windows.Forms.TickStyle.Both;
             // 
@@ -245,15 +311,24 @@
             // 
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.trackBar_Transparencia);
-            resources.ApplyResources(this.groupBox1, "groupBox1");
+            this.groupBox1.Location = new System.Drawing.Point(327, 70);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Size = new System.Drawing.Size(242, 85);
+            this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Opacidad";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // button1
             // 
-            resources.ApplyResources(this.button1, "button1");
+            this.button1.Location = new System.Drawing.Point(165, 30);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(64, 28);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Probar";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
@@ -261,9 +336,12 @@
             // 
             this.trackBar_Transparencia.BackColor = System.Drawing.Color.White;
             this.trackBar_Transparencia.LargeChange = 20;
-            resources.ApplyResources(this.trackBar_Transparencia, "trackBar_Transparencia");
+            this.trackBar_Transparencia.Location = new System.Drawing.Point(22, 23);
+            this.trackBar_Transparencia.Margin = new System.Windows.Forms.Padding(4);
             this.trackBar_Transparencia.Maximum = 100;
             this.trackBar_Transparencia.Name = "trackBar_Transparencia";
+            this.trackBar_Transparencia.Size = new System.Drawing.Size(123, 56);
+            this.trackBar_Transparencia.TabIndex = 0;
             this.trackBar_Transparencia.TickFrequency = 10;
             this.trackBar_Transparencia.TickStyle = System.Windows.Forms.TickStyle.Both;
             this.trackBar_Transparencia.Scroll += new System.EventHandler(this.trackBar_Transparencia_Scroll);
@@ -276,66 +354,109 @@
             this.tabOculta.Controls.Add(this.button2);
             this.tabOculta.Controls.Add(this.cbx_VeryInteresting);
             this.tabOculta.Controls.Add(this.cbxCodex);
-            resources.ApplyResources(this.tabOculta, "tabOculta");
+            this.tabOculta.Location = new System.Drawing.Point(4, 25);
+            this.tabOculta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabOculta.Name = "tabOculta";
+            this.tabOculta.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabOculta.Size = new System.Drawing.Size(847, 380);
+            this.tabOculta.TabIndex = 0;
+            this.tabOculta.Text = "Exploración (old)";
             // 
             // button4
             // 
-            resources.ApplyResources(this.button4, "button4");
+            this.button4.Location = new System.Drawing.Point(464, 107);
+            this.button4.Margin = new System.Windows.Forms.Padding(4);
             this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(64, 28);
+            this.button4.TabIndex = 25;
+            this.button4.Text = "Thyead";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click_1);
             // 
             // lblPos
             // 
-            resources.ApplyResources(this.lblPos, "lblPos");
+            this.lblPos.AutoSize = true;
+            this.lblPos.Location = new System.Drawing.Point(546, 56);
             this.lblPos.Name = "lblPos";
+            this.lblPos.Size = new System.Drawing.Size(46, 17);
+            this.lblPos.TabIndex = 24;
+            this.lblPos.Text = "label1";
             // 
             // button2
             // 
-            resources.ApplyResources(this.button2, "button2");
+            this.button2.Location = new System.Drawing.Point(464, 52);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(64, 28);
+            this.button2.TabIndex = 23;
+            this.button2.Text = "Mover";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // buttonAceptar
             // 
-            resources.ApplyResources(this.buttonAceptar, "buttonAceptar");
+            this.buttonAceptar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonAceptar.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAceptar.Location = new System.Drawing.Point(655, 430);
+            this.buttonAceptar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonAceptar.Name = "buttonAceptar";
+            this.buttonAceptar.Size = new System.Drawing.Size(88, 28);
+            this.buttonAceptar.TabIndex = 25;
+            this.buttonAceptar.Text = "Aceptar";
             this.buttonAceptar.UseVisualStyleBackColor = true;
             this.buttonAceptar.Click += new System.EventHandler(this.button1_Click);
             // 
             // buttonCancelar
             // 
-            resources.ApplyResources(this.buttonCancelar, "buttonCancelar");
+            this.buttonCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonCancelar.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCancelar.Location = new System.Drawing.Point(760, 430);
+            this.buttonCancelar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonCancelar.Name = "buttonCancelar";
+            this.buttonCancelar.Size = new System.Drawing.Size(88, 28);
+            this.buttonCancelar.TabIndex = 26;
+            this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
             this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 
             // button3
             // 
-            resources.ApplyResources(this.button3, "button3");
+            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(552, 430);
+            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(88, 28);
+            this.button3.TabIndex = 27;
+            this.button3.Text = "Aplicar";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // label2
+            // tabAbout
             // 
-            resources.ApplyResources(this.label2, "label2");
-            this.label2.Name = "label2";
+            this.tabAbout.Location = new System.Drawing.Point(4, 25);
+            this.tabAbout.Name = "tabAbout";
+            this.tabAbout.Padding = new System.Windows.Forms.Padding(3);
+            this.tabAbout.Size = new System.Drawing.Size(847, 380);
+            this.tabAbout.TabIndex = 6;
+            this.tabAbout.Text = "Acerca de";
+            this.tabAbout.UseVisualStyleBackColor = true;
             // 
             // ConfiguracionFrm
             // 
-            resources.ApplyResources(this, "$this");
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(874, 471);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.buttonAceptar);
             this.Controls.Add(this.TabControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ConfiguracionFrm";
+            this.Text = "EDExplorer Configuración";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ConfiguracionFrm_FormClosed);
             this.Load += new System.EventHandler(this.ConfiguracionFrm_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.ConfiguracionFrm_Paint);
@@ -393,8 +514,6 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TrackBar trackAlto;
-        private System.Windows.Forms.ComboBox cbx_idioma;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TabPage tabAbout;
     }
 }

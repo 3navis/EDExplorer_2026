@@ -8,8 +8,7 @@ namespace EDExplorer
         public List<Interes> Interest { get; private set; }
         private Alertas alertas;
         private LogMonitor logMonitor;
-        private string detalle;
-
+        
         public JumpReader(Base b)
         {
             this.logMonitor = b.logMonitor;
@@ -25,9 +24,6 @@ namespace EDExplorer
 
             //SQLBase.JumpSystem(jumpEvent.SystemAddress??(ulong)0, jumpEvent.StarSystem, jumpEvent.Timestamp, jumpEvent.StarPos[0], jumpEvent.StarPos[1], jumpEvent.StarPos[2]);
             
-            //if (jumpEvent.Body != jumpEvent.StarSystem)
-            //{ string a = "a"; }
-
             // Calculo de datos para Resumen
             logMonitor.sesion_numeroJump++;
             logMonitor.numeroJump++;
@@ -42,9 +38,7 @@ namespace EDExplorer
 
                 if (alertas.CumpleCriterios(da))
                 {
-                    //detalle = $"{alertas.valor:N0}al acumulados en saltos.";
-                    detalle = "al de distancia acumulada en saltos.";
-                    Interest.Add(new Interes(jumpEvent.StarSystem, da.nombre, alertas.valorST, detalle, false));
+                    Interest.Add(new Interes(jumpEvent.StarSystem, da.nombre, alertas.valorST, alertas.detalle, false));
                     logMonitor.acumuladoJump = 0;
                 }
             }
@@ -57,9 +51,7 @@ namespace EDExplorer
 
                 if (alertas.CumpleCriterios(da))
                 {
-                    //detalle = $"{alertas.valor:N0} saltos acumulados.";
-                    detalle = "saltos acumulados.";
-                    Interest.Add(new Interes(jumpEvent.StarSystem, da.nombre, alertas.valorST, detalle, false));
+                    Interest.Add(new Interes(jumpEvent.StarSystem, da.nombre, alertas.valorST, alertas.detalle, false));
                     logMonitor.numeroJump = 0;
                 }
             }
@@ -69,14 +61,9 @@ namespace EDExplorer
             if (da.flag)
             {
                 alertas.valor = jumpEvent.Population / Math.Pow(10,6);
-                //alertas.valor = jumpEvent.Population;
 
                 if (alertas.CumpleCriterios(da))
-                {
-                    //detalle = $"{alertas.valor:N0} saltos acumulados.";
-                    detalle = "M habitantes.";
-                    Interest.Add(new Interes(jumpEvent.StarSystem, da.nombre, alertas.valorST, detalle, false));
-                }
+                    Interest.Add(new Interes(jumpEvent.StarSystem, da.nombre, alertas.valorST, alertas.detalle, false));
             }
 
             // Distancia al punto de inicio de sesion

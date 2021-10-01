@@ -52,13 +52,13 @@
             this.button1 = new System.Windows.Forms.Button();
             this.trackBar_Transparencia = new System.Windows.Forms.TrackBar();
             this.tabOculta = new System.Windows.Forms.TabPage();
-            this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.lblPos = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.buttonAceptar = new System.Windows.Forms.Button();
             this.buttonCancelar = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.tabAbout = new System.Windows.Forms.TabPage();
             this.groupBox_misc.SuspendLayout();
             this.groupBox_TTS.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_Volume)).BeginInit();
@@ -196,6 +196,7 @@
             this.TabControl.Controls.Add(this.tabScan);
             this.TabControl.Controls.Add(this.tabSignal);
             this.TabControl.Controls.Add(this.tabPage3);
+            this.TabControl.Controls.Add(this.tabAbout);
             this.TabControl.Controls.Add(this.tabOculta);
             this.TabControl.Location = new System.Drawing.Point(12, 12);
             this.TabControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -348,7 +349,6 @@
             // tabOculta
             // 
             this.tabOculta.BackColor = System.Drawing.Color.White;
-            this.tabOculta.Controls.Add(this.button5);
             this.tabOculta.Controls.Add(this.button4);
             this.tabOculta.Controls.Add(this.lblPos);
             this.tabOculta.Controls.Add(this.button2);
@@ -361,17 +361,6 @@
             this.tabOculta.Size = new System.Drawing.Size(847, 380);
             this.tabOculta.TabIndex = 0;
             this.tabOculta.Text = "Exploración (old)";
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(464, 171);
-            this.button5.Margin = new System.Windows.Forms.Padding(4);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(64, 28);
-            this.button5.TabIndex = 26;
-            this.button5.Text = "About";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button4
             // 
@@ -441,6 +430,16 @@
             this.button3.Text = "Aplicar";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // tabAbout
+            // 
+            this.tabAbout.Location = new System.Drawing.Point(4, 25);
+            this.tabAbout.Name = "tabAbout";
+            this.tabAbout.Padding = new System.Windows.Forms.Padding(3);
+            this.tabAbout.Size = new System.Drawing.Size(847, 380);
+            this.tabAbout.TabIndex = 6;
+            this.tabAbout.Text = "Acerca de";
+            this.tabAbout.UseVisualStyleBackColor = true;
             // 
             // ConfiguracionFrm
             // 
@@ -515,6 +514,6 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TrackBar trackAlto;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.TabPage tabAbout;
     }
 }

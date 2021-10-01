@@ -41,15 +41,16 @@ namespace EDExplorer
             this.detail = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.record = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.valor = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.btnReadAll = new System.Windows.Forms.Button();
             this.progressReadAll = new System.Windows.Forms.ProgressBar();
             this.contextCopy = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.copyNameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            Separador1 = new ToolStripSeparator();
             this.filterNameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.filterAlertToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.filterRecordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeFilterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lblTime = new System.Windows.Forms.Label();
+            Separador2 = new ToolStripSeparator();
+            this.HistoricoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblRecord = new System.Windows.Forms.Label();
             this.contextCopy.SuspendLayout();
             this.SuspendLayout();
@@ -73,9 +74,9 @@ namespace EDExplorer
             this.listEvent.FullRowSelect = true;
             this.listEvent.GridLines = true;
             this.listEvent.HideSelection = false;
-            this.listEvent.Location = new System.Drawing.Point(3, 31);
+            this.listEvent.Location = new System.Drawing.Point(3, 5);
             this.listEvent.Name = "listEvent";
-            this.listEvent.Size = new System.Drawing.Size(991, 394);
+            this.listEvent.Size = new System.Drawing.Size(991, 421);
             this.listEvent.TabIndex = 2;
             this.listEvent.UseCompatibleStateImageBehavior = false;
             this.listEvent.View = System.Windows.Forms.View.Details;
@@ -126,22 +127,11 @@ namespace EDExplorer
             this.valor.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.valor.Width = 80;
             // 
-            // btnReadAll
-            // 
-            this.btnReadAll.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReadAll.Location = new System.Drawing.Point(3, 2);
-            this.btnReadAll.Name = "btnReadAll";
-            this.btnReadAll.Size = new System.Drawing.Size(145, 25);
-            this.btnReadAll.TabIndex = 3;
-            this.btnReadAll.Text = "Analizar Histórico";
-            this.btnReadAll.UseVisualStyleBackColor = true;
-            this.btnReadAll.Click += new System.EventHandler(this.BtnReadAll_Click);
-            // 
             // progressReadAll
             // 
             this.progressReadAll.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.progressReadAll.Location = new System.Drawing.Point(3, 27);
+            this.progressReadAll.Location = new System.Drawing.Point(3, -1);
             this.progressReadAll.Name = "progressReadAll";
             this.progressReadAll.Size = new System.Drawing.Size(991, 10);
             this.progressReadAll.TabIndex = 4;
@@ -152,12 +142,15 @@ namespace EDExplorer
             this.contextCopy.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextCopy.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.copyNameToolStripMenuItem,
+            this.Separador1,
             this.filterNameToolStripMenuItem,
             this.filterAlertToolStripMenuItem,
             this.filterRecordToolStripMenuItem,
-            this.removeFilterToolStripMenuItem});
+            this.removeFilterToolStripMenuItem,
+            this.Separador2,
+            this.HistoricoToolStripMenuItem});
             this.contextCopy.Name = "contextCopy";
-            this.contextCopy.Size = new System.Drawing.Size(260, 124);
+            this.contextCopy.Size = new System.Drawing.Size(260, 148);
             // 
             // copyNameToolStripMenuItem
             // 
@@ -194,13 +187,12 @@ namespace EDExplorer
             this.removeFilterToolStripMenuItem.Text = "Eliminar Filtro";
             this.removeFilterToolStripMenuItem.Click += new System.EventHandler(this.RemoveFilterToolStripMenuItem_Click);
             // 
-            // lblTime
+            // HistoricoToolStripMenuItem
             // 
-            this.lblTime.AutoSize = true;
-            this.lblTime.Location = new System.Drawing.Point(163, 8);
-            this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(0, 19);
-            this.lblTime.TabIndex = 5;
+            this.HistoricoToolStripMenuItem.Name = "HistoricoToolStripMenuItem";
+            this.HistoricoToolStripMenuItem.Size = new System.Drawing.Size(259, 24);
+            this.HistoricoToolStripMenuItem.Text = "Leer Historico Completo";
+            this.HistoricoToolStripMenuItem.Click += new System.EventHandler(this.HistoricoToolStripMenuItem_Click);
             // 
             // lblRecord
             // 
@@ -218,11 +210,9 @@ namespace EDExplorer
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(999, 429);
-            this.Controls.Add(this.lblRecord);
-            this.Controls.Add(this.btnReadAll);
-            this.Controls.Add(this.lblTime);
             this.Controls.Add(this.listEvent);
             this.Controls.Add(this.progressReadAll);
+            this.Controls.Add(this.lblRecord);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "EDExplorerFrm";
@@ -240,7 +230,6 @@ namespace EDExplorer
         private ListView listEvent;
         private ColumnHeader cuerpo;
         private ColumnHeader alerta;
-        private Button btnReadAll;
         private ProgressBar progressReadAll;
         private ColumnHeader timestamp;
         private ColumnHeader detail;
@@ -250,8 +239,10 @@ namespace EDExplorer
         private ToolStripMenuItem filterAlertToolStripMenuItem;
         private ToolStripMenuItem filterRecordToolStripMenuItem;
         private ToolStripMenuItem removeFilterToolStripMenuItem;
+        private ToolStripMenuItem HistoricoToolStripMenuItem;
+        private ToolStripSeparator Separador1;
+        private ToolStripSeparator Separador2;
         private ColumnHeader sistema;
-        private Label lblTime;
         private ColumnHeader record;
         private Label lblRecord;
         private ColumnHeader valor;

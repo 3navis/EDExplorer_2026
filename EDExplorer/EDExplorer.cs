@@ -2,6 +2,8 @@
 using Castle.MicroKernel.Registration;
 using Castle.Windsor;
 using System;
+using System.Globalization;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace EDExplorer
@@ -13,6 +15,10 @@ namespace EDExplorer
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            //CultureInfo.CurrentCulture = new CultureInfo("es-ES", false);
+            Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en-US");
+            //Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("fr-FR");
 
             if (SingleLaunch.IsRunning)
                 return; // Si se encuentra en ejecucion salir

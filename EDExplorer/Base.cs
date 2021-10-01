@@ -45,7 +45,7 @@ namespace EDExplorer
             statusMonitor.StatusEntry += StatusEvent;
             //statusMonitor.MonitorStart();
 
-            SQLBase.Up();
+            //SQLBase.Up();
 
             if (Properties.Settings.Default.activarLista)
                 OpenEDExplorerForm();
@@ -162,6 +162,7 @@ namespace EDExplorer
                 if (alertaStar.Length > 0)
             {
                 speech.Volume = Properties.Settings.Default.AudioVolumen;
+                    //CultureInfo.CurrentCulture
                 speech.SpeakSsmlAsync($"<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"es-ES\">Atención:<break strength=\"weak\"/>{alertaStar}</speak>");
             }
 
@@ -169,8 +170,12 @@ namespace EDExplorer
             {
                 // Resumen de la sesión
                 StringBuilder announceText = new StringBuilder();
+                string remainingJUMPsST = "";
 
-                announceText.AppendLine("Saltos: " + logMonitor.sesion_numeroJump.ToString());
+                if (logMonitor.remainingJUMPs > 0)
+                    remainingJUMPsST = " [Ruta:" + logMonitor.remainingJUMPs.ToString() + "]";
+
+                announceText.AppendLine("Saltos: " + logMonitor.sesion_numeroJump.ToString() + remainingJUMPsST);
                 announceText.AppendLine("Distancia: " + Math.Round(logMonitor.sesion_acumuladoJump).ToString() + " al");
 
                 // Poner el tiempo transcurrido en la sesion.
@@ -340,5 +345,71 @@ namespace EDExplorer
             //free the unsafe memory
             Marshal.FreeCoTaskMem(data);
         }
+    }
+
+    public class Idioma
+    {
+        public String Nombre { get; set; }
+        public String Abreviacion { get; set; }
+        public String Pais { get; set; }
+        public String AbreviacionPais { get; set; }
+
+        public String NombrePais {get { return Nombre + " (" + Pais + ")"; }}
+        public String CultureInfo {get { return Abreviacion + "-" + AbreviacionPais; }}
+
+        public static List<Idioma> ObtenerIdiomas()
+        {
+            return new List<Idioma> {
+                new Idioma
+                {
+                    Nombre = "Español",
+                    Abreviacion = "es",
+                    Pais = "España",
+                    AbreviacionPais = "ES"
+                },
+                 new Idioma
+                {
+                    Nombre = "English",
+                    Abreviacion = "en",
+                    Pais = "Estados Unidos",
+                    AbreviacionPais = "US"
+                },
+                 new Idioma
+                {
+                    Nombre = "Frances",
+                    Abreviacion = "fr",
+                    Pais = "Francia",
+                    AbreviacionPais = "FR"
+                },
+                  new Idioma
+                {
+                    Nombre = "português",
+                    Abreviacion = "pt",
+                    Pais = "Brazil",
+                    AbreviacionPais = "BR"
+                }
+            };
+        }
+
+        //public static void CambiarTexto(Control.ControlCollection controls)
+        //{
+        //    foreach (Control c in controls)
+        //    {
+        //        if (c is Panel)
+        //        {
+        //            CambiarTexto(c.Controls);
+        //        }
+        //        else
+        //        {
+        //            String text = Strings.ResourceManager.GetString(c.Name);
+        //            if (text != null)
+        //            {
+        //                c.Text = text;
+        //            }
+        //        }
+
+        //    }
+        //}
+
     }
 }

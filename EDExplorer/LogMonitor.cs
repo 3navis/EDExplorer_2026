@@ -21,6 +21,7 @@ namespace EDExplorer
         public double sesion_acumuladoJump = 0;
         public int numeroJump = 0;
         public int sesion_numeroJump = 0;
+        public long remainingJUMPs = 0;
         public string claseStar;
         private string currentBody;
         public DateTime currentTime;
@@ -262,8 +263,8 @@ namespace EDExplorer
                 pa += 9;
                 int pb = logLine.IndexOf("\"", pa + 1);
                 evento = logLine.Substring(pa, pb - pa);
-                const string eventos = "Scan,Location,FSDJump,CarrierJump,SAASignalsFound" +
-                    "FSSDiscoveryScan,SupercruiseExit,StartJump";  
+                const string eventos = "Scan,Location,FSDJump,CarrierJump,SAASignalsFound," +
+                    "FSSDiscoveryScan,SupercruiseExit,StartJump,FSDTarget,";  
 
                 if (eventos.Contains(evento))
                 {
@@ -312,6 +313,12 @@ namespace EDExplorer
                         {
                             SystemBodySignal[(CurrentSystem, (long)LastSignal.BodyId)] = true;
                             tipoEvento = TipoEvento.Signal;
+                        }
+                        break;
+                    case "FSDTarget":
+                        if (!ReadAllInProgress)
+                        {
+                            remainingJUMPs = (long?)lastEvent["RemainingJumpsInRoute"] ?? (long)0;
                         }
                         break;
                     case "StartJump":

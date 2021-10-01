@@ -55,7 +55,8 @@ namespace EDExplorer
         Geological, Biological, Human, Guardian, Thargoid,
         BodyCount,
         DistanciaStart, DistanciaSol, AcumuladoJump, NumeroJump,
-        Poblacion
+        Poblacion,
+        Tierra, Acuatico, Amoniaco
     }
     public enum TipoParametro
     {
@@ -129,7 +130,7 @@ namespace EDExplorer
         private readonly Properties.Settings settings = Properties.Settings.Default;
         public Alertas()
         {
-            settings.vAlertasNew = "v1.05.007";
+            settings.vAlertasNew = "v1.05.009";
 
             if (settings.vAlertas != settings.vAlertasNew)
             {
@@ -192,6 +193,11 @@ namespace EDExplorer
             try { n.Add(Alerta.AnilloMetal,     new DetallesAlerta(TipoEvento.Scan, "Anillo Metálico", "Anillo Metálico", -1, 0, 4, "Mt (x10^12) masa", "Mt. (x10^12) de masa")); } catch { }
             try { n.Add(Alerta.AnilloMetalRich, new DetallesAlerta(TipoEvento.Scan, "Anillo Rico Metal", "Anillo Rico en Metal", -1, 0, 4, "Mt (x10^12) masa", "Mt. (x10^12) de masa")); } catch { }
 
+            // Planetas interesantes
+            try { n.Add(Alerta.Tierra,          new DetallesAlerta(TipoEvento.Scan, "tipo Tierra", "tipo Tierra", 0, 0, -1, "", "")); } catch { }
+            try { n.Add(Alerta.Acuatico,        new DetallesAlerta(TipoEvento.Scan, "tipo Acuatico", "tipo Acuatico", 0, 0, -1, "", "")); } catch { }
+            try { n.Add(Alerta.Amoniaco,        new DetallesAlerta(TipoEvento.Scan, "tipo Amoniaco", "tipo Amoniaco", 0, 0, -1, "", "")); } catch { }
+
             // Señales
             try { n.Add(Alerta.Tritio,          new DetallesAlerta(TipoEvento.Signal, "Veta Tritio", "Veta Tritio", 1, 0, 0, "número vetas", "vetas", "tritium")); } catch { }
             try { n.Add(Alerta.LTD,             new DetallesAlerta(TipoEvento.Signal, "Veta LTD", "Veta LTD", 1, 0, 0, "número vetas", "vetas", "LowTemperatureDiamond")); } catch { }
@@ -215,9 +221,9 @@ namespace EDExplorer
             try { n.Add(Alerta.BodyCount,       new DetallesAlerta(TipoEvento.FSS, "FSS Cuerpos", "Número de Cuerpos", 20, 0, 0, "cuerpos", "")); } catch { }
             // Ejes de Coordenadas
  //           try { n.Add(Alerta.DistanciaStart,  new DetallesAlerta(TipoEvento.Jump, "Alejado", "Distancia Alejada", 10, 0, "al separación")); } catch { }
-            try { n.Add(Alerta.AcumuladoJump,   new DetallesAlerta(TipoEvento.Jump, "Acumulado", "Mostrar Resumen", 1000, 0, 0, "al acumulados", "")); } catch { }
-            try { n.Add(Alerta.NumeroJump,      new DetallesAlerta(TipoEvento.Jump, "Saltos", "Mostrar Resumen", 10, 0, 0, "saltos acumulados", "")); } catch { }
-            try { n.Add(Alerta.Poblacion,       new DetallesAlerta(TipoEvento.Jump, "Poblacion", "Poblacion", 1, 0, 2, "M habitantes", "")); } catch { }
+            try { n.Add(Alerta.AcumuladoJump,   new DetallesAlerta(TipoEvento.Jump, "Acumulado", "Mostrar Resumen", 1000, 0, 0, "al acumulados", "al de distancia acumulada en saltos")); } catch { }
+            try { n.Add(Alerta.NumeroJump,      new DetallesAlerta(TipoEvento.Jump, "Saltos", "Mostrar Resumen", 10, 0, 0, "saltos acumulados", "saltos acumulados")); } catch { }
+            try { n.Add(Alerta.Poblacion,       new DetallesAlerta(TipoEvento.Jump, "Poblacion", "Poblacion", 1, 0, 2, "M habitantes", "M habitantes")); } catch { }
         }
 
         public List<Interes> Interest { get; private set; }

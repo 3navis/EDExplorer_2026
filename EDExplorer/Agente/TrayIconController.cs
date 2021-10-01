@@ -1,5 +1,6 @@
 ﻿namespace EDExplorer
 {
+    using global::EDExplorer.Pantallas;
     using Properties;
     using System;
     using System.Drawing;
@@ -50,6 +51,7 @@
             var menuStrip = new ContextMenuStrip(); 
             //menuStrip.Items.Add(new ToolStripLabel($"Version: {Application.ProductVersion}") { ForeColor = SystemColors.ControlDark });
             menuStrip.Items.Add(new ToolStripLabel($"Version: {Assembly.GetExecutingAssembly().GetName().Version}") { ForeColor = SystemColors.ControlDark });
+            menuStrip.Items.Add("Acerca de ...", null, (o, e) => About());
 
             menuStrip.Items.Add(ToolStripSeparatorLeft);
             menuStrip.Items.Add("Configuración", Resources.CONFIG, (o, e) => basi.OpenConfiguracionFrm(basi.alertas));
@@ -235,6 +237,12 @@
 
             // TODO: uncomment the following line if the finalizer is overridden above.
             // GC.SuppressFinalize(this);
+        }
+        private void About()
+        {
+            AboutFrm aboutFrm;
+            aboutFrm = new AboutFrm();
+            aboutFrm.Show();
         }
 
     }

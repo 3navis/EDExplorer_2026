@@ -39,7 +39,7 @@ namespace EDExplorer
 
             scanEvent = logMonitor.LastScan;
             bool flgAterrizable = scanEvent.Landable.GetValueOrDefault(false);
-
+            
             //if (scanEvent.BodyName == "Cl Pismis 13 5")
             //{
             //}
@@ -140,10 +140,41 @@ namespace EDExplorer
 
                     if (alertas.CumpleCriterios(da))
                     {
-                        double g = Math.Abs((double)scanEvent.SurfaceTemperature);
+                        //double g = Math.Abs((double)scanEvent.SurfaceTemperature);
                         //detalle = $"dias rotación  {scanEvent.DistanceFromArrivalLs.ToString("0")} LS  {g.ToString("0")} grados";
                         Interest.Add(new Interes(scanEvent.BodyName, da.nombre, alertas.valorST, alertas.detalle));
                     }
+                }
+            }
+            else
+            {
+                bool isWorld = false;
+                if (scanEvent.PlanetClass == "Earthlike body")
+                {
+                    // Tipo Tierra
+                    da = alertas.n[Alerta.Tierra];
+                    isWorld = da.flag;
+                }
+                else if (scanEvent.PlanetClass == "Water world")
+                {
+                    // Tipo Acuatico
+                    da = alertas.n[Alerta.Acuatico];
+                    isWorld = da.flag;
+                }
+                else if (scanEvent.PlanetClass == "Ammonia world")
+                {
+                    // Tipo Amoniaco
+                    da = alertas.n[Alerta.Amoniaco];
+                    isWorld = da.flag;
+                }
+
+                if (isWorld)
+                {
+                    // No entra en la funcion normal de alertas
+                    //alertas.detalle = da.detalle;
+                    alertas.detalle = (scanEvent.WasDiscovered ? "Descubierto" : "Nuevo");
+                    alertas.detalle += " " + (scanEvent.WasMapped ? "Mapeado" : "Virgen");
+                    Interest.Add(new Interes(scanEvent.BodyName, da.nombre, "", alertas.detalle));
                 }
             }
 

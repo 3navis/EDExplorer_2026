@@ -14,7 +14,16 @@ namespace EDExplorer.Pantallas
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            //Refresh();
             //f_Main();
+            Timer timer = new Timer();
+            timer.Interval = 1;
+            timer.Tick += delegate (object s, EventArgs ee)
+            {
+                ((Timer)s).Stop();
+                f_Main();
+            };
+            timer.Start();
         }
 
         void Dibujar3(System.Windows.Forms.PictureBox pb, PointF[,] t)
@@ -154,7 +163,6 @@ namespace EDExplorer.Pantallas
         private void button1_Click(object sender, EventArgs e)
         {
             Refresh();
-
             f_Main();
         }
     }

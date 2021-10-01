@@ -69,25 +69,6 @@ namespace EDExplorer
             }
         }
 
-        private void BtnReadAll_Click(object sender, EventArgs e)
-        {
-            if (logMonitor.ReadAllComplete)
-            {
-                DialogResult confirmResult;
-                confirmResult = MessageBox.Show("Desea borrar la lista actual y volver a leer el diario de vuelo?", "Confirmar Refresco", MessageBoxButtons.OKCancel);
-                if (confirmResult == DialogResult.Cancel)
-                {
-                    return;
-                }
-            }
-            DateTime start = DateTime.Now;
-            ReadAllJournals();
-            lblTime.Text = (DateTime.Now - start).TotalSeconds.ToString("0.00")+"s.";
-
-            // ** Limpiar el guardado si estaba realizado
-            itemsTodos = null;
-        }
-
         private void ReadAllJournals(int ultimos = 0, bool soloRecords = false)
         {
             mostrarSoloRecords = soloRecords;
@@ -228,6 +209,25 @@ namespace EDExplorer
                 listEvent.Items.Clear();
                 listEvent.Items.AddRange(itemsTodos.ToArray()); //Recargar el ListView
             }
+        }
+
+        private void HistoricoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (logMonitor.ReadAllComplete)
+            {
+                DialogResult confirmResult;
+                confirmResult = MessageBox.Show("¿Desea borrar la lista actual y volver a leer el diario de vuelo completo?", "Confirmar Acción", MessageBoxButtons.OKCancel);
+                if (confirmResult == DialogResult.Cancel)
+                {
+                    return;
+                }
+            }
+            DateTime start = DateTime.Now;
+            ReadAllJournals();
+            MessageBox.Show("Tiempo empleado: " + (DateTime.Now - start).TotalSeconds.ToString("0.00") + "s.");
+
+            // ** Limpiar el guardado si estaba realizado
+            itemsTodos = null;
         }
 
         private void ListEvent_KeyDown(object sender, KeyEventArgs e)

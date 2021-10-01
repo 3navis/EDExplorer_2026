@@ -17,7 +17,7 @@ namespace EDExplorer
         private static SQLiteConnection con;
         private SQLiteCommand command;
         private string sql;
-        //private static string ftUS = "CultureInfo.CreateSpecificCulture(\"en-US\")";
+        //private static string ftUS = "CultureInfo.CreateSpecificCulture(\"en-GB\")";
         private static System.Globalization.CultureInfo ftGB = new System.Globalization.CultureInfo("en-GB");
 
         public static void Up()

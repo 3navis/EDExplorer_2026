@@ -190,6 +190,11 @@
       <DependentUpon>PanelAlerta.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\EDExplorer.cs" />
+    <Compile Include="Properties\Textos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Textos.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -214,16 +219,24 @@
     <Compile Include="Pantallas\ConfiguracionFrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Pantallas\ConfiguracionFrm.Designer.cs">
-      <DependentUpon>ConfiguracionFrm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Eventos\ScanReader.cs" />
     <Compile Include="Eventos\SignalReader.cs" />
     <Compile Include="Eventos\JumpReader.cs" />
+    <Compile Include="Properties\Textos.en.Designer.cs">
+      <DependentUpon>Textos.en.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Properties\Textos.fr.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Textos.fr.resx</DependentUpon>
+    </Compile>
     <Compile Include="SQLite\SQLBase.cs" />
     <Compile Include="StatusMonitor.cs" />
     <EmbeddedResource Include="About\AboutFrm.resx">
       <DependentUpon>AboutFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="About\UserAbout.resx">
       <DependentUpon>UserAbout.cs</DependentUpon>
@@ -242,6 +255,15 @@
     <EmbeddedResource Include="Pantallas\PanelAlerta.resx">
       <DependentUpon>PanelAlerta.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Textos.en.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Textos.en.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Textos.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Textos.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
@@ -250,6 +272,8 @@
     <EmbeddedResource Include="Pantallas\ConfiguracionFrm.resx">
       <DependentUpon>ConfiguracionFrm.cs</DependentUpon>
       <SubType>Designer</SubType>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ConfiguracionFrm.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="EDExplorer2_TemporaryKey.pfx" />
     <None Include="packages.config" />
@@ -257,6 +281,10 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <EmbeddedResource Include="Properties\Textos.fr.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Textos.fr.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\elitedanger.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>

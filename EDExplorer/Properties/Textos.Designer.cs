@@ -61,20 +61,1199 @@ namespace EDExplorer.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Alerta.
+        ///   Busca una cadena traducida similar a Alertas +++++++.
         /// </summary>
-        public static string Alerta {
+        public static string Alertas________ {
             get {
-                return ResourceManager.GetString("Alerta", resourceCulture);
+                return ResourceManager.GetString("Alertas +++++++", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Idioma:.
+        ///   Busca una cadena traducida similar a .
         /// </summary>
-        public static string Idioma {
+        public static string EDExplorer {
             get {
-                return ResourceManager.GetString("Idioma", resourceCulture);
+                return ResourceManager.GetString("EDExplorer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Scan +++++++++++++.
+        /// </summary>
+        public static string Scan______________ {
+            get {
+                return ResourceManager.GetString("Scan +++++++++++++", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Acerca de ....
+        /// </summary>
+        public static string str_Acerca_de {
+            get {
+                return ResourceManager.GetString("str_Acerca_de", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Activar Locutor.
+        /// </summary>
+        public static string str_Activar_Locutor {
+            get {
+                return ResourceManager.GetString("str_Activar_Locutor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Activar Notificaciones.
+        /// </summary>
+        public static string str_Activar_Notificaciones {
+            get {
+                return ResourceManager.GetString("str_Activar_Notificaciones", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Acumulado.
+        /// </summary>
+        public static string str_Acumulado {
+            get {
+                return ResourceManager.GetString("str_Acumulado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a al acumulados.
+        /// </summary>
+        public static string str_al_acumulados {
+            get {
+                return ResourceManager.GetString("str_al_acumulados", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a al de distancia acumulada en saltos.
+        /// </summary>
+        public static string str_al_de_distancia_acumulada_en_saltos {
+            get {
+                return ResourceManager.GetString("str_al_de_distancia_acumulada_en_saltos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Alexandrite.
+        /// </summary>
+        public static string str_Alexandrite {
+            get {
+                return ResourceManager.GetString("str_Alexandrite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Alta Gravedad.
+        /// </summary>
+        public static string str_Alta_Gravedad {
+            get {
+                return ResourceManager.GetString("str_Alta_Gravedad", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Anillo Ancho.
+        /// </summary>
+        public static string str_Anillo_Ancho {
+            get {
+                return ResourceManager.GetString("str_Anillo_Ancho", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Anillo Helado.
+        /// </summary>
+        public static string str_Anillo_Helado {
+            get {
+                return ResourceManager.GetString("str_Anillo_Helado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Anillo Metálico.
+        /// </summary>
+        public static string str_Anillo_Met_lico {
+            get {
+                return ResourceManager.GetString("str_Anillo_Met_lico", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Anillo Próximo.
+        /// </summary>
+        public static string str_Anillo_Pr_ximo {
+            get {
+                return ResourceManager.GetString("str_Anillo_Pr_ximo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Anillo Rico en Metal.
+        /// </summary>
+        public static string str_Anillo_Rico_en_Metal {
+            get {
+                return ResourceManager.GetString("str_Anillo_Rico_en_Metal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Anillo Rico Metal.
+        /// </summary>
+        public static string str_Anillo_Rico_Metal {
+            get {
+                return ResourceManager.GetString("str_Anillo_Rico_Metal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Anillo Rocoso.
+        /// </summary>
+        public static string str_Anillo_Rocoso {
+            get {
+                return ResourceManager.GetString("str_Anillo_Rocoso", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Aterrizable Anillado.
+        /// </summary>
+        public static string str_Aterrizable_Anillado {
+            get {
+                return ResourceManager.GetString("str_Aterrizable_Anillado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Aterrizable Atmos..
+        /// </summary>
+        public static string str_Aterrizable_Atmos {
+            get {
+                return ResourceManager.GetString("str_Aterrizable_Atmos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Aterrizable Atmosférico.
+        /// </summary>
+        public static string str_Aterrizable_Atmosf_rico {
+            get {
+                return ResourceManager.GetString("str_Aterrizable_Atmosf_rico", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Aterrizable con Alta Gravedad.
+        /// </summary>
+        public static string str_Aterrizable_con_Alta_Gravedad {
+            get {
+                return ResourceManager.GetString("str_Aterrizable_con_Alta_Gravedad", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Aterrizable con Baja Gravedad.
+        /// </summary>
+        public static string str_Aterrizable_con_Baja_Gravedad {
+            get {
+                return ResourceManager.GetString("str_Aterrizable_con_Baja_Gravedad", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Aterrizable Grande.
+        /// </summary>
+        public static string str_Aterrizable_Grande {
+            get {
+                return ResourceManager.GetString("str_Aterrizable_Grande", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Aterrizable Pequeño.
+        /// </summary>
+        public static string str_Aterrizable_Peque {
+            get {
+                return ResourceManager.GetString("str_Aterrizable_Peque", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Baja Gravedad.
+        /// </summary>
+        public static string str_Baja_Gravedad {
+            get {
+                return ResourceManager.GetString("str_Baja_Gravedad", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Benitoite.
+        /// </summary>
+        public static string str_Benitoite {
+            get {
+                return ResourceManager.GetString("str_Benitoite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Binaria Cercana.
+        /// </summary>
+        public static string str_Binaria_Cercana {
+            get {
+                return ResourceManager.GetString("str_Binaria_Cercana", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Biológica.
+        /// </summary>
+        public static string str_Biol_gica {
+            get {
+                return ResourceManager.GetString("str_Biol_gica", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Configuración.
+        /// </summary>
+        public static string str_Configuraci {
+            get {
+                return ResourceManager.GetString("str_Configuraci", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Confirmar Acción.
+        /// </summary>
+        public static string str_Confirmar_Acci {
+            get {
+                return ResourceManager.GetString("str_Confirmar_Acci", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a CREMATORIA.
+        /// </summary>
+        public static string str_CREMATORIA {
+            get {
+                return ResourceManager.GetString("str_CREMATORIA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Crematoria.
+        /// </summary>
+        public static string str_Crematoria1 {
+            get {
+                return ResourceManager.GetString("str_Crematoria1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a cuerpos.
+        /// </summary>
+        public static string str_cuerpos {
+            get {
+                return ResourceManager.GetString("str_cuerpos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Descubierto.
+        /// </summary>
+        public static string str_Descubierto {
+            get {
+                return ResourceManager.GetString("str_Descubierto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a ¿Desea borrar la lista actual y volver a leer el diario de vuelo completo?.
+        /// </summary>
+        public static string str_Desea_borrar_la_lista_actual_volver {
+            get {
+                return ResourceManager.GetString("str_Desea_borrar_la_lista_actual_volver", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a dias rotación.
+        /// </summary>
+        public static string str_dias_rotaci {
+            get {
+                return ResourceManager.GetString("str_dias_rotaci", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a EDExplorer: Error.
+        /// </summary>
+        public static string str_EDExplorer_Error {
+            get {
+                return ResourceManager.GetString("str_EDExplorer_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El nombre del cuerpo no incluye al Sistema.
+        /// </summary>
+        public static string str_El_nombre_del_cuerpo_no_incluye_al {
+            get {
+                return ResourceManager.GetString("str_El_nombre_del_cuerpo_no_incluye_al", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Filtrar Alerta &quot;.
+        /// </summary>
+        public static string str_Filtrar_Alerta {
+            get {
+                return ResourceManager.GetString("str_Filtrar_Alerta", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Filtrar Sistema &quot;.
+        /// </summary>
+        public static string str_Filtrar_Sistema {
+            get {
+                return ResourceManager.GetString("str_Filtrar_Sistema", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a FSS Cuerpos.
+        /// </summary>
+        public static string str_FSS_Cuerpos {
+            get {
+                return ResourceManager.GetString("str_FSS_Cuerpos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a g superficie.
+        /// </summary>
+        public static string str_g_superficie {
+            get {
+                return ResourceManager.GetString("str_g_superficie", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Geológica.
+        /// </summary>
+        public static string str_Geol_gica {
+            get {
+                return ResourceManager.GetString("str_Geol_gica", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Grandidierite.
+        /// </summary>
+        public static string str_Grandidierite {
+            get {
+                return ResourceManager.GetString("str_Grandidierite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a g Gravedad en superficie.
+        /// </summary>
+        public static string str_Gravedad_en_superficie {
+            get {
+                return ResourceManager.GetString("str_Gravedad_en_superficie", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Guardian.
+        /// </summary>
+        public static string str_Guardian {
+            get {
+                return ResourceManager.GetString("str_Guardian", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a M habitantes.
+        /// </summary>
+        public static string str_habitantes {
+            get {
+                return ResourceManager.GetString("str_habitantes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a horas orbita.
+        /// </summary>
+        public static string str_horas_orbita {
+            get {
+                return ResourceManager.GetString("str_horas_orbita", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a horas para completar una Orbita.
+        /// </summary>
+        public static string str_horas_para_completar_una_Orbita {
+            get {
+                return ResourceManager.GetString("str_horas_para_completar_una_Orbita", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a horas para completar una rotación.
+        /// </summary>
+        public static string str_horas_para_completar_una_rotaci {
+            get {
+                return ResourceManager.GetString("str_horas_para_completar_una_rotaci", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a horas rotación.
+        /// </summary>
+        public static string str_horas_rotaci {
+            get {
+                return ResourceManager.GetString("str_horas_rotaci", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Humana.
+        /// </summary>
+        public static string str_Humana {
+            get {
+                return ResourceManager.GetString("str_Humana", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a inferior a la media.
+        /// </summary>
+        public static string str_inferior_la_media {
+            get {
+                return ResourceManager.GetString("str_inferior_la_media", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a INICIAR monitor eventos.
+        /// </summary>
+        public static string str_INICIAR_monitor_eventos {
+            get {
+                return ResourceManager.GetString("str_INICIAR_monitor_eventos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Km ancho.
+        /// </summary>
+        public static string str_Km_ancho {
+            get {
+                return ResourceManager.GetString("str_Km_ancho", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Km anchura anillo / s.
+        /// </summary>
+        public static string str_Km_anchura_anillo {
+            get {
+                return ResourceManager.GetString("str_Km_anchura_anillo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Km de distancia al borde del _TRIAL.
+        /// </summary>
+        public static string str_Km_de_distancia_al_borde_del_anillo {
+            get {
+                return ResourceManager.GetString("str_Km_de_distancia_al_borde_del_anillo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Km de distancia entre superficies.
+        /// </summary>
+        public static string str_Km_de_distancia_entre_superficies {
+            get {
+                return ResourceManager.GetString("str_Km_de_distancia_entre_superficies", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Km de Radio.
+        /// </summary>
+        public static string str_Km_de_Radio {
+            get {
+                return ResourceManager.GetString("str_Km_de_Radio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Km radio.
+        /// </summary>
+        public static string str_Km_radio {
+            get {
+                return ResourceManager.GetString("str_Km_radio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Km separacion.
+        /// </summary>
+        public static string str_Km_separacion {
+            get {
+                return ResourceManager.GetString("str_Km_separacion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a LowTemperatureD_TRIAL.
+        /// </summary>
+        public static string str_LowTemperatureDiamond {
+            get {
+                return ResourceManager.GetString("str_LowTemperatureDiamond", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Mapeado.
+        /// </summary>
+        public static string str_Mapeado {
+            get {
+                return ResourceManager.GetString("str_Mapeado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Número de Cuerpos.
+        /// </summary>
+        public static string str_mero_de_Cuerpos {
+            get {
+                return ResourceManager.GetString("str_mero_de_Cuerpos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a número señales.
+        /// </summary>
+        public static string str_mero_se_ales {
+            get {
+                return ResourceManager.GetString("str_mero_se_ales", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a número vetas.
+        /// </summary>
+        public static string str_mero_vetas {
+            get {
+                return ResourceManager.GetString("str_mero_vetas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Monazite.
+        /// </summary>
+        public static string str_Monazite {
+            get {
+                return ResourceManager.GetString("str_Monazite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Mostrar Lista.
+        /// </summary>
+        public static string str_Mostrar_Lista {
+            get {
+                return ResourceManager.GetString("str_Mostrar_Lista", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Mostrar Resumen.
+        /// </summary>
+        public static string str_Mostrar_Resumen {
+            get {
+                return ResourceManager.GetString("str_Mostrar_Resumen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Mt. (x10^12) de masa.
+        /// </summary>
+        public static string str_Mt_de_masa {
+            get {
+                return ResourceManager.GetString("str_Mt_de_masa", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Mt (x10^12) masa.
+        /// </summary>
+        public static string str_Mt_masa {
+            get {
+                return ResourceManager.GetString("str_Mt_masa", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Musgravite.
+        /// </summary>
+        public static string str_Musgravite {
+            get {
+                return ResourceManager.GetString("str_Musgravite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Nombre Especial.
+        /// </summary>
+        public static string str_Nombre_Especial {
+            get {
+                return ResourceManager.GetString("str_Nombre_Especial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Notificaciones Activadas.
+        /// </summary>
+        public static string str_Notificaciones_Activadas {
+            get {
+                return ResourceManager.GetString("str_Notificaciones_Activadas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Nuevo.
+        /// </summary>
+        public static string str_Nuevo {
+            get {
+                return ResourceManager.GetString("str_Nuevo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a number.
+        /// </summary>
+        public static string str_number {
+            get {
+                return ResourceManager.GetString("str_number", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Ocultar Lista.
+        /// </summary>
+        public static string str_Ocultar_Lista {
+            get {
+                return ResourceManager.GetString("str_Ocultar_Lista", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Opal.
+        /// </summary>
+        public static string str_Opal {
+            get {
+                return ResourceManager.GetString("str_Opal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Orbita Cercana.
+        /// </summary>
+        public static string str_Orbita_Cercana {
+            get {
+                return ResourceManager.GetString("str_Orbita_Cercana", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Orbita Lejana.
+        /// </summary>
+        public static string str_Orbita_Lejana {
+            get {
+                return ResourceManager.GetString("str_Orbita_Lejana", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Orbita Rápida.
+        /// </summary>
+        public static string str_Orbita_pida {
+            get {
+                return ResourceManager.GetString("str_Orbita_pida", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Painite.
+        /// </summary>
+        public static string str_Painite {
+            get {
+                return ResourceManager.GetString("str_Painite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Parar Locutor.
+        /// </summary>
+        public static string str_Parar_Locutor {
+            get {
+                return ResourceManager.GetString("str_Parar_Locutor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a PARAR monitor eventos.
+        /// </summary>
+        public static string str_PARAR_monitor_eventos {
+            get {
+                return ResourceManager.GetString("str_PARAR_monitor_eventos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Parar Notificaciones.
+        /// </summary>
+        public static string str_Parar_Notificaciones {
+            get {
+                return ResourceManager.GetString("str_Parar_Notificaciones", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Poblacion.
+        /// </summary>
+        public static string str_Poblacion {
+            get {
+                return ResourceManager.GetString("str_Poblacion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Próximo al Anillo.
+        /// </summary>
+        public static string str_Pr_ximo_al_Anillo {
+            get {
+                return ResourceManager.GetString("str_Pr_ximo_al_Anillo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a radio vs distancia.
+        /// </summary>
+        public static string str_radio_vs_distancia {
+            get {
+                return ResourceManager.GetString("str_radio_vs_distancia", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a record actual.
+        /// </summary>
+        public static string str_record_actual {
+            get {
+                return ResourceManager.GetString("str_record_actual", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a record inferior.
+        /// </summary>
+        public static string str_record_inferior {
+            get {
+                return ResourceManager.GetString("str_record_inferior", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a record superior.
+        /// </summary>
+        public static string str_record_superior {
+            get {
+                return ResourceManager.GetString("str_record_superior", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a relación Radio vs Dis_TRIAL.
+        /// </summary>
+        public static string str_relaci_Radio_vs_Distancia {
+            get {
+                return ResourceManager.GetString("str_relaci_Radio_vs_Distancia", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Rhodplumsite.
+        /// </summary>
+        public static string str_Rhodplumsite {
+            get {
+                return ResourceManager.GetString("str_Rhodplumsite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Rotación Rápida.
+        /// </summary>
+        public static string str_Rotaci_pida {
+            get {
+                return ResourceManager.GetString("str_Rotaci_pida", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Salir.
+        /// </summary>
+        public static string str_Salir {
+            get {
+                return ResourceManager.GetString("str_Salir", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Saltos.
+        /// </summary>
+        public static string str_Saltos {
+            get {
+                return ResourceManager.GetString("str_Saltos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a saltos acumulados.
+        /// </summary>
+        public static string str_saltos_acumulados {
+            get {
+                return ResourceManager.GetString("str_saltos_acumulados", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Señal Biológica.
+        /// </summary>
+        public static string str_Se_al_Biol_gica {
+            get {
+                return ResourceManager.GetString("str_Se_al_Biol_gica", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Señal Geológica.
+        /// </summary>
+        public static string str_Se_al_Geol_gica {
+            get {
+                return ResourceManager.GetString("str_Se_al_Geol_gica", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Señal Guardian.
+        /// </summary>
+        public static string str_Se_al_Guardian {
+            get {
+                return ResourceManager.GetString("str_Se_al_Guardian", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Señal Humana.
+        /// </summary>
+        public static string str_Se_al_Humana {
+            get {
+                return ResourceManager.GetString("str_Se_al_Humana", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Señal Thargoide.
+        /// </summary>
+        public static string str_Se_al_Thargoide {
+            get {
+                return ResourceManager.GetString("str_Se_al_Thargoide", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a señales.
+        /// </summary>
+        public static string str_se_ales {
+            get {
+                return ResourceManager.GetString("str_se_ales", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Serendibite.
+        /// </summary>
+        public static string str_Serendibite {
+            get {
+                return ResourceManager.GetString("str_Serendibite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a  - Sin Interés.
+        /// </summary>
+        public static string str_Sin_Inter {
+            get {
+                return ResourceManager.GetString("str_Sin_Inter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a SL de distancia entre superficies.
+        /// </summary>
+        public static string str_SL_de_distancia_entre_superficies {
+            get {
+                return ResourceManager.GetString("str_SL_de_distancia_entre_superficies", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a SL separacion.
+        /// </summary>
+        public static string str_SL_separacion {
+            get {
+                return ResourceManager.GetString("str_SL_separacion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a g superficie.
+        /// </summary>
+        public static string str_superficie {
+            get {
+                return ResourceManager.GetString("str_superficie", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a superior a la media.
+        /// </summary>
+        public static string str_superior_la_media {
+            get {
+                return ResourceManager.GetString("str_superior_la_media", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Thargoide.
+        /// </summary>
+        public static string str_Thargoide {
+            get {
+                return ResourceManager.GetString("str_Thargoide", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Tiempo empleado: .
+        /// </summary>
+        public static string str_Tiempo_empleado {
+            get {
+                return ResourceManager.GetString("str_Tiempo_empleado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a tipo Acuatico.
+        /// </summary>
+        public static string str_tipo_Acuatico {
+            get {
+                return ResourceManager.GetString("str_tipo_Acuatico", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a tipo Amoniaco.
+        /// </summary>
+        public static string str_tipo_Amoniaco {
+            get {
+                return ResourceManager.GetString("str_tipo_Amoniaco", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a tipo Tierra.
+        /// </summary>
+        public static string str_tipo_Tierra {
+            get {
+                return ResourceManager.GetString("str_tipo_Tierra", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a tritium.
+        /// </summary>
+        public static string str_tritium {
+            get {
+                return ResourceManager.GetString("str_tritium", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a veces el radio del anillo.
+        /// </summary>
+        public static string str_veces_el_radio_del_Planeta {
+            get {
+                return ResourceManager.GetString("str_veces_el_radio_del_Planeta", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a x veces radio.
+        /// </summary>
+        public static string str_veces_radio {
+            get {
+                return ResourceManager.GetString("str_veces_radio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Version:.
+        /// </summary>
+        public static string str_Version_Assembly {
+            get {
+                return ResourceManager.GetString("str_Version_Assembly", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Veta Alejandríta.
+        /// </summary>
+        public static string str_Veta_Alejandr_ta {
+            get {
+                return ResourceManager.GetString("str_Veta_Alejandr_ta", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Veta Benitoíta.
+        /// </summary>
+        public static string str_Veta_Benito_ta {
+            get {
+                return ResourceManager.GetString("str_Veta_Benito_ta", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Veta Grandidieríta.
+        /// </summary>
+        public static string str_Veta_Grandidier_ta {
+            get {
+                return ResourceManager.GetString("str_Veta_Grandidier_ta", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Veta LTD.
+        /// </summary>
+        public static string str_Veta_LTD {
+            get {
+                return ResourceManager.GetString("str_Veta_LTD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Veta Monacita.
+        /// </summary>
+        public static string str_Veta_Monacita {
+            get {
+                return ResourceManager.GetString("str_Veta_Monacita", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Veta Musgravíta.
+        /// </summary>
+        public static string str_Veta_Musgrav_ta {
+            get {
+                return ResourceManager.GetString("str_Veta_Musgrav_ta", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Veta Painíta.
+        /// </summary>
+        public static string str_Veta_Pain_ta {
+            get {
+                return ResourceManager.GetString("str_Veta_Pain_ta", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Veta Ópalos.
+        /// </summary>
+        public static string str_Veta_palos {
+            get {
+                return ResourceManager.GetString("str_Veta_palos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Veta Rhodplumsita.
+        /// </summary>
+        public static string str_Veta_Rhodplumsita {
+            get {
+                return ResourceManager.GetString("str_Veta_Rhodplumsita", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Veta Serendibíta.
+        /// </summary>
+        public static string str_Veta_Serendib_ta {
+            get {
+                return ResourceManager.GetString("str_Veta_Serendib_ta", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Veta Tritio.
+        /// </summary>
+        public static string str_Veta_Tritio {
+            get {
+                return ResourceManager.GetString("str_Veta_Tritio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a vetas.
+        /// </summary>
+        public static string str_vetas {
+            get {
+                return ResourceManager.GetString("str_vetas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Virgen.
+        /// </summary>
+        public static string str_Virgen {
+            get {
+                return ResourceManager.GetString("str_Virgen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Try ++++++++++++++.
+        /// </summary>
+        public static string Try_______________ {
+            get {
+                return ResourceManager.GetString("Try ++++++++++++++", resourceCulture);
             }
         }
     }

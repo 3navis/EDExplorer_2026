@@ -1,12 +1,13 @@
 ﻿namespace EDExplorer
 {
     using global::EDExplorer.Pantallas;
-    using Properties;
     using System;
     using System.Drawing;
     using System.Reflection;
     using System.Windows.Forms;
-
+    using Properties;
+    using M = Properties.Textos;
+    
     public interface IUserNotificationInterface
     {
         void ShowErrorNotification(string error);
@@ -14,11 +15,11 @@
     public class TrayIconController : IUserNotificationInterface, IDisposable
     {
         private Base basi;
-
+        
         private readonly NotifyIcon trayIcon;
         private bool disposedValue = false; // To detect redundant calls
         private Properties.Settings settings = Properties.Settings.Default;
-
+        
         public TrayIconController()
         {
             basi = new Base();
@@ -33,7 +34,7 @@
             {
                 ContextMenuStrip = CreateMenuStrip(),
                 Icon = Resources.EDExplorer,
-                Text = "EDExplorer Agent",
+                Text = "EDExplorer Agente",
                 Visible = true,
             };
 
@@ -50,11 +51,11 @@
         {
             var menuStrip = new ContextMenuStrip(); 
             //menuStrip.Items.Add(new ToolStripLabel($"Version: {Application.ProductVersion}") { ForeColor = SystemColors.ControlDark });
-            menuStrip.Items.Add(new ToolStripLabel($"Version: {Assembly.GetExecutingAssembly().GetName().Version}") { ForeColor = SystemColors.ControlDark });
-            menuStrip.Items.Add("Acerca de ...", null, (o, e) => About());
+            menuStrip.Items.Add(new ToolStripLabel(M.str_Version_Assembly+$" {Assembly.GetExecutingAssembly().GetName().Version}") { ForeColor = SystemColors.ControlDark });
+            menuStrip.Items.Add(M.str_Acerca_de, null, (o, e) => About());
 
             menuStrip.Items.Add(ToolStripSeparatorLeft);
-            menuStrip.Items.Add("Configuración", Resources.CONFIG, (o, e) => basi.OpenConfiguracionFrm(basi.alertas));
+            menuStrip.Items.Add(M.str_Configuraci, Resources.CONFIG, (o, e) => basi.OpenConfiguracionFrm(basi.alertas));
 
             menuStrip.Items.Add(ToolStripSeparatorLeft);
             menuStrip.Items.Add(textoLISTA(), recursoLISTA(), (o, e) => Mostrar_Lista(o));
@@ -65,7 +66,7 @@
             menuStrip.Items.Add(textoSTART(), recursoSTART(), (o, e) => Start_Stop(o));
 
             menuStrip.Items.Add(ToolStripSeparatorLeft);
-            menuStrip.Items.Add("Salir", SystemIcons.Error.ToBitmap(), (o, e) => Application.Exit());
+            menuStrip.Items.Add(M.str_Salir, SystemIcons.Error.ToBitmap(), (o, e) => Application.Exit());
 
             return menuStrip;
         }
@@ -80,9 +81,9 @@
                 flag = basi.logMonitor.IsMonitoring();
 
             if (flag)
-                return "PARAR monitor eventos";
+                return M.str_PARAR_monitor_eventos;
             else
-                return "INICIAR monitor eventos";
+                return M.str_INICIAR_monitor_eventos;
         }
         private Image recursoSTART(bool flag = true)
         {
@@ -112,9 +113,9 @@
         private string textoLISTA()
         {
             if (settings.activarLista)
-                return "Ocultar Lista";
+                return M.str_Ocultar_Lista;
             else
-                return "Mostrar Lista";
+                return M.str_Mostrar_Lista;
         }
         private Image recursoLISTA()
         {
@@ -152,9 +153,9 @@
         private string textoNOTIFY()
         {
             if (settings.activarNotificaciones)
-                return "Parar Notificaciones";
+                return M.str_Parar_Notificaciones;
             else
-                return "Activar Notificaciones";
+                return M.str_Activar_Notificaciones;
         }
         private void Mostrar_Notificaciones(object obj)
         {
@@ -165,7 +166,7 @@
 
             if (settings.activarNotificaciones)
             {
-                basi.OpenNotifyForm("Notificaciones Activadas", 3000);
+                basi.OpenNotifyForm(M.str_Notificaciones_Activadas, 3000);
             }
            
             menuItem.Image = recursoNOTIFY();
@@ -181,9 +182,9 @@
         private string textoTALK()
         {
             if (settings.activarAudio)
-                return "Parar Locutor";
+                return M.str_Parar_Locutor;
             else
-                return "Activar Locutor";
+                return M.str_Activar_Locutor;
         }
         private void Alertas_Audibles(object obj)
         {

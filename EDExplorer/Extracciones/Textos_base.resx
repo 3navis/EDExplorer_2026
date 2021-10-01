@@ -1,0 +1,369 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="str_TTS" xml:space="preserve">
+    <value>TTS</value>
+  </data>
+  <data name="str_Cuerpo" xml:space="preserve">
+    <value>Cuerpo </value>
+  </data>
+  <data name="str_Francia" xml:space="preserve">
+    <value>Francia</value>
+  </data>
+  <data name="str_caliente_blanca_azulada" xml:space="preserve">
+    <value>caliente blanca/azulada &lt;10.000K</value>
+  </data>
+  <data name="str_enana_marron1" xml:space="preserve">
+    <value>enana marron &lt;700K</value>
+  </data>
+  <data name="str_agujero_Negro" xml:space="preserve">
+    <value>agujero Negro</value>
+  </data>
+  <data name="str_fr" xml:space="preserve">
+    <value>fr</value>
+  </data>
+  <data name="str_ES3" xml:space="preserve">
+    <value>ES</value>
+  </data>
+  <data name="String19" xml:space="preserve">
+    <value>{R} </value>
+  </data>
+  <data name="String39" xml:space="preserve">
+    <value>K</value>
+  </data>
+  <data name="str_Frances" xml:space="preserve">
+    <value>Frances</value>
+  </data>
+  <data name="str_roja" xml:space="preserve">
+    <value>roja</value>
+  </data>
+  <data name="str_Distancia" xml:space="preserve">
+    <value>Distancia: </value>
+  </data>
+  <data name="str_EDExplorer_Resources_elitedanger" xml:space="preserve">
+    <value>EDExplorer.Resources.elitedang_TRIAL</value>
+  </data>
+  <data name="str_Tiempo" xml:space="preserve">
+    <value>Tiempo: </value>
+  </data>
+  <data name="String32" xml:space="preserve">
+    <value>M</value>
+  </data>
+  <data name="String22" xml:space="preserve">
+    <value>F</value>
+  </data>
+  <data name="str_Catalu" xml:space="preserve">
+    <value>Cataluña</value>
+  </data>
+  <data name="str_portugu" xml:space="preserve">
+    <value>português</value>
+  </data>
+  <data name="str_blanco_amarilla" xml:space="preserve">
+    <value>blanco-amarilla &lt;_TRIAL</value>
+  </data>
+  <data name="String2" xml:space="preserve">
+    <value>D</value>
+  </data>
+  <data name="str_eu" xml:space="preserve">
+    <value>eu</value>
+  </data>
+  <data name="str_ES2" xml:space="preserve">
+    <value>ES</value>
+  </data>
+  <data name="str_Saltos" xml:space="preserve">
+    <value>Saltos: </value>
+  </data>
+  <data name="str_ES1" xml:space="preserve">
+    <value>ES</value>
+  </data>
+  <data name="str_Ex_tica" xml:space="preserve">
+    <value>Exótica</value>
+  </data>
+  <data name="str_speak_version_xmlns_http_www_org" xml:space="preserve">
+    <value>&lt;speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="es-ES"&gt;Atención:&lt;break strength="weak"/&gt;{alertaStar}&lt;/speak&gt;</value>
+  </data>
+  <data name="str_estrella_de_Neutrones" xml:space="preserve">
+    <value>estrella de Neutrones</value>
+  </data>
+  <data name="str_Resumen_sesi_actual" xml:space="preserve">
+    <value>Resumen sesión actual</value>
+  </data>
+  <data name="str_Ruta" xml:space="preserve">
+    <value> [Ruta:</value>
+  </data>
+  <data name="str_saltando_estrella_enana_Blanca" xml:space="preserve">
+    <value>saltando a estrella enana Blanca</value>
+  </data>
+  <data name="String16" xml:space="preserve">
+    <value>X</value>
+  </data>
+  <data name="String53" xml:space="preserve">
+    <value>{R} </value>
+  </data>
+  <data name="str_speak_version_xmlns_http_www_org1" xml:space="preserve">
+    <value>&lt;speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="es-ES"&gt;{spokenName}:&lt;break strength="weak"/&gt;{announceText}&lt;/_TRIAL</value>
+  </data>
+  <data name="String23" xml:space="preserve">
+    <value>A</value>
+  </data>
+  <data name="String40" xml:space="preserve">
+    <value>{R} </value>
+  </data>
+  <data name="str_en" xml:space="preserve">
+    <value>en</value>
+  </data>
+  <data name="String10" xml:space="preserve">
+    <value>B</value>
+  </data>
+  <data name="String30" xml:space="preserve">
+    <value> h </value>
+  </data>
+  <data name="str_Portugal" xml:space="preserve">
+    <value>Portugal</value>
+  </data>
+  <data name="str_amarillo_naranja" xml:space="preserve">
+    <value>amarillo-naranja &lt;5.000K</value>
+  </data>
+  <data name="str_PT" xml:space="preserve">
+    <value>PT</value>
+  </data>
+  <data name="str_ca" xml:space="preserve">
+    <value>ca</value>
+  </data>
+  <data name="str_Wolf_Rayet" xml:space="preserve">
+    <value>Wolf-Rayet &lt;50.000K</value>
+  </data>
+  <data name="str_catalan" xml:space="preserve">
+    <value>catalan</value>
+  </data>
+  <data name="str_saltando_estrella_de_Neutrones" xml:space="preserve">
+    <value>saltando a estrella de Neutrones</value>
+  </data>
+  <data name="str_Euskadi" xml:space="preserve">
+    <value>Euskadi</value>
+  </data>
+  <data name="str_Reino_Unido" xml:space="preserve">
+    <value>Reino Unido</value>
+  </data>
+  <data name="str_English" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="str_enana_Blanca" xml:space="preserve">
+    <value>enana Blanca &lt;10.000K</value>
+  </data>
+  <data name="String47" xml:space="preserve">
+    <value> d </value>
+  </data>
+  <data name="str_masiva_luminosa" xml:space="preserve">
+    <value>masiva luminosa &lt;52.000K</value>
+  </data>
+  <data name="String37" xml:space="preserve">
+    <value>T</value>
+  </data>
+  <data name="str_es" xml:space="preserve">
+    <value>es</value>
+  </data>
+  <data name="String54" xml:space="preserve">
+    <value>G</value>
+  </data>
+  <data name="str_enana_roja" xml:space="preserve">
+    <value>enana roja &lt;2.400K</value>
+  </data>
+  <data name="String24" xml:space="preserve">
+    <value>{R} </value>
+  </data>
+  <data name="String51" xml:space="preserve">
+    <value>{R} </value>
+  </data>
+  <data name="str_FR1" xml:space="preserve">
+    <value>FR</value>
+  </data>
+  <data name="String11" xml:space="preserve">
+    <value>{R} </value>
+  </data>
+  <data name="String28" xml:space="preserve">
+    <value>L</value>
+  </data>
+  <data name="str_estrella_de_carbono" xml:space="preserve">
+    <value>estrella de carbono</value>
+  </data>
+  <data name="str_Activadas_Alertas_Audibles" xml:space="preserve">
+    <value>Activadas Alertas Aud_TRIAL</value>
+  </data>
+  <data name="str_Tauri" xml:space="preserve">
+    <value>T Tauri</value>
+  </data>
+  <data name="str_Espa" xml:space="preserve">
+    <value>España</value>
+  </data>
+  <data name="str_Sistema" xml:space="preserve">
+    <value>Sistema </value>
+  </data>
+  <data name="str_blanca" xml:space="preserve">
+    <value>blanca &lt;7.600K</value>
+  </data>
+  <data name="str_pt1" xml:space="preserve">
+    <value>pt</value>
+  </data>
+  <data name="str_Espa_ol" xml:space="preserve">
+    <value>Español</value>
+  </data>
+  <data name="str_euskera" xml:space="preserve">
+    <value>euskera</value>
+  </data>
+  <data name="String5" xml:space="preserve">
+    <value>O</value>
+  </data>
+  <data name="String6" xml:space="preserve">
+    <value>C</value>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value>N</value>
+  </data>
+  <data name="String18" xml:space="preserve">
+    <value>W</value>
+  </data>
+  <data name="String38" xml:space="preserve">
+    <value> s</value>
+  </data>
+  <data name="str_GB" xml:space="preserve">
+    <value>GB</value>
+  </data>
+  <data name="String45" xml:space="preserve">
+    <value>Y</value>
+  </data>
+  <data name="str_enana_marron" xml:space="preserve">
+    <value>enana marron &lt;1.300K</value>
+  </data>
+  <data name="String15" xml:space="preserve">
+    <value>H</value>
+  </data>
+  <data name="String35" xml:space="preserve">
+    <value> m </value>
+  </data>
+  <data name="String25" xml:space="preserve">
+    <value>{R} </value>
+  </data>
+  <data name="str_azul_blanco_luminosa" xml:space="preserve">
+    <value>azul blanco luminosa &lt;30.000K</value>
+  </data>
+  <data name="str_al" xml:space="preserve">
+    <value> al</value>
+  </data>
+</root>

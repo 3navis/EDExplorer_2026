@@ -1,0 +1,418 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="str_Codex_Ent_TRF_Rocky_Ice_No_Atmos_Name" xml:space="preserve">
+    <value>$Codex_Ent_TRF_Rocky_Ice_No_Atmos_Name;</value>
+  </data>
+  <data name="str_Location" xml:space="preserve">
+    <value>Location</value>
+  </data>
+  <data name="str_Evento_evento_Linea_logLine" xml:space="preserve">
+    <value>Evento: {evento}
+Linea: {logLine}
+Exception message: {ex.Message}
+
+Stack trace: {ex.Stack_TRIAL</value>
+  </data>
+  <data name="str_SAASignalsFound" xml:space="preserve">
+    <value>SAASignalsFound</value>
+  </data>
+  <data name="str_Scan_Location_FSDJump_CarrierJump" xml:space="preserve">
+    <value>Scan,Location,FSDJump,CarrierJump,SAASignals_TRIAL</value>
+  </data>
+  <data name="str_StartJump" xml:space="preserve">
+    <value>StartJump</value>
+  </data>
+  <data name="str_Codex_Ent_TRF_Rocky_No_Atmos_Name" xml:space="preserve">
+    <value>$Codex_Ent_TRF_Rocky_No_Atmos_Name;</value>
+  </data>
+  <data name="str_FSDTarget" xml:space="preserve">
+    <value>FSDTarget</value>
+  </data>
+  <data name="str_SystemName1" xml:space="preserve">
+    <value>SystemName</value>
+  </data>
+  <data name="str_Terraformable_Ammonia_World" xml:space="preserve">
+    <value>Terraformable Ammonia World</value>
+  </data>
+  <data name="str_Sudarsky" xml:space="preserve">
+    <value>Sudarsky_</value>
+  </data>
+  <data name="str_StarSystem1" xml:space="preserve">
+    <value>StarSystem</value>
+  </data>
+  <data name="str_StarSystem2" xml:space="preserve">
+    <value>StarSystem</value>
+  </data>
+  <data name="str_Codex_Ent_TRF_Ter_Ice_Name" xml:space="preserve">
+    <value>$Codex_Ent_TRF_Ter_Ice_Name;</value>
+  </data>
+  <data name="str_Rocky_Body_Atmosphere" xml:space="preserve">
+    <value>Rocky Body w/o Atmosphere</value>
+  </data>
+  <data name="str_Codex_Ent_TRF_Ter_Rocky_Ice_Name" xml:space="preserve">
+    <value>$Codex_Ent_TRF_Ter_Rocky_Ice_Name;</value>
+  </data>
+  <data name="str_Codex_Ent_Standard_Ice_No_Atmos_Name" xml:space="preserve">
+    <value>$Codex_Ent_Standard_Ice_No_Atmos_Name;</value>
+  </data>
+  <data name="str_CodexEntry" xml:space="preserve">
+    <value>CodexEntry</value>
+  </data>
+  <data name="str_Metal_Rich_Body_Atmosphere1" xml:space="preserve">
+    <value>Metal Rich Body w/o Atmosphere</value>
+  </data>
+  <data name="str_Rocky_Ice_Body_Atmosphere" xml:space="preserve">
+    <value>Rocky Ice Body w/ Atmosphere</value>
+  </data>
+  <data name="str_Codex_Ent_TRF_Ter_High_Metal_Content" xml:space="preserve">
+    <value>$Codex_Ent_TRF_Ter_High_Metal_Content_Name;</value>
+  </data>
+  <data name="str_gas_giant1" xml:space="preserve">
+    <value>gas giant</value>
+  </data>
+  <data name="str_Codex_Ent_Standard_Water_Worlds_Name" xml:space="preserve">
+    <value>$Codex_Ent_Standard_Water_Worlds_Name;</value>
+  </data>
+  <data name="str_JumpType" xml:space="preserve">
+    <value>JumpType</value>
+  </data>
+  <data name="str_BodyName" xml:space="preserve">
+    <value>BodyName</value>
+  </data>
+  <data name="str_Terraformable_Water_World" xml:space="preserve">
+    <value>Terraformable Water World</value>
+  </data>
+  <data name="str_Body" xml:space="preserve">
+    <value>Body</value>
+  </data>
+  <data name="str_Codex_Ent_Standard_High_Metal_Content" xml:space="preserve">
+    <value>$Codex_Ent_Standard_High_Metal_Content_No_Atmos_Name;</value>
+  </data>
+  <data name="str_Codex_Ent_Standard" xml:space="preserve">
+    <value>$Codex_Ent_Standard_</value>
+  </data>
+  <data name="str_Hyperspace" xml:space="preserve">
+    <value>Hyperspace</value>
+  </data>
+  <data name="str_Icy_Body_Atmosphere1" xml:space="preserve">
+    <value>Icy Body w/o Atmosphere</value>
+  </data>
+  <data name="str_SystemAddress" xml:space="preserve">
+    <value>SystemAddress</value>
+  </data>
+  <data name="str_Belt_Cluster" xml:space="preserve">
+    <value>Belt Cluster</value>
+  </data>
+  <data name="str_Codex_Ent_TRF_Water_Worlds_Name" xml:space="preserve">
+    <value>$Codex_Ent_TRF_Water_Worlds_Name;</value>
+  </data>
+  <data name="str_Codex_Ent_Standard_Ter_Rocky_Ice_Name" xml:space="preserve">
+    <value>$Codex_Ent_Standard_Ter_Rocky_Ice_Name;</value>
+  </data>
+  <data name="str_FSSDiscoveryScan" xml:space="preserve">
+    <value>FSSDiscoveryScan</value>
+  </data>
+  <data name="str_ProspectedAsteroid" xml:space="preserve">
+    <value>ProspectedAsteroid</value>
+  </data>
+  <data name="str_Rocky_Body_Atmosphere1" xml:space="preserve">
+    <value>Rocky Body w/ Atmosphere</value>
+  </data>
+  <data name="str_timestamp" xml:space="preserve">
+    <value>timestamp</value>
+  </data>
+  <data name="str_Ammonia_World" xml:space="preserve">
+    <value>Ammonia World</value>
+  </data>
+  <data name="str_Codex_Ent_TRF_Ter_Rocky_Name" xml:space="preserve">
+    <value>$Codex_Ent_TRF_Ter_Rocky_Name;</value>
+  </data>
+  <data name="str_Scan" xml:space="preserve">
+    <value>Scan</value>
+  </data>
+  <data name="str_Terraformable_Icy_Body_Atmosphere" xml:space="preserve">
+    <value>Terraformable Icy Body w/ Atmosphere</value>
+  </data>
+  <data name="str_Terraformable_High_Metal_Content" xml:space="preserve">
+    <value>Terraformable High Metal Content w/o Atmosphere</value>
+  </data>
+  <data name="str_SupercruiseExit" xml:space="preserve">
+    <value>SupercruiseExit</value>
+  </data>
+  <data name="str_Giant_With" xml:space="preserve">
+    <value>Giant_With_</value>
+  </data>
+  <data name="str_Terraformable_Rocky_Ice_Body1" xml:space="preserve">
+    <value>Terraformable Rocky Ice Body w/o Atmosphere</value>
+  </data>
+  <data name="str_Detalle_del_Error" xml:space="preserve">
+    <value>Detalle del Error</value>
+  </data>
+  <data name="str_Codex_Ent_Standard_Ter_Rocky_Name" xml:space="preserve">
+    <value>$Codex_Ent_Standard_Ter_Rocky_Name;</value>
+  </data>
+  <data name="str_StarClass" xml:space="preserve">
+    <value>StarClass</value>
+  </data>
+  <data name="str_FSSDiscoveryScan_SupercruiseExit" xml:space="preserve">
+    <value>FSSDiscoveryScan,SupercruiseExit,StartJump,FSDT_TRIAL</value>
+  </data>
+  <data name="str_Terraformable_Rocky_Ice_Body" xml:space="preserve">
+    <value>Terraformable Rocky Ice Body w/ Atmosphere</value>
+  </data>
+  <data name="str_event" xml:space="preserve">
+    <value>"event":</value>
+  </data>
+  <data name="str_Name" xml:space="preserve">
+    <value>_Name;</value>
+  </data>
+  <data name="str_CarrierJump" xml:space="preserve">
+    <value>CarrierJump</value>
+  </data>
+  <data name="str_Terraformable_High_Metal_Content1" xml:space="preserve">
+    <value>Terraformable High Metal Content w/ Atmosphere</value>
+  </data>
+  <data name="str_Metal_Rich_Body_Atmosphere" xml:space="preserve">
+    <value>Metal Rich Body w/ Atmosphere</value>
+  </data>
+  <data name="str_Green_gas_giant" xml:space="preserve">
+    <value>Green gas giant</value>
+  </data>
+  <data name="str_Gas_Giant" xml:space="preserve">
+    <value>Gas Giant:</value>
+  </data>
+  <data name="str_Rocky_Ice_Body_Atmosphere1" xml:space="preserve">
+    <value>Rocky Ice Body w/o Atmosphere</value>
+  </data>
+  <data name="str_Codex_Ent_Standard_Rocky_Ice_No_Atmos" xml:space="preserve">
+    <value>$Codex_Ent_Standard_Rocky_Ice_No_Atmos_Name;</value>
+  </data>
+  <data name="str_Body1" xml:space="preserve">
+    <value>Body</value>
+  </data>
+  <data name="str_Codex_Ent_TRF_High_Metal_Content_No" xml:space="preserve">
+    <value>$Codex_Ent_TRF_High_Metal_Content_No_Atmos_Name;</value>
+  </data>
+  <data name="str_Saved_Games_Frontier_Developments" xml:space="preserve">
+    <value>\Saved Games\Frontier Developments\Elite Dan_TRIAL</value>
+  </data>
+  <data name="str_Icy_Body_Atmosphere" xml:space="preserve">
+    <value>Icy Body w/ Atmosphere</value>
+  </data>
+  <data name="str_Journal_Line_CurrentLogLine" xml:space="preserve">
+    <value>Journal Line: {CurrentLogLine}
+Exception message: {ex.Message}
+
+Stack trace: {ex.Stack_TRIAL</value>
+  </data>
+  <data name="str_Ha_ocurrido_un_error_en_ProcessLine" xml:space="preserve">
+    <value>Ha ocurrido un error en ProcessLine. ¿Quiere ver información de Detalle adic_TRIAL</value>
+  </data>
+  <data name="str_Standard" xml:space="preserve">
+    <value>Standard </value>
+  </data>
+  <data name="str_Error_Leyendo_Logs" xml:space="preserve">
+    <value>Error Leyendo Logs</value>
+  </data>
+  <data name="str_Codex_Ent_TRF_Ammonia_Worlds_Name" xml:space="preserve">
+    <value>$Codex_Ent_TRF_Ammonia_Worlds_Name;</value>
+  </data>
+  <data name="str_Codex_Ent_Standard_Ter_Metal_Rich_Name" xml:space="preserve">
+    <value>$Codex_Ent_Standard_Ter_Metal_Rich_Name;</value>
+  </data>
+  <data name="str_Codex_Ent_Standard_Rocky_No_Atmos_Name" xml:space="preserve">
+    <value>$Codex_Ent_Standard_Rocky_No_Atmos_Name;</value>
+  </data>
+  <data name="str_Terraformable_Rocky_Body_Atmosphere" xml:space="preserve">
+    <value>Terraformable Rocky Body w/ Atmosphere</value>
+  </data>
+  <data name="str_SystemName" xml:space="preserve">
+    <value>SystemName</value>
+  </data>
+  <data name="str_StarSystem" xml:space="preserve">
+    <value>StarSystem</value>
+  </data>
+  <data name="str_Terraformable_Icy_Body_Atmosphere1" xml:space="preserve">
+    <value>Terraformable Icy Body w/o Atmosphere</value>
+  </data>
+  <data name="str_High_Metal_Content_Atmosphere" xml:space="preserve">
+    <value>High Metal Content w/o Atmosphere</value>
+  </data>
+  <data name="str_Codex_Ent_TRF_Ter_Metal_Rich_Name" xml:space="preserve">
+    <value>$Codex_Ent_TRF_Ter_Metal_Rich_Name;</value>
+  </data>
+  <data name="str_RemainingJumpsInRoute" xml:space="preserve">
+    <value>RemainingJumpsI_TRIAL</value>
+  </data>
+  <data name="str_Terraformable_Metal_Rich_Body" xml:space="preserve">
+    <value>Terraformable Metal Rich Body w/o Atmosphere</value>
+  </data>
+  <data name="str_Ha_ocurrido_un_error_al_leer_los" xml:space="preserve">
+    <value>Ha ocurrido un error al leer los archivos de log. ¿Quiere ver información de Detalle adicional?</value>
+  </data>
+  <data name="str_Codex_Ent_Standard_Ammonia_Worlds" xml:space="preserve">
+    <value>$Codex_Ent_Standard_Ammonia_Worlds_Name;</value>
+  </data>
+  <data name="str_Standard_gas_giant" xml:space="preserve">
+    <value>Standard gas giant</value>
+  </data>
+  <data name="str_Codex_Ent_Standard_Ter_High_Metal" xml:space="preserve">
+    <value>$Codex_Ent_Standard_Ter_High_Metal_Content_Name;</value>
+  </data>
+  <data name="str_Terraformable_Rocky_Body_Atmosphere1" xml:space="preserve">
+    <value>Terraformable Rocky Body w/o Atmosphere</value>
+  </data>
+  <data name="str_Terraformable_Metal_Rich_Body1" xml:space="preserve">
+    <value>Terraformable Metal Rich Body w/ Atmosphere</value>
+  </data>
+  <data name="str_FSDJump" xml:space="preserve">
+    <value>FSDJump</value>
+  </data>
+  <data name="str_Codex_Ent_Standard_Ter_Ice_Name" xml:space="preserve">
+    <value>$Codex_Ent_Standard_Ter_Ice_Name;</value>
+  </data>
+  <data name="str_Seleccionar_la_carpeta_de_Elite" xml:space="preserve">
+    <value>Seleccionar la carpeta de Elite Dangerous J_TRIAL</value>
+  </data>
+  <data name="str_Codex_Ent_TRF_Metal_Rich_No_Atmos_Name" xml:space="preserve">
+    <value>$Codex_Ent_TRF_Metal_Rich_No_Atmos_Name;</value>
+  </data>
+  <data name="str_Codex_Ent_TRF_Ice_No_Atmos_Name" xml:space="preserve">
+    <value>$Codex_Ent_TRF_Ice_No_Atmos_Name;</value>
+  </data>
+  <data name="str_Codex_Ent_Standard_Metal_Rich_No_Atmos" xml:space="preserve">
+    <value>$Codex_Ent_Standard_Metal_Rich_No_Atmos_Name;</value>
+  </data>
+  <data name="str_FSSAllBodiesFound" xml:space="preserve">
+    <value>FSSAllBodiesFound</value>
+  </data>
+  <data name="str_Error_Procesando_Linea" xml:space="preserve">
+    <value>Error Procesando_TRIAL</value>
+  </data>
+  <data name="str_Detalle_del_Error1" xml:space="preserve">
+    <value>Detalle del Error</value>
+  </data>
+  <data name="str_Water_World" xml:space="preserve">
+    <value>Water World</value>
+  </data>
+  <data name="str_High_Metal_Content_Atmosphere1" xml:space="preserve">
+    <value>High Metal Content w/ Atmosphere</value>
+  </data>
+</root>

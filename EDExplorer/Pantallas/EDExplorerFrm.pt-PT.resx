@@ -1266,7 +1266,7 @@
     <value>Remover Filtro</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Elite EDExplorer</value>
+    <value>EDExplorer para Elite Dangerous</value>
   </data>
   <data name="timestamp.Text" xml:space="preserve">
     <value>Data hora</value>

@@ -117,10 +117,391 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Alerta" xml:space="preserve">
-    <value>Alert</value>
+  <data name="str_Acerca_de" xml:space="preserve">
+    <value>About ...</value>
   </data>
-  <data name="Idioma" xml:space="preserve">
-    <value>Language:</value>
+  <data name="str_Activar_Locutor" xml:space="preserve">
+    <value>Activate Announcer</value>
+  </data>
+  <data name="str_Activar_Notificaciones" xml:space="preserve">
+    <value>Enable notifications</value>
+  </data>
+  <data name="str_Configuraci" xml:space="preserve">
+    <value>Setting</value>
+  </data>
+  <data name="str_EDExplorer_Error" xml:space="preserve">
+    <value>EDExplorer: Error</value>
+  </data>
+  <data name="str_INICIAR_monitor_eventos" xml:space="preserve">
+    <value>START event monitor</value>
+  </data>
+  <data name="str_Mostrar_Lista" xml:space="preserve">
+    <value>Show List</value>
+  </data>
+  <data name="str_Notificaciones_Activadas" xml:space="preserve">
+    <value>Notifications Enabled</value>
+  </data>
+  <data name="str_Ocultar_Lista" xml:space="preserve">
+    <value>Hide List</value>
+  </data>
+  <data name="str_Parar_Locutor" xml:space="preserve">
+    <value>Stop Announcer</value>
+  </data>
+  <data name="str_PARAR_monitor_eventos" xml:space="preserve">
+    <value>STOP event monitor</value>
+  </data>
+  <data name="str_Parar_Notificaciones" xml:space="preserve">
+    <value>Stop Notifications</value>
+  </data>
+  <data name="str_Salir" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="str_Version_Assembly" xml:space="preserve">
+    <value>Version:</value>
+  </data>
+  <data name="str_Acumulado" xml:space="preserve">
+    <value>Accumulated</value>
+  </data>
+  <data name="str_al_acumulados" xml:space="preserve">
+    <value>to accumulated</value>
+  </data>
+  <data name="str_al_de_distancia_acumulada_en_saltos" xml:space="preserve">
+    <value>to the accumulated distance in jumps</value>
+  </data>
+  <data name="str_Alexandrite" xml:space="preserve">
+    <value>Alexandrite</value>
+  </data>
+  <data name="str_Alta_Gravedad" xml:space="preserve">
+    <value>High gravity</value>
+  </data>
+  <data name="str_Anillo_Ancho" xml:space="preserve">
+    <value>Wide Ring</value>
+  </data>
+  <data name="str_Anillo_Helado" xml:space="preserve">
+    <value>Ice Cream Ring</value>
+  </data>
+  <data name="str_Anillo_Met_lico" xml:space="preserve">
+    <value>Metallic Ring</value>
+  </data>
+  <data name="str_Anillo_Pr_ximo" xml:space="preserve">
+    <value>Next Ring</value>
+  </data>
+  <data name="str_Anillo_Rico_en_Metal" xml:space="preserve">
+    <value>Metal Rich Ring</value>
+  </data>
+  <data name="str_Anillo_Rocoso" xml:space="preserve">
+    <value>Rocky Ring</value>
+  </data>
+  <data name="str_Aterrizable_Anillado" xml:space="preserve">
+    <value>Landable Ringed</value>
+  </data>
+  <data name="str_Aterrizable_Atmos" xml:space="preserve">
+    <value>Landable Atmos.</value>
+  </data>
+  <data name="str_Aterrizable_Atmosf_rico" xml:space="preserve">
+    <value>Landing Atmospheric</value>
+  </data>
+  <data name="str_Aterrizable_con_Alta_Gravedad" xml:space="preserve">
+    <value>Landable with High Gravity</value>
+  </data>
+  <data name="str_Aterrizable_con_Baja_Gravedad" xml:space="preserve">
+    <value>Landable with Low Gravity</value>
+  </data>
+  <data name="str_Aterrizable_Grande" xml:space="preserve">
+    <value>Large Landable</value>
+  </data>
+  <data name="str_Aterrizable_Peque" xml:space="preserve">
+    <value>Small Landable</value>
+  </data>
+  <data name="str_Baja_Gravedad" xml:space="preserve">
+    <value>Low gravity</value>
+  </data>
+  <data name="str_Benitoite" xml:space="preserve">
+    <value>Benitoite</value>
+  </data>
+  <data name="str_Binaria_Cercana" xml:space="preserve">
+    <value>Near Binary</value>
+  </data>
+  <data name="str_Biol_gica" xml:space="preserve">
+    <value>Biological</value>
+  </data>
+  <data name="str_CREMATORIA" xml:space="preserve">
+    <value>CREMATORY</value>
+  </data>
+  <data name="str_Crematoria1" xml:space="preserve">
+    <value>Crematorium</value>
+  </data>
+  <data name="str_cuerpos" xml:space="preserve">
+    <value>bodies</value>
+  </data>
+  <data name="str_dias_rotaci" xml:space="preserve">
+    <value>rotation days</value>
+  </data>
+  <data name="str_El_nombre_del_cuerpo_no_incluye_al" xml:space="preserve">
+    <value>The body name does not include the System</value>
+  </data>
+  <data name="str_FSS_Cuerpos" xml:space="preserve">
+    <value>FSS Bodies</value>
+  </data>
+  <data name="str_Geol_gica" xml:space="preserve">
+    <value>Geological</value>
+  </data>
+  <data name="str_Grandidierite" xml:space="preserve">
+    <value>Grandidierite</value>
+  </data>
+  <data name="str_Gravedad_en_superficie" xml:space="preserve">
+    <value>g Surface gravity</value>
+  </data>
+  <data name="str_Guardian" xml:space="preserve">
+    <value>Guardian</value>
+  </data>
+  <data name="str_habitantes" xml:space="preserve">
+    <value>M inhabitants</value>
+  </data>
+  <data name="str_horas_orbita" xml:space="preserve">
+    <value>hours orbit</value>
+  </data>
+  <data name="str_horas_para_completar_una_Orbita" xml:space="preserve">
+    <value>hours to complete an Orbit</value>
+  </data>
+  <data name="str_horas_para_completar_una_rotaci" xml:space="preserve">
+    <value>hours to complete a rotation</value>
+  </data>
+  <data name="str_horas_rotaci" xml:space="preserve">
+    <value>rotation hours</value>
+  </data>
+  <data name="str_Humana" xml:space="preserve">
+    <value>Human</value>
+  </data>
+  <data name="str_inferior_la_media" xml:space="preserve">
+    <value>below average</value>
+  </data>
+  <data name="str_Km_ancho" xml:space="preserve">
+    <value>Km wide</value>
+  </data>
+  <data name="str_Km_anchura_anillo" xml:space="preserve">
+    <value>Km ring width / s</value>
+  </data>
+  <data name="str_Km_de_distancia_al_borde_del_anillo" xml:space="preserve">
+    <value>Km of distance to the edge of the _TRIAL</value>
+  </data>
+  <data name="str_Km_de_distancia_entre_superficies" xml:space="preserve">
+    <value>Km of distance between surfaces</value>
+  </data>
+  <data name="str_Km_de_Radio" xml:space="preserve">
+    <value>Km of Radio</value>
+  </data>
+  <data name="str_Km_radio" xml:space="preserve">
+    <value>Km radius</value>
+  </data>
+  <data name="str_Km_separacion" xml:space="preserve">
+    <value>Km separation</value>
+  </data>
+  <data name="str_LowTemperatureDiamond" xml:space="preserve">
+    <value>LowTemperatureD_TRIAL</value>
+  </data>
+  <data name="str_mero_de_Cuerpos" xml:space="preserve">
+    <value>Number of Bodies</value>
+  </data>
+  <data name="str_mero_se_ales" xml:space="preserve">
+    <value>number of signs</value>
+  </data>
+  <data name="str_mero_vetas" xml:space="preserve">
+    <value>number of veins</value>
+  </data>
+  <data name="str_Monazite" xml:space="preserve">
+    <value>Monazite</value>
+  </data>
+  <data name="str_Mostrar_Resumen" xml:space="preserve">
+    <value>Show Summary</value>
+  </data>
+  <data name="str_Mt_de_masa" xml:space="preserve">
+    <value>Mt. (x10 ^ 12) of mass</value>
+  </data>
+  <data name="str_Mt_masa" xml:space="preserve">
+    <value>Mt (x10 ^ 12) mass</value>
+  </data>
+  <data name="str_Musgravite" xml:space="preserve">
+    <value>Musgravite</value>
+  </data>
+  <data name="str_Nombre_Especial" xml:space="preserve">
+    <value>Special name</value>
+  </data>
+  <data name="str_Opal" xml:space="preserve">
+    <value>Opal</value>
+  </data>
+  <data name="str_Orbita_Cercana" xml:space="preserve">
+    <value>Near Orbit</value>
+  </data>
+  <data name="str_Orbita_Lejana" xml:space="preserve">
+    <value>Far Orbit</value>
+  </data>
+  <data name="str_Orbita_pida" xml:space="preserve">
+    <value>Fast Orbit</value>
+  </data>
+  <data name="str_Painite" xml:space="preserve">
+    <value>Painite</value>
+  </data>
+  <data name="str_Poblacion" xml:space="preserve">
+    <value>Population</value>
+  </data>
+  <data name="str_Pr_ximo_al_Anillo" xml:space="preserve">
+    <value>Next to the Ring</value>
+  </data>
+  <data name="str_radio_vs_distancia" xml:space="preserve">
+    <value>radius vs distance</value>
+  </data>
+  <data name="str_record_actual" xml:space="preserve">
+    <value>current record</value>
+  </data>
+  <data name="str_record_inferior" xml:space="preserve">
+    <value>lower record</value>
+  </data>
+  <data name="str_record_superior" xml:space="preserve">
+    <value>top record</value>
+  </data>
+  <data name="str_relaci_Radio_vs_Distancia" xml:space="preserve">
+    <value>Radio vs Dis_TRIAL relationship</value>
+  </data>
+  <data name="str_Rhodplumsite" xml:space="preserve">
+    <value>Rhodplumsite</value>
+  </data>
+  <data name="str_Rotaci_pida" xml:space="preserve">
+    <value>Quick Rotation</value>
+  </data>
+  <data name="str_Saltos" xml:space="preserve">
+    <value>Jumps</value>
+  </data>
+  <data name="str_saltos_acumulados" xml:space="preserve">
+    <value>accumulated jumps</value>
+  </data>
+  <data name="str_Se_al_Biol_gica" xml:space="preserve">
+    <value>Biological signal</value>
+  </data>
+  <data name="str_Se_al_Geol_gica" xml:space="preserve">
+    <value>Geological sign</value>
+  </data>
+  <data name="str_Se_al_Guardian" xml:space="preserve">
+    <value>Guardian Signal</value>
+  </data>
+  <data name="str_Se_al_Humana" xml:space="preserve">
+    <value>Human Signal</value>
+  </data>
+  <data name="str_Se_al_Thargoide" xml:space="preserve">
+    <value>Thargoide signal</value>
+  </data>
+  <data name="str_se_ales" xml:space="preserve">
+    <value>signs</value>
+  </data>
+  <data name="str_Serendibite" xml:space="preserve">
+    <value>Serendibite</value>
+  </data>
+  <data name="str_SL_de_distancia_entre_superficies" xml:space="preserve">
+    <value>SL distance between surfaces</value>
+  </data>
+  <data name="str_SL_separacion" xml:space="preserve">
+    <value>SL separation</value>
+  </data>
+  <data name="str_superficie" xml:space="preserve">
+    <value>g surface</value>
+  </data>
+  <data name="str_superior_la_media" xml:space="preserve">
+    <value>above average</value>
+  </data>
+  <data name="str_Thargoide" xml:space="preserve">
+    <value>Thargoid</value>
+  </data>
+  <data name="str_tipo_Acuatico" xml:space="preserve">
+    <value>Aquatic type</value>
+  </data>
+  <data name="str_tipo_Amoniaco" xml:space="preserve">
+    <value>Ammonia type</value>
+  </data>
+  <data name="str_tipo_Tierra" xml:space="preserve">
+    <value>Earth type</value>
+  </data>
+  <data name="str_tritium" xml:space="preserve">
+    <value>tritium</value>
+  </data>
+  <data name="str_veces_el_radio_del_Planeta" xml:space="preserve">
+    <value>times the radius of the Ring</value>
+  </data>
+  <data name="str_veces_radio" xml:space="preserve">
+    <value>x times radio</value>
+  </data>
+  <data name="str_Veta_Alejandr_ta" xml:space="preserve">
+    <value>Veta Alejandríta</value>
+  </data>
+  <data name="str_Veta_Benito_ta" xml:space="preserve">
+    <value>Veta Benitoíta</value>
+  </data>
+  <data name="str_Veta_Grandidier_ta" xml:space="preserve">
+    <value>Grandidierite Vein</value>
+  </data>
+  <data name="str_Veta_LTD" xml:space="preserve">
+    <value>Veta LTD</value>
+  </data>
+  <data name="str_Veta_Monacita" xml:space="preserve">
+    <value>Monacita Vein</value>
+  </data>
+  <data name="str_Veta_Musgrav_ta" xml:space="preserve">
+    <value>Musgravite Vein</value>
+  </data>
+  <data name="str_Veta_Pain_ta" xml:space="preserve">
+    <value>Painite Vein</value>
+  </data>
+  <data name="str_Veta_palos" xml:space="preserve">
+    <value>Opals Vein</value>
+  </data>
+  <data name="str_Veta_Rhodplumsita" xml:space="preserve">
+    <value>Rhodplumsite Vein</value>
+  </data>
+  <data name="str_Veta_Serendib_ta" xml:space="preserve">
+    <value>Serendibite Vein</value>
+  </data>
+  <data name="str_Veta_Tritio" xml:space="preserve">
+    <value>Tritium vein</value>
+  </data>
+  <data name="str_vetas" xml:space="preserve">
+    <value>veins</value>
+  </data>
+  <data name="str_Descubierto" xml:space="preserve">
+    <value>Discovered</value>
+  </data>
+  <data name="str_Nuevo" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="str_Mapeado" xml:space="preserve">
+    <value>Mapped</value>
+  </data>
+  <data name="str_Virgen" xml:space="preserve">
+    <value>Virgin</value>
+  </data>
+  <data name="str_Anillo_Rico_Metal" xml:space="preserve">
+    <value>Rico Metal Ring</value>
+  </data>
+  <data name="str_g_superficie" xml:space="preserve">
+    <value>g Surface</value>
+  </data>
+  <data name="str_Filtrar_Sistema" xml:space="preserve">
+    <value>Filter System "</value>
+  </data>
+  <data name="str_Filtrar_Alerta" xml:space="preserve">
+    <value>Filter Alert "</value>
+  </data>
+  <data name="str_Desea_borrar_la_lista_actual_volver" xml:space="preserve">
+    <value>Do you want to clear the current list and re-read the entire flight log?</value>
+  </data>
+  <data name="str_Tiempo_empleado" xml:space="preserve">
+    <value>Time spent:</value>
+  </data>
+  <data name="str_Confirmar_Acci" xml:space="preserve">
+    <value>Confirm Action</value>
+  </data>
+  <data name="str_Sin_Inter" xml:space="preserve">
+    <value>  - Without interest</value>
+  </data>
+  <data name="str_number" xml:space="preserve">
+    <value>number</value>
   </data>
 </root>

@@ -115,7 +115,6 @@ namespace EDExplorer
             // 
             // contextCopy
             // 
-            resources.ApplyResources(this.contextCopy, "contextCopy");
             this.contextCopy.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextCopy.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.copyNameToolStripMenuItem,
@@ -127,51 +126,52 @@ namespace EDExplorer
             this.Separador2,
             this.HistoricoToolStripMenuItem});
             this.contextCopy.Name = "contextCopy";
+            resources.ApplyResources(this.contextCopy, "contextCopy");
             // 
             // copyNameToolStripMenuItem
             // 
-            resources.ApplyResources(this.copyNameToolStripMenuItem, "copyNameToolStripMenuItem");
             this.copyNameToolStripMenuItem.Name = "copyNameToolStripMenuItem";
+            resources.ApplyResources(this.copyNameToolStripMenuItem, "copyNameToolStripMenuItem");
             this.copyNameToolStripMenuItem.Click += new System.EventHandler(this.CopyNameToolStripMenuItem_Click);
             // 
             // Separador1
             // 
-            resources.ApplyResources(this.Separador1, "Separador1");
             this.Separador1.Name = "Separador1";
+            resources.ApplyResources(this.Separador1, "Separador1");
             // 
             // filterNameToolStripMenuItem
             // 
-            resources.ApplyResources(this.filterNameToolStripMenuItem, "filterNameToolStripMenuItem");
             this.filterNameToolStripMenuItem.Name = "filterNameToolStripMenuItem";
+            resources.ApplyResources(this.filterNameToolStripMenuItem, "filterNameToolStripMenuItem");
             this.filterNameToolStripMenuItem.Click += new System.EventHandler(this.FilterNameToolStripMenuItem_Click);
             // 
             // filterAlertToolStripMenuItem
             // 
-            resources.ApplyResources(this.filterAlertToolStripMenuItem, "filterAlertToolStripMenuItem");
             this.filterAlertToolStripMenuItem.Name = "filterAlertToolStripMenuItem";
+            resources.ApplyResources(this.filterAlertToolStripMenuItem, "filterAlertToolStripMenuItem");
             this.filterAlertToolStripMenuItem.Click += new System.EventHandler(this.FilterAlertToolStripMenuItem_Click);
             // 
             // filterRecordToolStripMenuItem
             // 
-            resources.ApplyResources(this.filterRecordToolStripMenuItem, "filterRecordToolStripMenuItem");
             this.filterRecordToolStripMenuItem.Name = "filterRecordToolStripMenuItem";
+            resources.ApplyResources(this.filterRecordToolStripMenuItem, "filterRecordToolStripMenuItem");
             this.filterRecordToolStripMenuItem.Click += new System.EventHandler(this.FilterRecordToolStripMenuItem_Click);
             // 
             // removeFilterToolStripMenuItem
             // 
-            resources.ApplyResources(this.removeFilterToolStripMenuItem, "removeFilterToolStripMenuItem");
             this.removeFilterToolStripMenuItem.Name = "removeFilterToolStripMenuItem";
+            resources.ApplyResources(this.removeFilterToolStripMenuItem, "removeFilterToolStripMenuItem");
             this.removeFilterToolStripMenuItem.Click += new System.EventHandler(this.RemoveFilterToolStripMenuItem_Click);
             // 
             // Separador2
             // 
-            resources.ApplyResources(this.Separador2, "Separador2");
             this.Separador2.Name = "Separador2";
+            resources.ApplyResources(this.Separador2, "Separador2");
             // 
             // HistoricoToolStripMenuItem
             // 
-            resources.ApplyResources(this.HistoricoToolStripMenuItem, "HistoricoToolStripMenuItem");
             this.HistoricoToolStripMenuItem.Name = "HistoricoToolStripMenuItem";
+            resources.ApplyResources(this.HistoricoToolStripMenuItem, "HistoricoToolStripMenuItem");
             this.HistoricoToolStripMenuItem.Click += new System.EventHandler(this.HistoricoToolStripMenuItem_Click);
             // 
             // lblRecord

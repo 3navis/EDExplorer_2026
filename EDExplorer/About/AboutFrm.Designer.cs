@@ -43,12 +43,8 @@
             // 
             // button1
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(1099, 6);
+            resources.ApplyResources(this.button1, "button1");
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(96, 29);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Refrescar";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -56,56 +52,44 @@
             // 
             this.frmLienzo.BackColor = System.Drawing.Color.White;
             this.frmLienzo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.frmLienzo.Location = new System.Drawing.Point(328, 4);
+            resources.ApplyResources(this.frmLienzo, "frmLienzo");
             this.frmLienzo.Name = "frmLienzo";
-            this.frmLienzo.Size = new System.Drawing.Size(869, 696);
-            this.frmLienzo.TabIndex = 1;
             this.frmLienzo.TabStop = false;
             // 
             // paso1
             // 
             this.paso1.BackColor = System.Drawing.Color.White;
             this.paso1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.paso1.Location = new System.Drawing.Point(9, 4);
+            resources.ApplyResources(this.paso1, "paso1");
             this.paso1.Name = "paso1";
-            this.paso1.Size = new System.Drawing.Size(310, 219);
-            this.paso1.TabIndex = 2;
             this.paso1.TabStop = false;
             // 
             // paso2
             // 
             this.paso2.BackColor = System.Drawing.Color.White;
             this.paso2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.paso2.Location = new System.Drawing.Point(9, 241);
+            resources.ApplyResources(this.paso2, "paso2");
             this.paso2.Name = "paso2";
-            this.paso2.Size = new System.Drawing.Size(310, 219);
-            this.paso2.TabIndex = 3;
             this.paso2.TabStop = false;
             // 
             // paso3
             // 
             this.paso3.BackColor = System.Drawing.Color.White;
             this.paso3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.paso3.Location = new System.Drawing.Point(9, 481);
+            resources.ApplyResources(this.paso3, "paso3");
             this.paso3.Name = "paso3";
-            this.paso3.Size = new System.Drawing.Size(310, 219);
-            this.paso3.TabIndex = 4;
             this.paso3.TabStop = false;
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(1203, 4);
+            resources.ApplyResources(this.richTextBox1, "richTextBox1");
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(194, 696);
-            this.richTextBox1.TabIndex = 5;
-            this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
             // 
             // AboutFrm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(1399, 706);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.paso3);
             this.Controls.Add(this.paso2);
@@ -113,7 +97,6 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.frmLienzo);
             this.Name = "AboutFrm";
-            this.Text = "Desarrollado por 3navis";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.frmLienzo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.paso1)).EndInit();

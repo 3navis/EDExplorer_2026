@@ -117,10 +117,391 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Alerta" xml:space="preserve">
-    <value>Alerta</value>
+  <data name="str_Acerca_de" xml:space="preserve">
+    <value>Buruz ...</value>
   </data>
-  <data name="Idioma" xml:space="preserve">
-    <value>Idioma:</value>
+  <data name="str_Activar_Locutor" xml:space="preserve">
+    <value>Aktibatu iragarlea</value>
+  </data>
+  <data name="str_Activar_Notificaciones" xml:space="preserve">
+    <value>Gaitu jakinarazpenak</value>
+  </data>
+  <data name="str_Configuraci" xml:space="preserve">
+    <value>Ezarpena</value>
+  </data>
+  <data name="str_EDExplorer_Error" xml:space="preserve">
+    <value>EDExplorer: errorea</value>
+  </data>
+  <data name="str_INICIAR_monitor_eventos" xml:space="preserve">
+    <value>HASI gertaeren monitorea</value>
+  </data>
+  <data name="str_Mostrar_Lista" xml:space="preserve">
+    <value>Erakutsi zerrenda</value>
+  </data>
+  <data name="str_Notificaciones_Activadas" xml:space="preserve">
+    <value>Jakinarazpenak gaituta</value>
+  </data>
+  <data name="str_Ocultar_Lista" xml:space="preserve">
+    <value>Ezkutatu zerrenda</value>
+  </data>
+  <data name="str_Parar_Locutor" xml:space="preserve">
+    <value>Gelditu iragarlea</value>
+  </data>
+  <data name="str_PARAR_monitor_eventos" xml:space="preserve">
+    <value>STOP gertaeren monitorea</value>
+  </data>
+  <data name="str_Parar_Notificaciones" xml:space="preserve">
+    <value>Gelditu jakinarazpenak</value>
+  </data>
+  <data name="str_Salir" xml:space="preserve">
+    <value>Irten</value>
+  </data>
+  <data name="str_Version_Assembly" xml:space="preserve">
+    <value>Bertsioa:</value>
+  </data>
+  <data name="str_Acumulado" xml:space="preserve">
+    <value>Metatua</value>
+  </data>
+  <data name="str_al_acumulados" xml:space="preserve">
+    <value>metatu</value>
+  </data>
+  <data name="str_al_de_distancia_acumulada_en_saltos" xml:space="preserve">
+    <value>jauzietan metatutako distantziara</value>
+  </data>
+  <data name="str_Alexandrite" xml:space="preserve">
+    <value>Alexandrita</value>
+  </data>
+  <data name="str_Alta_Gravedad" xml:space="preserve">
+    <value>Grabitate handia</value>
+  </data>
+  <data name="str_Anillo_Ancho" xml:space="preserve">
+    <value>Eraztun Zabala</value>
+  </data>
+  <data name="str_Anillo_Helado" xml:space="preserve">
+    <value>Izozki eraztuna</value>
+  </data>
+  <data name="str_Anillo_Met_lico" xml:space="preserve">
+    <value>Eraztun metalikoa</value>
+  </data>
+  <data name="str_Anillo_Pr_ximo" xml:space="preserve">
+    <value>Next Ring</value>
+  </data>
+  <data name="str_Anillo_Rico_en_Metal" xml:space="preserve">
+    <value>Metal Rich Ring</value>
+  </data>
+  <data name="str_Anillo_Rocoso" xml:space="preserve">
+    <value>Rocky Ring</value>
+  </data>
+  <data name="str_Aterrizable_Anillado" xml:space="preserve">
+    <value>Lurzoruko eraztuna</value>
+  </data>
+  <data name="str_Aterrizable_Atmos" xml:space="preserve">
+    <value>Landable Atmos.</value>
+  </data>
+  <data name="str_Aterrizable_Atmosf_rico" xml:space="preserve">
+    <value>Lurreratzea Atmosferikoa</value>
+  </data>
+  <data name="str_Aterrizable_con_Alta_Gravedad" xml:space="preserve">
+    <value>Grabitate handiko lurzoragarria</value>
+  </data>
+  <data name="str_Aterrizable_con_Baja_Gravedad" xml:space="preserve">
+    <value>Grabitate baxuko lurzorua</value>
+  </data>
+  <data name="str_Aterrizable_Grande" xml:space="preserve">
+    <value>Lurzoru handia</value>
+  </data>
+  <data name="str_Aterrizable_Peque" xml:space="preserve">
+    <value>Lurzoru txikia</value>
+  </data>
+  <data name="str_Baja_Gravedad" xml:space="preserve">
+    <value>Grabitate txikia</value>
+  </data>
+  <data name="str_Benitoite" xml:space="preserve">
+    <value>Benitoite</value>
+  </data>
+  <data name="str_Binaria_Cercana" xml:space="preserve">
+    <value>Binarioa gertu</value>
+  </data>
+  <data name="str_Biol_gica" xml:space="preserve">
+    <value>Biologikoa</value>
+  </data>
+  <data name="str_CREMATORIA" xml:space="preserve">
+    <value>SORMENA</value>
+  </data>
+  <data name="str_Crematoria1" xml:space="preserve">
+    <value>Erraustegia</value>
+  </data>
+  <data name="str_cuerpos" xml:space="preserve">
+    <value>gorputzak</value>
+  </data>
+  <data name="str_dias_rotaci" xml:space="preserve">
+    <value>biraketa egunak</value>
+  </data>
+  <data name="str_El_nombre_del_cuerpo_no_incluye_al" xml:space="preserve">
+    <value>Gorputzaren izenak ez du Sistema barne hartzen</value>
+  </data>
+  <data name="str_FSS_Cuerpos" xml:space="preserve">
+    <value>FSS Organoak</value>
+  </data>
+  <data name="str_Geol_gica" xml:space="preserve">
+    <value>Geologikoa</value>
+  </data>
+  <data name="str_Grandidierite" xml:space="preserve">
+    <value>Grandidierita</value>
+  </data>
+  <data name="str_Gravedad_en_superficie" xml:space="preserve">
+    <value>g Gainazaleko grabitatea</value>
+  </data>
+  <data name="str_Guardian" xml:space="preserve">
+    <value>Zaindaria</value>
+  </data>
+  <data name="str_habitantes" xml:space="preserve">
+    <value>M biztanle</value>
+  </data>
+  <data name="str_horas_orbita" xml:space="preserve">
+    <value>ordu orbita</value>
+  </data>
+  <data name="str_horas_para_completar_una_Orbita" xml:space="preserve">
+    <value>Orbita osatzeko ordu</value>
+  </data>
+  <data name="str_horas_para_completar_una_rotaci" xml:space="preserve">
+    <value>biraketa osatzeko ordu</value>
+  </data>
+  <data name="str_horas_rotaci" xml:space="preserve">
+    <value>biraketa orduak</value>
+  </data>
+  <data name="str_Humana" xml:space="preserve">
+    <value>Gizakia</value>
+  </data>
+  <data name="str_inferior_la_media" xml:space="preserve">
+    <value>batez bestekoaren azpitik</value>
+  </data>
+  <data name="str_Km_ancho" xml:space="preserve">
+    <value>Km zabalera</value>
+  </data>
+  <data name="str_Km_anchura_anillo" xml:space="preserve">
+    <value>Km eraztun zabalera / k</value>
+  </data>
+  <data name="str_Km_de_distancia_al_borde_del_anillo" xml:space="preserve">
+    <value>_TRIAL ertzerainoko distantzia Km</value>
+  </data>
+  <data name="str_Km_de_distancia_entre_superficies" xml:space="preserve">
+    <value>Gainazalen arteko distantzia Km</value>
+  </data>
+  <data name="str_Km_de_Radio" xml:space="preserve">
+    <value>Irratiaren Km</value>
+  </data>
+  <data name="str_Km_radio" xml:space="preserve">
+    <value>Km erradioa</value>
+  </data>
+  <data name="str_Km_separacion" xml:space="preserve">
+    <value>Km bereizketa</value>
+  </data>
+  <data name="str_LowTemperatureDiamond" xml:space="preserve">
+    <value>Tenperatura baxuaD_TRIAL</value>
+  </data>
+  <data name="str_mero_de_Cuerpos" xml:space="preserve">
+    <value>Gorputz kopurua</value>
+  </data>
+  <data name="str_mero_se_ales" xml:space="preserve">
+    <value>zeinu kopurua</value>
+  </data>
+  <data name="str_mero_vetas" xml:space="preserve">
+    <value>zain kopurua</value>
+  </data>
+  <data name="str_Monazite" xml:space="preserve">
+    <value>Monazita</value>
+  </data>
+  <data name="str_Mostrar_Resumen" xml:space="preserve">
+    <value>Erakutsi laburpena</value>
+  </data>
+  <data name="str_Mt_de_masa" xml:space="preserve">
+    <value>Mt. (x10 ^ 12) masa</value>
+  </data>
+  <data name="str_Mt_masa" xml:space="preserve">
+    <value>Mt (x10 ^ 12) masa</value>
+  </data>
+  <data name="str_Musgravite" xml:space="preserve">
+    <value>Musgravita</value>
+  </data>
+  <data name="str_Nombre_Especial" xml:space="preserve">
+    <value>Izen berezia</value>
+  </data>
+  <data name="str_Opal" xml:space="preserve">
+    <value>Opala</value>
+  </data>
+  <data name="str_Orbita_Cercana" xml:space="preserve">
+    <value>Orbitatik gertu</value>
+  </data>
+  <data name="str_Orbita_Lejana" xml:space="preserve">
+    <value>Urruneko Orbita</value>
+  </data>
+  <data name="str_Orbita_pida" xml:space="preserve">
+    <value>Orbita azkarra</value>
+  </data>
+  <data name="str_Painite" xml:space="preserve">
+    <value>Painita</value>
+  </data>
+  <data name="str_Poblacion" xml:space="preserve">
+    <value>Biztanleria</value>
+  </data>
+  <data name="str_Pr_ximo_al_Anillo" xml:space="preserve">
+    <value>Eraztunaren ondoan</value>
+  </data>
+  <data name="str_radio_vs_distancia" xml:space="preserve">
+    <value>erradioa vs distantzia</value>
+  </data>
+  <data name="str_record_actual" xml:space="preserve">
+    <value>uneko erregistroa</value>
+  </data>
+  <data name="str_record_inferior" xml:space="preserve">
+    <value>erregistro txikiagoa</value>
+  </data>
+  <data name="str_record_superior" xml:space="preserve">
+    <value>goi mailako errekorra</value>
+  </data>
+  <data name="str_relaci_Radio_vs_Distancia" xml:space="preserve">
+    <value>Irratia vs Dis_TRIAL harremana</value>
+  </data>
+  <data name="str_Rhodplumsite" xml:space="preserve">
+    <value>Rhodplumsite</value>
+  </data>
+  <data name="str_Rotaci_pida" xml:space="preserve">
+    <value>Biraketa azkarra</value>
+  </data>
+  <data name="str_Saltos" xml:space="preserve">
+    <value>Jauziak</value>
+  </data>
+  <data name="str_saltos_acumulados" xml:space="preserve">
+    <value>metatutako jauziak</value>
+  </data>
+  <data name="str_Se_al_Biol_gica" xml:space="preserve">
+    <value>Seinale biologikoa</value>
+  </data>
+  <data name="str_Se_al_Geol_gica" xml:space="preserve">
+    <value>Zeinu geologikoa</value>
+  </data>
+  <data name="str_Se_al_Guardian" xml:space="preserve">
+    <value>Guardian Signal</value>
+  </data>
+  <data name="str_Se_al_Humana" xml:space="preserve">
+    <value>Giza Seinalea</value>
+  </data>
+  <data name="str_Se_al_Thargoide" xml:space="preserve">
+    <value>Thargoide seinalea</value>
+  </data>
+  <data name="str_se_ales" xml:space="preserve">
+    <value>zeinuak</value>
+  </data>
+  <data name="str_Serendibite" xml:space="preserve">
+    <value>Serendibita</value>
+  </data>
+  <data name="str_SL_de_distancia_entre_superficies" xml:space="preserve">
+    <value>SL gainazalen arteko distantzia</value>
+  </data>
+  <data name="str_SL_separacion" xml:space="preserve">
+    <value>SL bereizketa</value>
+  </data>
+  <data name="str_superficie" xml:space="preserve">
+    <value>g azalera</value>
+  </data>
+  <data name="str_superior_la_media" xml:space="preserve">
+    <value>batez bestekoaren gainetik</value>
+  </data>
+  <data name="str_Thargoide" xml:space="preserve">
+    <value>Thargoidea</value>
+  </data>
+  <data name="str_tipo_Acuatico" xml:space="preserve">
+    <value>Uretako mota</value>
+  </data>
+  <data name="str_tipo_Amoniaco" xml:space="preserve">
+    <value>Amoniako mota</value>
+  </data>
+  <data name="str_tipo_Tierra" xml:space="preserve">
+    <value>Lur mota</value>
+  </data>
+  <data name="str_tritium" xml:space="preserve">
+    <value>tritioa</value>
+  </data>
+  <data name="str_veces_el_radio_del_Planeta" xml:space="preserve">
+    <value>Lurzoruko aren erradioa bider</value>
+  </data>
+  <data name="str_veces_radio" xml:space="preserve">
+    <value>x aldiz irratia</value>
+  </data>
+  <data name="str_Veta_Alejandr_ta" xml:space="preserve">
+    <value>Veta Alejandríta</value>
+  </data>
+  <data name="str_Veta_Benito_ta" xml:space="preserve">
+    <value>Veta Benitoita</value>
+  </data>
+  <data name="str_Veta_Grandidier_ta" xml:space="preserve">
+    <value>Ildo Grandidieritikoa</value>
+  </data>
+  <data name="str_Veta_LTD" xml:space="preserve">
+    <value>Veta LTD</value>
+  </data>
+  <data name="str_Veta_Monacita" xml:space="preserve">
+    <value>Monacita Ildoa</value>
+  </data>
+  <data name="str_Veta_Musgrav_ta" xml:space="preserve">
+    <value>Musgravite Ildea</value>
+  </data>
+  <data name="str_Veta_Pain_ta" xml:space="preserve">
+    <value>Ildo Painitikoa</value>
+  </data>
+  <data name="str_Veta_palos" xml:space="preserve">
+    <value>Opalak Ildo</value>
+  </data>
+  <data name="str_Veta_Rhodplumsita" xml:space="preserve">
+    <value>Rhodplumsite Ildoa</value>
+  </data>
+  <data name="str_Veta_Serendib_ta" xml:space="preserve">
+    <value>Serendibita Ildea</value>
+  </data>
+  <data name="str_Veta_Tritio" xml:space="preserve">
+    <value>Tritio ildoa</value>
+  </data>
+  <data name="str_vetas" xml:space="preserve">
+    <value>zainak</value>
+  </data>
+  <data name="str_Descubierto" xml:space="preserve">
+    <value>Ezagutua</value>
+  </data>
+  <data name="str_Nuevo" xml:space="preserve">
+    <value>Berria</value>
+  </data>
+  <data name="str_Mapeado" xml:space="preserve">
+    <value>Mapatuta</value>
+  </data>
+  <data name="str_Virgen" xml:space="preserve">
+    <value>Ama Birjina</value>
+  </data>
+  <data name="str_Anillo_Rico_Metal" xml:space="preserve">
+    <value>Rico Metal Ring</value>
+  </data>
+  <data name="str_g_superficie" xml:space="preserve">
+    <value>g Gainazaleko</value>
+  </data>
+  <data name="str_Filtrar_Sistema" xml:space="preserve">
+    <value>Iragazki sistema "</value>
+  </data>
+  <data name="str_Filtrar_Alerta" xml:space="preserve">
+    <value>Iragazki-alerta "</value>
+  </data>
+  <data name="str_Desea_borrar_la_lista_actual_volver" xml:space="preserve">
+    <value>Uneko zerrenda garbitu eta hegaldiaren erregistro osoa berriro irakurri nahi duzu?</value>
+  </data>
+  <data name="str_Tiempo_empleado" xml:space="preserve">
+    <value>Emandako denbora:</value>
+  </data>
+  <data name="str_Confirmar_Acci" xml:space="preserve">
+    <value>Berretsi ekintza</value>
+  </data>
+  <data name="str_Sin_Inter" xml:space="preserve">
+    <value>  - Interesik gabe</value>
+  </data>
+  <data name="str_number" xml:space="preserve">
+    <value>zenbakia</value>
   </data>
 </root>

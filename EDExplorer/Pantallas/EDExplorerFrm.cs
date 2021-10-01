@@ -10,6 +10,8 @@ using System.Windows.Forms;
 
 namespace EDExplorer
 {
+    using M = Properties.Textos;
+    
     public partial class EDExplorerFrm : Form
     {
         private Properties.Settings settings = Properties.Settings.Default;
@@ -97,8 +99,8 @@ namespace EDExplorer
                     contextCopy.Show(Cursor.Position);
                     contextCopy.Items[0].Enabled = listEvent.SelectedItems.Count == 1;
                     
-                    this.filterNameToolStripMenuItem.Text = "Filtrar Sistema \"" + listEvent.FocusedItem.SubItems[1].Text + "\"";
-                    this.filterAlertToolStripMenuItem.Text = "Filtrar Alerta \"" + listEvent.FocusedItem.SubItems[3].Text + "\"";
+                    this.filterNameToolStripMenuItem.Text = M.str_Filtrar_Sistema + listEvent.FocusedItem.SubItems[1].Text + "\"";
+                    this.filterAlertToolStripMenuItem.Text = M.str_Filtrar_Alerta + listEvent.FocusedItem.SubItems[3].Text + "\"";
                 }
             }
         }
@@ -216,7 +218,7 @@ namespace EDExplorer
             if (logMonitor.ReadAllComplete)
             {
                 DialogResult confirmResult;
-                confirmResult = MessageBox.Show("¿Desea borrar la lista actual y volver a leer el diario de vuelo completo?", "Confirmar Acción", MessageBoxButtons.OKCancel);
+                confirmResult = MessageBox.Show(M.str_Desea_borrar_la_lista_actual_volver, M.str_Confirmar_Acci, MessageBoxButtons.OKCancel);
                 if (confirmResult == DialogResult.Cancel)
                 {
                     return;
@@ -224,7 +226,7 @@ namespace EDExplorer
             }
             DateTime start = DateTime.Now;
             ReadAllJournals();
-            MessageBox.Show("Tiempo empleado: " + (DateTime.Now - start).TotalSeconds.ToString("0.00") + "s.");
+            MessageBox.Show(M.str_Tiempo_empleado + " " + (DateTime.Now - start).TotalSeconds.ToString("0.00") + "s.");
 
             // ** Limpiar el guardado si estaba realizado
             itemsTodos = null;
@@ -255,7 +257,7 @@ namespace EDExplorer
                 }
                 else
                 {
-                    copyText.AppendLine(item.SubItems[0].Text + " - Sin Interés");
+                    copyText.AppendLine(item.SubItems[0].Text + M.str_Sin_Inter);
                 }
 
             }

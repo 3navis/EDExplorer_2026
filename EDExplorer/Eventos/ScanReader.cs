@@ -4,6 +4,8 @@ using System.Linq;
 
 namespace EDExplorer
 {
+    using M = Properties.Textos;
+
     class ScanReader
     {
         private bool isRing;
@@ -172,8 +174,8 @@ namespace EDExplorer
                 {
                     // No entra en la funcion normal de alertas
                     //alertas.detalle = da.detalle;
-                    alertas.detalle = (scanEvent.WasDiscovered ? "Descubierto" : "Nuevo");
-                    alertas.detalle += " " + (scanEvent.WasMapped ? "Mapeado" : "Virgen");
+                    alertas.detalle = (scanEvent.WasDiscovered ? M.str_Descubierto : M.str_Nuevo);
+                    alertas.detalle += " " + (scanEvent.WasMapped ? M.str_Mapeado : M.str_Virgen);
                     Interest.Add(new Interes(scanEvent.BodyName, da.nombre, "", alertas.detalle));
                 }
             }

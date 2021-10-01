@@ -230,6 +230,21 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="Properties\Textos.pt-PT.Designer.cs">
+      <DependentUpon>Textos.pt-PT.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Properties\Textos.eu-ES.Designer.cs">
+      <DependentUpon>Textos.eu-ES.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Properties\Textos.ca-ES.Designer.cs">
+      <DependentUpon>Textos.ca-ES.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Properties\Textos.fr-FR.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -237,6 +252,21 @@
     </Compile>
     <Compile Include="SQLite\SQLBase.cs" />
     <Compile Include="StatusMonitor.cs" />
+    <EmbeddedResource Include="About\AboutFrm.ca-ES.resx">
+      <DependentUpon>AboutFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="About\AboutFrm.en-GB.resx">
+      <DependentUpon>AboutFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="About\AboutFrm.eu-ES.resx">
+      <DependentUpon>AboutFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="About\AboutFrm.fr-FR.resx">
+      <DependentUpon>AboutFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="About\AboutFrm.pt-PT.resx">
+      <DependentUpon>AboutFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="About\AboutFrm.resx">
       <DependentUpon>AboutFrm.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -244,13 +274,11 @@
     <EmbeddedResource Include="About\UserAbout.resx">
       <DependentUpon>UserAbout.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Extracciones\Textos_EDExporerFrm.resx" />
     <EmbeddedResource Include="Pantallas\ConfiguracionFrm.ca-ES.resx">
       <DependentUpon>ConfiguracionFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\ConfiguracionFrm.en-GB.resx">
-      <DependentUpon>ConfiguracionFrm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Pantallas\ConfiguracionFrm.es-ES.resx">
       <DependentUpon>ConfiguracionFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\ConfiguracionFrm.eu-ES.resx">
@@ -299,6 +327,18 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Textos.en-GB.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Textos.pt-PT.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Textos.pt-PT.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Textos.eu-ES.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Textos.eu-ES.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Textos.ca-ES.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Textos.ca-ES.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Textos.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Textos.Designer.cs</LastGenOutput>
@@ -309,6 +349,12 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Extracciones\Textos_alertas.resx" />
+    <EmbeddedResource Include="Extracciones\Textos_base.resx" />
+    <EmbeddedResource Include="Extracciones\Textos_LogMonitor.resx" />
+    <EmbeddedResource Include="Extracciones\Textos_Scan.resx" />
+    <EmbeddedResource Include="Extracciones\Textos_Settings.resx" />
+    <EmbeddedResource Include="Extracciones\Textos_Try.resx" />
     <None Include="EDExplorer2_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -351,6 +397,9 @@
       <Project>{FD518ED2-7A6E-42F7-8C90-603235C1FEE6}</Project>
       <Name>DW.ELA.Interfaces</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Traducciones\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

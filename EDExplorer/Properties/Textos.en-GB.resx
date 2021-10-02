@@ -283,7 +283,7 @@
     <value>Km ring width / s</value>
   </data>
   <data name="str_Km_de_distancia_al_borde_del_anillo" xml:space="preserve">
-    <value>Km of distance to the edge of the _TRIAL</value>
+    <value>Km of distance to the edge of the Ring</value>
   </data>
   <data name="str_Km_de_distancia_entre_superficies" xml:space="preserve">
     <value>Km of distance between surfaces</value>
@@ -361,7 +361,7 @@
     <value>top record</value>
   </data>
   <data name="str_relaci_Radio_vs_Distancia" xml:space="preserve">
-    <value>Radio vs Dis_TRIAL relationship</value>
+    <value>Radio vs Distance relationship</value>
   </data>
   <data name="str_Rhodplumsite" xml:space="preserve">
     <value>Rhodplumsite</value>
@@ -503,5 +503,27 @@
   </data>
   <data name="str_number" xml:space="preserve">
     <value>number</value>
+  </data>
+  <data name="str_confirmar_cambio_idioma" xml:space="preserve">
+    <value>This action resets all text alerts and restarts the App. Do you want to continue?</value>
+  </data>
+  <data name="str_ATENCION_Cambio_de_Idioma" xml:space="preserve">
+    <value>ADI - Hizkuntza aldaketa</value>
+  </data>
+  <data name="str_Probando_el_volumen_del_Locutor" xml:space="preserve">
+    <value>Testing the Announcer's volume.</value>
+  </data>
+  <data name="str_Prueba_de_Notificaciones" xml:space="preserve">
+    <value>Essai des notifications</value>
+  </data>
+  <data name="str_Prueba_de_Notificaciones_dos_neas" xml:space="preserve">
+    <value>Proof of Notifications
+two lines.</value>
+  </data>
+  <data name="str_This_is_the_notification_text" xml:space="preserve">
+    <value>This is the notification text</value>
+  </data>
+  <data name="str_This_is_the_notification_title" xml:space="preserve">
+    <value>This is the notification title</value>
   </data>
 </root>

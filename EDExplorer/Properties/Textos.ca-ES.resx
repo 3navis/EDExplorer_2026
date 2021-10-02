@@ -175,22 +175,22 @@
     <value>Alta Gravetat</value>
   </data>
   <data name="str_Anillo_Ancho" xml:space="preserve">
-    <value>anell Ample</value>
+    <value>Anell Ample</value>
   </data>
   <data name="str_Anillo_Helado" xml:space="preserve">
-    <value>anell Gelat</value>
+    <value>Anell Gelat</value>
   </data>
   <data name="str_Anillo_Met_lico" xml:space="preserve">
-    <value>anell metàl·lic</value>
+    <value>Anell metàl·lic</value>
   </data>
   <data name="str_Anillo_Pr_ximo" xml:space="preserve">
-    <value>anell Pròxim</value>
+    <value>Anell Pròxim</value>
   </data>
   <data name="str_Anillo_Rico_en_Metal" xml:space="preserve">
     <value>Anell Ric en Metall</value>
   </data>
   <data name="str_Anillo_Rocoso" xml:space="preserve">
-    <value>anell Rocós</value>
+    <value>Anell Rocós</value>
   </data>
   <data name="str_Aterrizable_Anillado" xml:space="preserve">
     <value>Aterrizable Anellat</value>
@@ -283,7 +283,7 @@
     <value>Km amplada anell / s</value>
   </data>
   <data name="str_Km_de_distancia_al_borde_del_anillo" xml:space="preserve">
-    <value>Km de distància a la vora de l'_TRIAL</value>
+    <value>Km de distància a la vora de l'anell</value>
   </data>
   <data name="str_Km_de_distancia_entre_superficies" xml:space="preserve">
     <value>Km de distància entre superfícies</value>
@@ -361,7 +361,7 @@
     <value>record superior</value>
   </data>
   <data name="str_relaci_Radio_vs_Distancia" xml:space="preserve">
-    <value>relació Ràdio vs Dis_TRIAL</value>
+    <value>relació Ràdio vs Distància</value>
   </data>
   <data name="str_Rhodplumsite" xml:space="preserve">
     <value>Rhodplumsite</value>
@@ -503,5 +503,27 @@
   </data>
   <data name="str_number" xml:space="preserve">
     <value>number</value>
+  </data>
+  <data name="str_confirmar_cambio_idioma" xml:space="preserve">
+    <value>Aquesta acció reseteja tots els textos de les Alertes i reinicia l'App. Voleu continuar?</value>
+  </data>
+  <data name="str_ATENCION_Cambio_de_Idioma" xml:space="preserve">
+    <value>ATENCIÓ - Canvi d'idioma</value>
+  </data>
+  <data name="str_Probando_el_volumen_del_Locutor" xml:space="preserve">
+    <value>Provant el volum de l'Locutor.</value>
+  </data>
+  <data name="str_Prueba_de_Notificaciones" xml:space="preserve">
+    <value>Prova de Notificacions</value>
+  </data>
+  <data name="str_Prueba_de_Notificaciones_dos_neas" xml:space="preserve">
+    <value>Prova de Notificacions
+dues línies. </value>
+  </data>
+  <data name="str_This_is_the_notification_text" xml:space="preserve">
+    <value>This is the notification text</value>
+  </data>
+  <data name="str_This_is_the_notification_title" xml:space="preserve">
+    <value>This is the notification title</value>
   </data>
 </root>

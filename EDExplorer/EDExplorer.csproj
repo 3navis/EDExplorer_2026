@@ -230,6 +230,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="Properties\Textos.ja-JP.Designer.cs">
+      <DependentUpon>Textos.ja-JP.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Properties\Textos.pt-PT.Designer.cs">
       <DependentUpon>Textos.pt-PT.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -274,6 +279,7 @@
     <EmbeddedResource Include="About\UserAbout.resx">
       <DependentUpon>UserAbout.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Extracciones\Textos_CfgFrm.resx" />
     <EmbeddedResource Include="Extracciones\Textos_EDExporerFrm.resx" />
     <EmbeddedResource Include="Pantallas\ConfiguracionFrm.ca-ES.resx">
       <DependentUpon>ConfiguracionFrm.cs</DependentUpon>
@@ -326,6 +332,10 @@
     <EmbeddedResource Include="Properties\Textos.en-GB.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Textos.en-GB.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Textos.ja-JP.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Textos.ja-JP.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Textos.pt-PT.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -14,6 +14,8 @@ using System.Windows.Forms;
 
 namespace EDExplorer
 {
+    using M = Properties.Textos;
+    
     public partial class ConfiguracionFrm : Form
     {
         private Base basi;
@@ -148,7 +150,7 @@ namespace EDExplorer
 
             string idioma = ((Idioma)cbx_idioma.SelectedItem).CultureInfo;
             string idiomaST = ((Idioma)cbx_idioma.SelectedItem).Nombre;
-            string texto = "Probando el volumen del Locutor.";
+            string texto = M.str_Probando_el_volumen_del_Locutor;
 
             speech.Volume = settings.AudioVolumen;
             //speech.SpeakAsync("Probando el volumen del Locutor.");
@@ -259,7 +261,7 @@ namespace EDExplorer
         {
             if (!Loading)
             {
-                basi.OpenNotifyForm("Prueba de Notificaciones\r\ndos líneas.", 3000);
+                basi.OpenNotifyForm(M.str_Prueba_de_Notificaciones_dos_neas, 3000);
             }
         }
 
@@ -327,10 +329,21 @@ namespace EDExplorer
                 string idioma = (string)cbx_idioma.SelectedValue;
                 if (idioma != System.Globalization.CultureInfo.CurrentUICulture.Name)
                 {
-                    Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(idioma);
-                    settings.Idioma = idioma;
-                }
-                    
+                    DialogResult response = MessageBox.Show(M.str_confirmar_cambio_idioma, M.str_ATENCION_Cambio_de_Idioma, MessageBoxButtons.YesNo);
+                    if (response == DialogResult.Yes)
+                    {
+                        Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(idioma);
+                        settings.Idioma = idioma;
+
+                        basi.alertas.Reset();
+                        // Reiniciar la aplicación para actualizar labels.
+                        Application.Restart();
+                    }
+                    else
+                    {
+                        cbx_idioma.SelectedValue = System.Globalization.CultureInfo.CurrentUICulture.Name;
+                    }
+                }     
             }
         }
     }

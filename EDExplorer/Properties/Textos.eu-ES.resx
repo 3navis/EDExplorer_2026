@@ -283,7 +283,7 @@
     <value>Km eraztun zabalera / k</value>
   </data>
   <data name="str_Km_de_distancia_al_borde_del_anillo" xml:space="preserve">
-    <value>_TRIAL ertzerainoko distantzia Km</value>
+    <value>Ring ertzerainoko distantzia Km</value>
   </data>
   <data name="str_Km_de_distancia_entre_superficies" xml:space="preserve">
     <value>Gainazalen arteko distantzia Km</value>
@@ -361,7 +361,7 @@
     <value>goi mailako errekorra</value>
   </data>
   <data name="str_relaci_Radio_vs_Distancia" xml:space="preserve">
-    <value>Irratia vs Dis_TRIAL harremana</value>
+    <value>Irratia vs Distantzia harremana</value>
   </data>
   <data name="str_Rhodplumsite" xml:space="preserve">
     <value>Rhodplumsite</value>
@@ -503,5 +503,27 @@
   </data>
   <data name="str_number" xml:space="preserve">
     <value>zenbakia</value>
+  </data>
+  <data name="str_confirmar_cambio_idioma" xml:space="preserve">
+    <value>Ekintza honek Alerten testu guztiak berrezartzen ditu eta aplikazioa berrabiarazten du. Jarraitu nahi duzu?</value>
+  </data>
+  <data name="str_ATENCION_Cambio_de_Idioma" xml:space="preserve">
+    <value>ATTENTION - Changement de langue</value>
+  </data>
+  <data name="str_Probando_el_volumen_del_Locutor" xml:space="preserve">
+    <value>Esatariaren bolumena probatzen.</value>
+  </data>
+  <data name="str_Prueba_de_Notificaciones" xml:space="preserve">
+    <value>Jakinarazpen Proba</value>
+  </data>
+  <data name="str_Prueba_de_Notificaciones_dos_neas" xml:space="preserve">
+    <value>Jakinarazpenen egiaztagiria
+bi lerro .</value>
+  </data>
+  <data name="str_This_is_the_notification_text" xml:space="preserve">
+    <value>Hau da jakinarazpen testua</value>
+  </data>
+  <data name="str_This_is_the_notification_title" xml:space="preserve">
+    <value>Hau da jakinarazpenaren izenburua</value>
   </data>
 </root>

@@ -131,20 +131,15 @@ namespace EDExplorer
         private readonly Properties.Settings settings = Properties.Settings.Default;
         public Alertas()
         {
-            settings.vAlertasNew = "v1.06.001";
+            settings.vAlertasNew = "v1.06.003";
 
             if (settings.vAlertas != settings.vAlertasNew)
             {
                 // Si se cambia la version se resetean todas las alertas
                 // Solo hay que hacerlo si cambia la estructura de las mismas
+                //  o si se cambia el idioma
 
-                //n = new Dictionary<Alerta, DetallesAlerta>();
-                n = new ListaAlertas();
-                setDefault();
-
-                settings.Alertas = JsonConvert.SerializeObject(n);
-                settings.vAlertas = settings.vAlertasNew;
-                settings.Save();
+                Reset();
             }
             else
             {
@@ -160,6 +155,16 @@ namespace EDExplorer
 
                 setDefault();
             }
+        }
+        public void Reset()
+        {
+            // Reinicio de textos y Records (almacena)
+            n = new ListaAlertas();
+            setDefault();
+
+            settings.Alertas = JsonConvert.SerializeObject(n);
+            settings.vAlertas = settings.vAlertasNew;
+            settings.Save();
         }
         public void setDefault()
         {

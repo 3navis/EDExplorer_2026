@@ -401,6 +401,13 @@ namespace EDExplorer
                     Abreviacion = "ca",
                     Pais = "Cataluña",
                     AbreviacionPais = "ES"
+                },
+                  new Idioma
+                {
+                    Nombre = "japones",
+                    Abreviacion = "ja",
+                    Pais = "Japon",
+                    AbreviacionPais = "JP"
                 }
 
             };

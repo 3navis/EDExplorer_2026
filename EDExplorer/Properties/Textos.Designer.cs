@@ -223,6 +223,15 @@ namespace EDExplorer.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a ATENCION - Cambio de Idioma.
+        /// </summary>
+        public static string str_ATENCION_Cambio_de_Idioma {
+            get {
+                return ResourceManager.GetString("str_ATENCION_Cambio_de_Idioma", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Aterrizable Anillado.
         /// </summary>
         public static string str_Aterrizable_Anillado {
@@ -336,6 +345,15 @@ namespace EDExplorer.Properties {
         public static string str_Confirmar_Acci {
             get {
                 return ResourceManager.GetString("str_Confirmar_Acci", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Esta acción resetea todos los textos de las Alertas y reinicia la App. ¿Quiere continuar?.
+        /// </summary>
+        public static string str_confirmar_cambio_idioma {
+            get {
+                return ResourceManager.GetString("str_confirmar_cambio_idioma", resourceCulture);
             }
         }
         
@@ -574,7 +592,7 @@ namespace EDExplorer.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Km de distancia al borde del _TRIAL.
+        ///   Busca una cadena traducida similar a Km de distancia al borde del anillo.
         /// </summary>
         public static string str_Km_de_distancia_al_borde_del_anillo {
             get {
@@ -853,6 +871,34 @@ namespace EDExplorer.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Probando el volumen del Locutor..
+        /// </summary>
+        public static string str_Probando_el_volumen_del_Locutor {
+            get {
+                return ResourceManager.GetString("str_Probando_el_volumen_del_Locutor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Prueba de Notificaciones.
+        /// </summary>
+        public static string str_Prueba_de_Notificaciones {
+            get {
+                return ResourceManager.GetString("str_Prueba_de_Notificaciones", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Prueba de Notificaciones
+        ///dos líneas..
+        /// </summary>
+        public static string str_Prueba_de_Notificaciones_dos_neas {
+            get {
+                return ResourceManager.GetString("str_Prueba_de_Notificaciones_dos_neas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a radio vs distancia.
         /// </summary>
         public static string str_radio_vs_distancia {
@@ -889,7 +935,7 @@ namespace EDExplorer.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a relación Radio vs Dis_TRIAL.
+        ///   Busca una cadena traducida similar a relación Radio vs Distancia.
         /// </summary>
         public static string str_relaci_Radio_vs_Distancia {
             get {
@@ -1056,6 +1102,24 @@ namespace EDExplorer.Properties {
         public static string str_Thargoide {
             get {
                 return ResourceManager.GetString("str_Thargoide", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a This is the notification text.
+        /// </summary>
+        public static string str_This_is_the_notification_text {
+            get {
+                return ResourceManager.GetString("str_This_is_the_notification_text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a This is the notification title.
+        /// </summary>
+        public static string str_This_is_the_notification_title {
+            get {
+                return ResourceManager.GetString("str_This_is_the_notification_title", resourceCulture);
             }
         }
         

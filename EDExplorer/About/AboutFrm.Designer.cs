@@ -50,33 +50,33 @@
             // 
             // frmLienzo
             // 
+            resources.ApplyResources(this.frmLienzo, "frmLienzo");
             this.frmLienzo.BackColor = System.Drawing.Color.White;
             this.frmLienzo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            resources.ApplyResources(this.frmLienzo, "frmLienzo");
             this.frmLienzo.Name = "frmLienzo";
             this.frmLienzo.TabStop = false;
             // 
             // paso1
             // 
+            resources.ApplyResources(this.paso1, "paso1");
             this.paso1.BackColor = System.Drawing.Color.White;
             this.paso1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            resources.ApplyResources(this.paso1, "paso1");
             this.paso1.Name = "paso1";
             this.paso1.TabStop = false;
             // 
             // paso2
             // 
+            resources.ApplyResources(this.paso2, "paso2");
             this.paso2.BackColor = System.Drawing.Color.White;
             this.paso2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            resources.ApplyResources(this.paso2, "paso2");
             this.paso2.Name = "paso2";
             this.paso2.TabStop = false;
             // 
             // paso3
             // 
+            resources.ApplyResources(this.paso3, "paso3");
             this.paso3.BackColor = System.Drawing.Color.White;
             this.paso3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            resources.ApplyResources(this.paso3, "paso3");
             this.paso3.Name = "paso3";
             this.paso3.TabStop = false;
             // 

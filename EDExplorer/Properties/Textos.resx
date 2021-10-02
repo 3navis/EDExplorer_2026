@@ -289,7 +289,7 @@
     <value>Km anchura anillo / s</value>
   </data>
   <data name="str_Km_de_distancia_al_borde_del_anillo" xml:space="preserve">
-    <value>Km de distancia al borde del _TRIAL</value>
+    <value>Km de distancia al borde del anillo</value>
   </data>
   <data name="str_Km_de_distancia_entre_superficies" xml:space="preserve">
     <value>Km de distancia entre superficies</value>
@@ -367,7 +367,7 @@
     <value>record superior</value>
   </data>
   <data name="str_relaci_Radio_vs_Distancia" xml:space="preserve">
-    <value>relación Radio vs Dis_TRIAL</value>
+    <value>relación Radio vs Distancia</value>
   </data>
   <data name="str_Rhodplumsite" xml:space="preserve">
     <value>Rhodplumsite</value>
@@ -515,5 +515,27 @@
   </data>
   <data name="str_number" xml:space="preserve">
     <value>number</value>
+  </data>
+  <data name="str_confirmar_cambio_idioma" xml:space="preserve">
+    <value>Esta acción resetea todos los textos de las Alertas y reinicia la App. ¿Quiere continuar?</value>
+  </data>
+  <data name="str_ATENCION_Cambio_de_Idioma" xml:space="preserve">
+    <value>ATENCION - Cambio de Idioma</value>
+  </data>
+  <data name="str_Probando_el_volumen_del_Locutor" xml:space="preserve">
+    <value>Probando el volumen del Locutor.</value>
+  </data>
+  <data name="str_Prueba_de_Notificaciones" xml:space="preserve">
+    <value>Prueba de Notificaciones</value>
+  </data>
+  <data name="str_Prueba_de_Notificaciones_dos_neas" xml:space="preserve">
+    <value>Prueba de Notificaciones
+dos líneas.</value>
+  </data>
+  <data name="str_This_is_the_notification_text" xml:space="preserve">
+    <value>This is the notification text</value>
+  </data>
+  <data name="str_This_is_the_notification_title" xml:space="preserve">
+    <value>This is the notification title</value>
   </data>
 </root>

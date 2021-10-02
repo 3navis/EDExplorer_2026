@@ -118,412 +118,411 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="str_Acerca_de" xml:space="preserve">
-    <value>À propos de ...</value>
+    <value>About ...</value>
   </data>
   <data name="str_Activar_Locutor" xml:space="preserve">
-    <value>Activer l'annonceur</value>
+    <value>アナウンサーの起動</value>
   </data>
   <data name="str_Activar_Notificaciones" xml:space="preserve">
-    <value>Activer les notifications</value>
+    <value>通知の有効化</value>
   </data>
   <data name="str_Configuraci" xml:space="preserve">
-    <value>Réglage</value>
+    <value>構成</value>
   </data>
   <data name="str_EDExplorer_Error" xml:space="preserve">
-    <value>EDExplorer : erreur</value>
+    <value>EDExplorer: エラー</value>
   </data>
   <data name="str_INICIAR_monitor_eventos" xml:space="preserve">
-    <value>START moniteur d'événements</value>
+    <value>STARTモニターイベント</value>
   </data>
   <data name="str_Mostrar_Lista" xml:space="preserve">
-    <value>Voir la liste</value>
+    <value>番組表</value>
   </data>
   <data name="str_Notificaciones_Activadas" xml:space="preserve">
-    <value>Notifications activées</value>
+    <value>通知機能の有効化</value>
   </data>
   <data name="str_Ocultar_Lista" xml:space="preserve">
-    <value>Cacher la liste</value>
+    <value>リストを隠す</value>
   </data>
   <data name="str_Parar_Locutor" xml:space="preserve">
-    <value>Arrêter l'annonceur</value>
+    <value>ストップアナウンサー</value>
   </data>
   <data name="str_PARAR_monitor_eventos" xml:space="preserve">
-    <value>STOP moniteur d'événements</value>
+    <value>STOPイベントモニター</value>
   </data>
   <data name="str_Parar_Notificaciones" xml:space="preserve">
-    <value>Arrêter les Notifications</value>
+    <value>通知の停止</value>
   </data>
   <data name="str_Salir" xml:space="preserve">
-    <value>Sortir</value>
+    <value>出口</value>
   </data>
   <data name="str_Version_Assembly" xml:space="preserve">
-    <value>Version:</value>
+    <value>バージョンです。</value>
   </data>
   <data name="str_Acumulado" xml:space="preserve">
-    <value>Accumulé</value>
+    <value>累積</value>
   </data>
   <data name="str_al_acumulados" xml:space="preserve">
-    <value>accumuler</value>
+    <value>蓄積</value>
   </data>
   <data name="str_al_de_distancia_acumulada_en_saltos" xml:space="preserve">
-    <value>à la distance cumulée en sauts</value>
+    <value>ジャンプの累積距離のアル</value>
   </data>
   <data name="str_Alexandrite" xml:space="preserve">
-    <value>Alexandrite</value>
+    <value>アレキサンドライト</value>
   </data>
   <data name="str_Alta_Gravedad" xml:space="preserve">
-    <value>Haute gravité</value>
+    <value>高重力</value>
   </data>
   <data name="str_Anillo_Ancho" xml:space="preserve">
-    <value>Anneau large</value>
+    <value>ワイドリング</value>
   </data>
   <data name="str_Anillo_Helado" xml:space="preserve">
-    <value>Anneau glacée</value>
+    <value>アイシーリング</value>
   </data>
   <data name="str_Anillo_Met_lico" xml:space="preserve">
-    <value>Anneau métallique</value>
+    <value>メタリックリング</value>
   </data>
   <data name="str_Anillo_Pr_ximo" xml:space="preserve">
-    <value>Anneau Prochaine</value>
+    <value>プロキシマル・リング</value>
   </data>
   <data name="str_Anillo_Rico_en_Metal" xml:space="preserve">
-    <value>Anneau riche en métal</value>
+    <value>メタルリッチリング</value>
   </data>
   <data name="str_Anillo_Rocoso" xml:space="preserve">
-    <value>Anneau Rocheuse</value>
+    <value>ロッキーリング</value>
   </data>
   <data name="str_Aterrizable_Anillado" xml:space="preserve">
-    <value>Atterrissable annelé</value>
+    <value>Landable Ring Ring</value>
   </data>
   <data name="str_Aterrizable_Atmos" xml:space="preserve">
-    <value>Atterrissable Atmos</value>
+    <value>大気中のランダブル</value>
   </data>
   <data name="str_Aterrizable_Atmosf_rico" xml:space="preserve">
-    <value>Atterrissable Atmosphérique</value>
+    <value>大気中のランダブル</value>
   </data>
   <data name="str_Aterrizable_con_Alta_Gravedad" xml:space="preserve">
-    <value>Atterrissable avec une gravité élevée</value>
+    <value>High Gravity Landable</value>
   </data>
   <data name="str_Aterrizable_con_Baja_Gravedad" xml:space="preserve">
-    <value>Atterrissable avec une faible gravité</value>
+    <value>ローグラビティ ランダブル</value>
   </data>
   <data name="str_Aterrizable_Grande" xml:space="preserve">
-    <value>Atterrissable Grand</value>
+    <value>大規模な土地利用</value>
   </data>
   <data name="str_Aterrizable_Peque" xml:space="preserve">
-    <value>Atterrissable Petit</value>
+    <value>着陸可能な小型</value>
   </data>
   <data name="str_Baja_Gravedad" xml:space="preserve">
-    <value>Faible gravité</value>
+    <value>低重力</value>
   </data>
   <data name="str_Benitoite" xml:space="preserve">
-    <value>Benitoïte</value>
+    <value>ベニトアイト</value>
   </data>
   <data name="str_Binaria_Cercana" xml:space="preserve">
-    <value>Binaire côte à côte</value>
+    <value>クローズバイナリー</value>
   </data>
   <data name="str_Biol_gica" xml:space="preserve">
-    <value>Biologique</value>
+    <value>バイオロジカル</value>
   </data>
   <data name="str_CREMATORIA" xml:space="preserve">
-    <value>CRÉMATORIUM</value>
+    <value>CREMATORY</value>
   </data>
   <data name="str_Crematoria1" xml:space="preserve">
-    <value>Crématorium</value>
+    <value>火葬場</value>
   </data>
   <data name="str_cuerpos" xml:space="preserve">
-    <value>corps</value>
+    <value>ボディ</value>
   </data>
   <data name="str_dias_rotaci" xml:space="preserve">
-    <value>jours de rotation</value>
+    <value>回転日数</value>
   </data>
   <data name="str_El_nombre_del_cuerpo_no_incluye_al" xml:space="preserve">
-    <value>Le nom du corps n'inclut pas le système</value>
+    <value>ボディ名にSystemが含まれていない</value>
   </data>
   <data name="str_FSS_Cuerpos" xml:space="preserve">
-    <value>Organismes de la FSS</value>
+    <value>FSSボディ</value>
   </data>
   <data name="str_Geol_gica" xml:space="preserve">
-    <value>Géologique</value>
+    <value>ジオロジカル</value>
   </data>
   <data name="str_Grandidierite" xml:space="preserve">
-    <value>Grandidiérite</value>
+    <value>グランディエート</value>
   </data>
   <data name="str_Gravedad_en_superficie" xml:space="preserve">
-    <value>g Gravité de surface</value>
+    <value>g 表面重力</value>
   </data>
   <data name="str_Guardian" xml:space="preserve">
-    <value>Gardien</value>
+    <value>ガーディアン</value>
   </data>
   <data name="str_habitantes" xml:space="preserve">
-    <value>M habitants</value>
+    <value>Mの住人</value>
   </data>
   <data name="str_horas_orbita" xml:space="preserve">
-    <value>heures orbite</value>
+    <value>軌道時間</value>
   </data>
   <data name="str_horas_para_completar_una_Orbita" xml:space="preserve">
-    <value>heures pour terminer une orbite</value>
+    <value>軌道完成までの時間</value>
   </data>
   <data name="str_horas_para_completar_una_rotaci" xml:space="preserve">
-    <value>heures pour effectuer une rotation</value>
+    <value>ローテーション完了までの時間</value>
   </data>
   <data name="str_horas_rotaci" xml:space="preserve">
-    <value>heures de rotation</value>
+    <value>時間ローテーション</value>
   </data>
   <data name="str_Humana" xml:space="preserve">
-    <value>Humain</value>
+    <value>人間</value>
   </data>
   <data name="str_inferior_la_media" xml:space="preserve">
-    <value>sous la moyenne</value>
+    <value>平均以下</value>
   </data>
   <data name="str_Km_ancho" xml:space="preserve">
-    <value>Km de large</value>
+    <value>Km幅</value>
   </data>
   <data name="str_Km_anchura_anillo" xml:space="preserve">
-    <value>Km largeur de Anneau / s</value>
+    <value>Kmリング幅／s</value>
   </data>
   <data name="str_Km_de_distancia_al_borde_del_anillo" xml:space="preserve">
-    <value>Km de distance jusqu'au bord du Anneau</value>
+    <value>リングの端までのKm数</value>
   </data>
   <data name="str_Km_de_distancia_entre_superficies" xml:space="preserve">
-    <value>Km de distance entre les surfaces</value>
+    <value>面間のKm数</value>
   </data>
   <data name="str_Km_de_Radio" xml:space="preserve">
-    <value>Km de radio</value>
+    <value>Km半径</value>
   </data>
   <data name="str_Km_radio" xml:space="preserve">
-    <value>Rayon de kilomètres</value>
+    <value>Km半径</value>
   </data>
   <data name="str_Km_separacion" xml:space="preserve">
-    <value>Km de séparation</value>
+    <value>Km分離</value>
   </data>
   <data name="str_LowTemperatureDiamond" xml:space="preserve">
-    <value>Basse TempératureD_TRIAL</value>
+    <value>低温D_TRIAL</value>
   </data>
   <data name="str_mero_de_Cuerpos" xml:space="preserve">
-    <value>Nombre de corps</value>
+    <value>ボディーの数</value>
   </data>
   <data name="str_mero_se_ales" xml:space="preserve">
-    <value>nombre de signes</value>
+    <value>信号の数</value>
   </data>
   <data name="str_mero_vetas" xml:space="preserve">
-    <value>nombre de veines</value>
+    <value>静脈の数</value>
   </data>
   <data name="str_Monazite" xml:space="preserve">
-    <value>Monazite</value>
+    <value>モナザイト</value>
   </data>
   <data name="str_Mostrar_Resumen" xml:space="preserve">
-    <value>Voir le résumé</value>
+    <value>番組概要</value>
   </data>
   <data name="str_Mt_de_masa" xml:space="preserve">
-    <value>Mt. (x10 ^ 12) de masse</value>
+    <value>Mt.(x10^12)の質量</value>
   </data>
   <data name="str_Mt_masa" xml:space="preserve">
-    <value>Mt (x10 ^ 12) masse</value>
+    <value>Mt (x10^12) 質量</value>
   </data>
   <data name="str_Musgravite" xml:space="preserve">
-    <value>Musgravite</value>
+    <value>マスグラビト</value>
   </data>
   <data name="str_Nombre_Especial" xml:space="preserve">
-    <value>Nom spécial</value>
+    <value>特別な名前</value>
   </data>
   <data name="str_Opal" xml:space="preserve">
-    <value>Opale</value>
+    <value>オパール</value>
   </data>
   <data name="str_Orbita_Cercana" xml:space="preserve">
-    <value>Près de l'orbite</value>
+    <value>軌道付近</value>
   </data>
   <data name="str_Orbita_Lejana" xml:space="preserve">
-    <value>Orbite lointaine</value>
+    <value>遠い軌道</value>
   </data>
   <data name="str_Orbita_pida" xml:space="preserve">
-    <value>Orbite rapide</value>
+    <value>高速軌道</value>
   </data>
   <data name="str_Painite" xml:space="preserve">
-    <value>Painite</value>
+    <value>パイナイト</value>
   </data>
   <data name="str_Poblacion" xml:space="preserve">
-    <value>Population </value>
+    <value>人口</value>
   </data>
   <data name="str_Pr_ximo_al_Anillo" xml:space="preserve">
-    <value>À côté de l'anneau</value>
+    <value>リングの近く</value>
   </data>
   <data name="str_radio_vs_distancia" xml:space="preserve">
-    <value>rayon vs distance</value>
+    <value>半径と距離</value>
   </data>
   <data name="str_record_actual" xml:space="preserve">
-    <value>record actuel</value>
+    <value>現在の記録</value>
   </data>
   <data name="str_record_inferior" xml:space="preserve">
-    <value>record inférieur</value>
+    <value>下位記録</value>
   </data>
   <data name="str_record_superior" xml:space="preserve">
-    <value>meilleur record</value>
+    <value>アッパーレコード</value>
   </data>
   <data name="str_relaci_Radio_vs_Distancia" xml:space="preserve">
-    <value>Relation Radio vs Distance</value>
+    <value>比率 半径と距離</value>
   </data>
   <data name="str_Rhodplumsite" xml:space="preserve">
-    <value>Rhodplumsite</value>
+    <value>ロードプラムサイト</value>
   </data>
   <data name="str_Rotaci_pida" xml:space="preserve">
-    <value>Rotation rapide</value>
+    <value>高速回転</value>
   </data>
   <data name="str_Saltos" xml:space="preserve">
-    <value>Sauts</value>
+    <value>ジャンプ</value>
   </data>
   <data name="str_saltos_acumulados" xml:space="preserve">
-    <value>sauts accumulés</value>
+    <value>累積ジャンプ</value>
   </data>
   <data name="str_Se_al_Biol_gica" xml:space="preserve">
-    <value>Signal biologique</value>
+    <value>生物学的信号</value>
   </data>
   <data name="str_Se_al_Geol_gica" xml:space="preserve">
-    <value>Signe géologique</value>
+    <value>ジオロジカルシグナル</value>
   </data>
   <data name="str_Se_al_Guardian" xml:space="preserve">
-    <value>Signal de gardien</value>
+    <value>ガーディアン・シグナル</value>
   </data>
   <data name="str_Se_al_Humana" xml:space="preserve">
-    <value>Signal humain</value>
+    <value>ヒューマンシグナル</value>
   </data>
   <data name="str_Se_al_Thargoide" xml:space="preserve">
-    <value>Signal de Thargoïde</value>
+    <value>ターゴイドシグナル</value>
   </data>
   <data name="str_se_ales" xml:space="preserve">
-    <value>panneaux</value>
+    <value>シグナル</value>
   </data>
   <data name="str_Serendibite" xml:space="preserve">
-    <value>Serendibite</value>
+    <value>セレンディバイト</value>
   </data>
   <data name="str_SL_de_distancia_entre_superficies" xml:space="preserve">
-    <value>Distance SL entre les surfaces</value>
+    <value>表面間のSL距離</value>
   </data>
   <data name="str_SL_separacion" xml:space="preserve">
-    <value>séparation SL</value>
+    <value>SL分離</value>
   </data>
   <data name="str_superficie" xml:space="preserve">
-    <value>surface</value>
+    <value>g面</value>
   </data>
   <data name="str_superior_la_media" xml:space="preserve">
-    <value>au dessus de la moyenne</value>
+    <value>平均以上</value>
   </data>
   <data name="str_Thargoide" xml:space="preserve">
-    <value>Thargoïde</value>
+    <value>タルゴイド</value>
   </data>
   <data name="str_tipo_Acuatico" xml:space="preserve">
-    <value>Type aquatique</value>
+    <value>タイプ 水生</value>
   </data>
   <data name="str_tipo_Amoniaco" xml:space="preserve">
-    <value>Type d'ammoniac</value>
+    <value>アンモニアタイプ</value>
   </data>
   <data name="str_tipo_Tierra" xml:space="preserve">
-    <value>Type terre</value>
+    <value>アースタイプ</value>
   </data>
   <data name="str_tritium" xml:space="preserve">
-    <value>tritium</value>
+    <value>トリチウム</value>
   </data>
   <data name="str_veces_el_radio_del_Planeta" xml:space="preserve">
-    <value>fois le rayon du Anneau</value>
+    <value>リングの半径の倍</value>
   </data>
   <data name="str_veces_radio" xml:space="preserve">
-    <value>x fois la radio</value>
+    <value>x倍の半径</value>
   </data>
   <data name="str_Veta_Alejandr_ta" xml:space="preserve">
-    <value>Veine Alejandrita</value>
+    <value>アレキサンドライトの鉱脈</value>
   </data>
   <data name="str_Veta_Benito_ta" xml:space="preserve">
-    <value>Veine Benitoita</value>
+    <value>ベニトアイト鉱脈</value>
   </data>
   <data name="str_Veta_Grandidier_ta" xml:space="preserve">
-    <value>Veine de Grandidiérite</value>
+    <value>グランディディエライト鉱脈</value>
   </data>
   <data name="str_Veta_LTD" xml:space="preserve">
-    <value>Veine LTD</value>
+    <value>LTD ベイン</value>
   </data>
   <data name="str_Veta_Monacita" xml:space="preserve">
-    <value>Veine de Monacita</value>
+    <value>モナザイト鉱脈</value>
   </data>
   <data name="str_Veta_Musgrav_ta" xml:space="preserve">
-    <value>Veine de muscgravite</value>
+    <value>ムスグラビト鉱脈</value>
   </data>
   <data name="str_Veta_Pain_ta" xml:space="preserve">
-    <value>Veine Painite</value>
+    <value>痛みのある静脈</value>
   </data>
   <data name="str_Veta_palos" xml:space="preserve">
-    <value>Veine Opales</value>
+    <value>オパロスの鉱脈</value>
   </data>
   <data name="str_Veta_Rhodplumsita" xml:space="preserve">
-    <value>Veine de Rhodplumsite</value>
+    <value>ロドプルムサイトの鉱脈</value>
   </data>
   <data name="str_Veta_Serendib_ta" xml:space="preserve">
-    <value>Veine de sérendibite</value>
+    <value>セレンディバイトの鉱脈</value>
   </data>
   <data name="str_Veta_Tritio" xml:space="preserve">
-    <value>Veine de tritium</value>
+    <value>トリチウム鉱脈</value>
   </data>
   <data name="str_vetas" xml:space="preserve">
-    <value>veines</value>
+    <value>静脈</value>
   </data>
   <data name="str_Descubierto" xml:space="preserve">
-    <value>Découvert</value>
+    <value>発見</value>
   </data>
   <data name="str_Nuevo" xml:space="preserve">
-    <value>Nouveau</value>
+    <value>新しい</value>
   </data>
   <data name="str_Mapeado" xml:space="preserve">
-    <value>Mappé</value>
+    <value>マッピング</value>
   </data>
   <data name="str_Virgen" xml:space="preserve">
-    <value>vierge</value>
+    <value>ヴァージン</value>
   </data>
   <data name="str_Anillo_Rico_Metal" xml:space="preserve">
-    <value>Anneau Métal Riche</value>
+    <value>メタルリッチリング</value>
   </data>
   <data name="str_g_superficie" xml:space="preserve">
-    <value>g surface</value>
+    <value>g面</value>
   </data>
   <data name="str_Filtrar_Sistema" xml:space="preserve">
-    <value>Filtrer Système  "</value>
+    <value>フィルターシステム "</value>
   </data>
   <data name="str_Filtrar_Alerta" xml:space="preserve">
-    <value>Filtrer Alerte "</value>
+    <value>フィルター・アラート "</value>
   </data>
   <data name="str_Desea_borrar_la_lista_actual_volver" xml:space="preserve">
-    <value>Voulez-vous effacer la liste actuelle et relire l'intégralité du journal de vol ?</value>
+    <value>現在のリストを削除して、完全なログブックを読み直しますか？</value>
   </data>
   <data name="str_Tiempo_empleado" xml:space="preserve">
-    <value>Temps passé:</value>
+    <value>過ごした時間 </value>
   </data>
   <data name="str_Confirmar_Acci" xml:space="preserve">
-    <value>Confirmer l'action</value>
+    <value>アクションの確認</value>
   </data>
   <data name="str_Sin_Inter" xml:space="preserve">
-    <value>  - Sans intérêt</value>
+    <value> - おもしろくない</value>
   </data>
   <data name="str_number" xml:space="preserve">
-    <value>numéro</value>
+    <value>ナンバー</value>
   </data>
   <data name="str_confirmar_cambio_idioma" xml:space="preserve">
-    <value>Cette action réinitialise toutes les alertes texte et redémarre l'application. Voulez-vous continuer ?</value>
+    <value>このアクションにより、すべてのアラートテキストがリセットされ、アプリが再起動します。続行しますか？</value>
   </data>
   <data name="str_ATENCION_Cambio_de_Idioma" xml:space="preserve">
-    <value>ATTENTION - Language change</value>
+    <value>注意-言語の変更</value>
   </data>
   <data name="str_Probando_el_volumen_del_Locutor" xml:space="preserve">
-    <value>Tester le volume de l'annonceur.</value>
+    <value>アナウンサーの音量をテストします。</value>
   </data>
   <data name="str_Prueba_de_Notificaciones" xml:space="preserve">
-    <value>Test de notification</value>
+    <value>通知テスト</value>
   </data>
   <data name="str_Prueba_de_Notificaciones_dos_neas" xml:space="preserve">
-    <value>Preuve de notification
-deux lignes.</value>
+    <value>「通知テスト2行。」</value>
   </data>
   <data name="str_This_is_the_notification_text" xml:space="preserve">
-    <value>Ceci est le texte de notification</value>
+    <value>これは通知テキストです</value>
   </data>
   <data name="str_This_is_the_notification_title" xml:space="preserve">
-    <value>Ceci est le titre de la notification</value>
+    <value>これは通知のタイトルです</value>
   </data>
 </root>

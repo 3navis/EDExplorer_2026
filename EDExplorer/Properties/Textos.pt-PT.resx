@@ -184,13 +184,13 @@
     <value>Anel Metálico</value>
   </data>
   <data name="str_Anillo_Pr_ximo" xml:space="preserve">
-    <value>Próximo toque</value>
+    <value>Anel Próximo</value>
   </data>
   <data name="str_Anillo_Rico_en_Metal" xml:space="preserve">
     <value>Anel Rico em Metal</value>
   </data>
   <data name="str_Anillo_Rocoso" xml:space="preserve">
-    <value>Rocky Ring</value>
+    <value>Anel Rocky</value>
   </data>
   <data name="str_Aterrizable_Anillado" xml:space="preserve">
     <value>Landable Ringed</value>
@@ -283,7 +283,7 @@
     <value>Km de largura / s do anel</value>
   </data>
   <data name="str_Km_de_distancia_al_borde_del_anillo" xml:space="preserve">
-    <value>Km de distância até a borda da _TRIAL</value>
+    <value>Km de distância até a borda da Ring</value>
   </data>
   <data name="str_Km_de_distancia_entre_superficies" xml:space="preserve">
     <value>Km de distância entre superfícies</value>
@@ -361,7 +361,7 @@
     <value>melhor recorde</value>
   </data>
   <data name="str_relaci_Radio_vs_Distancia" xml:space="preserve">
-    <value>Relação Rádio vs Dis_TRIAL</value>
+    <value>Relação Rádio vs Disistância</value>
   </data>
   <data name="str_Rhodplumsite" xml:space="preserve">
     <value>Rodplumsita</value>
@@ -478,7 +478,7 @@
     <value>Virgem</value>
   </data>
   <data name="str_Anillo_Rico_Metal" xml:space="preserve">
-    <value>Rico Metal Ring</value>
+    <value>Anel Rico Metal</value>
   </data>
   <data name="str_g_superficie" xml:space="preserve">
     <value>g superficial</value>
@@ -503,5 +503,27 @@
   </data>
   <data name="str_number" xml:space="preserve">
     <value>número</value>
+  </data>
+  <data name="str_confirmar_cambio_idioma" xml:space="preserve">
+    <value>Esta acção reinicia todos os alertas de texto e reinicia a aplicação. Quer continuar?</value>
+  </data>
+  <data name="str_ATENCION_Cambio_de_Idioma" xml:space="preserve">
+    <value>ATENÇÃO - Mudança de idioma</value>
+  </data>
+  <data name="str_Probando_el_volumen_del_Locutor" xml:space="preserve">
+    <value>Testando o volume do Anunciador.</value>
+  </data>
+  <data name="str_Prueba_de_Notificaciones" xml:space="preserve">
+    <value>Teste de Notificação</value>
+  </data>
+  <data name="str_Prueba_de_Notificaciones_dos_neas" xml:space="preserve">
+    <value>Prova de Notificações
+duas linhas.</value>
+  </data>
+  <data name="str_This_is_the_notification_text" xml:space="preserve">
+    <value>Este é o texto de notificação</value>
+  </data>
+  <data name="str_This_is_the_notification_title" xml:space="preserve">
+    <value>Este é o título da notificação</value>
   </data>
 </root>

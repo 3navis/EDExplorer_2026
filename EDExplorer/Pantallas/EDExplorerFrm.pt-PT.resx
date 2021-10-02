@@ -1272,13 +1272,13 @@
     <value>Data hora</value>
   </data>
   <data name="filterAlertToolStripMenuItem.Text" xml:space="preserve">
-    <value>Alerta de Filtro</value>
+    <value>Filtrar Alerta</value>
   </data>
   <data name="filterRecordToolStripMenuItem.Text" xml:space="preserve">
     <value>Filtrar registros</value>
   </data>
   <data name="filterNameToolStripMenuItem.Text" xml:space="preserve">
-    <value>Sistema de Filtro</value>
+    <value>Filtrar Sistema</value>
   </data>
   <data name="HistoricoToolStripMenuItem.Text" xml:space="preserve">
     <value>Leia a história completa</value>

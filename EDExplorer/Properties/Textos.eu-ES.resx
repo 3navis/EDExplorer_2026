@@ -297,9 +297,6 @@
   <data name="str_Km_separacion" xml:space="preserve">
     <value>Km bereizketa</value>
   </data>
-  <data name="str_LowTemperatureDiamond" xml:space="preserve">
-    <value>Tenperatura baxuaD_TRIAL</value>
-  </data>
   <data name="str_mero_de_Cuerpos" xml:space="preserve">
     <value>Gorputz kopurua</value>
   </data>
@@ -370,7 +367,7 @@
     <value>Biraketa azkarra</value>
   </data>
   <data name="str_Saltos" xml:space="preserve">
-    <value>Jauziak</value>
+    <value>Jauziak:</value>
   </data>
   <data name="str_saltos_acumulados" xml:space="preserve">
     <value>metatutako jauziak</value>
@@ -520,10 +517,142 @@
     <value>Jakinarazpenen egiaztagiria
 bi lerro .</value>
   </data>
-  <data name="str_This_is_the_notification_text" xml:space="preserve">
-    <value>Hau da jakinarazpen testua</value>
+  <data name="str_Detalle_del_Error" xml:space="preserve">
+    <value>Errorearen xehetasuna</value>
   </data>
-  <data name="str_This_is_the_notification_title" xml:space="preserve">
-    <value>Hau da jakinarazpenaren izenburua</value>
+  <data name="str_Error_Leyendo_Logs" xml:space="preserve">
+    <value>Errore bat gertatu da erregistroak irakurtzean</value>
+  </data>
+  <data name="str_Error_Procesando_Linea" xml:space="preserve">
+    <value>Errorea prozesatzearen lerroa</value>
+  </data>
+  <data name="str_Ha_ocurrido_un_error_al_leer_los" xml:space="preserve">
+    <value>Errore bat gertatu da egunkari fitxategiak irakurtzean. Xehetasunen informazio osagarria ikusi nahi al duzu?</value>
+  </data>
+  <data name="str_Ha_ocurrido_un_error_en_ProcessLine" xml:space="preserve">
+    <value>Errorea gertatu da ProcessLine-n. Xehetasunen informazio osagarria ikusi nahi al duzu?</value>
+  </data>
+  <data name="str_seleccionar_carpeta" xml:space="preserve">
+    <value>Aukeratu Elite Dangerous Journal karpeta</value>
+  </data>
+  <data name="str_Activadas_Alertas_Audibles" xml:space="preserve">
+    <value>Alerta entzungarriak gaituta</value>
+  </data>
+  <data name="str_agujero_Negro" xml:space="preserve">
+    <value>zulo beltza</value>
+  </data>
+  <data name="str_al" xml:space="preserve">
+    <value> au</value>
+  </data>
+  <data name="str_amarillo_naranja" xml:space="preserve">
+    <value>horia-laranja &lt;5.000K</value>
+  </data>
+  <data name="str_azul_blanco_luminosa" xml:space="preserve">
+    <value>urdin zuri argitsua &lt;30.000K</value>
+  </data>
+  <data name="str_blanca" xml:space="preserve">
+    <value>zuria &lt;7.600K</value>
+  </data>
+  <data name="str_blanco_amarilla" xml:space="preserve">
+    <value>zuri-horia &lt;6.000K</value>
+  </data>
+  <data name="str_caliente_blanca_azulada" xml:space="preserve">
+    <value>zuri epela / urdinxka &lt;10.000K</value>
+  </data>
+  <data name="str_catalan" xml:space="preserve">
+    <value>Katalana</value>
+  </data>
+  <data name="str_Catalu" xml:space="preserve">
+    <value>Katalunia</value>
+  </data>
+  <data name="str_Cuerpo" xml:space="preserve">
+    <value>Gorputza</value>
+  </data>
+  <data name="str_Distancia" xml:space="preserve">
+    <value>Distantzia:</value>
+  </data>
+  <data name="str_enana_Blanca" xml:space="preserve">
+    <value>Nano zuria &lt;10.000K</value>
+  </data>
+  <data name="str_enana_marron" xml:space="preserve">
+    <value>nano marroia &lt;1.300K</value>
+  </data>
+  <data name="str_enana_marron1" xml:space="preserve">
+    <value>nano marroia &lt;700K</value>
+  </data>
+  <data name="str_enana_roja" xml:space="preserve">
+    <value>nano gorria &lt;2.400K</value>
+  </data>
+  <data name="str_English" xml:space="preserve">
+    <value>Ingelesa</value>
+  </data>
+  <data name="str_Espa" xml:space="preserve">
+    <value>Espainia</value>
+  </data>
+  <data name="str_Espa_ol" xml:space="preserve">
+    <value>Gaztelania</value>
+  </data>
+  <data name="str_estrella_de_carbono" xml:space="preserve">
+    <value>karbono izarra</value>
+  </data>
+  <data name="str_estrella_de_Neutrones" xml:space="preserve">
+    <value>neutroi izarra</value>
+  </data>
+  <data name="str_Euskadi" xml:space="preserve">
+    <value>Euskadi</value>
+  </data>
+  <data name="str_euskera" xml:space="preserve">
+    <value>Euskara</value>
+  </data>
+  <data name="str_Ex_tica" xml:space="preserve">
+    <value>Exotikoa</value>
+  </data>
+  <data name="str_Frances" xml:space="preserve">
+    <value>Frantsesa</value>
+  </data>
+  <data name="str_Francia" xml:space="preserve">
+    <value>Frantzia</value>
+  </data>
+  <data name="str_masiva_luminosa" xml:space="preserve">
+    <value>argia masiboa &lt;52.000K</value>
+  </data>
+  <data name="str_Portugal" xml:space="preserve">
+    <value>Portugal</value>
+  </data>
+  <data name="str_portugu" xml:space="preserve">
+    <value>Portugesa</value>
+  </data>
+  <data name="str_Reino_Unido" xml:space="preserve">
+    <value>Erresuma Batua</value>
+  </data>
+  <data name="str_Resumen_sesi_actual" xml:space="preserve">
+    <value>Uneko saioaren laburpena</value>
+  </data>
+  <data name="str_roja" xml:space="preserve">
+    <value>gorria</value>
+  </data>
+  <data name="str_Ruta" xml:space="preserve">
+    <value>  [Ibilbidea:</value>
+  </data>
+  <data name="str_saltando_estrella_de_Neutrones" xml:space="preserve">
+    <value>jauzi egiten duen neutroi izarra</value>
+  </data>
+  <data name="str_saltando_estrella_enana_Blanca" xml:space="preserve">
+    <value>izar nano zurira saltoka</value>
+  </data>
+  <data name="str_Sistema" xml:space="preserve">
+    <value>Sistema</value>
+  </data>
+  <data name="str_speak_atencion" xml:space="preserve">
+    <value>Arreta:</value>
+  </data>
+  <data name="str_Tauri" xml:space="preserve">
+    <value>T Tauri</value>
+  </data>
+  <data name="str_Tiempo" xml:space="preserve">
+    <value>Eguraldia:</value>
+  </data>
+  <data name="str_Wolf_Rayet" xml:space="preserve">
+    <value>Otso-Rayet &lt;50.000K</value>
   </data>
 </root>

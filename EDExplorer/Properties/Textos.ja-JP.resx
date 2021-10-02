@@ -157,7 +157,7 @@
     <value>出口</value>
   </data>
   <data name="str_Version_Assembly" xml:space="preserve">
-    <value>バージョンです。</value>
+    <value>バージョンです:</value>
   </data>
   <data name="str_Acumulado" xml:space="preserve">
     <value>累積</value>
@@ -193,16 +193,16 @@
     <value>ロッキーリング</value>
   </data>
   <data name="str_Aterrizable_Anillado" xml:space="preserve">
-    <value>Landable Ring Ring</value>
+    <value>着陸可能なリング</value>
   </data>
   <data name="str_Aterrizable_Atmos" xml:space="preserve">
-    <value>大気中のランダブル</value>
+    <value>大気中のランダブル.</value>
   </data>
   <data name="str_Aterrizable_Atmosf_rico" xml:space="preserve">
     <value>大気中のランダブル</value>
   </data>
   <data name="str_Aterrizable_con_Alta_Gravedad" xml:space="preserve">
-    <value>High Gravity Landable</value>
+    <value>高重力で着陸可能</value>
   </data>
   <data name="str_Aterrizable_con_Baja_Gravedad" xml:space="preserve">
     <value>ローグラビティ ランダブル</value>
@@ -297,9 +297,6 @@
   <data name="str_Km_separacion" xml:space="preserve">
     <value>Km分離</value>
   </data>
-  <data name="str_LowTemperatureDiamond" xml:space="preserve">
-    <value>低温D_TRIAL</value>
-  </data>
   <data name="str_mero_de_Cuerpos" xml:space="preserve">
     <value>ボディーの数</value>
   </data>
@@ -370,7 +367,7 @@
     <value>高速回転</value>
   </data>
   <data name="str_Saltos" xml:space="preserve">
-    <value>ジャンプ</value>
+    <value>ジャンプ：</value>
   </data>
   <data name="str_saltos_acumulados" xml:space="preserve">
     <value>累積ジャンプ</value>
@@ -493,7 +490,7 @@
     <value>現在のリストを削除して、完全なログブックを読み直しますか？</value>
   </data>
   <data name="str_Tiempo_empleado" xml:space="preserve">
-    <value>過ごした時間 </value>
+    <value>過ごした時間:</value>
   </data>
   <data name="str_Confirmar_Acci" xml:space="preserve">
     <value>アクションの確認</value>
@@ -517,12 +514,144 @@
     <value>通知テスト</value>
   </data>
   <data name="str_Prueba_de_Notificaciones_dos_neas" xml:space="preserve">
-    <value>「通知テスト2行。」</value>
+    <value>「通知テスト2行」</value>
   </data>
-  <data name="str_This_is_the_notification_text" xml:space="preserve">
-    <value>これは通知テキストです</value>
+  <data name="str_Detalle_del_Error" xml:space="preserve">
+    <value>エラーの詳細</value>
   </data>
-  <data name="str_This_is_the_notification_title" xml:space="preserve">
-    <value>これは通知のタイトルです</value>
+  <data name="str_Error_Leyendo_Logs" xml:space="preserve">
+    <value>ログの読み取りエラー</value>
+  </data>
+  <data name="str_Error_Procesando_Linea" xml:space="preserve">
+    <value>エラー処理ライン</value>
+  </data>
+  <data name="str_Ha_ocurrido_un_error_al_leer_los" xml:space="preserve">
+    <value>ログファイルの読み取り中にエラーが発生しました。 追加の詳細情報を見たいですか？</value>
+  </data>
+  <data name="str_Ha_ocurrido_un_error_en_ProcessLine" xml:space="preserve">
+    <value>ProcessLineでエラーが発生しました。 追加の詳細情報を見たいですか？</value>
+  </data>
+  <data name="str_seleccionar_carpeta" xml:space="preserve">
+    <value>Elite DangerousJournalフォルダーを選択します</value>
+  </data>
+  <data name="str_Activadas_Alertas_Audibles" xml:space="preserve">
+    <value>可聴アラートを有効にする</value>
+  </data>
+  <data name="str_agujero_Negro" xml:space="preserve">
+    <value>ブラックホール</value>
+  </data>
+  <data name="str_al" xml:space="preserve">
+    <value> 光年</value>
+  </data>
+  <data name="str_amarillo_naranja" xml:space="preserve">
+    <value>黄橙色&lt;5,000K</value>
+  </data>
+  <data name="str_azul_blanco_luminosa" xml:space="preserve">
+    <value>明るいホワイトブルー&lt;30,000K</value>
+  </data>
+  <data name="str_blanca" xml:space="preserve">
+    <value>白&lt;7,600K</value>
+  </data>
+  <data name="str_blanco_amarilla" xml:space="preserve">
+    <value>白黄色&lt;6,000K</value>
+  </data>
+  <data name="str_caliente_blanca_azulada" xml:space="preserve">
+    <value>暖かい白/青みがかった&lt;10,000K</value>
+  </data>
+  <data name="str_catalan" xml:space="preserve">
+    <value>カタロニア語</value>
+  </data>
+  <data name="str_Catalu" xml:space="preserve">
+    <value>カタルーニャ</value>
+  </data>
+  <data name="str_Cuerpo" xml:space="preserve">
+    <value>体</value>
+  </data>
+  <data name="str_Distancia" xml:space="preserve">
+    <value>距離：</value>
+  </data>
+  <data name="str_enana_Blanca" xml:space="preserve">
+    <value>白色矮星&lt;10,000K</value>
+  </data>
+  <data name="str_enana_marron" xml:space="preserve">
+    <value>褐色矮星&lt;1,300K</value>
+  </data>
+  <data name="str_enana_marron1" xml:space="preserve">
+    <value>褐色矮星&lt;700K</value>
+  </data>
+  <data name="str_enana_roja" xml:space="preserve">
+    <value>赤い矮星&lt;2,400K</value>
+  </data>
+  <data name="str_English" xml:space="preserve">
+    <value>英語</value>
+  </data>
+  <data name="str_Espa" xml:space="preserve">
+    <value>スペイン</value>
+  </data>
+  <data name="str_Espa_ol" xml:space="preserve">
+    <value>スペイン語</value>
+  </data>
+  <data name="str_estrella_de_carbono" xml:space="preserve">
+    <value>炭素星</value>
+  </data>
+  <data name="str_estrella_de_Neutrones" xml:space="preserve">
+    <value>中性子星</value>
+  </data>
+  <data name="str_Euskadi" xml:space="preserve">
+    <value>ユースカディ</value>
+  </data>
+  <data name="str_euskera" xml:space="preserve">
+    <value>バスク</value>
+  </data>
+  <data name="str_Ex_tica" xml:space="preserve">
+    <value>エキゾチック</value>
+  </data>
+  <data name="str_Frances" xml:space="preserve">
+    <value>フランス語</value>
+  </data>
+  <data name="str_Francia" xml:space="preserve">
+    <value>フランス</value>
+  </data>
+  <data name="str_masiva_luminosa" xml:space="preserve">
+    <value>大規模な発光&lt;52,000K</value>
+  </data>
+  <data name="str_Portugal" xml:space="preserve">
+    <value>ポルトガル</value>
+  </data>
+  <data name="str_portugu" xml:space="preserve">
+    <value>ポルトガル語</value>
+  </data>
+  <data name="str_Reino_Unido" xml:space="preserve">
+    <value>イギリス</value>
+  </data>
+  <data name="str_Resumen_sesi_actual" xml:space="preserve">
+    <value>現在のセッションの概要</value>
+  </data>
+  <data name="str_roja" xml:space="preserve">
+    <value>赤</value>
+  </data>
+  <data name="str_Ruta" xml:space="preserve">
+    <value>  [ルート：</value>
+  </data>
+  <data name="str_saltando_estrella_de_Neutrones" xml:space="preserve">
+    <value>ジャンプする中性子星</value>
+  </data>
+  <data name="str_saltando_estrella_enana_Blanca" xml:space="preserve">
+    <value>白色矮星にジャンプ</value>
+  </data>
+  <data name="str_Sistema" xml:space="preserve">
+    <value>システム</value>
+  </data>
+  <data name="str_speak_atencion" xml:space="preserve">
+    <value>注意：</value>
+  </data>
+  <data name="str_Tauri" xml:space="preserve">
+    <value>Tタウリ</value>
+  </data>
+  <data name="str_Tiempo" xml:space="preserve">
+    <value>時間が：</value>
+  </data>
+  <data name="str_Wolf_Rayet" xml:space="preserve">
+    <value>Wolf-Rayet &lt;50,000K</value>
   </data>
 </root>

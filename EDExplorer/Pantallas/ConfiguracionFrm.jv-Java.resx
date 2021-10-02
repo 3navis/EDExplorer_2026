@@ -117,10 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="cbxCodex.ToolTip" xml:space="preserve">
+    <value />
+  </data>
   <data name="cbx_VeryInteresting.ToolTip" xml:space="preserve">
     <value />
   </data>
+  <data name="cbxBeta.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="groupBox_misc.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cbxToast.ToolTip" xml:space="preserve">
+    <value />
+  </data>
   <data name="cbxTts.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btn_TestVol.ToolTip" xml:space="preserve">
     <value />
   </data>
   <data name="trackBar_Volume.ToolTip" xml:space="preserve">
@@ -132,10 +147,34 @@
   <data name="tabFSS.ToolTip" xml:space="preserve">
     <value />
   </data>
+  <data name="checkBoxTodos.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="tabScan.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="checkBox1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="tabSignal.ToolTip" xml:space="preserve">
+    <value />
+  </data>
   <data name="cbx_idioma.ToolTip" xml:space="preserve">
     <value />
   </data>
+  <data name="label2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="groupBox2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
   <data name="button1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="trackBar_Transparencia.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="groupBox1.ToolTip" xml:space="preserve">
     <value />
   </data>
   <data name="tabPage3.ToolTip" xml:space="preserve">
@@ -144,88 +183,28 @@
   <data name="button4.ToolTip" xml:space="preserve">
     <value />
   </data>
+  <data name="lblPos.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="button2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="tabOculta.ToolTip" xml:space="preserve">
+    <value />
+  </data>
   <data name="TabControl.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="buttonAceptar.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="buttonCancelar.ToolTip" xml:space="preserve">
     <value />
   </data>
   <data name="button3.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="buttonAceptar.Text" xml:space="preserve">
-    <value>acceptar</value>
-  </data>
-  <data name="cbxTts.Text" xml:space="preserve">
-    <value>Activa Locutor</value>
-  </data>
-  <data name="button3.Text" xml:space="preserve">
-    <value>aplicar</value>
-  </data>
-  <data name="checkBoxTodos.Text" xml:space="preserve">
-    <value>canviar Tots</value>
-  </data>
-  <data name="checkBox1.Text" xml:space="preserve">
-    <value>canviar Tots</value>
-  </data>
-  <data name="buttonCancelar.Text" xml:space="preserve">
-    <value>Cancel</value>
-  </data>
-  <data name="cbxCodex.Text" xml:space="preserve">
-    <value>descobriments Codex</value>
-  </data>
-  <data name="groupBox_misc.Text" xml:space="preserve">
-    <value>Diaris de Vol (Journal Logs)</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>EDExplorer Configuració</value>
-  </data>
-  <data name="tabScan.Text" xml:space="preserve">
-    <value>exploració</value>
-  </data>
-  <data name="tabOculta.Text" xml:space="preserve">
-    <value>Exploració (old)</value>
-  </data>
-  <data name="tabFSS.Text" xml:space="preserve">
-    <value>FSS</value>
-  </data>
-  <data name="lblPos.Text" xml:space="preserve">
-    <value>Label1</value>
-  </data>
-  <data name="cbxBeta.Text" xml:space="preserve">
-    <value>Llegir Journal Beta</value>
-  </data>
-  <data name="cbxToast.Text" xml:space="preserve">
-    <value>Mostra Notificacions</value>
-  </data>
-  <data name="button2.Text" xml:space="preserve">
-    <value>moure</value>
-  </data>
-  <data name="cbx_VeryInteresting.Text" xml:space="preserve">
-    <value>Informa d'Criteris Múltiples</value>
-  </data>
-  <data name="groupBox1.Text" xml:space="preserve">
-    <value>opacitat</value>
-  </data>
-  <data name="button1.Text" xml:space="preserve">
-    <value>provar</value>
-  </data>
-  <data name="btn_TestVol.Text" xml:space="preserve">
-    <value>provar</value>
-  </data>
-  <data name="label2.Text" xml:space="preserve">
-    <value>Es requereix sortir i tornar a entrar per visualitzar els canvis.</value>
-  </data>
-  <data name="tabSignal.Text" xml:space="preserve">
-    <value>senyals</value>
-  </data>
-  <data name="button4.Text" xml:space="preserve">
-    <value>Thyead</value>
-  </data>
-  <data name="tabPage3.Text" xml:space="preserve">
-    <value>diversos</value>
-  </data>
-  <data name="groupBox2.Text" xml:space="preserve">
-    <value>idioma</value>
-  </data>
-  <data name="groupBox_TTS.Text" xml:space="preserve">
-    <value>volum</value>
+  <data name="$this.ToolTip" xml:space="preserve">
+    <value />
   </data>
 </root>

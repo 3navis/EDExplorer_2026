@@ -269,6 +269,9 @@
     <EmbeddedResource Include="About\AboutFrm.fr-FR.resx">
       <DependentUpon>AboutFrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="About\AboutFrm.ja-JP.resx">
+      <DependentUpon>AboutFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="About\AboutFrm.pt-PT.resx">
       <DependentUpon>AboutFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -293,6 +296,12 @@
     <EmbeddedResource Include="Pantallas\ConfiguracionFrm.fr-FR.resx">
       <DependentUpon>ConfiguracionFrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\ConfiguracionFrm.ja-JP.resx">
+      <DependentUpon>ConfiguracionFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\ConfiguracionFrm.jv-Java.resx">
+      <DependentUpon>ConfiguracionFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\ConfiguracionFrm.pt-PT.resx">
       <DependentUpon>ConfiguracionFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -310,6 +319,9 @@
       <DependentUpon>EDExplorerFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\EDExplorerFrm.fr-FR.resx">
+      <DependentUpon>EDExplorerFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\EDExplorerFrm.ja-JP.resx">
       <DependentUpon>EDExplorerFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\EDExplorerFrm.pt-PT.resx">
@@ -359,9 +371,6 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Extracciones\Textos_alertas.resx" />
-    <EmbeddedResource Include="Extracciones\Textos_base.resx" />
-    <EmbeddedResource Include="Extracciones\Textos_LogMonitor.resx" />
     <EmbeddedResource Include="Extracciones\Textos_Scan.resx" />
     <EmbeddedResource Include="Extracciones\Textos_Settings.resx" />
     <EmbeddedResource Include="Extracciones\Textos_Try.resx" />

@@ -1260,7 +1260,7 @@
     <value>Corps</value>
   </data>
   <data name="detail.Text" xml:space="preserve">
-    <value>La description</value>
+    <value>Description</value>
   </data>
   <data name="removeFilterToolStripMenuItem.Text" xml:space="preserve">
     <value>Supprimer le filtre</value>
@@ -1272,13 +1272,13 @@
     <value>Date heure</value>
   </data>
   <data name="filterAlertToolStripMenuItem.Text" xml:space="preserve">
-    <value>Alerte de filtre</value>
+    <value>Filtrer Alerte</value>
   </data>
   <data name="filterRecordToolStripMenuItem.Text" xml:space="preserve">
     <value>Filtrer les enregistrements</value>
   </data>
   <data name="filterNameToolStripMenuItem.Text" xml:space="preserve">
-    <value>Système de filtre</value>
+    <value>Filtrer Système</value>
   </data>
   <data name="HistoricoToolStripMenuItem.Text" xml:space="preserve">
     <value>Lire l'historique complet</value>

@@ -159,12 +159,6 @@
   <data name="str_Version_Assembly" xml:space="preserve">
     <value>Version:</value>
   </data>
-  <data name="Try ++++++++++++++" xml:space="preserve">
-    <value>Try ++++++++++++++</value>
-  </data>
-  <data name="Scan +++++++++++++" xml:space="preserve">
-    <value>Scan +++++++++++++</value>
-  </data>
   <data name="str_Acumulado" xml:space="preserve">
     <value>Acumulado</value>
   </data>
@@ -303,9 +297,6 @@
   <data name="str_Km_separacion" xml:space="preserve">
     <value>Km separacion</value>
   </data>
-  <data name="str_LowTemperatureDiamond" xml:space="preserve">
-    <value>LowTemperatureD_TRIAL</value>
-  </data>
   <data name="str_mero_de_Cuerpos" xml:space="preserve">
     <value>Número de Cuerpos</value>
   </data>
@@ -376,7 +367,7 @@
     <value>Rotación Rápida</value>
   </data>
   <data name="str_Saltos" xml:space="preserve">
-    <value>Saltos</value>
+    <value>Saltos: </value>
   </data>
   <data name="str_saltos_acumulados" xml:space="preserve">
     <value>saltos acumulados</value>
@@ -483,17 +474,11 @@
   <data name="str_Virgen" xml:space="preserve">
     <value>Virgen</value>
   </data>
-  <data name="Alertas +++++++" xml:space="preserve">
-    <value>Alertas +++++++</value>
-  </data>
   <data name="str_Anillo_Rico_Metal" xml:space="preserve">
     <value>Anillo Rico Metal</value>
   </data>
   <data name="str_g_superficie" xml:space="preserve">
     <value>g superficie</value>
-  </data>
-  <data name="EDExplorer" xml:space="preserve">
-    <value></value>
   </data>
   <data name="str_Filtrar_Sistema" xml:space="preserve">
     <value>Filtrar Sistema "</value>
@@ -532,10 +517,142 @@
     <value>Prueba de Notificaciones
 dos líneas.</value>
   </data>
-  <data name="str_This_is_the_notification_text" xml:space="preserve">
-    <value>This is the notification text</value>
+  <data name="str_Detalle_del_Error" xml:space="preserve">
+    <value>Detalle del Error</value>
   </data>
-  <data name="str_This_is_the_notification_title" xml:space="preserve">
-    <value>This is the notification title</value>
+  <data name="str_Error_Leyendo_Logs" xml:space="preserve">
+    <value>Error Leyendo Logs</value>
+  </data>
+  <data name="str_Error_Procesando_Linea" xml:space="preserve">
+    <value>Error Procesando Línea</value>
+  </data>
+  <data name="str_Ha_ocurrido_un_error_al_leer_los" xml:space="preserve">
+    <value>Ha ocurrido un error al leer los archivos de log. ¿Quiere ver información de Detalle adicional?</value>
+  </data>
+  <data name="str_Ha_ocurrido_un_error_en_ProcessLine" xml:space="preserve">
+    <value>Ha ocurrido un error en ProcessLine. ¿Quiere ver información de Detalle adicional?</value>
+  </data>
+  <data name="str_seleccionar_carpeta" xml:space="preserve">
+    <value>Seleccionar la carpeta de Elite Dangerous Journal</value>
+  </data>
+  <data name="str_Activadas_Alertas_Audibles" xml:space="preserve">
+    <value>Activadas Alertas Audibles</value>
+  </data>
+  <data name="str_agujero_Negro" xml:space="preserve">
+    <value>agujero Negro</value>
+  </data>
+  <data name="str_al" xml:space="preserve">
+    <value> al</value>
+  </data>
+  <data name="str_amarillo_naranja" xml:space="preserve">
+    <value>amarillo-naranja &lt;5.000K</value>
+  </data>
+  <data name="str_azul_blanco_luminosa" xml:space="preserve">
+    <value>azul blanco luminosa &lt;30.000K</value>
+  </data>
+  <data name="str_blanca" xml:space="preserve">
+    <value>blanca &lt;7.600K</value>
+  </data>
+  <data name="str_blanco_amarilla" xml:space="preserve">
+    <value>blanco-amarilla &lt;6.000K</value>
+  </data>
+  <data name="str_caliente_blanca_azulada" xml:space="preserve">
+    <value>caliente blanca/azulada &lt;10.000K</value>
+  </data>
+  <data name="str_catalan" xml:space="preserve">
+    <value>catalan</value>
+  </data>
+  <data name="str_Catalu" xml:space="preserve">
+    <value>Cataluña</value>
+  </data>
+  <data name="str_Cuerpo" xml:space="preserve">
+    <value>Cuerpo </value>
+  </data>
+  <data name="str_Distancia" xml:space="preserve">
+    <value>Distancia: </value>
+  </data>
+  <data name="str_enana_Blanca" xml:space="preserve">
+    <value>enana Blanca &lt;10.000K</value>
+  </data>
+  <data name="str_enana_marron" xml:space="preserve">
+    <value>enana marron &lt;1.300K</value>
+  </data>
+  <data name="str_enana_marron1" xml:space="preserve">
+    <value>enana marron &lt;700K</value>
+  </data>
+  <data name="str_enana_roja" xml:space="preserve">
+    <value>enana roja &lt;2.400K</value>
+  </data>
+  <data name="str_English" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="str_Espa" xml:space="preserve">
+    <value>España</value>
+  </data>
+  <data name="str_Espa_ol" xml:space="preserve">
+    <value>Español</value>
+  </data>
+  <data name="str_estrella_de_carbono" xml:space="preserve">
+    <value>estrella de carbono</value>
+  </data>
+  <data name="str_estrella_de_Neutrones" xml:space="preserve">
+    <value>estrella de Neutrones</value>
+  </data>
+  <data name="str_Euskadi" xml:space="preserve">
+    <value>Euskadi</value>
+  </data>
+  <data name="str_euskera" xml:space="preserve">
+    <value>euskera</value>
+  </data>
+  <data name="str_Ex_tica" xml:space="preserve">
+    <value>Exótica</value>
+  </data>
+  <data name="str_Frances" xml:space="preserve">
+    <value>Frances</value>
+  </data>
+  <data name="str_Francia" xml:space="preserve">
+    <value>Francia</value>
+  </data>
+  <data name="str_masiva_luminosa" xml:space="preserve">
+    <value>masiva luminosa &lt;52.000K</value>
+  </data>
+  <data name="str_Portugal" xml:space="preserve">
+    <value>Portugal</value>
+  </data>
+  <data name="str_portugu" xml:space="preserve">
+    <value>português</value>
+  </data>
+  <data name="str_Reino_Unido" xml:space="preserve">
+    <value>Reino Unido</value>
+  </data>
+  <data name="str_Resumen_sesi_actual" xml:space="preserve">
+    <value>Resumen sesión actual</value>
+  </data>
+  <data name="str_roja" xml:space="preserve">
+    <value>roja</value>
+  </data>
+  <data name="str_Ruta" xml:space="preserve">
+    <value> [Ruta:</value>
+  </data>
+  <data name="str_saltando_estrella_de_Neutrones" xml:space="preserve">
+    <value>saltando a estrella de Neutrones</value>
+  </data>
+  <data name="str_saltando_estrella_enana_Blanca" xml:space="preserve">
+    <value>saltando a estrella enana Blanca</value>
+  </data>
+  <data name="str_Sistema" xml:space="preserve">
+    <value>Sistema </value>
+  </data>
+  <data name="str_speak_atencion" xml:space="preserve">
+    <value>Atención:</value>
+  </data>
+  <data name="str_Tauri" xml:space="preserve">
+    <value>T Tauri</value>
+  </data>
+  <data name="str_Tiempo" xml:space="preserve">
+    <value>Tiempo: </value>
+  </data>
+  <data name="str_Wolf_Rayet" xml:space="preserve">
+    <value>Wolf-Rayet &lt;50.000K</value>
   </data>
 </root>

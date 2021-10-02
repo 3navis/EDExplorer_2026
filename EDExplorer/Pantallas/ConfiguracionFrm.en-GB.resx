@@ -184,9 +184,6 @@
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>45, 17</value>
   </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Idiom:</value>
-  </data>
   <data name="cbx_idioma.ToolTip" xml:space="preserve">
     <value />
   </data>
@@ -227,6 +224,6 @@
     <value>Thyead</value>
   </data>
   <data name="groupBox2.Text" xml:space="preserve">
-    <value>Vertical</value>
+    <value>Idiom</value>
   </data>
 </root>

@@ -163,10 +163,10 @@
     <value>Accumulé</value>
   </data>
   <data name="str_al_acumulados" xml:space="preserve">
-    <value>accumuler</value>
+    <value>al accumulés</value>
   </data>
   <data name="str_al_de_distancia_acumulada_en_saltos" xml:space="preserve">
-    <value>à la distance cumulée en sauts</value>
+    <value>al distance cumulée en sauts</value>
   </data>
   <data name="str_Alexandrite" xml:space="preserve">
     <value>Alexandrite</value>
@@ -196,7 +196,7 @@
     <value>Atterrissable annelé</value>
   </data>
   <data name="str_Aterrizable_Atmos" xml:space="preserve">
-    <value>Atterrissable Atmos</value>
+    <value>Atterrissable Atmos.</value>
   </data>
   <data name="str_Aterrizable_Atmosf_rico" xml:space="preserve">
     <value>Atterrissable Atmosphérique</value>
@@ -297,9 +297,6 @@
   <data name="str_Km_separacion" xml:space="preserve">
     <value>Km de séparation</value>
   </data>
-  <data name="str_LowTemperatureDiamond" xml:space="preserve">
-    <value>Basse TempératureD_TRIAL</value>
-  </data>
   <data name="str_mero_de_Cuerpos" xml:space="preserve">
     <value>Nombre de corps</value>
   </data>
@@ -343,7 +340,7 @@
     <value>Painite</value>
   </data>
   <data name="str_Poblacion" xml:space="preserve">
-    <value>Population </value>
+    <value>Population</value>
   </data>
   <data name="str_Pr_ximo_al_Anillo" xml:space="preserve">
     <value>À côté de l'anneau</value>
@@ -370,7 +367,7 @@
     <value>Rotation rapide</value>
   </data>
   <data name="str_Saltos" xml:space="preserve">
-    <value>Sauts</value>
+    <value>Sauts :</value>
   </data>
   <data name="str_saltos_acumulados" xml:space="preserve">
     <value>sauts accumulés</value>
@@ -520,10 +517,142 @@
     <value>Preuve de notification
 deux lignes.</value>
   </data>
-  <data name="str_This_is_the_notification_text" xml:space="preserve">
-    <value>Ceci est le texte de notification</value>
+  <data name="str_Detalle_del_Error" xml:space="preserve">
+    <value>Détails de l'erreur</value>
   </data>
-  <data name="str_This_is_the_notification_title" xml:space="preserve">
-    <value>Ceci est le titre de la notification</value>
+  <data name="str_Error_Leyendo_Logs" xml:space="preserve">
+    <value>Erreur de lecture des journaux</value>
+  </data>
+  <data name="str_Error_Procesando_Linea" xml:space="preserve">
+    <value>Ligne de traitement des erreurs</value>
+  </data>
+  <data name="str_Ha_ocurrido_un_error_al_leer_los" xml:space="preserve">
+    <value>Une erreur s'est produite lors de la lecture des fichiers journaux. Voulez-vous voir des informations détaillées supplémentaires ?</value>
+  </data>
+  <data name="str_Ha_ocurrido_un_error_en_ProcessLine" xml:space="preserve">
+    <value>Une erreur s'est produite dans la ProcessLine. Voulez-vous voir des informations détaillées supplémentaires ?</value>
+  </data>
+  <data name="str_seleccionar_carpeta" xml:space="preserve">
+    <value>Sélectionnez le dossier Elite Dangerous Journal</value>
+  </data>
+  <data name="str_Activadas_Alertas_Audibles" xml:space="preserve">
+    <value>Alertes sonores activées</value>
+  </data>
+  <data name="str_agujero_Negro" xml:space="preserve">
+    <value>trou noir</value>
+  </data>
+  <data name="str_al" xml:space="preserve">
+    <value> al</value>
+  </data>
+  <data name="str_amarillo_naranja" xml:space="preserve">
+    <value>jaune-orange &lt;5,000K</value>
+  </data>
+  <data name="str_azul_blanco_luminosa" xml:space="preserve">
+    <value>bleu blanc lumineux &lt;30 000K</value>
+  </data>
+  <data name="str_blanca" xml:space="preserve">
+    <value>blanc &lt;7 600K</value>
+  </data>
+  <data name="str_blanco_amarilla" xml:space="preserve">
+    <value>blanc-jaune &lt;6 000K</value>
+  </data>
+  <data name="str_caliente_blanca_azulada" xml:space="preserve">
+    <value>blanc chaud / bleuté &lt;10 000K</value>
+  </data>
+  <data name="str_catalan" xml:space="preserve">
+    <value>catalan</value>
+  </data>
+  <data name="str_Catalu" xml:space="preserve">
+    <value>Catalogne</value>
+  </data>
+  <data name="str_Cuerpo" xml:space="preserve">
+    <value>Corps</value>
+  </data>
+  <data name="str_Distancia" xml:space="preserve">
+    <value>Distance:</value>
+  </data>
+  <data name="str_enana_Blanca" xml:space="preserve">
+    <value>Naine blanche &lt;10 000K</value>
+  </data>
+  <data name="str_enana_marron" xml:space="preserve">
+    <value>naine brune &lt;1,300K</value>
+  </data>
+  <data name="str_enana_marron1" xml:space="preserve">
+    <value>naine brune &lt;700K</value>
+  </data>
+  <data name="str_enana_roja" xml:space="preserve">
+    <value>naine rouge &lt;2,400K</value>
+  </data>
+  <data name="str_English" xml:space="preserve">
+    <value>Anglais</value>
+  </data>
+  <data name="str_Espa" xml:space="preserve">
+    <value>Espagne</value>
+  </data>
+  <data name="str_Espa_ol" xml:space="preserve">
+    <value>Espanol</value>
+  </data>
+  <data name="str_estrella_de_carbono" xml:space="preserve">
+    <value>étoile de carbone</value>
+  </data>
+  <data name="str_estrella_de_Neutrones" xml:space="preserve">
+    <value>étoile à neutrons</value>
+  </data>
+  <data name="str_Euskadi" xml:space="preserve">
+    <value>Pays Basque</value>
+  </data>
+  <data name="str_euskera" xml:space="preserve">
+    <value>basque</value>
+  </data>
+  <data name="str_Ex_tica" xml:space="preserve">
+    <value>Exotique</value>
+  </data>
+  <data name="str_Frances" xml:space="preserve">
+    <value>français</value>
+  </data>
+  <data name="str_Francia" xml:space="preserve">
+    <value>La France</value>
+  </data>
+  <data name="str_masiva_luminosa" xml:space="preserve">
+    <value>massive lumineuse &lt;52 000K</value>
+  </data>
+  <data name="str_Portugal" xml:space="preserve">
+    <value>le Portugal</value>
+  </data>
+  <data name="str_portugu" xml:space="preserve">
+    <value>Portugais</value>
+  </data>
+  <data name="str_Reino_Unido" xml:space="preserve">
+    <value>Royaume-Uni</value>
+  </data>
+  <data name="str_Resumen_sesi_actual" xml:space="preserve">
+    <value>Résumé de la session en cours</value>
+  </data>
+  <data name="str_roja" xml:space="preserve">
+    <value>rouge</value>
+  </data>
+  <data name="str_Ruta" xml:space="preserve">
+    <value>  [Route:</value>
+  </data>
+  <data name="str_saltando_estrella_de_Neutrones" xml:space="preserve">
+    <value>étoile à neutrons sautante</value>
+  </data>
+  <data name="str_saltando_estrella_enana_Blanca" xml:space="preserve">
+    <value>sauter à l'étoile naine blanche</value>
+  </data>
+  <data name="str_Sistema" xml:space="preserve">
+    <value>Système</value>
+  </data>
+  <data name="str_speak_atencion" xml:space="preserve">
+    <value>Attention:</value>
+  </data>
+  <data name="str_Tauri" xml:space="preserve">
+    <value>T Tauri</value>
+  </data>
+  <data name="str_Tiempo" xml:space="preserve">
+    <value>Temps:</value>
+  </data>
+  <data name="str_Wolf_Rayet" xml:space="preserve">
+    <value>Loup-Rayet &lt;50 000K</value>
   </data>
 </root>

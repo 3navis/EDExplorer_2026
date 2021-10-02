@@ -159,9 +159,6 @@
   <data name="tabFSS.Text" xml:space="preserve">
     <value>FSS</value>
   </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Idiom:</value>
-  </data>
   <data name="lblPos.Text" xml:space="preserve">
     <value>label1</value>
   </data>

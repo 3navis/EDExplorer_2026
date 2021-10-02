@@ -163,10 +163,10 @@
     <value>acumulat</value>
   </data>
   <data name="str_al_acumulados" xml:space="preserve">
-    <value>a l'acumulats</value>
+    <value>al acumulats</value>
   </data>
   <data name="str_al_de_distancia_acumulada_en_saltos" xml:space="preserve">
-    <value>a el de distància acumulada en salts</value>
+    <value>al de distància acumulada en salts</value>
   </data>
   <data name="str_Alexandrite" xml:space="preserve">
     <value>Alexandrite</value>
@@ -297,9 +297,6 @@
   <data name="str_Km_separacion" xml:space="preserve">
     <value>km separació</value>
   </data>
-  <data name="str_LowTemperatureDiamond" xml:space="preserve">
-    <value>LowTemperatureD_TRIAL</value>
-  </data>
   <data name="str_mero_de_Cuerpos" xml:space="preserve">
     <value>Nombre de Cossos</value>
   </data>
@@ -370,7 +367,7 @@
     <value>rotació Ràpida</value>
   </data>
   <data name="str_Saltos" xml:space="preserve">
-    <value>salts</value>
+    <value>salts:</value>
   </data>
   <data name="str_saltos_acumulados" xml:space="preserve">
     <value>salts acumulats</value>
@@ -520,10 +517,142 @@
     <value>Prova de Notificacions
 dues línies. </value>
   </data>
-  <data name="str_This_is_the_notification_text" xml:space="preserve">
-    <value>This is the notification text</value>
+  <data name="str_Detalle_del_Error" xml:space="preserve">
+    <value>Detall de l'Error</value>
   </data>
-  <data name="str_This_is_the_notification_title" xml:space="preserve">
-    <value>This is the notification title</value>
+  <data name="str_Error_Leyendo_Logs" xml:space="preserve">
+    <value>Error Llegint Logs</value>
+  </data>
+  <data name="str_Error_Procesando_Linea" xml:space="preserve">
+    <value>Error En procés Línia</value>
+  </data>
+  <data name="str_Ha_ocurrido_un_error_al_leer_los" xml:space="preserve">
+    <value>Hi ha hagut un error a l'llegir els arxius de registre. Vol veure informació de detall addicional?</value>
+  </data>
+  <data name="str_Ha_ocurrido_un_error_en_ProcessLine" xml:space="preserve">
+    <value>Hi ha hagut un error en ProcessLine. Vol veure informació de detall addicional?</value>
+  </data>
+  <data name="str_seleccionar_carpeta" xml:space="preserve">
+    <value>Seleccionar la carpeta d'Elite Dangerous Journal</value>
+  </data>
+  <data name="str_Activadas_Alertas_Audibles" xml:space="preserve">
+    <value>Activades Alertes Audibles</value>
+  </data>
+  <data name="str_agujero_Negro" xml:space="preserve">
+    <value>forat Negre</value>
+  </data>
+  <data name="str_al" xml:space="preserve">
+    <value> al</value>
+  </data>
+  <data name="str_amarillo_naranja" xml:space="preserve">
+    <value>groc-taronja &lt;5.000K</value>
+  </data>
+  <data name="str_azul_blanco_luminosa" xml:space="preserve">
+    <value>blau blanc lluminosa &lt;30.000K</value>
+  </data>
+  <data name="str_blanca" xml:space="preserve">
+    <value>blanca &lt;7.600K</value>
+  </data>
+  <data name="str_blanco_amarilla" xml:space="preserve">
+    <value>blanc-groga &lt;6.000K</value>
+  </data>
+  <data name="str_caliente_blanca_azulada" xml:space="preserve">
+    <value>calenta blanca / blavosa &lt;10.000K</value>
+  </data>
+  <data name="str_catalan" xml:space="preserve">
+    <value>català</value>
+  </data>
+  <data name="str_Catalu" xml:space="preserve">
+    <value>Catalunya</value>
+  </data>
+  <data name="str_Cuerpo" xml:space="preserve">
+    <value>Cos</value>
+  </data>
+  <data name="str_Distancia" xml:space="preserve">
+    <value>distància:</value>
+  </data>
+  <data name="str_enana_Blanca" xml:space="preserve">
+    <value>nana Blanca &lt;10.000K</value>
+  </data>
+  <data name="str_enana_marron" xml:space="preserve">
+    <value>nana marró &lt;1.300K</value>
+  </data>
+  <data name="str_enana_marron1" xml:space="preserve">
+    <value>nana marró &lt;700K</value>
+  </data>
+  <data name="str_enana_roja" xml:space="preserve">
+    <value>nana vermella &lt;2.400K</value>
+  </data>
+  <data name="str_English" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="str_Espa" xml:space="preserve">
+    <value>Espanya</value>
+  </data>
+  <data name="str_Espa_ol" xml:space="preserve">
+    <value>Espanyol</value>
+  </data>
+  <data name="str_estrella_de_carbono" xml:space="preserve">
+    <value>estrella de carboni</value>
+  </data>
+  <data name="str_estrella_de_Neutrones" xml:space="preserve">
+    <value>estrella de Neutrons</value>
+  </data>
+  <data name="str_Euskadi" xml:space="preserve">
+    <value>Euskadi</value>
+  </data>
+  <data name="str_euskera" xml:space="preserve">
+    <value>basc</value>
+  </data>
+  <data name="str_Ex_tica" xml:space="preserve">
+    <value>exòtica</value>
+  </data>
+  <data name="str_Frances" xml:space="preserve">
+    <value>Frances</value>
+  </data>
+  <data name="str_Francia" xml:space="preserve">
+    <value>França</value>
+  </data>
+  <data name="str_masiva_luminosa" xml:space="preserve">
+    <value>massiva lluminosa &lt;52.000K</value>
+  </data>
+  <data name="str_Portugal" xml:space="preserve">
+    <value>Portugal</value>
+  </data>
+  <data name="str_portugu" xml:space="preserve">
+    <value>português</value>
+  </data>
+  <data name="str_Reino_Unido" xml:space="preserve">
+    <value>Regne Unit</value>
+  </data>
+  <data name="str_Resumen_sesi_actual" xml:space="preserve">
+    <value>Resum sessió actual</value>
+  </data>
+  <data name="str_roja" xml:space="preserve">
+    <value>vermella</value>
+  </data>
+  <data name="str_Ruta" xml:space="preserve">
+    <value>  [Ruta:</value>
+  </data>
+  <data name="str_saltando_estrella_de_Neutrones" xml:space="preserve">
+    <value>saltant a estrella de Neutrons</value>
+  </data>
+  <data name="str_saltando_estrella_enana_Blanca" xml:space="preserve">
+    <value>saltant a estrella nana Blanca</value>
+  </data>
+  <data name="str_Sistema" xml:space="preserve">
+    <value>sistema</value>
+  </data>
+  <data name="str_speak_atencion" xml:space="preserve">
+    <value>atenció:</value>
+  </data>
+  <data name="str_Tauri" xml:space="preserve">
+    <value>T Tauri</value>
+  </data>
+  <data name="str_Tiempo" xml:space="preserve">
+    <value>temps:</value>
+  </data>
+  <data name="str_Wolf_Rayet" xml:space="preserve">
+    <value>Wolf-Rayet &lt;50.000K</value>
   </data>
 </root>

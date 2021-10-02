@@ -117,10 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="&gt;&gt;button1.Name" xml:space="preserve">
-    <value>button1</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="frmLienzo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>328, 4</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Desarrollado por 3navis</value>
+  </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>8, 16</value>
   </data>
@@ -134,17 +137,8 @@
   <data name="&gt;&gt;paso1.Type" xml:space="preserve">
     <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;frmLienzo.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="frmLienzo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>328, 4</value>
-  </data>
   <data name="&gt;&gt;paso1.Parent" xml:space="preserve">
     <value>$this</value>
-  </data>
-  <data name="richTextBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>194, 696</value>
   </data>
   <data name="&gt;&gt;paso3.Parent" xml:space="preserve">
     <value>$this</value>
@@ -183,14 +177,14 @@
   <data name="&gt;&gt;paso2.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="paso2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 241</value>
-  </data>
   <data name="frmLienzo.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="paso3.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
+  </data>
+  <data name="frmLienzo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>869, 696</value>
   </data>
   <data name="button1.Size" type="System.Drawing.Size, System.Drawing">
     <value>96, 29</value>
@@ -204,11 +198,8 @@ El reporte de incidencias o solicitud de mejoras se puede realizar en =&gt; http
 
 Modelado gráfico que resuelve un reto informático aparecido en la sección 'juegos de ordenador' incluido en la revista Investigación y Ciencia (1986). </value>
   </data>
-  <data name="&gt;&gt;paso2.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="paso2.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+  <data name="richTextBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>194, 696</value>
   </data>
   <data name="paso2.Size" type="System.Drawing.Size, System.Drawing">
     <value>310, 219</value>
@@ -216,11 +207,17 @@ Modelado gráfico que resuelve un reto informático aparecido en la sección 'ju
   <data name="paso1.Location" type="System.Drawing.Point, System.Drawing">
     <value>9, 4</value>
   </data>
-  <data name="frmLienzo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>869, 696</value>
+  <data name="paso2.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;paso1.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="&gt;&gt;paso2.Type" xml:space="preserve">
     <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="paso1.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
   <data name="&gt;&gt;button1.Parent" xml:space="preserve">
     <value>$this</value>
@@ -246,40 +243,40 @@ Modelado gráfico que resuelve un reto informático aparecido en la sección 'ju
   <data name="button1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
+  <data name="button1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1099, 6</value>
+  </data>
   <data name="&gt;&gt;frmLienzo.Type" xml:space="preserve">
     <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;paso1.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="&gt;&gt;button1.Name" xml:space="preserve">
+    <value>button1</value>
   </data>
   <data name="&gt;&gt;richTextBox1.Name" xml:space="preserve">
     <value>richTextBox1</value>
   </data>
-  <data name="&gt;&gt;button1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;paso2.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="button1.Text" xml:space="preserve">
     <value>Refrescar</value>
   </data>
-  <data name="button1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1099, 6</value>
+  <data name="paso2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 241</value>
   </data>
-  <data name="paso1.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="&gt;&gt;frmLienzo.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;button1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;paso3.ZOrder" xml:space="preserve">
     <value>1</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Desarrollado por 3navis</value>
   </data>
   <data name="paso3.Location" type="System.Drawing.Point, System.Drawing">
     <value>9, 481</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>ca-ES</value>
   </metadata>
 </root>

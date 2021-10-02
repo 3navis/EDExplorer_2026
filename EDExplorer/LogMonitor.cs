@@ -8,6 +8,8 @@ using System.Windows.Forms;
 
 namespace EDExplorer
 {
+    using M = Properties.Textos;
+
     public class LogMonitor
     {
         public Base basi;
@@ -167,7 +169,7 @@ namespace EDExplorer
             }
             catch (Exception ex)
             {
-                DialogResult response = MessageBox.Show("Ha ocurrido un error al leer los archivos de log. ¿Quiere ver información de Detalle adicional?", "Error Leyendo Logs", MessageBoxButtons.YesNo);
+                DialogResult response = MessageBox.Show(M.str_Ha_ocurrido_un_error_al_leer_los, M.str_Error_Leyendo_Logs, MessageBoxButtons.YesNo);
                 if (response == DialogResult.Yes)
                 {
                     MessageBox.Show($"Journal Line: {CurrentLogLine}\r\nException message: {ex.Message}\r\n\r\nStack trace: {ex.StackTrace}", "Detalle del Error", MessageBoxButtons.OK);
@@ -190,7 +192,7 @@ namespace EDExplorer
                 {
                     RootFolder = Environment.SpecialFolder.MyComputer,
                     ShowNewFolderButton = false,
-                    Description = "Seleccionar la carpeta de Elite Dangerous Journal"
+                    Description = M.str_seleccionar_carpeta
                 };
                 DialogResult result = folderBrowserDialog.ShowDialog();
                 if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(folderBrowserDialog.SelectedPath))
@@ -396,10 +398,10 @@ namespace EDExplorer
             }
             catch (Exception ex)
             {
-                DialogResult response = MessageBox.Show("Ha ocurrido un error en ProcessLine. ¿Quiere ver información de Detalle adicional?", "Error Procesando Linea", MessageBoxButtons.YesNo);
+                DialogResult response = MessageBox.Show(M.str_Ha_ocurrido_un_error_en_ProcessLine, M.str_Error_Procesando_Linea, MessageBoxButtons.YesNo);
                 if (response == DialogResult.Yes)
                 {
-                    MessageBox.Show($"Evento: {evento}\r\nLinea: {logLine}\r\nException message: {ex.Message}\r\n\r\nStack trace: {ex.StackTrace}", "Detalle del Error", MessageBoxButtons.OK);
+                    MessageBox.Show($"Evento: {evento}\r\nLinea: {logLine}\r\nException message: {ex.Message}\r\n\r\nStack trace: {ex.StackTrace}", M.str_Detalle_del_Error, MessageBoxButtons.OK);
                 }
             }
         }

@@ -249,9 +249,6 @@
   <data name="tabFSS.Text" xml:space="preserve">
     <value>FSS</value>
   </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Idioma:</value>
-  </data>
   <data name="lblPos.Text" xml:space="preserve">
     <value>etiqueta1</value>
   </data>
@@ -289,7 +286,7 @@
     <value>Diversos</value>
   </data>
   <data name="groupBox2.Text" xml:space="preserve">
-    <value>Vertical</value>
+    <value>Idioma</value>
   </data>
   <data name="groupBox_TTS.Text" xml:space="preserve">
     <value>Volume</value>

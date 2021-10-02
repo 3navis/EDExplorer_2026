@@ -163,10 +163,10 @@
     <value>Acumulado</value>
   </data>
   <data name="str_al_acumulados" xml:space="preserve">
-    <value>acumular</value>
+    <value>al acumulada</value>
   </data>
   <data name="str_al_de_distancia_acumulada_en_saltos" xml:space="preserve">
-    <value>à distância acumulada em saltos</value>
+    <value>al distância acumulada em saltos</value>
   </data>
   <data name="str_Alexandrite" xml:space="preserve">
     <value>Alexandrite</value>
@@ -193,22 +193,22 @@
     <value>Anel Rocky</value>
   </data>
   <data name="str_Aterrizable_Anillado" xml:space="preserve">
-    <value>Landable Ringed</value>
+    <value>Pousável Ringed</value>
   </data>
   <data name="str_Aterrizable_Atmos" xml:space="preserve">
-    <value>Atmos pousável.</value>
+    <value>Pousável Atmos.</value>
   </data>
   <data name="str_Aterrizable_Atmosf_rico" xml:space="preserve">
-    <value>Pouso Atmosférico</value>
+    <value>Pousável Atmosférico</value>
   </data>
   <data name="str_Aterrizable_con_Alta_Gravedad" xml:space="preserve">
-    <value>Pode ser pousado com alta gravidade</value>
+    <value>Pousável com alta gravidade</value>
   </data>
   <data name="str_Aterrizable_con_Baja_Gravedad" xml:space="preserve">
-    <value>Pode ser pousado com baixa gravidade</value>
+    <value>Pousável com baixa gravidade</value>
   </data>
   <data name="str_Aterrizable_Grande" xml:space="preserve">
-    <value>Grande Landable</value>
+    <value>Pousável Grande</value>
   </data>
   <data name="str_Aterrizable_Peque" xml:space="preserve">
     <value>Pousável pequeno</value>
@@ -297,9 +297,6 @@
   <data name="str_Km_separacion" xml:space="preserve">
     <value>Separação de km</value>
   </data>
-  <data name="str_LowTemperatureDiamond" xml:space="preserve">
-    <value>LowTemperatureD_TRIAL</value>
-  </data>
   <data name="str_mero_de_Cuerpos" xml:space="preserve">
     <value>Número de Corpos</value>
   </data>
@@ -370,7 +367,7 @@
     <value>Rotação Rápida</value>
   </data>
   <data name="str_Saltos" xml:space="preserve">
-    <value>Saltos</value>
+    <value>Saltos:</value>
   </data>
   <data name="str_saltos_acumulados" xml:space="preserve">
     <value>saltos acumulados</value>
@@ -520,10 +517,142 @@
     <value>Prova de Notificações
 duas linhas.</value>
   </data>
-  <data name="str_This_is_the_notification_text" xml:space="preserve">
-    <value>Este é o texto de notificação</value>
+  <data name="str_Detalle_del_Error" xml:space="preserve">
+    <value>Detalhe do erro</value>
   </data>
-  <data name="str_This_is_the_notification_title" xml:space="preserve">
-    <value>Este é o título da notificação</value>
+  <data name="str_Error_Leyendo_Logs" xml:space="preserve">
+    <value>Erros de leitura de registros</value>
+  </data>
+  <data name="str_Error_Procesando_Linea" xml:space="preserve">
+    <value>Linha de Processamento de Erro</value>
+  </data>
+  <data name="str_Ha_ocurrido_un_error_al_leer_los" xml:space="preserve">
+    <value>Ocorreu um erro ao ler os arquivos de log. Você deseja ver informações detalhadas adicionais?</value>
+  </data>
+  <data name="str_Ha_ocurrido_un_error_en_ProcessLine" xml:space="preserve">
+    <value>Ocorreu um erro no ProcessLine. Você deseja ver informações detalhadas adicionais?</value>
+  </data>
+  <data name="str_seleccionar_carpeta" xml:space="preserve">
+    <value>Selecione a pasta Elite Dangerous Journal</value>
+  </data>
+  <data name="str_Activadas_Alertas_Audibles" xml:space="preserve">
+    <value>Alertas sonoros ativados</value>
+  </data>
+  <data name="str_agujero_Negro" xml:space="preserve">
+    <value>buraco negro</value>
+  </data>
+  <data name="str_al" xml:space="preserve">
+    <value> al</value>
+  </data>
+  <data name="str_amarillo_naranja" xml:space="preserve">
+    <value>amarelo-laranja &lt;5.000K</value>
+  </data>
+  <data name="str_azul_blanco_luminosa" xml:space="preserve">
+    <value>azul branco luminoso &lt;30.000K</value>
+  </data>
+  <data name="str_blanca" xml:space="preserve">
+    <value>branco &lt;7.600K</value>
+  </data>
+  <data name="str_blanco_amarilla" xml:space="preserve">
+    <value>branco-amarelo &lt;6.000K</value>
+  </data>
+  <data name="str_caliente_blanca_azulada" xml:space="preserve">
+    <value>branco quente / azulado &lt;10.000 K</value>
+  </data>
+  <data name="str_catalan" xml:space="preserve">
+    <value>catalão</value>
+  </data>
+  <data name="str_Catalu" xml:space="preserve">
+    <value>Catalonia</value>
+  </data>
+  <data name="str_Cuerpo" xml:space="preserve">
+    <value>Corpo</value>
+  </data>
+  <data name="str_Distancia" xml:space="preserve">
+    <value>Distância:</value>
+  </data>
+  <data name="str_enana_Blanca" xml:space="preserve">
+    <value>Anã branca &lt;10.000K</value>
+  </data>
+  <data name="str_enana_marron" xml:space="preserve">
+    <value>anã marrom &lt;1.300K</value>
+  </data>
+  <data name="str_enana_marron1" xml:space="preserve">
+    <value>anã marrom &lt;700K</value>
+  </data>
+  <data name="str_enana_roja" xml:space="preserve">
+    <value>anã vermelha &lt;2.400K</value>
+  </data>
+  <data name="str_English" xml:space="preserve">
+    <value>inglês</value>
+  </data>
+  <data name="str_Espa" xml:space="preserve">
+    <value>Espanha</value>
+  </data>
+  <data name="str_Espa_ol" xml:space="preserve">
+    <value>espanhol</value>
+  </data>
+  <data name="str_estrella_de_carbono" xml:space="preserve">
+    <value>estrela de carbono</value>
+  </data>
+  <data name="str_estrella_de_Neutrones" xml:space="preserve">
+    <value>Estrêla de Neutróns</value>
+  </data>
+  <data name="str_Euskadi" xml:space="preserve">
+    <value>Euskadi</value>
+  </data>
+  <data name="str_euskera" xml:space="preserve">
+    <value>Basco</value>
+  </data>
+  <data name="str_Ex_tica" xml:space="preserve">
+    <value>Exótico</value>
+  </data>
+  <data name="str_Frances" xml:space="preserve">
+    <value>francês</value>
+  </data>
+  <data name="str_Francia" xml:space="preserve">
+    <value>França</value>
+  </data>
+  <data name="str_masiva_luminosa" xml:space="preserve">
+    <value>luminosa massiva &lt;52.000K</value>
+  </data>
+  <data name="str_Portugal" xml:space="preserve">
+    <value>Portugal</value>
+  </data>
+  <data name="str_portugu" xml:space="preserve">
+    <value>português</value>
+  </data>
+  <data name="str_Reino_Unido" xml:space="preserve">
+    <value>Reino Unido</value>
+  </data>
+  <data name="str_Resumen_sesi_actual" xml:space="preserve">
+    <value>Resumo da sessão atual</value>
+  </data>
+  <data name="str_roja" xml:space="preserve">
+    <value>vermelho</value>
+  </data>
+  <data name="str_Ruta" xml:space="preserve">
+    <value>  [Rota:</value>
+  </data>
+  <data name="str_saltando_estrella_de_Neutrones" xml:space="preserve">
+    <value>estrela de nêutrons saltitante</value>
+  </data>
+  <data name="str_saltando_estrella_enana_Blanca" xml:space="preserve">
+    <value>pulando para a estrela anã branca</value>
+  </data>
+  <data name="str_Sistema" xml:space="preserve">
+    <value>Sistema</value>
+  </data>
+  <data name="str_speak_atencion" xml:space="preserve">
+    <value>Atenção:</value>
+  </data>
+  <data name="str_Tauri" xml:space="preserve">
+    <value>T Tauri</value>
+  </data>
+  <data name="str_Tiempo" xml:space="preserve">
+    <value>Tempo:</value>
+  </data>
+  <data name="str_Wolf_Rayet" xml:space="preserve">
+    <value>Wolf-Rayet &lt;50.000K</value>
   </data>
 </root>

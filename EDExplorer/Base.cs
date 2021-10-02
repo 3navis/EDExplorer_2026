@@ -12,6 +12,8 @@ using System.Windows.Forms;
 
 namespace EDExplorer
 {
+    using M = Properties.Textos;
+    
     //using ListaInteres = List<(string BodyName, string Description, string Detail)>;
     public class Base
     {
@@ -28,6 +30,8 @@ namespace EDExplorer
         public FontElite fontElite;
         // public NotifyFrm notifyFrm;
         
+        private Properties.Settings settings;
+
         public Base()
         {
             alertas = new Alertas();
@@ -118,42 +122,42 @@ namespace EDExplorer
             switch (logMonitor.claseStar.Substring(0,1))
             {
                 case "N":
-                    tipoStar = "estrella de Neutrones";
-                    alertaStar = "saltando a estrella de Neutrones";
+                    tipoStar = M.str_estrella_de_Neutrones;
+                    alertaStar = M.str_saltando_estrella_de_Neutrones;
                     break;
                 case "D":
-                    tipoStar = "enana Blanca <10.000K";
-                    alertaStar = "saltando a estrella enana Blanca";
+                    tipoStar = M.str_enana_Blanca;
+                    alertaStar = M.str_saltando_estrella_enana_Blanca;
                     break;
                 case "H":
-                    tipoStar = "agujero Negro"; break;
+                    tipoStar = M.str_agujero_Negro; break;
                 case "C":
-                    tipoStar = "estrella de carbono"; break;
+                    tipoStar = M.str_estrella_de_carbono; break;
                 case "X":
-                    tipoStar = "Exótica"; break;
+                    tipoStar = M.str_Ex_tica; break;
                 case "W":
-                    tipoStar = "Wolf-Rayet <50.000K"; break;
+                    tipoStar = M.str_Wolf_Rayet; break;
                 case "O":
-                    repostable = "{R} "; tipoStar = "masiva luminosa <52.000K"; break;
+                    repostable = "{R} "; tipoStar = M.str_masiva_luminosa; break;
                 case "B":
-                    repostable = "{R} "; tipoStar = "azul blanco luminosa <30.000K"; break;
+                    repostable = "{R} "; tipoStar = M.str_azul_blanco_luminosa; break;
                 case "A":
-                    repostable = "{R} "; tipoStar = "caliente blanca/azulada <10.000K"; break;
+                    repostable = "{R} "; tipoStar = M.str_caliente_blanca_azulada; break;
                 case "F":
-                    repostable = "{R} "; tipoStar = "blanca <7.600K"; break;
+                    repostable = "{R} "; tipoStar = M.str_blanca; break;
                 case "G":
-                    repostable = "{R} "; tipoStar = "blanco-amarilla <6.000K"; break;
+                    repostable = "{R} "; tipoStar = M.str_blanco_amarilla; break;
                 case "K":
-                    repostable = "{R} "; tipoStar = "amarillo-naranja <5.000K"; break;
+                    repostable = "{R} "; tipoStar = M.str_amarillo_naranja; break;
                 case "M":
-                    repostable = "{R} "; tipoStar = "roja"; break;
+                    repostable = "{R} "; tipoStar = M.str_roja; break;
                 case "L":
-                    tipoStar = "enana roja <2.400K"; break;
+                    tipoStar = M.str_enana_roja; break;
                 case "T":
-                    if (logMonitor.claseStar == "TTS") tipoStar = "T Tauri";
-                    else tipoStar = "enana marron <1.300K"; break;
+                    if (logMonitor.claseStar == "TTS") tipoStar = M.str_Tauri;
+                    else tipoStar = M.str_enana_marron; break;
                 case "Y":
-                    tipoStar = "enana marron <700K"; break;
+                    tipoStar = M.str_enana_marron1; break;
             }
 
             if (tipoStar != "") tipoStar = repostable + tipoStar + " (" + logMonitor.claseStar + ")";
@@ -163,7 +167,7 @@ namespace EDExplorer
             {
                 speech.Volume = Properties.Settings.Default.AudioVolumen;
                     //CultureInfo.CurrentCulture
-                speech.SpeakSsmlAsync($"<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"es-ES\">Atención:<break strength=\"weak\"/>{alertaStar}</speak>");
+                speech.SpeakSsmlAsync($"<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\""+settings.Idioma+"\">Atención:<break strength=\"weak\"/>{alertaStar}</speak>");
             }
 
             if (Properties.Settings.Default.activarNotificaciones)
@@ -173,10 +177,10 @@ namespace EDExplorer
                 string remainingJUMPsST = "";
 
                 if (logMonitor.remainingJUMPs > 0)
-                    remainingJUMPsST = " [Ruta:" + logMonitor.remainingJUMPs.ToString() + "]";
+                    remainingJUMPsST = M.str_Ruta + logMonitor.remainingJUMPs.ToString() + "]";
 
-                announceText.AppendLine("Saltos: " + logMonitor.sesion_numeroJump.ToString() + remainingJUMPsST);
-                announceText.AppendLine("Distancia: " + Math.Round(logMonitor.sesion_acumuladoJump).ToString() + " al");
+                announceText.AppendLine(M.str_Saltos + logMonitor.sesion_numeroJump.ToString() + remainingJUMPsST);
+                announceText.AppendLine(M.str_Distancia + Math.Round(logMonitor.sesion_acumuladoJump).ToString() + M.str_al);
 
                 // Poner el tiempo transcurrido en la sesion.
                 TimeSpan difFechas = DateTime.Now - logMonitor.session_Time;
@@ -187,12 +191,12 @@ namespace EDExplorer
                 if (difFechas.Minutes > 0) tiempoSt += difFechas.Minutes + " m ";
                 if (difFechas.Seconds > 0) tiempoSt += difFechas.Seconds + " s";
 
-                announceText.AppendLine("Tiempo: " + tiempoSt);
+                announceText.AppendLine(M.str_Tiempo + tiempoSt);
 
                 announceText.AppendLine("-------------"); 
                 announceText.AppendLine(tipoStar);
 
-                OpenNotifyForm("Resumen sesión actual" + "\r\n" + announceText.ToString(), 10000);
+                OpenNotifyForm(M.str_Resumen_sesi_actual + "\r\n" + announceText.ToString(), 10000);
             }
         }
 
@@ -228,8 +232,8 @@ namespace EDExplorer
                     spokenName = fullBodyName.Replace(currentSystem, string.Empty);
                     
                     if (spokenName.Trim().Length > 0) 
-                         spokenName = "Cuerpo " + spokenName;
-                    else spokenName = "Sistema " + currentSystem;
+                         spokenName = M.str_Cuerpo + spokenName;
+                    else spokenName = M.str_Sistema + currentSystem;
 
                     if (Properties.Settings.Default.activarNotificaciones)
                     {
@@ -239,7 +243,7 @@ namespace EDExplorer
                     if (Properties.Settings.Default.activarAudio)
                     {
                         speech.Volume = Properties.Settings.Default.AudioVolumen;
-                        speech.SpeakSsmlAsync($"<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"es-ES\">{spokenName}:<break strength=\"weak\"/>{announceText}</speak>");
+                        speech.SpeakSsmlAsync($"<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"" + settings.Idioma + "\">{spokenName}:<break strength=\"weak\"/>{announceText}</speak>");
                     }
                 }
             }
@@ -255,7 +259,7 @@ namespace EDExplorer
         public void TestSound()
         {
             //speech.Volume = settings.TTSVolume;
-            speech.SpeakAsync("Activadas Alertas Audibles.");
+            speech.SpeakAsync(M.str_Activadas_Alertas_Audibles);
         }
         public void OpenEDExplorerForm()
         {
@@ -376,9 +380,9 @@ namespace EDExplorer
                 },
                  new Idioma
                 {
-                    Nombre = "Frances",
+                    Nombre = "French",
                     Abreviacion = "fr",
-                    Pais = "Francia",
+                    Pais = "France",
                     AbreviacionPais = "FR"
                 },
                   new Idioma
@@ -397,16 +401,16 @@ namespace EDExplorer
                 },
                   new Idioma
                 {
-                    Nombre = "catalan",
+                    Nombre = "català",
                     Abreviacion = "ca",
-                    Pais = "Cataluña",
+                    Pais = "Catalunya",
                     AbreviacionPais = "ES"
                 },
                   new Idioma
                 {
-                    Nombre = "japones",
+                    Nombre = "日本",
                     Abreviacion = "ja",
-                    Pais = "Japon",
+                    Pais = "日本",
                     AbreviacionPais = "JP"
                 }
 

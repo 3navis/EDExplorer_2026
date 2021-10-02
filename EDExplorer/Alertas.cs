@@ -227,9 +227,9 @@ namespace EDExplorer
             try { n.Add(Alerta.BodyCount,       new DetallesAlerta(TipoEvento.FSS, M.str_FSS_Cuerpos, M.str_mero_de_Cuerpos, 20, 0, 0, M.str_cuerpos, "")); } catch { }
             // Ejes de Coordenadas
  //           try { n.Add(Alerta.DistanciaStart,  new DetallesAlerta(TipoEvento.Jump, "Alejado", "Distancia Alejada", 10, 0, "al separación")); } catch { }
-            try { n.Add(Alerta.AcumuladoJump,   new DetallesAlerta(TipoEvento.Jump, M.str_Acumulado, M.str_Mostrar_Resumen, 1000, 0, 0, "al acumulados", "al de distancia acumulada en saltos")); } catch { }
-            try { n.Add(Alerta.NumeroJump,      new DetallesAlerta(TipoEvento.Jump, M.str_Saltos, M.str_Mostrar_Resumen, 10, 0, 0, "saltos acumulados", "saltos acumulados")); } catch { }
-            try { n.Add(Alerta.Poblacion,       new DetallesAlerta(TipoEvento.Jump, M.str_Poblacion, M.str_Poblacion, 1, 0, 2, "M habitantes", "M habitantes")); } catch { }
+            try { n.Add(Alerta.AcumuladoJump,   new DetallesAlerta(TipoEvento.Jump, M.str_Acumulado, M.str_Mostrar_Resumen, 1000, 0, 0, M.str_al_acumulados, M.str_al_de_distancia_acumulada_en_saltos)); } catch { }
+            try { n.Add(Alerta.NumeroJump,      new DetallesAlerta(TipoEvento.Jump, M.str_Saltos, M.str_Mostrar_Resumen, 10, 0, 0, M.str_saltos_acumulados, M.str_saltos_acumulados)); } catch { }
+            try { n.Add(Alerta.Poblacion,       new DetallesAlerta(TipoEvento.Jump, M.str_Poblacion, M.str_Poblacion, 1, 0, 2, M.str_habitantes, M.str_habitantes)); } catch { }
         }
 
         public List<Interes> Interest { get; private set; }

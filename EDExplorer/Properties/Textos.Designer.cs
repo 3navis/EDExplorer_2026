@@ -61,38 +61,20 @@ namespace EDExplorer.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Alertas +++++++.
-        /// </summary>
-        public static string Alertas________ {
-            get {
-                return ResourceManager.GetString("Alertas +++++++", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a .
-        /// </summary>
-        public static string EDExplorer {
-            get {
-                return ResourceManager.GetString("EDExplorer", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a Scan +++++++++++++.
-        /// </summary>
-        public static string Scan______________ {
-            get {
-                return ResourceManager.GetString("Scan +++++++++++++", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Busca una cadena traducida similar a Acerca de ....
         /// </summary>
         public static string str_Acerca_de {
             get {
                 return ResourceManager.GetString("str_Acerca_de", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Activadas Alertas Audibles.
+        /// </summary>
+        public static string str_Activadas_Alertas_Audibles {
+            get {
+                return ResourceManager.GetString("str_Activadas_Alertas_Audibles", resourceCulture);
             }
         }
         
@@ -120,6 +102,24 @@ namespace EDExplorer.Properties {
         public static string str_Acumulado {
             get {
                 return ResourceManager.GetString("str_Acumulado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a agujero Negro.
+        /// </summary>
+        public static string str_agujero_Negro {
+            get {
+                return ResourceManager.GetString("str_agujero_Negro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a  al.
+        /// </summary>
+        public static string str_al {
+            get {
+                return ResourceManager.GetString("str_al", resourceCulture);
             }
         }
         
@@ -156,6 +156,15 @@ namespace EDExplorer.Properties {
         public static string str_Alta_Gravedad {
             get {
                 return ResourceManager.GetString("str_Alta_Gravedad", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a amarillo-naranja &lt;5.000K.
+        /// </summary>
+        public static string str_amarillo_naranja {
+            get {
+                return ResourceManager.GetString("str_amarillo_naranja", resourceCulture);
             }
         }
         
@@ -295,6 +304,15 @@ namespace EDExplorer.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a azul blanco luminosa &lt;30.000K.
+        /// </summary>
+        public static string str_azul_blanco_luminosa {
+            get {
+                return ResourceManager.GetString("str_azul_blanco_luminosa", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Baja Gravedad.
         /// </summary>
         public static string str_Baja_Gravedad {
@@ -327,6 +345,51 @@ namespace EDExplorer.Properties {
         public static string str_Biol_gica {
             get {
                 return ResourceManager.GetString("str_Biol_gica", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a blanca &lt;7.600K.
+        /// </summary>
+        public static string str_blanca {
+            get {
+                return ResourceManager.GetString("str_blanca", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a blanco-amarilla &lt;6.000K.
+        /// </summary>
+        public static string str_blanco_amarilla {
+            get {
+                return ResourceManager.GetString("str_blanco_amarilla", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a caliente blanca/azulada &lt;10.000K.
+        /// </summary>
+        public static string str_caliente_blanca_azulada {
+            get {
+                return ResourceManager.GetString("str_caliente_blanca_azulada", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a catalan.
+        /// </summary>
+        public static string str_catalan {
+            get {
+                return ResourceManager.GetString("str_catalan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Cataluña.
+        /// </summary>
+        public static string str_Catalu {
+            get {
+                return ResourceManager.GetString("str_Catalu", resourceCulture);
             }
         }
         
@@ -376,6 +439,15 @@ namespace EDExplorer.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Cuerpo .
+        /// </summary>
+        public static string str_Cuerpo {
+            get {
+                return ResourceManager.GetString("str_Cuerpo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a cuerpos.
         /// </summary>
         public static string str_cuerpos {
@@ -403,11 +475,29 @@ namespace EDExplorer.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Detalle del Error.
+        /// </summary>
+        public static string str_Detalle_del_Error {
+            get {
+                return ResourceManager.GetString("str_Detalle_del_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a dias rotación.
         /// </summary>
         public static string str_dias_rotaci {
             get {
                 return ResourceManager.GetString("str_dias_rotaci", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Distancia: .
+        /// </summary>
+        public static string str_Distancia {
+            get {
+                return ResourceManager.GetString("str_Distancia", resourceCulture);
             }
         }
         
@@ -430,6 +520,132 @@ namespace EDExplorer.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a enana Blanca &lt;10.000K.
+        /// </summary>
+        public static string str_enana_Blanca {
+            get {
+                return ResourceManager.GetString("str_enana_Blanca", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a enana marron &lt;1.300K.
+        /// </summary>
+        public static string str_enana_marron {
+            get {
+                return ResourceManager.GetString("str_enana_marron", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a enana marron &lt;700K.
+        /// </summary>
+        public static string str_enana_marron1 {
+            get {
+                return ResourceManager.GetString("str_enana_marron1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a enana roja &lt;2.400K.
+        /// </summary>
+        public static string str_enana_roja {
+            get {
+                return ResourceManager.GetString("str_enana_roja", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a English.
+        /// </summary>
+        public static string str_English {
+            get {
+                return ResourceManager.GetString("str_English", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Error Leyendo Logs.
+        /// </summary>
+        public static string str_Error_Leyendo_Logs {
+            get {
+                return ResourceManager.GetString("str_Error_Leyendo_Logs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Error Procesando Línea.
+        /// </summary>
+        public static string str_Error_Procesando_Linea {
+            get {
+                return ResourceManager.GetString("str_Error_Procesando_Linea", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a España.
+        /// </summary>
+        public static string str_Espa {
+            get {
+                return ResourceManager.GetString("str_Espa", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Español.
+        /// </summary>
+        public static string str_Espa_ol {
+            get {
+                return ResourceManager.GetString("str_Espa_ol", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a estrella de carbono.
+        /// </summary>
+        public static string str_estrella_de_carbono {
+            get {
+                return ResourceManager.GetString("str_estrella_de_carbono", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a estrella de Neutrones.
+        /// </summary>
+        public static string str_estrella_de_Neutrones {
+            get {
+                return ResourceManager.GetString("str_estrella_de_Neutrones", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Euskadi.
+        /// </summary>
+        public static string str_Euskadi {
+            get {
+                return ResourceManager.GetString("str_Euskadi", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a euskera.
+        /// </summary>
+        public static string str_euskera {
+            get {
+                return ResourceManager.GetString("str_euskera", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Exótica.
+        /// </summary>
+        public static string str_Ex_tica {
+            get {
+                return ResourceManager.GetString("str_Ex_tica", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Filtrar Alerta &quot;.
         /// </summary>
         public static string str_Filtrar_Alerta {
@@ -444,6 +660,24 @@ namespace EDExplorer.Properties {
         public static string str_Filtrar_Sistema {
             get {
                 return ResourceManager.GetString("str_Filtrar_Sistema", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Frances.
+        /// </summary>
+        public static string str_Frances {
+            get {
+                return ResourceManager.GetString("str_Frances", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Francia.
+        /// </summary>
+        public static string str_Francia {
+            get {
+                return ResourceManager.GetString("str_Francia", resourceCulture);
             }
         }
         
@@ -498,6 +732,24 @@ namespace EDExplorer.Properties {
         public static string str_Guardian {
             get {
                 return ResourceManager.GetString("str_Guardian", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Ha ocurrido un error al leer los archivos de log. ¿Quiere ver información de Detalle adicional?.
+        /// </summary>
+        public static string str_Ha_ocurrido_un_error_al_leer_los {
+            get {
+                return ResourceManager.GetString("str_Ha_ocurrido_un_error_al_leer_los", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Ha ocurrido un error en ProcessLine. ¿Quiere ver información de Detalle adicional?.
+        /// </summary>
+        public static string str_Ha_ocurrido_un_error_en_ProcessLine {
+            get {
+                return ResourceManager.GetString("str_Ha_ocurrido_un_error_en_ProcessLine", resourceCulture);
             }
         }
         
@@ -637,20 +889,20 @@ namespace EDExplorer.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a LowTemperatureD_TRIAL.
-        /// </summary>
-        public static string str_LowTemperatureDiamond {
-            get {
-                return ResourceManager.GetString("str_LowTemperatureDiamond", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Busca una cadena traducida similar a Mapeado.
         /// </summary>
         public static string str_Mapeado {
             get {
                 return ResourceManager.GetString("str_Mapeado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a masiva luminosa &lt;52.000K.
+        /// </summary>
+        public static string str_masiva_luminosa {
+            get {
+                return ResourceManager.GetString("str_masiva_luminosa", resourceCulture);
             }
         }
         
@@ -862,6 +1114,24 @@ namespace EDExplorer.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Portugal.
+        /// </summary>
+        public static string str_Portugal {
+            get {
+                return ResourceManager.GetString("str_Portugal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a português.
+        /// </summary>
+        public static string str_portugu {
+            get {
+                return ResourceManager.GetString("str_portugu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Próximo al Anillo.
         /// </summary>
         public static string str_Pr_ximo_al_Anillo {
@@ -935,11 +1205,29 @@ namespace EDExplorer.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Reino Unido.
+        /// </summary>
+        public static string str_Reino_Unido {
+            get {
+                return ResourceManager.GetString("str_Reino_Unido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a relación Radio vs Distancia.
         /// </summary>
         public static string str_relaci_Radio_vs_Distancia {
             get {
                 return ResourceManager.GetString("str_relaci_Radio_vs_Distancia", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Resumen sesión actual.
+        /// </summary>
+        public static string str_Resumen_sesi_actual {
+            get {
+                return ResourceManager.GetString("str_Resumen_sesi_actual", resourceCulture);
             }
         }
         
@@ -953,11 +1241,29 @@ namespace EDExplorer.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a roja.
+        /// </summary>
+        public static string str_roja {
+            get {
+                return ResourceManager.GetString("str_roja", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Rotación Rápida.
         /// </summary>
         public static string str_Rotaci_pida {
             get {
                 return ResourceManager.GetString("str_Rotaci_pida", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a  [Ruta:.
+        /// </summary>
+        public static string str_Ruta {
+            get {
+                return ResourceManager.GetString("str_Ruta", resourceCulture);
             }
         }
         
@@ -971,7 +1277,25 @@ namespace EDExplorer.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Saltos.
+        ///   Busca una cadena traducida similar a saltando a estrella de Neutrones.
+        /// </summary>
+        public static string str_saltando_estrella_de_Neutrones {
+            get {
+                return ResourceManager.GetString("str_saltando_estrella_de_Neutrones", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a saltando a estrella enana Blanca.
+        /// </summary>
+        public static string str_saltando_estrella_enana_Blanca {
+            get {
+                return ResourceManager.GetString("str_saltando_estrella_enana_Blanca", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Saltos: .
         /// </summary>
         public static string str_Saltos {
             get {
@@ -1043,6 +1367,15 @@ namespace EDExplorer.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Seleccionar la carpeta de Elite Dangerous Journal.
+        /// </summary>
+        public static string str_seleccionar_carpeta {
+            get {
+                return ResourceManager.GetString("str_seleccionar_carpeta", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Serendibite.
         /// </summary>
         public static string str_Serendibite {
@@ -1057,6 +1390,15 @@ namespace EDExplorer.Properties {
         public static string str_Sin_Inter {
             get {
                 return ResourceManager.GetString("str_Sin_Inter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Sistema .
+        /// </summary>
+        public static string str_Sistema {
+            get {
+                return ResourceManager.GetString("str_Sistema", resourceCulture);
             }
         }
         
@@ -1079,6 +1421,15 @@ namespace EDExplorer.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Atención:.
+        /// </summary>
+        public static string str_speak_atencion {
+            get {
+                return ResourceManager.GetString("str_speak_atencion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a g superficie.
         /// </summary>
         public static string str_superficie {
@@ -1097,6 +1448,15 @@ namespace EDExplorer.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a T Tauri.
+        /// </summary>
+        public static string str_Tauri {
+            get {
+                return ResourceManager.GetString("str_Tauri", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Thargoide.
         /// </summary>
         public static string str_Thargoide {
@@ -1106,20 +1466,11 @@ namespace EDExplorer.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a This is the notification text.
+        ///   Busca una cadena traducida similar a Tiempo: .
         /// </summary>
-        public static string str_This_is_the_notification_text {
+        public static string str_Tiempo {
             get {
-                return ResourceManager.GetString("str_This_is_the_notification_text", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a This is the notification title.
-        /// </summary>
-        public static string str_This_is_the_notification_title {
-            get {
-                return ResourceManager.GetString("str_This_is_the_notification_title", resourceCulture);
+                return ResourceManager.GetString("str_Tiempo", resourceCulture);
             }
         }
         
@@ -1313,11 +1664,11 @@ namespace EDExplorer.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Try ++++++++++++++.
+        ///   Busca una cadena traducida similar a Wolf-Rayet &lt;50.000K.
         /// </summary>
-        public static string Try_______________ {
+        public static string str_Wolf_Rayet {
             get {
-                return ResourceManager.GetString("Try ++++++++++++++", resourceCulture);
+                return ResourceManager.GetString("str_Wolf_Rayet", resourceCulture);
             }
         }
     }

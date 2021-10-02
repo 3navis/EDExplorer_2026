@@ -47,11 +47,9 @@
             this.tabSignal = new System.Windows.Forms.TabPage();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cbx_idioma = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.trackAlto = new System.Windows.Forms.TrackBar();
+            this.cbx_idioma = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.trackBar_Transparencia = new System.Windows.Forms.TrackBar();
@@ -70,7 +68,6 @@
             this.tabSignal.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackAlto)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_Transparencia)).BeginInit();
             this.tabOculta.SuspendLayout();
@@ -215,9 +212,6 @@
             // tabPage3
             // 
             resources.ApplyResources(this.tabPage3, "tabPage3");
-            this.tabPage3.Controls.Add(this.label2);
-            this.tabPage3.Controls.Add(this.label1);
-            this.tabPage3.Controls.Add(this.cbx_idioma);
             this.tabPage3.Controls.Add(this.groupBox2);
             this.tabPage3.Controls.Add(this.groupBox1);
             this.tabPage3.Controls.Add(this.groupBox_TTS);
@@ -229,17 +223,14 @@
             this.tabPage3.UseVisualStyleBackColor = true;
             this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
             // 
-            // label2
+            // groupBox2
             // 
-            resources.ApplyResources(this.label2, "label2");
-            this.label2.Name = "label2";
-            this.tipCopy.SetToolTip(this.label2, resources.GetString("label2.ToolTip"));
-            // 
-            // label1
-            // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.Name = "label1";
-            this.tipCopy.SetToolTip(this.label1, resources.GetString("label1.ToolTip"));
+            resources.ApplyResources(this.groupBox2, "groupBox2");
+            this.groupBox2.Controls.Add(this.cbx_idioma);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.TabStop = false;
+            this.tipCopy.SetToolTip(this.groupBox2, resources.GetString("groupBox2.ToolTip"));
             // 
             // cbx_idioma
             // 
@@ -248,24 +239,11 @@
             this.cbx_idioma.Name = "cbx_idioma";
             this.tipCopy.SetToolTip(this.cbx_idioma, resources.GetString("cbx_idioma.ToolTip"));
             // 
-            // groupBox2
+            // label2
             // 
-            resources.ApplyResources(this.groupBox2, "groupBox2");
-            this.groupBox2.Controls.Add(this.trackAlto);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.TabStop = false;
-            this.tipCopy.SetToolTip(this.groupBox2, resources.GetString("groupBox2.ToolTip"));
-            // 
-            // trackAlto
-            // 
-            resources.ApplyResources(this.trackAlto, "trackAlto");
-            this.trackAlto.BackColor = System.Drawing.Color.White;
-            this.trackAlto.LargeChange = 20;
-            this.trackAlto.Maximum = 100;
-            this.trackAlto.Name = "trackAlto";
-            this.trackAlto.TickFrequency = 10;
-            this.trackAlto.TickStyle = System.Windows.Forms.TickStyle.Both;
-            this.tipCopy.SetToolTip(this.trackAlto, resources.GetString("trackAlto.ToolTip"));
+            resources.ApplyResources(this.label2, "label2");
+            this.label2.Name = "label2";
+            this.tipCopy.SetToolTip(this.label2, resources.GetString("label2.ToolTip"));
             // 
             // groupBox1
             // 
@@ -385,7 +363,6 @@
             this.tabPage3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackAlto)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_Transparencia)).EndInit();
@@ -423,10 +400,8 @@
         private System.Windows.Forms.Label lblPos;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TrackBar trackAlto;
         private System.Windows.Forms.ComboBox cbx_idioma;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }

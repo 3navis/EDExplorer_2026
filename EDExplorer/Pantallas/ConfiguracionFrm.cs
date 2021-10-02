@@ -295,20 +295,11 @@ namespace EDExplorer
             Save();
         }
 
-        PopupNotifier popupNotifier;
-        private void button4_Click(object sender, EventArgs e)
-        {
-            popupNotifier = new PopupNotifier();
-            popupNotifier.TitleText = "This is the notification title";
-            popupNotifier.ContentText = "This is the notification text";
-            popupNotifier.Popup();
-        }
-
         private void button4_Click_1(object sender, EventArgs e)
         {
             var t = Task.Run(() => 
             {
-                basi.OpenNotifyForm("Prueba de Notificaciones", 3000);
+                basi.OpenNotifyForm(M.str_Prueba_de_Notificaciones, 3000);
                 //Console.WriteLine("Task thread ID: {0}",
                 //   Thread.CurrentThread.ManagedThreadId);
             });

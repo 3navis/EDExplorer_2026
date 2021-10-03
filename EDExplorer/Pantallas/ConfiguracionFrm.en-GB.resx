@@ -134,7 +134,7 @@
     <value>148, 21</value>
   </data>
   <data name="cbxBeta.Text" xml:space="preserve">
-    <value>Read Journal Beta</value>
+    <value>Read Journal Alpha/Beta</value>
   </data>
   <data name="groupBox_misc.Text" xml:space="preserve">
     <value>Flight Logs (Journal Logs)</value>
@@ -225,5 +225,8 @@
   </data>
   <data name="groupBox2.Text" xml:space="preserve">
     <value>Idiom</value>
+  </data>
+  <data name="richTextBox1.Text" xml:space="preserve">
+    <value>To listen to the announcer in the selected language, it must be previously installed in Windows 10.</value>
   </data>
 </root>

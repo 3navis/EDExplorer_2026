@@ -253,7 +253,7 @@
     <value>Étiquette 1</value>
   </data>
   <data name="cbxBeta.Text" xml:space="preserve">
-    <value>Lire le Journal Beta</value>
+    <value>Lire le Journal Alpha/Beta</value>
   </data>
   <data name="cbxToast.Text" xml:space="preserve">
     <value>Afficher les notifications</value>
@@ -290,5 +290,8 @@
   </data>
   <data name="groupBox_TTS.Text" xml:space="preserve">
     <value>Volume</value>
+  </data>
+  <data name="richTextBox1.Text" xml:space="preserve">
+    <value>Pour écouter l'annonceur dans la langue sélectionnée, il doit être préalablement installé sous Windows 10.</value>
   </data>
 </root>

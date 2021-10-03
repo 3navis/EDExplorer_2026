@@ -655,4 +655,7 @@ duas linhas.</value>
   <data name="str_Wolf_Rayet" xml:space="preserve">
     <value>Wolf-Rayet &lt;50.000K</value>
   </data>
+  <data name="str_atencion" xml:space="preserve">
+    <value>Atenção:</value>
+  </data>
 </root>

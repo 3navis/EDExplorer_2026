@@ -190,7 +190,7 @@
     <value>Label1</value>
   </data>
   <data name="cbxBeta.Text" xml:space="preserve">
-    <value>Llegir Journal Beta</value>
+    <value>Llegir Journal Alpha/Beta</value>
   </data>
   <data name="cbxToast.Text" xml:space="preserve">
     <value>Mostra Notificacions</value>
@@ -227,5 +227,8 @@
   </data>
   <data name="groupBox_TTS.Text" xml:space="preserve">
     <value>volum</value>
+  </data>
+  <data name="richTextBox1.Text" xml:space="preserve">
+    <value>Per escoltar el locutor en l'idioma seleccionat s'ha de tenir instal·lat prèviament en Windows 10.</value>
   </data>
 </root>

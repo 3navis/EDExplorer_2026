@@ -166,8 +166,7 @@ namespace EDExplorer
                 if (alertaStar.Length > 0)
             {
                 speech.Volume = Properties.Settings.Default.AudioVolumen;
-                    //CultureInfo.CurrentCulture
-                speech.SpeakSsmlAsync($"<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\""+settings.Idioma+"\">Atención:<break strength=\"weak\"/>{alertaStar}</speak>");
+                speech.SpeakSsmlAsync($"<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\""+settings.Idioma+"\">"+M.str_atencion+$"<break strength=\"weak\"/>{alertaStar}</speak>");
             }
 
             if (Properties.Settings.Default.activarNotificaciones)
@@ -243,7 +242,7 @@ namespace EDExplorer
                     if (Properties.Settings.Default.activarAudio)
                     {
                         speech.Volume = Properties.Settings.Default.AudioVolumen;
-                        speech.SpeakSsmlAsync($"<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"" + settings.Idioma + "\">{spokenName}:<break strength=\"weak\"/>{announceText}</speak>");
+                        speech.SpeakSsmlAsync($"<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"" + settings.Idioma + $"\">{spokenName}:<break strength=\"weak\"/>{announceText}</speak>");
                     }
                 }
             }
@@ -375,7 +374,7 @@ namespace EDExplorer
                 {
                     Nombre = "English",
                     Abreviacion = "en",
-                    Pais = "Reino Unido",
+                    Pais = "United Kingdom",
                     AbreviacionPais = "GB"
                 },
                  new Idioma

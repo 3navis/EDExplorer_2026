@@ -505,7 +505,7 @@
     <value>Ekintza honek Alerten testu guztiak berrezartzen ditu eta aplikazioa berrabiarazten du. Jarraitu nahi duzu?</value>
   </data>
   <data name="str_ATENCION_Cambio_de_Idioma" xml:space="preserve">
-    <value>ATTENTION - Changement de langue</value>
+    <value>ADI - Hizkuntza aldaketa</value>
   </data>
   <data name="str_Probando_el_volumen_del_Locutor" xml:space="preserve">
     <value>Esatariaren bolumena probatzen.</value>
@@ -654,5 +654,11 @@ bi lerro .</value>
   </data>
   <data name="str_Wolf_Rayet" xml:space="preserve">
     <value>Otso-Rayet &lt;50.000K</value>
+  </data>
+  <data name="str_idioma_en" xml:space="preserve">
+    <value>Hizkuntza</value>
+  </data>
+  <data name="str_atencion" xml:space="preserve">
+    <value>Arreta:</value>
   </data>
 </root>

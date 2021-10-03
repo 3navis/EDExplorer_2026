@@ -253,7 +253,7 @@
     <value>etiqueta1</value>
   </data>
   <data name="cbxBeta.Text" xml:space="preserve">
-    <value>Leia o Jornal Beta</value>
+    <value>Leia o Jornal Alpha/Beta</value>
   </data>
   <data name="cbxToast.Text" xml:space="preserve">
     <value>Mostrar notificações</value>
@@ -290,5 +290,8 @@
   </data>
   <data name="groupBox_TTS.Text" xml:space="preserve">
     <value>Volume</value>
+  </data>
+  <data name="richTextBox1.Text" xml:space="preserve">
+    <value>Para ouvir o locutor no idioma selecionado, ele deve estar previamente instalado no Windows 10.</value>
   </data>
 </root>

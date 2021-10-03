@@ -505,7 +505,7 @@
     <value>This action resets all text alerts and restarts the App. Do you want to continue?</value>
   </data>
   <data name="str_ATENCION_Cambio_de_Idioma" xml:space="preserve">
-    <value>ADI - Hizkuntza aldaketa</value>
+    <value>ATTENTION - Language change</value>
   </data>
   <data name="str_Probando_el_volumen_del_Locutor" xml:space="preserve">
     <value>Testing the Announcer's volume.</value>
@@ -654,5 +654,11 @@ two lines.</value>
   </data>
   <data name="str_Wolf_Rayet" xml:space="preserve">
     <value>Wolf-Rayet &lt;50,000K</value>
+  </data>
+  <data name="str_idioma_en" xml:space="preserve">
+    <value>Language in</value>
+  </data>
+  <data name="str_atencion" xml:space="preserve">
+    <value>Attention:</value>
   </data>
 </root>

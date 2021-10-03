@@ -282,8 +282,6 @@
     <EmbeddedResource Include="About\UserAbout.resx">
       <DependentUpon>UserAbout.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Extracciones\Textos_CfgFrm.resx" />
-    <EmbeddedResource Include="Extracciones\Textos_EDExporerFrm.resx" />
     <EmbeddedResource Include="Pantallas\ConfiguracionFrm.ca-ES.resx">
       <DependentUpon>ConfiguracionFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -371,9 +369,6 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Extracciones\Textos_Scan.resx" />
-    <EmbeddedResource Include="Extracciones\Textos_Settings.resx" />
-    <EmbeddedResource Include="Extracciones\Textos_Try.resx" />
     <None Include="EDExplorer2_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -417,9 +412,7 @@
       <Name>DW.ELA.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Traducciones\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

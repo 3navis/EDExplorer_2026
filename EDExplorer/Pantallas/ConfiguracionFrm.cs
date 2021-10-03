@@ -146,15 +146,13 @@ namespace EDExplorer
         {
             string text = ((Idioma)cbx_idioma.SelectedItem).CultureInfo;
             CultureInfo.CurrentCulture = new CultureInfo(((Idioma)cbx_idioma.SelectedItem).CultureInfo, false);
-            //CultureInfo.CurrentCulture = new CultureInfo("es-ES", false);
 
             string idioma = ((Idioma)cbx_idioma.SelectedItem).CultureInfo;
             string idiomaST = ((Idioma)cbx_idioma.SelectedItem).Nombre;
             string texto = M.str_Probando_el_volumen_del_Locutor;
 
             speech.Volume = settings.AudioVolumen;
-            //speech.SpeakAsync("Probando el volumen del Locutor.");
-            speech.SpeakSsmlAsync($"<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"{idioma}\">Idioma en {idiomaST}:<break strength=\"weak\"/>{texto}</speak>");
+            speech.SpeakSsmlAsync($"<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"{idioma}\">"+M.str_idioma_en+$" {idiomaST}:<break strength=\"weak\"/>{texto}</speak>");
         }
 
         private void CbxCodex_CheckedChanged(object sender, EventArgs e)
@@ -220,7 +218,8 @@ namespace EDExplorer
             settings.JournalBeta = ((CheckBox)sender).Checked;
             if (settings.JournalBeta)
             {
-                settings.JournalName = "JournalBeta.????????????.??.log";
+                // Mascara para Alpha y Beta
+                settings.JournalName = "Journal*a.????????????.??.log";
                 Save();
             }
             else

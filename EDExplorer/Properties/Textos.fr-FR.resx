@@ -127,7 +127,7 @@
     <value>Activer les notifications</value>
   </data>
   <data name="str_Configuraci" xml:space="preserve">
-    <value>Réglage</value>
+    <value>Configuration</value>
   </data>
   <data name="str_EDExplorer_Error" xml:space="preserve">
     <value>EDExplorer : erreur</value>
@@ -505,7 +505,7 @@
     <value>Cette action réinitialise toutes les alertes texte et redémarre l'application. Voulez-vous continuer ?</value>
   </data>
   <data name="str_ATENCION_Cambio_de_Idioma" xml:space="preserve">
-    <value>ATTENTION - Language change</value>
+    <value>ATTENTION - Changement de langue</value>
   </data>
   <data name="str_Probando_el_volumen_del_Locutor" xml:space="preserve">
     <value>Tester le volume de l'annonceur.</value>
@@ -654,5 +654,11 @@ deux lignes.</value>
   </data>
   <data name="str_Wolf_Rayet" xml:space="preserve">
     <value>Loup-Rayet &lt;50 000K</value>
+  </data>
+  <data name="str_idioma_en" xml:space="preserve">
+    <value>Langue en</value>
+  </data>
+  <data name="str_atencion" xml:space="preserve">
+    <value>Attention:</value>
   </data>
 </root>

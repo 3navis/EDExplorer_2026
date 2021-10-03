@@ -232,6 +232,15 @@ namespace EDExplorer.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Atención:.
+        /// </summary>
+        public static string str_atencion {
+            get {
+                return ResourceManager.GetString("str_atencion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a ATENCION - Cambio de Idioma.
         /// </summary>
         public static string str_ATENCION_Cambio_de_Idioma {
@@ -804,6 +813,15 @@ namespace EDExplorer.Properties {
         public static string str_Humana {
             get {
                 return ResourceManager.GetString("str_Humana", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Idioma en.
+        /// </summary>
+        public static string str_idioma_en {
+            get {
+                return ResourceManager.GetString("str_idioma_en", resourceCulture);
             }
         }
         

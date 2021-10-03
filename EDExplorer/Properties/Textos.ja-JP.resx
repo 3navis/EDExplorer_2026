@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="str_Acerca_de" xml:space="preserve">
-    <value>About ...</value>
+    <value>だいたい ...</value>
   </data>
   <data name="str_Activar_Locutor" xml:space="preserve">
     <value>アナウンサーの起動</value>
@@ -653,5 +653,11 @@
   </data>
   <data name="str_Wolf_Rayet" xml:space="preserve">
     <value>Wolf-Rayet &lt;50,000K</value>
+  </data>
+  <data name="str_idioma_en" xml:space="preserve">
+    <value>の言語</value>
+  </data>
+  <data name="str_atencion" xml:space="preserve">
+    <value>注意：</value>
   </data>
 </root>

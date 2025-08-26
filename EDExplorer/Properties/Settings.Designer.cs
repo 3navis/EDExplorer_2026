@@ -12,7 +12,7 @@ namespace EDExplorer.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.8.1.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.14.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -169,18 +169,6 @@ namespace EDExplorer.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Journal.????????????.??.log")]
-        public string JournalName {
-            get {
-                return ((string)(this["JournalName"]));
-            }
-            set {
-                this["JournalName"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool activarLista {
             get {
@@ -217,7 +205,7 @@ namespace EDExplorer.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("v1.01")]
+        [global::System.Configuration.DefaultSettingValueAttribute("v1.02")]
         public string vAlertasNew {
             get {
                 return ((string)(this["vAlertasNew"]));
@@ -284,6 +272,18 @@ namespace EDExplorer.Properties {
             }
             set {
                 this["Idioma"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Journal*.log")]
+        public string JournalName {
+            get {
+                return ((string)(this["JournalName"]));
+            }
+            set {
+                this["JournalName"] = value;
             }
         }
     }

@@ -38,9 +38,6 @@
     <Setting Name="JournalBeta" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="JournalName" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Journal.????????????.??.log</Value>
-    </Setting>
     <Setting Name="activarLista" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
@@ -51,7 +48,7 @@
       <Value Profile="(Default)">100</Value>
     </Setting>
     <Setting Name="vAlertasNew" Type="System.String" Scope="User">
-      <Value Profile="(Default)">v1.01</Value>
+      <Value Profile="(Default)">v1.02</Value>
     </Setting>
     <Setting Name="vAlertas" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
@@ -67,6 +64,9 @@
     </Setting>
     <Setting Name="Idioma" Type="System.String" Scope="User">
       <Value Profile="(Default)">es-ES</Value>
+    </Setting>
+    <Setting Name="JournalName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Journal*.log</Value>
     </Setting>
   </Settings>
 </SettingsFile>

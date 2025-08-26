@@ -219,12 +219,12 @@ namespace EDExplorer
             if (settings.JournalBeta)
             {
                 // Mascara para Alpha y Beta
-                settings.JournalName = "Journal*a.????????????.??.log";
+                settings.JournalName = "Journal*.log";
                 Save();
             }
             else
             {
-                settings.JournalName = "Journal.????????????.??.log";
+                settings.JournalName = "Journal*.log";
                 Save();
             }
         }

@@ -74,6 +74,8 @@ namespace EDExplorer
             LogDirectory = CheckLogPath();
             Properties.Settings.Default.JournalPath = LogDirectory;
             LogName = Properties.Settings.Default.JournalName;
+            
+            // conserva los cambios de configuración entre sesiones de aplicación
             Properties.Settings.Default.Save();
 
             // Examina cambios producidos en el directorio indicado
@@ -391,7 +393,8 @@ namespace EDExplorer
                 if (tipoEvento != TipoEvento.None)
                 {
                     /////////////////////////////////////////
-                    LogEntry?.Invoke(this, EventArgs.Empty); // => Base.LogEvent
+                    //LogEntry?.Invoke(this, EventArgs.Empty); // => Base.LogEvent
+                    LogEntry(this, EventArgs.Empty); // => Base.LogEvent
                     ////////////////////////////////////////
                 }
 

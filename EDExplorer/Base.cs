@@ -29,8 +29,9 @@ namespace EDExplorer
         public EDExplorerFrm edexplorerFrm;
         public FontElite fontElite;
         // public NotifyFrm notifyFrm;
-        
-        private Properties.Settings settings;
+
+        //private Properties.Settings settings;
+        //settings = Properties.Settings.Default;
 
         public Base()
         {
@@ -166,8 +167,9 @@ namespace EDExplorer
                 if (alertaStar.Length > 0)
             {
                 speech.Volume = Properties.Settings.Default.AudioVolumen;
-                speech.SpeakSsmlAsync($"<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\""+settings.Idioma+"\">"+M.str_atencion+$"<break strength=\"weak\"/>{alertaStar}</speak>");
-            }
+                //speech.SpeakSsmlAsync($"<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\""+settings.Idioma+"\">"+M.str_atencion+$"<break strength=\"weak\"/>{alertaStar}</speak>");
+                speech.SpeakSsmlAsync($"<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"" + Properties.Settings.Default.Idioma + "\">" + M.str_atencion + $"<break strength=\"weak\"/>{alertaStar}</speak>");
+                }
 
             if (Properties.Settings.Default.activarNotificaciones)
             {
@@ -242,7 +244,8 @@ namespace EDExplorer
                     if (Properties.Settings.Default.activarAudio)
                     {
                         speech.Volume = Properties.Settings.Default.AudioVolumen;
-                        speech.SpeakSsmlAsync($"<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"" + settings.Idioma + $"\">{spokenName}:<break strength=\"weak\"/>{announceText}</speak>");
+                        //speech.SpeakSsmlAsync($"<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"" + settings.Idioma + $"\">{spokenName}:<break strength=\"weak\"/>{announceText}</speak>");
+                        speech.SpeakSsmlAsync($"<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"" + Properties.Settings.Default.Idioma + $"\">{spokenName}:<break strength=\"weak\"/>{announceText}</speak>");
                     }
                 }
             }

@@ -268,7 +268,7 @@ namespace EDExplorer
                 int pb = logLine.IndexOf("\"", pa + 1);
                 evento = logLine.Substring(pa, pb - pa);
                 const string eventos = "Scan,Location,FSDJump,CarrierJump,SAASignalsFound," +
-                    "FSSDiscoveryScan,SupercruiseExit,StartJump,FSDTarget,";  
+                    "FSSDiscoveryScan,SupercruiseExit,StartJump,FSDTarget,Commander,";  
 
                 if (eventos.Contains(evento))
                 {
@@ -385,6 +385,8 @@ namespace EDExplorer
                             currentBody = null;
                         break;
                     case "ProspectedAsteroid":
+                        break;
+                    case "Commander":
                         break;
                     default:
                         break;

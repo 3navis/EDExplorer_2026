@@ -48,7 +48,7 @@ namespace EDExplorer
 
             statusMonitor = new StatusMonitor();
             statusMonitor.StatusEntry += StatusEvent;
-            //statusMonitor.MonitorStart();
+            statusMonitor.MonitorStart();
 
             //SQLBase.Up();
 
@@ -63,7 +63,10 @@ namespace EDExplorer
         }
 
         private void StatusEvent(object source, EventArgs e)
-        {
+        { // Si se encuentra en Supercrucero abrir ventana supercrucero
+            //switch (statusMonitor.lastEvent["BodyName"])
+            {
+            }
         }
 
         private void LogEvent(object source, EventArgs e)
@@ -197,7 +200,7 @@ namespace EDExplorer
                 announceText.AppendLine("-------------"); 
                 announceText.AppendLine(tipoStar);
 
-                OpenNotifyForm(M.str_Resumen_sesi_actual + "\r\n" + announceText.ToString(), 10000);
+                OpenNotifyForm(M.str_Resumen_sesi_actual + "\r\n" + announceText.ToString(), 15000);
             }
         }
 
@@ -327,7 +330,8 @@ namespace EDExplorer
         public FontElite()
         {
             // Use this if you can not find your resource System.Reflection.Assembly.GetExecutingAssembly().GetManifestResourceNames();
-            string resource = "EDExplorer.Resources.elitedanger.ttf";
+            //string resource = "EDExplorer.Resources.elitedanger.ttf";
+            string resource = "EDExplorer.Resources.Eurostar.ttf";
             // receive resource stream
             Stream fontStream = Assembly.GetExecutingAssembly().GetManifestResourceStream(resource);
 

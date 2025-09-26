@@ -151,9 +151,13 @@ namespace EDExplorer
                 catch {  }
 
                 //if (n == null) n = new Dictionary<Alerta, DetallesAlerta>();
-                if (n == null) n = new ListaAlertas();
 
-                setDefault();
+                // 250827 Daba error el Default si "n" ya esta creado
+                //if (n == null) n = new ListaAlertas();
+                //setDefault();
+
+                // Existe una diferencia con el código anterior comentado, si hay Alertas nuevas respeta anteriores
+                if (n == null) Reset();
             }
         }
         public void Reset()

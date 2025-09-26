@@ -37,7 +37,7 @@ namespace EDExplorer
         //    TransparencyKey = BackColor;
         //}
 
-        private Font fontElite = new Font(FontElite.private_fonts.Families[0], 11, FontStyle.Bold);
+        private Font fontElite = new Font(FontElite.private_fonts.Families[0], 11, FontStyle.Regular);
         public NotifyFrm(string t, TipoEvento e)
         {
             InitializeComponent();
@@ -58,13 +58,16 @@ namespace EDExplorer
                     dy = desktopArea.Bottom / 2;
                     break;
                 default:
-                    dy = desktopArea.Bottom - 2 * Height;
+                    dy = desktopArea.Bottom / 2 - Height / 2;
                     break;
             }
+            
+            t = t.ToUpper();
 
             Location = new Point(dx, dy);
             fondo.Location = Location;
 
+            lblTitulo.Font = fontElite;
             lblText.Font = fontElite;
             lblText.UseCompatibleTextRendering = true;
 
@@ -118,6 +121,12 @@ namespace EDExplorer
                 lblTick.Refresh();
             }
         }
+
+        private void lblText_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void NotifyFrm_FormClosed(object sender, FormClosedEventArgs e)
         {
             //basi.configuracionFrm = null;

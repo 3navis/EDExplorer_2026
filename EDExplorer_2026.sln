@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EDExplorer", "EDExplorer\EDExplorer.csproj", "{8329020D-9B20-439B-ACD9-3D20BA6CAF10}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DW.ELA.Interfaces", "Interfaces\DW.ELA.Interfaces.csproj", "{FD518ED2-7A6E-42F7-8C90-603235C1FEE6}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{8329020D-9B20-439B-ACD9-3D20BA6CAF10}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8329020D-9B20-439B-ACD9-3D20BA6CAF10}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8329020D-9B20-439B-ACD9-3D20BA6CAF10}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FD518ED2-7A6E-42F7-8C90-603235C1FEE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FD518ED2-7A6E-42F7-8C90-603235C1FEE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FD518ED2-7A6E-42F7-8C90-603235C1FEE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FD518ED2-7A6E-42F7-8C90-603235C1FEE6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

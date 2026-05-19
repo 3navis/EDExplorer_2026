@@ -1,6 +1,4 @@
 ﻿// TrayIcon
-using Castle.MicroKernel.Registration;
-using Castle.Windsor;
 using System;
 using System.Globalization;
 using System.Threading;
@@ -33,11 +31,8 @@ namespace EDExplorer
                 Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(Properties.Settings.Default.Idioma);
             }
 
-            using (var container = new WindsorContainer())
+            using (var trayController = new TrayIconController())
             {
-                container.Register(Component.For<IUserNotificationInterface>().ImplementedBy<TrayIconController>().LifestyleSingleton());
-                var trayController = container.Resolve<IUserNotificationInterface>();
-
                 // Application.Run(new EDExplorerFrm());
                 Application.Run();
             }

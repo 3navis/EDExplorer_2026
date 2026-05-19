@@ -142,7 +142,6 @@
       <DependentUpon>UserAbout.cs</DependentUpon>
     </Compile>
     <Compile Include="Alertas.cs" />
-    <Compile Include="Agente\ClickOnceAutorunManager.cs" />
     <Compile Include="Agente\TrayIconController.cs" />
     <Compile Include="Base.cs" />
     <Compile Include="Eventos\CodexEntry.cs" />

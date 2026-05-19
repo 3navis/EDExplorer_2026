@@ -1,6 +1,5 @@
 ﻿namespace EDExplorer
 {
-    //using DW.ELA.Interfaces;
     using Newtonsoft.Json;
 
     public class FSSDiscoveryScan : JournalEvent

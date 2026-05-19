@@ -110,8 +110,9 @@ namespace EDExplorer
             {
                 try
                 {
-                    speech = new System.Speech.Synthesis.SpeechSynthesizer();
-                    speech.SetOutputToDefaultAudioDevice();
+                    settings.activarAudio = true;
+                    basi.ActivarAudio();
+                    speech = basi.speech;
                     //cbxTtsDetail.Visible = true;
                 }
                 catch
@@ -122,7 +123,13 @@ namespace EDExplorer
             }
             else
             {
-                speech.Dispose();
+                if (basi.speech != null)
+                {
+                    basi.speech.Dispose();
+                    basi.speech = null;
+                }
+
+                speech = null;
                 //cbxTtsDetail.Visible = false;
             }
             btn_TestVol.Enabled = cbxTts.Checked;
@@ -151,6 +158,8 @@ namespace EDExplorer
             string idiomaST = ((Idioma)cbx_idioma.SelectedItem).Nombre;
             string texto = M.str_Probando_el_volumen_del_Locutor;
 
+            basi.ActivarAudio();
+            speech = basi.speech;
             speech.Volume = settings.AudioVolumen;
             speech.SpeakSsmlAsync($"<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"{idioma}\">"+M.str_idioma_en+$" {idiomaST}:<break strength=\"weak\"/>{texto}</speak>");
         }

@@ -9,7 +9,7 @@ namespace EDExplorer
         private Alertas alertas;
         private LogMonitor logMonitor;
         private SaaSignalsFound.Signal signal;
-        
+
         SaaSignalsFound signalEvent;
         DetallesAlerta da;
         public SignalReader(Base b)
@@ -43,7 +43,7 @@ namespace EDExplorer
             {
                 signal = signalEvent.Signals.Where(signal => signal.Type == da.TipoLog).FirstOrDefault();
 
-                if (signal != null) 
+                if (signal != null)
                 {
                     alertas.valor = signal.Count;
 
@@ -59,7 +59,7 @@ namespace EDExplorer
 
         public bool hayAlertas()
         {
-            signalEvent = logMonitor.LastSignal; 
+            signalEvent = logMonitor.LastSignal;
 
             alertaVeta(Alerta.Tritio);
             alertaVeta(Alerta.LTD);

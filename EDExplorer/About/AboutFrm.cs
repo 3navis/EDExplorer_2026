@@ -63,7 +63,7 @@ namespace EDExplorer.Pantallas
             g.Transform = myMatrix;
 
             Pen pen = new Pen(Color.Green, 1);
-            
+
             g.DrawPath(pen, path);
         }
 
@@ -86,7 +86,7 @@ namespace EDExplorer.Pantallas
             fx = rnd.Next(0, (int)fx) - fx / 2;
             fy = rnd.Next(0, (int)fy) - fy / 2;
 
-            pm = new PointF(0,0);
+            pm = new PointF(0, 0);
             pm.X = ValorM2(p1.X, p2.X, fy);
             pm.Y = ValorM2(p1.Y, p2.Y, fx);
             return pm;
@@ -105,7 +105,7 @@ namespace EDExplorer.Pantallas
 
             return p;
         }
-        
+
         void f_Main()
         {
             PointF[,] p1, p2;
@@ -115,8 +115,8 @@ namespace EDExplorer.Pantallas
             p2 = new PointF[n, n];
 
             p2[0, 0] = new PointF(1000 / 2, 50);
-            p2[1, 0] = new PointF(50, 1000 - 3*50);
-            p2[1, 1] = new PointF(1000 - 50, 1000 - 3*50);
+            p2[1, 0] = new PointF(50, 1000 - 3 * 50);
+            p2[1, 1] = new PointF(1000 - 50, 1000 - 3 * 50);
 
             int j, k, j2, k2;
             int prof = 7;

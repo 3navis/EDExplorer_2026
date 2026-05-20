@@ -127,7 +127,7 @@ namespace EDExplorer
                     }
 
                     ProcessEvent(linea);
-                    
+
                     break;
 
                 default:

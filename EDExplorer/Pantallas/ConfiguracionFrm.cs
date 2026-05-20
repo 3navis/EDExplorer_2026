@@ -15,7 +15,7 @@ using System.Windows.Forms;
 namespace EDExplorer
 {
     using M = Properties.Textos;
-    
+
     public partial class ConfiguracionFrm : Form
     {
         private Base basi;
@@ -161,7 +161,7 @@ namespace EDExplorer
             basi.ActivarAudio();
             speech = basi.speech;
             speech.Volume = settings.AudioVolumen;
-            speech.SpeakSsmlAsync($"<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"{idioma}\">"+M.str_idioma_en+$" {idiomaST}:<break strength=\"weak\"/>{texto}</speak>");
+            speech.SpeakSsmlAsync($"<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"{idioma}\">" + M.str_idioma_en + $" {idiomaST}:<break strength=\"weak\"/>{texto}</speak>");
         }
 
         private void CbxCodex_CheckedChanged(object sender, EventArgs e)
@@ -207,7 +207,7 @@ namespace EDExplorer
 
                 settings.Alertas = JsonConvert.SerializeObject(alertas.n);
                 settings.Save();
-                
+
                 BulkChangeInProgress = false;
             }
         }
@@ -305,7 +305,7 @@ namespace EDExplorer
 
         private void button4_Click_1(object sender, EventArgs e)
         {
-            var t = Task.Run(() => 
+            var t = Task.Run(() =>
             {
                 basi.OpenNotifyForm(M.str_Prueba_de_Notificaciones, 3000);
                 //Console.WriteLine("Task thread ID: {0}",
@@ -342,7 +342,7 @@ namespace EDExplorer
                     {
                         cbx_idioma.SelectedValue = System.Globalization.CultureInfo.CurrentUICulture.Name;
                     }
-                }     
+                }
             }
         }
     }

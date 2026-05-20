@@ -92,7 +92,7 @@ namespace EDExplorer
         [Category("Title")]
         [Description("Font of the title.")]
         public Font TitleFont { get; set; }
-        
+
         [Category("Image")]
         [Description("Size of the icon image.")]
         public Size ImageSize
@@ -419,7 +419,7 @@ namespace EDExplorer
             {
                 posCurrent = posStop;
             }
-                
+
             double opacityCurrent = opacityStart + ((opacityStop - opacityStart) * elapsed / AnimationDuration);
             neg = (opacityStop - opacityStart) < 0;
             if ((neg && opacityCurrent < opacityStop) ||
@@ -430,7 +430,7 @@ namespace EDExplorer
 
             frmPopup.Top = posCurrent;
             frmPopup.Opacity = opacityCurrent;
-            
+
             // animation has ended
             if (elapsed > AnimationDuration)
             {

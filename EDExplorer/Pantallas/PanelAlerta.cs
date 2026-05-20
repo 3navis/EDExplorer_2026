@@ -91,7 +91,7 @@ namespace EDExplorer.Pantallas
                 default:
                     break;
             }
-            
+
             ActualizarImagen(tipoParam);
         }
     }

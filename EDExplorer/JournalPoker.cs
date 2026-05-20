@@ -16,7 +16,7 @@ namespace EDExplorer
         public bool Reset = false;
         private bool Running = false;
         private DirectoryInfo directoryInfo;
-        
+
         public JournalPoker(string dir)
         {
             directoryInfo = new DirectoryInfo(dir);
@@ -42,7 +42,7 @@ namespace EDExplorer
                     if (fileToPoke == null || nTicks > 200)
                     {
                         fileToPoke = directoryInfo.GetFiles(JournalNameMask)
- //                           .Where(f => f.CreationTime >= DateTime.Today.AddDays(-10))
+                            //                           .Where(f => f.CreationTime >= DateTime.Today.AddDays(-10))
                             .OrderByDescending(f => f.CreationTime).FirstOrDefault();
 
                         nTicks = 0;
@@ -55,7 +55,7 @@ namespace EDExplorer
                     }
 
                     System.Threading.Thread.Sleep(250);
-                    
+
                     // Reset es true si se modifica el fichero actual
                     nTicks = Reset ? 0 : nTicks + 1;
                     Reset = false;

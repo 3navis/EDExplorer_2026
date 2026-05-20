@@ -14,7 +14,7 @@ namespace EDExplorer
     {
         public Base basi;
         public string evento;
-        public TipoEvento tipoEvento; 
+        public TipoEvento tipoEvento;
 
         private readonly FileSystemWatcher logWatcher;
         private string currentSystem;
@@ -31,7 +31,7 @@ namespace EDExplorer
         public string CurrentLogPath { get; private set; }
         public string CurrentLogLine { get; private set; }
         public int bytesRead { get; private set; }
-        
+
         public bool JumponiumReported;
         public bool GoldSystemReported;
         private List<string> LinesToProcess;
@@ -46,7 +46,7 @@ namespace EDExplorer
         public FsdJump LastJump { get; private set; }
         public Dictionary<(string System, long Body), ScanEvent> SystemBody { get; private set; }
         public Dictionary<(string System, long Body), bool> SystemBodySignal { get; private set; }
-        
+
         public Dictionary<(string System, long Body), List<long>> EsperandoPadre;
 
         private JournalPoker Poker;
@@ -74,7 +74,7 @@ namespace EDExplorer
             LogDirectory = CheckLogPath();
             Properties.Settings.Default.JournalPath = LogDirectory;
             LogName = Properties.Settings.Default.JournalName;
-            
+
             // conserva los cambios de configuración entre sesiones de aplicación
             Properties.Settings.Default.Save();
 
@@ -130,7 +130,7 @@ namespace EDExplorer
             SystemBodySignal.Clear();
             EsperandoPadre.Clear();
             DirectoryInfo logDir = new DirectoryInfo(CheckLogPath());
-            
+
             int progress = 0;
 
             // new DateTime(2017, 04, 12)
@@ -150,23 +150,23 @@ namespace EDExplorer
                 foreach (var journalFile in allJournals)
                 {
                     using (StreamReader currentLog = new StreamReader(File.Open(journalFile.FullName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite)))
+                    {
+                        while (!currentLog.EndOfStream)
                         {
-                            while (!currentLog.EndOfStream)
-                            {
-                                CurrentLogLine = currentLog.ReadLine();
-                                ProcessEvent(CurrentLogLine);
-                            
-                                // IDEA: Se podria salir cuando lleve XX Alertas?
-                                // Quizas un Count de la lista en pantalla?
+                            CurrentLogLine = currentLog.ReadLine();
+                            ProcessEvent(CurrentLogLine);
 
-                            }
+                            // IDEA: Se podria salir cuando lleve XX Alertas?
+                            // Quizas un Count de la lista en pantalla?
+
                         }
-                  
+                    }
+
                     progressBar.Value = (progress++ * 100) / allJournals.Count();
                     progressBar.Refresh();
                 }
 
-                CurrentLogPath = allJournals[allJournals.Count()-1].FullName;
+                CurrentLogPath = allJournals[allJournals.Count() - 1].FullName;
                 bytesRead = (int)allJournals[allJournals.Count() - 1].Length;
             }
             catch (Exception ex)
@@ -180,7 +180,7 @@ namespace EDExplorer
             progressBar.Visible = false;
             ReadAllInProgress = false;
             ReadAllComplete = true;
-            
+
             ///////////////
             MonitorStart();
         }
@@ -236,7 +236,7 @@ namespace EDExplorer
                         currentLog.BaseStream.Seek(bytesRead, SeekOrigin.Begin);
 
                         // Segundo actualiza la posicion con las nuevas lineas leidas del fichero
-                        for (LinesToProcess = new List<string>(); !currentLog.EndOfStream; )
+                        for (LinesToProcess = new List<string>(); !currentLog.EndOfStream;)
                         {
                             linea = currentLog.ReadLine();
                             LinesToProcess.Add(linea);
@@ -247,7 +247,7 @@ namespace EDExplorer
 
                     foreach (string line in LinesToProcess)
                         ProcessEvent(line);
-                    
+
                     break;
 
                 default:
@@ -269,7 +269,7 @@ namespace EDExplorer
                 int pb = logLine.IndexOf("\"", pa + 1);
                 evento = logLine.Substring(pa, pb - pa);
                 const string eventos = "Scan,Location,FSDJump,CarrierJump,SAASignalsFound," +
-                    "FSSDiscoveryScan,SupercruiseExit,StartJump,FSDTarget,Commander,";  
+                    "FSSDiscoveryScan,SupercruiseExit,StartJump,FSDTarget,Commander,";
 
                 if (eventos.Contains(evento))
                 {
@@ -298,10 +298,10 @@ namespace EDExplorer
                             if (!(CurrentAddress > 0)) // Si en JUMP no estaba el systemID
                             {
                                 CurrentAddress = LastScan.SystemAddress ?? (ulong)0;
- //                               SQLBase.AddSystem((ulong)CurrentAddress, LastScan.StarSystem);
+                                //                               SQLBase.AddSystem((ulong)CurrentAddress, LastScan.StarSystem);
                             }
 
- //                           SQLBase.AddCuerpo((ulong)CurrentAddress,LastScan.BodyId, LastScan.BodyName);
+                            //                           SQLBase.AddCuerpo((ulong)CurrentAddress,LastScan.BodyId, LastScan.BodyName);
 
                             if (!SystemBody.ContainsKey((CurrentSystem, LastScan.BodyId)))
                             {
@@ -329,17 +329,17 @@ namespace EDExplorer
                     case "StartJump":
                         if (!ReadAllInProgress)
                             if (lastEvent["JumpType"].ToString() == "Hyperspace")
-                        {
+                            {
                                 //Mostrar mensaje resumen mientras prepara el salto
                                 claseStar = lastEvent["StarClass"].ToString();
-                            tipoEvento = TipoEvento.Hyperspace;
-                        }
+                                tipoEvento = TipoEvento.Hyperspace;
+                            }
                         break;
                     case "FSDJump":
                         LastJump = lastEvent.ToObject<FsdJump>();
                         CurrentSystem = lastEvent["StarSystem"].ToString();
                         CurrentAddress = (ulong?)lastEvent["SystemAddress"];
-                        
+
                         // Solo es necesario cachear el sistema actual
                         SystemBody.Clear();
                         SystemBodySignal.Clear();

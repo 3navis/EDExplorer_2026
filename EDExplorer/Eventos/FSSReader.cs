@@ -13,7 +13,7 @@ namespace EDExplorer
         {
             this.logMonitor = b.logMonitor;
             this.alertas = b.alertas;
-            Interest = new List<Interes>();    
+            Interest = new List<Interes>();
         }
 
         FSSDiscoveryScan fssEvent;

@@ -41,7 +41,7 @@ namespace EDExplorer
 
             scanEvent = logMonitor.LastScan;
             bool flgAterrizable = scanEvent.Landable.GetValueOrDefault(false);
-            
+
             //if (scanEvent.BodyName == "Cl Pismis 13 5")
             //{
             //}
@@ -226,7 +226,7 @@ namespace EDExplorer
                     if (!logMonitor.EsperandoPadre.ContainsKey((logMonitor.CurrentSystem, scanEvent.Parent[0].Body)))
                         logMonitor.EsperandoPadre[(logMonitor.CurrentSystem, scanEvent.Parent[0].Body)] = new List<long>() { scanEvent.BodyId };
                     else
-                        logMonitor.EsperandoPadre[(logMonitor.CurrentSystem, scanEvent.Parent[0].Body)].Insert(0, scanEvent.BodyId); 
+                        logMonitor.EsperandoPadre[(logMonitor.CurrentSystem, scanEvent.Parent[0].Body)].Insert(0, scanEvent.BodyId);
                 }
 
             // ** Realizar las llamadas pendientes de los hijos.
@@ -260,7 +260,7 @@ namespace EDExplorer
             if (alertas.n[Alerta.RotacionR].flag && scanEvent.RotationPeriod != null && !scanEvent.TidalLock.GetValueOrDefault(true))
             {
                 alertas.valor = Math.Abs((double)scanEvent.RotationPeriod / 3600);
-                
+
                 if (alertas.CumpleCriterios(da))
                 {
                     //detalle = "horas para completar una rotación.";

@@ -13,14 +13,14 @@ using System.Windows.Forms;
 namespace EDExplorer
 {
     using M = Properties.Textos;
-    
+
     //using ListaInteres = List<(string BodyName, string Description, string Detail)>;
     public class Base
     {
         public bool autoStart = true;
-        
+
         public Alertas alertas;
-        
+
         public LogMonitor logMonitor;
         public StatusMonitor statusMonitor;
 
@@ -36,14 +36,14 @@ namespace EDExplorer
         public Base()
         {
             alertas = new Alertas();
-            
+
             logMonitor = new LogMonitor();
             logMonitor.basi = this;
-            logMonitor.LogEntry += LogEvent; 
-            
+            logMonitor.LogEntry += LogEvent;
+
             // Crear la Fuente una unica vez.
-            fontElite = new FontElite();       
-            
+            fontElite = new FontElite();
+
             ActivarAudio();
 
             statusMonitor = new StatusMonitor();
@@ -59,7 +59,7 @@ namespace EDExplorer
         }
         ~Base()
         { // Destuctor del codigo
-  //          this.Dispose(false);
+          //          this.Dispose(false);
         }
 
         private void StatusEvent(object source, EventArgs e)
@@ -123,7 +123,7 @@ namespace EDExplorer
             string alertaStar = "";
             string repostable = "";
 
-            switch (logMonitor.claseStar.Substring(0,1))
+            switch (logMonitor.claseStar.Substring(0, 1))
             {
                 case "N":
                     tipoStar = M.str_estrella_de_Neutrones;
@@ -168,10 +168,10 @@ namespace EDExplorer
 
             if (Properties.Settings.Default.activarAudio)
                 if (alertaStar.Length > 0)
-            {
-                speech.Volume = Properties.Settings.Default.AudioVolumen;
-                //speech.SpeakSsmlAsync($"<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\""+settings.Idioma+"\">"+M.str_atencion+$"<break strength=\"weak\"/>{alertaStar}</speak>");
-                speech.SpeakSsmlAsync($"<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"" + Properties.Settings.Default.Idioma + "\">" + M.str_atencion + $"<break strength=\"weak\"/>{alertaStar}</speak>");
+                {
+                    speech.Volume = Properties.Settings.Default.AudioVolumen;
+                    //speech.SpeakSsmlAsync($"<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\""+settings.Idioma+"\">"+M.str_atencion+$"<break strength=\"weak\"/>{alertaStar}</speak>");
+                    speech.SpeakSsmlAsync($"<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"" + Properties.Settings.Default.Idioma + "\">" + M.str_atencion + $"<break strength=\"weak\"/>{alertaStar}</speak>");
                 }
 
             if (Properties.Settings.Default.activarNotificaciones)
@@ -197,7 +197,7 @@ namespace EDExplorer
 
                 announceText.AppendLine(M.str_Tiempo + tiempoSt);
 
-                announceText.AppendLine("-------------"); 
+                announceText.AppendLine("-------------");
                 announceText.AppendLine(tipoStar);
 
                 OpenNotifyForm(M.str_Resumen_sesi_actual + "\r\n" + announceText.ToString(), 15000);
@@ -225,18 +225,18 @@ namespace EDExplorer
                     {
                         announceText.Append(item.Nombre);
                         if (item.isRecord) announceText.Append(" - " + item.RecordDesc);
-                        
+
                         if (!item.Equals(items.Last()))
                         {
                             announceText.AppendLine(", ");
                         }
                     }
-                    
+
                     string spokenName;
                     spokenName = fullBodyName.Replace(currentSystem, string.Empty);
-                    
-                    if (spokenName.Trim().Length > 0) 
-                         spokenName = M.str_Cuerpo + spokenName;
+
+                    if (spokenName.Trim().Length > 0)
+                        spokenName = M.str_Cuerpo + spokenName;
                     else spokenName = M.str_Sistema + currentSystem;
 
                     if (Properties.Settings.Default.activarNotificaciones)
@@ -306,19 +306,16 @@ namespace EDExplorer
             //    notifyFrm.Close();
             //}
 
-            var task = Task.Run(() =>
+            // alternativa recomendada: hilo STA
+            var thread = new System.Threading.Thread(() =>
             {
-                NotifyFrm notifyFrm;
-
-                notifyFrm = new NotifyFrm(t, logMonitor.tipoEvento);
+                var notifyFrm = new NotifyFrm(t, logMonitor.tipoEvento);
                 notifyFrm.Show(mls);
-                notifyFrm.Refresh();
-
-                // Manejador de eventos para esa ventana
-                Application.Run(notifyFrm);
+                System.Windows.Forms.Application.Run(notifyFrm);
             });
-
-            //task.Wait();
+            thread.SetApartmentState(System.Threading.ApartmentState.STA);
+            thread.IsBackground = true;
+            thread.Start();
         }
     }
     /// <summary>
@@ -364,8 +361,8 @@ namespace EDExplorer
         public String Pais { get; set; }
         public String AbreviacionPais { get; set; }
 
-        public String NombrePais {get { return Nombre + " (" + Pais + ")"; }}
-        public String CultureInfo {get { return Abreviacion + "-" + AbreviacionPais; }}
+        public String NombrePais { get { return Nombre + " (" + Pais + ")"; } }
+        public String CultureInfo { get { return Abreviacion + "-" + AbreviacionPais; } }
 
         public static List<Idioma> ObtenerIdiomas()
         {

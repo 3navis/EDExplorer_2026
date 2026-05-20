@@ -60,7 +60,7 @@ namespace EDExplorer
         {
             SQLiteCommand command = new SQLiteCommand(sql, con);
             command.ExecuteNonQuery();
-            
+
             return;
         }
 
@@ -116,7 +116,7 @@ namespace EDExplorer
                             transaction.Commit();
                         }
                 }
-                else 
+                else
                 {
                     using (var transaction = con.BeginTransaction())
                     {
@@ -127,7 +127,7 @@ namespace EDExplorer
                         cmd = con.CreateCommand();
 
                         cmd.CommandText = "INSERT INTO Sistema (Id, Nombre, PrimeraVisita, UltimaVisita, NumVisitas, PosX, PosY, PosZ) ";
-                        cmd.CommandText += string.Format(ftGB, "VALUES ({0},\"{1}\",\"{2}\",\"{3}\",1,{4},{5},{6})", id,name,f,f,x,y,z);
+                        cmd.CommandText += string.Format(ftGB, "VALUES ({0},\"{1}\",\"{2}\",\"{3}\",1,{4},{5},{6})", id, name, f, f, x, y, z);
                         cmd.ExecuteNonQuery();
 
                         transaction.Commit();
@@ -162,7 +162,7 @@ namespace EDExplorer
                 dr = cmd.ExecuteReader();
                 if (dr.Read())
                 {
-                    ulong SistemaID = (ulong)dr.GetInt64(0); 
+                    ulong SistemaID = (ulong)dr.GetInt64(0);
 
                     if (SistemaID == 0 & id != 0)
                         using (var transaction = con.BeginTransaction())

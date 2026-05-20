@@ -8,7 +8,7 @@ namespace EDExplorer
         public List<Interes> Interest { get; private set; }
         private Alertas alertas;
         private LogMonitor logMonitor;
-        
+
         public JumpReader(Base b)
         {
             this.logMonitor = b.logMonitor;
@@ -23,7 +23,7 @@ namespace EDExplorer
             jumpEvent = logMonitor.LastJump;
 
             //SQLBase.JumpSystem(jumpEvent.SystemAddress??(ulong)0, jumpEvent.StarSystem, jumpEvent.Timestamp, jumpEvent.StarPos[0], jumpEvent.StarPos[1], jumpEvent.StarPos[2]);
-            
+
             // Calculo de datos para Resumen
             logMonitor.sesion_numeroJump++;
             logMonitor.numeroJump++;
@@ -60,7 +60,7 @@ namespace EDExplorer
             da = alertas.n[Alerta.Poblacion];
             if (da.flag)
             {
-                alertas.valor = jumpEvent.Population / Math.Pow(10,6);
+                alertas.valor = jumpEvent.Population / Math.Pow(10, 6);
 
                 if (alertas.CumpleCriterios(da))
                     Interest.Add(new Interes(jumpEvent.StarSystem, da.nombre, alertas.valorST, alertas.detalle, false));

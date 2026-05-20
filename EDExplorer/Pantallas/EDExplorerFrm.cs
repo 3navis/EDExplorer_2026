@@ -11,7 +11,7 @@ using System.Windows.Forms;
 namespace EDExplorer
 {
     using M = Properties.Textos;
-    
+
     public partial class EDExplorerFrm : Form
     {
         private Properties.Settings settings = Properties.Settings.Default;
@@ -65,7 +65,7 @@ namespace EDExplorer
             {
                 listEvent.Sort();
                 newItem.EnsureVisible();
-                
+
                 // ** Limnpiar el guardado si estaba realizado
                 itemsTodos = null;
             }
@@ -87,7 +87,7 @@ namespace EDExplorer
 
             // Guardar Records despues de leer fichero.
             settings.Alertas = JsonConvert.SerializeObject(logMonitor.basi.alertas.n);
-            settings.Save(); 
+            settings.Save();
         }
 
         private void ListEvent_MouseClick(object sender, MouseEventArgs e)
@@ -98,7 +98,7 @@ namespace EDExplorer
                 {
                     contextCopy.Show(Cursor.Position);
                     contextCopy.Items[0].Enabled = listEvent.SelectedItems.Count == 1;
-                    
+
                     this.filterNameToolStripMenuItem.Text = M.str_Filtrar_Sistema + listEvent.FocusedItem.SubItems[1].Text + "\"";
                     this.filterAlertToolStripMenuItem.Text = M.str_Filtrar_Alerta + listEvent.FocusedItem.SubItems[3].Text + "\"";
                 }
@@ -326,7 +326,7 @@ namespace EDExplorer
 
             isNumber = (sender as ListView).Columns[e.Column].Tag == "number";
 
-            listEvent.ListViewItemSorter = new DoubleComparer(e.Column, isNumber, columnSorter.Order);     
+            listEvent.ListViewItemSorter = new DoubleComparer(e.Column, isNumber, columnSorter.Order);
             listEvent.Sort();
         }
 
@@ -373,7 +373,7 @@ namespace EDExplorer
             // Asociado a la propiedad {OwnerDraw = true}
             //if (Should_Filter(e.Item) == false)
             //if (true)
-                //e.DrawDefault = true;
+            //e.DrawDefault = true;
             //else
             //    e.DrawDefault = false;
         }

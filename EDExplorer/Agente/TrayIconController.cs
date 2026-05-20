@@ -1,13 +1,13 @@
 ﻿namespace EDExplorer
 {
     using global::EDExplorer.Pantallas;
+    using Properties;
     using System;
     using System.Drawing;
     using System.Reflection;
     using System.Windows.Forms;
-    using Properties;
     using M = Properties.Textos;
-    
+
     public interface IUserNotificationInterface
     {
         void ShowErrorNotification(string error);
@@ -15,11 +15,11 @@
     public class TrayIconController : IUserNotificationInterface, IDisposable
     {
         private Base basi;
-        
+
         private readonly NotifyIcon trayIcon;
         private bool disposedValue = false; // To detect redundant calls
         private Properties.Settings settings = Properties.Settings.Default;
-        
+
         public TrayIconController()
         {
             basi = new Base();
@@ -28,8 +28,8 @@
 
         private NotifyIcon CreateTrayIcon()
         {
-//            var components = new Container();
-//            var notifyIcon = new NotifyIcon(components)
+            //            var components = new Container();
+            //            var notifyIcon = new NotifyIcon(components)
             var notifyIcon = new NotifyIcon()
             {
                 ContextMenuStrip = CreateMenuStrip(),
@@ -49,9 +49,9 @@
 
         private ContextMenuStrip CreateMenuStrip()
         {
-            var menuStrip = new ContextMenuStrip(); 
+            var menuStrip = new ContextMenuStrip();
             //menuStrip.Items.Add(new ToolStripLabel($"Version: {Application.ProductVersion}") { ForeColor = SystemColors.ControlDark });
-            menuStrip.Items.Add(new ToolStripLabel(M.str_Version_Assembly+$" {Assembly.GetExecutingAssembly().GetName().Version}") { ForeColor = SystemColors.ControlDark });
+            menuStrip.Items.Add(new ToolStripLabel(M.str_Version_Assembly + $" {Assembly.GetExecutingAssembly().GetName().Version}") { ForeColor = SystemColors.ControlDark });
             menuStrip.Items.Add(M.str_Acerca_de, null, (o, e) => About());
 
             menuStrip.Items.Add(ToolStripSeparatorLeft);
@@ -91,7 +91,7 @@
                 flag = basi.autoStart;
             else
                 flag = basi.logMonitor.IsMonitoring();
-            
+
             if (flag)
                 return Resources.STOP;
             else
@@ -168,7 +168,7 @@
             {
                 basi.OpenNotifyForm(M.str_Notificaciones_Activadas, 3000);
             }
-           
+
             menuItem.Image = recursoNOTIFY();
             menuItem.Text = textoNOTIFY();
         }

@@ -5,20 +5,20 @@ using System.Windows.Forms;
 
 namespace EDExplorer
 {
-    public partial class NotifyFrm : Form 
+    public partial class NotifyFrm : Form
     {
         public NotifyFormBack fondo;
         private Timer timer;
-        
+
         //Use this property if you want to show a top-level window, 
         //but don't want to interrupt a user's work by taking the input focus 
         //away from the current window.
-        protected override bool ShowWithoutActivation 
-        { 
-            get 
-            { 
-                return true; 
-            } 
+        protected override bool ShowWithoutActivation
+        {
+            get
+            {
+                return true;
+            }
         }
         protected override CreateParams CreateParams
         {
@@ -49,23 +49,23 @@ namespace EDExplorer
             /////////////////////////////////////////////////////////////
             // Recolocar en funcion de la pantalla en la que se encuentra
             Rectangle desktopArea = Screen.GetWorkingArea(this);
-            int dx, dy;
+            int dx, dy, margen = 8;
 
             dx = desktopArea.Right - Width;
             dy = desktopArea.Bottom / 2 - Height / 2;
 
-            switch (e) 
+            switch (e)
             {
                 case TipoEvento.Hyperspace:
                 case TipoEvento.Jump:
                     dy = desktopArea.Bottom / 2;
-                    dx = desktopArea.Right - Width - Width / 20;
+                    dx = desktopArea.Right - Width - margen;
                     break;
                 default:
                     dy = desktopArea.Bottom / 2 - Height / 2;
                     break;
             }
-            
+
             t = t.ToUpper();
 
             Location = new Point(dx, dy);
@@ -82,7 +82,7 @@ namespace EDExplorer
             if (p > 0)
             {
                 lblTitulo.Text = t.Substring(0, p);
-                lblText.Text = t.Substring(p+2);
+                lblText.Text = t.Substring(p + 2);
             }
             else
             {
@@ -108,7 +108,7 @@ namespace EDExplorer
         private void frmTick(object sender, EventArgs e)
         {
             nTick++;
-            
+
             if (nTick > maxTick)
             {
                 timer.Stop();
@@ -119,7 +119,7 @@ namespace EDExplorer
                     fondo.Close();
                     fondo = null;
                 }
-                
+
                 Close();
             }
             else

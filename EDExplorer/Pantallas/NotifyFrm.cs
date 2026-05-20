@@ -42,7 +42,9 @@ namespace EDExplorer
         {
             InitializeComponent();
             fondo = new NotifyFormBack();
-            fondo.Show();
+            fondo.StartPosition = FormStartPosition.Manual;
+            fondo.ShowInTaskbar = false;
+            fondo.Owner = this;
 
             /////////////////////////////////////////////////////////////
             // Recolocar en funcion de la pantalla en la que se encuentra
@@ -50,12 +52,14 @@ namespace EDExplorer
             int dx, dy;
 
             dx = desktopArea.Right - Width;
-            
+            dy = desktopArea.Bottom / 2 - Height / 2;
+
             switch (e) 
             {
                 case TipoEvento.Hyperspace:
                 case TipoEvento.Jump:
                     dy = desktopArea.Bottom / 2;
+                    dx = desktopArea.Right - Width - Width / 20;
                     break;
                 default:
                     dy = desktopArea.Bottom / 2 - Height / 2;
@@ -66,6 +70,9 @@ namespace EDExplorer
 
             Location = new Point(dx, dy);
             fondo.Location = Location;
+
+            // Mostrar el fondo después de fijar la posición para evitar parpadeo
+            fondo.Show();
 
             lblTitulo.Font = fontElite;
             lblText.Font = fontElite;

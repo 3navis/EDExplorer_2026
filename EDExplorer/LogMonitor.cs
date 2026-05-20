@@ -240,8 +240,9 @@ namespace EDExplorer
                         {
                             linea = currentLog.ReadLine();
                             LinesToProcess.Add(linea);
-                            bytesRead += linea.Length + newLineBytes;
+                            //bytesRead += linea.Length + newLineBytes;
                         }
+                        bytesRead = (int)currentLog.BaseStream.Length;
                     }
 
                     foreach (string line in LinesToProcess)

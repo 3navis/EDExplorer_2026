@@ -396,6 +396,12 @@ namespace EDExplorer
                 if (tipoEvento != TipoEvento.None)
                 {
                     /////////////////////////////////////////
+                    // La idea es que cada evento se procese en esta funcion, y si es un evento de interes, se lance el evento LogEntry para que se actualice la informacion en pantalla.
+
+                    // segun GPT puede generar excepciones si el evento se procesa muy rapido, aunque no he podido reproducirlo,
+                    // asi que lo dejo comentado por ahora. Si se vuelve a producir, se podria volver a activar y si genera excepcion,
+                    // mostrar un mensaje de error con la linea que lo ha provocado.
+
                     //LogEntry?.Invoke(this, EventArgs.Empty); // => Base.LogEvent
                     LogEntry(this, EventArgs.Empty); // => Base.LogEvent
                     ////////////////////////////////////////

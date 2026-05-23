@@ -49,7 +49,7 @@ namespace EDExplorer
             /////////////////////////////////////////////////////////////
             // Recolocar en funcion de la pantalla en la que se encuentra
             Rectangle desktopArea = Screen.GetWorkingArea(this);
-            int dx, dy, margen = 8;
+            int dx, dy, margen = 16;
 
             dx = desktopArea.Right - Width;
             dy = desktopArea.Bottom / 2 - Height / 2;

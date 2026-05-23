@@ -1,6 +1,7 @@
 ﻿// TrayIcon
 using System;
 using System.Globalization;
+using System.IO;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -9,8 +10,12 @@ namespace EDExplorer
     static class EDExplorer
     {
         [STAThread]
+
         static void Main()
         {
+            try {
+            //MessageBox.Show("Config path:\n");
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
@@ -35,6 +40,13 @@ namespace EDExplorer
             {
                 // Application.Run(new EDExplorerFrm());
                 Application.Run();
+            }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    ex.ToString(),
+                    "FATAL ERROR");
             }
         }
     }

@@ -35,6 +35,7 @@ namespace EDExplorer
 
         public Base()
         {
+            //MessageBox.Show(AppDomain.CurrentDomain.BaseDirectory);
             alertas = new Alertas();
 
             logMonitor = new LogMonitor();
@@ -44,7 +45,7 @@ namespace EDExplorer
             // Crear la Fuente una unica vez.
             fontElite = new FontElite();
 
-            ActivarAudio();
+            //ActivarAudio();
 
             statusMonitor = new StatusMonitor();
             statusMonitor.StatusEntry += StatusEvent;
@@ -171,7 +172,8 @@ namespace EDExplorer
                 {
                     speech.Volume = Properties.Settings.Default.AudioVolumen;
                     //speech.SpeakSsmlAsync($"<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\""+settings.Idioma+"\">"+M.str_atencion+$"<break strength=\"weak\"/>{alertaStar}</speak>");
-                    speech.SpeakSsmlAsync($"<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"" + Properties.Settings.Default.Idioma + "\">" + M.str_atencion + $"<break strength=\"weak\"/>{alertaStar}</speak>");
+                    //speech.SpeakSsmlAsync($"<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"" + Properties.Settings.Default.Idioma + "\">" + M.str_atencion + $"<break strength=\"weak\"/>{alertaStar}</speak>");
+                    Speak(M.str_atencion, alertaStar);
                 }
 
             if (Properties.Settings.Default.activarNotificaciones)
@@ -241,30 +243,64 @@ namespace EDExplorer
 
                     if (Properties.Settings.Default.activarNotificaciones)
                     {
-                        OpenNotifyForm(spokenName + "\r\n" + announceText.ToString(), 10000);
+                        // Si el evento actual es un JUMP, abrir ventana de resumen específica
+                        if (logMonitor.tipoEvento == TipoEvento.Jump)
+                        {
+                            //OpenJumpSummary(M.str_Resumen_sesi_actual, resumen.ToString(), 12000);
+                            OpenNotifyForm("Salto" + "\r\n" + announceText.ToString(), 10000);
+                        }
+                        else
+                        {
+                            OpenNotifyForm(spokenName + "\r\n" + announceText.ToString(), 10000);
+                        }
                     }
 
                     if (Properties.Settings.Default.activarAudio)
                     {
                         speech.Volume = Properties.Settings.Default.AudioVolumen;
                         //speech.SpeakSsmlAsync($"<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"" + settings.Idioma + $"\">{spokenName}:<break strength=\"weak\"/>{announceText}</speak>");
-                        speech.SpeakSsmlAsync($"<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"" + Properties.Settings.Default.Idioma + $"\">{spokenName}:<break strength=\"weak\"/>{announceText}</speak>");
+                        //speech.SpeakSsmlAsync($"<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"" + Properties.Settings.Default.Idioma + $"\">{spokenName}:<break strength=\"weak\"/>{announceText}</speak>");
+                        Speak(spokenName, announceText.ToString());
                     }
                 }
             }
         }
         public void ActivarAudio()
         {
-            if (speech == null && Properties.Settings.Default.activarAudio)
+            if (speech == null)
             {
-                speech = new SpeechSynthesizer();
-                speech.SetOutputToDefaultAudioDevice();
+                //speech = new SpeechSynthesizer();
+                //speech.SetOutputToDefaultAudioDevice();
+
+                try
+                {
+                    speech = new SpeechSynthesizer();
+                    speech.SetOutputToDefaultAudioDevice();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
             }
+        }
+
+        public void Speak(string titulo, string parrafo)
+        {
+            if (speech == null)
+            {
+                ActivarAudio();
+            }
+
+            if (titulo == null)
+                speech?.SpeakSsmlAsync($"<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"" + Properties.Settings.Default.Idioma + $"\">:<break strength=\"weak\"/>{parrafo}</speak>");
+            else
+                speech?.SpeakSsmlAsync($"<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"" + Properties.Settings.Default.Idioma + $"\">{titulo}:<break strength=\"weak\"/>{parrafo}</speak>");
         }
         public void TestSound()
         {
             //speech.Volume = settings.TTSVolume;
-            speech.SpeakAsync(M.str_Activadas_Alertas_Audibles);
+            //speech.SpeakAsync(M.str_Activadas_Alertas_Audibles);
+            Speak("", M.str_Activadas_Alertas_Audibles);
         }
         public void OpenEDExplorerForm()
         {
@@ -296,6 +332,18 @@ namespace EDExplorer
 
             configuracionFrm = new ConfiguracionFrm(speech, this);
             configuracionFrm.Show();
+        }
+
+        public void OpenJumpSummary(string title, string body, int mls)
+        {
+            var thread = new System.Threading.Thread(() =>
+            {
+                //var frm = new JumpSummaryFrm(title, body, mls);
+                //frm.ShowWithTimeout();
+            });
+            thread.SetApartmentState(System.Threading.ApartmentState.STA);
+            thread.IsBackground = true;
+            thread.Start();
         }
 
         public void OpenNotifyForm(string t, int mls)

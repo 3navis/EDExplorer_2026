@@ -39,6 +39,7 @@ namespace EDExplorer
         private string LogName;
         public bool ReadAllInProgress { get; private set; }
         public bool ReadAllComplete { get; private set; }
+        public JournalEventStats EventStats { get; private set; }
         public ScanEvent LastScan { get; private set; }
         public CodexEntry LastCodex { get; private set; }
         public SaaSignalsFound LastSignal { get; private set; }
@@ -87,6 +88,7 @@ namespace EDExplorer
             logWatcher.Created += LogChanged;
             ReadAllInProgress = false;
             ReadAllComplete = false;
+            EventStats = JournalEventStats.Load(Properties.Settings.Default.EventStats);
             CurrentSystem = string.Empty;
             JumponiumReported = false;
             SystemBody = new Dictionary<(string, long), ScanEvent>();
@@ -125,6 +127,7 @@ namespace EDExplorer
             //////////////
 
             ReadAllInProgress = true;
+            EventStats = new JournalEventStats();
             progressBar.Visible = true;
             SystemBody.Clear();
             SystemBodySignal.Clear();
@@ -268,8 +271,14 @@ namespace EDExplorer
                 pa += 9;
                 int pb = logLine.IndexOf("\"", pa + 1);
                 evento = logLine.Substring(pa, pb - pa);
+
+                EventStats.RegisterEvent(evento, ExtractTimestamp(logLine));
+
                 const string eventos = "Scan,Location,FSDJump,CarrierJump,SAASignalsFound," +
-                    "FSSDiscoveryScan,SupercruiseExit,StartJump,FSDTarget,Commander,";
+                    "FSSDiscoveryScan,SupercruiseExit,StartJump,FSDTarget,Commander," +
+                    "FSSBodySignals,";
+
+                //System.Diagnostics.Debug.WriteLine(evento);
 
                 if (eventos.Contains(evento))
                 {
@@ -279,6 +288,32 @@ namespace EDExplorer
                 }
             }
         }
+
+        public void SaveEventStats()
+        {
+            Properties.Settings.Default.EventStats = EventStats.ToJson();
+            Properties.Settings.Default.Save();
+        }
+
+        private DateTime ExtractTimestamp(string logLine)
+        {
+            const string timestampToken = "\"timestamp\":\"";
+            int pa = logLine.IndexOf(timestampToken);
+            if (pa < 0)
+                return DateTime.Now;
+
+            pa += timestampToken.Length;
+            int pb = logLine.IndexOf("\"", pa);
+            if (pb <= pa)
+                return DateTime.Now;
+
+            string timestamp = logLine.Substring(pa, pb - pa);
+            if (DateTime.TryParse(timestamp, out DateTime parsed))
+                return parsed;
+
+            return DateTime.Now;
+        }
+
         private void ProcessLine(in string evento, in string logLine)
         {
             try
@@ -311,6 +346,7 @@ namespace EDExplorer
                         }
                         break;
                     case "SAASignalsFound":
+                    case "FSSBodySignals":
                         LastSignal = lastEvent.ToObject<SaaSignalsFound>();
                         LastSignal.Body = currentBody;
 

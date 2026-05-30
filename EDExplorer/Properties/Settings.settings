@@ -56,6 +56,9 @@
     <Setting Name="Records" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="EventStats" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
     <Setting Name="vRecordsNew" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>

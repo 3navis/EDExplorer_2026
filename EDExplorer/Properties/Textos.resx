@@ -661,4 +661,10 @@ dos líneas.</value>
   <data name="str_atencion" xml:space="preserve">
     <value>Atención:</value>
   </data>
+  <data name="str_Evento_Raro" xml:space="preserve">
+    <value>Evento Raro</value>
+  </data>
+  <data name="str_Frecuencia_baja" xml:space="preserve">
+    <value>Frecuencia baja en histórico</value>
+  </data>
 </root>

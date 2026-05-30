@@ -238,6 +238,18 @@ namespace EDExplorer.Properties {
                 this["Records"] = value;
             }
         }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string EventStats {
+            get {
+                return ((string)(this["EventStats"]));
+            }
+            set {
+                this["EventStats"] = value;
+            }
+        }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

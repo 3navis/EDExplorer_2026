@@ -203,9 +203,11 @@
     <Compile Include="Pantallas\ColumnSorter.cs" />
     <Compile Include="Eventos\GeologicComposition.cs" />
     <Compile Include="Eventos\JournalEvent.cs" />
+    <Compile Include="Eventos\JournalEventStatsReader.cs" />
     <Compile Include="Eventos\SaaSignalsFound.cs" />
     <Compile Include="Eventos\Scan.cs" />
     <Compile Include="JournalPoker.cs" />
+    <Compile Include="JournalEventStats.cs" />
     <Compile Include="Eventos\Materials.cs" />
     <Compile Include="About\AboutFrm.cs">
       <SubType>Form</SubType>
@@ -221,6 +223,9 @@
     </Compile>
     <Compile Include="Pantallas\JumpSummaryFrm.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\JumpSummaryFrm.Designer.cs">
+      <DependentUpon>JumpSummaryFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="Pantallas\NotifyFormBack.cs">
       <SubType>Form</SubType>
@@ -239,6 +244,9 @@
     </Compile>
     <Compile Include="Pantallas\PanelAlerta.Designer.cs">
       <DependentUpon>PanelAlerta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\ShapePanel.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Properties\EDExplorer.cs" />
     <Compile Include="Properties\Textos.Designer.cs">
@@ -369,6 +377,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\EDExplorerFrm.pt-PT.resx">
       <DependentUpon>EDExplorerFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\JumpSummaryFrm.resx">
+      <DependentUpon>JumpSummaryFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\NotifyFormBack.resx">
       <DependentUpon>NotifyFormBack.cs</DependentUpon>

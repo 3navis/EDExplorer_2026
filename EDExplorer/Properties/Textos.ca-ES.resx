@@ -661,4 +661,11 @@ dues línies. </value>
   <data name="str_atencion" xml:space="preserve">
     <value>atenció:</value>
   </data>
+  <data name="str_Evento_Raro" xml:space="preserve">
+    <value>Estrany succés</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="str_Frecuencia_baja" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
 </root>

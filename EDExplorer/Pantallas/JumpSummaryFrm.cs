@@ -1,79 +1,134 @@
+﻿using EDExplorer.Pantallas;
 using System;
 using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace EDExplorer
 {
-    public class JumpSummaryFrm : Form
+    public partial class JumpSummaryFrm : Form
     {
-        private Label lblTitle;
-        private Label lblBody;
-        private Label lblTick;
+        public NotifyFormBack fondo;
         private Timer timer;
-        private int nTick, maxTick;
-        private Font fontElite = new Font(FontElite.private_fonts.Families[0], 11, FontStyle.Regular);
 
-        protected override bool ShowWithoutActivation => true;
+        //Use this property if you want to show a top-level window, 
+        //but don't want to interrupt a user's work by taking the input focus 
+        //away from the current window.
+        protected override bool ShowWithoutActivation
+        {
+            get
+            {
+                return true;
+            }
+        }
         protected override CreateParams CreateParams
         {
             get
             {
-                CreateParams cp = base.CreateParams;
-                cp.ExStyle |= 0x00000008; // WS_EX_TOPMOST
-                return cp;
+                CreateParams createParams = base.CreateParams;
+                createParams.ExStyle |= 0x00000008; // WS_EX_TOPMOST
+                return createParams;
             }
         }
 
-        public JumpSummaryFrm(string title, string body)
+        //protected override void OnPaint(PaintEventArgs e)
+        //{
+        //    // Call the OnPaint method of the base class.  
+        //    base.OnPaint(e);
+        //    TransparencyKey = BackColor;
+        //}
+
+        private Font fontElite = new Font(FontElite.private_fonts.Families[0], 11, FontStyle.Regular);
+        public JumpSummaryFrm(string t)
         {
-            FormBorderStyle = FormBorderStyle.None;
-            StartPosition = FormStartPosition.Manual;
-            TopMost = true;
-            Width = 420;
-            Height = 160;
+            InitializeComponent();
+            fondo = new NotifyFormBack();
+            fondo.StartPosition = FormStartPosition.Manual;
+            fondo.ShowInTaskbar = false;
+            fondo.Owner = this;
 
-            lblTitle = new Label { Left = 12, Top = 8, Width = Width - 24, Height = 28, Font = new Font(fontElite.FontFamily, 12, FontStyle.Bold), Text = title, ForeColor = Color.White };
-            lblBody = new Label { Left = 12, Top = 40, Width = Width - 24, Height = Height - 80, Font = new Font(fontElite.FontFamily, 10, FontStyle.Regular), Text = body, AutoEllipsis = true, ForeColor = Color.White };
-            lblTick = new Label { Left = Width - 60, Top = 8, Width = 48, Height = 20, Font = new Font(fontElite.FontFamily, 9, FontStyle.Regular), Text = "00", TextAlign = ContentAlignment.MiddleCenter, ForeColor = Color.White };
-
-            BackColor = Color.FromArgb(32, 32, 32);
-            Controls.Add(lblTitle);
-            Controls.Add(lblBody);
-            Controls.Add(lblTick);
-
+            /////////////////////////////////////////////////////////////
+            // Recolocar en funcion de la pantalla en la que se encuentra
             Rectangle desktopArea = Screen.GetWorkingArea(this);
-            int dx = desktopArea.Right - Width - 16;
-            int dy = desktopArea.Bottom / 2 - Height / 2;
+            int dx, dy, margen = 16;
+
+            dx = desktopArea.Right - Width;
+            dy = desktopArea.Bottom / 2 - Height / 2;
+
+            //switch (e)
+            //{  }
+
+            t = t.ToUpper();
+
             Location = new Point(dx, dy);
+            fondo.Location = Location;
+
+            // Mostrar el fondo después de fijar la posición para evitar parpadeo
+            fondo.Show();
+
+            lblTitulo.Font = fontElite;
+            lblText.Font = fontElite;
+            lblText.UseCompatibleTextRendering = true;
+
+            int p = t.IndexOf("\r\n");
+            if (p > 0)
+            {
+                lblTitulo.Text = t.Substring(0, p);
+                lblText.Text = t.Substring(p + 2);
+            }
+            else
+            {
+                lblTitulo.Text = t;
+                lblText.Text = String.Empty;
+            }
         }
 
-        public void ShowWithTimeout(int mls)
+        int nTick, maxTick;
+        public void Show(int t)
         {
             timer = new Timer();
+            //timer.Tick += new EventHandler(frmTick);
+            //timer.Tick += delegate { frmTick(); };
+            timer.Tick += frmTick;
+
             nTick = 0;
-            maxTick = Math.Max(1, mls / 1000);
+            maxTick = t / 1000;
             timer.Interval = 1000;
-            timer.Tick += Timer_Tick;
+
             timer.Start();
             Show();
-            Application.Run(this);
         }
-
-        private void Timer_Tick(object sender, EventArgs e)
+        private void frmTick(object sender, EventArgs e)
         {
             nTick++;
+
             if (nTick > maxTick)
             {
                 timer.Stop();
+                //Hide();
+
+                if (fondo != null)
+                {
+                    fondo.Close();
+                    fondo = null;
+                }
+
                 Close();
-                Application.ExitThread();
             }
             else
             {
                 lblTick.Text = nTick.ToString("00");
                 lblTick.Refresh();
             }
+        }
+
+        private void lblText_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void JumpSummaryFrm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            //basi.configuracionFrm = null;
         }
     }
 }

@@ -33,7 +33,8 @@ namespace EDExplorer
         FSS,
         Codex,
         Jump,
-        Hyperspace
+        Hyperspace,
+        JournalEvent
     }
     public enum Alerta
     {
@@ -57,7 +58,8 @@ namespace EDExplorer
         BodyCount,
         DistanciaStart, DistanciaSol, AcumuladoJump, NumeroJump,
         Poblacion,
-        Tierra, Acuatico, Amoniaco
+        Tierra, Acuatico, Amoniaco,
+        EventoRaro
     }
     public enum TipoParametro
     {
@@ -234,6 +236,9 @@ namespace EDExplorer
             try { n.Add(Alerta.AcumuladoJump, new DetallesAlerta(TipoEvento.Jump, M.str_Acumulado, M.str_Mostrar_Resumen, 1000, 0, 0, M.str_al_acumulados, M.str_al_de_distancia_acumulada_en_saltos)); } catch { }
             try { n.Add(Alerta.NumeroJump, new DetallesAlerta(TipoEvento.Jump, M.str_Saltos, M.str_Mostrar_Resumen, 10, 0, 0, M.str_saltos_acumulados, M.str_saltos_acumulados)); } catch { }
             try { n.Add(Alerta.Poblacion, new DetallesAlerta(TipoEvento.Jump, M.str_Poblacion, M.str_Poblacion, 1, 0, 2, M.str_habitantes, M.str_habitantes)); } catch { }
+
+            // Frecuencia eventos en Journal
+            try { n.Add(Alerta.EventoRaro, new DetallesAlerta(TipoEvento.FSS, M.str_Evento_Raro, M.str_Evento_Raro, 5, 0, 0, M.str_Frecuencia_baja, "")); } catch { }
         }
 
         public List<Interes> Interest { get; private set; }

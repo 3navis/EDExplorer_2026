@@ -220,6 +220,7 @@
                 disposedValue = true;
 
                 settings.Save();
+                basi.logMonitor.SaveEventStats();
                 if (basi.speech != null) basi.speech.Dispose();
             }
         }

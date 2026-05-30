@@ -661,4 +661,10 @@ bi lerro .</value>
   <data name="str_atencion" xml:space="preserve">
     <value>Arreta:</value>
   </data>
+  <data name="str_Evento_Raro" xml:space="preserve">
+    <value>Gertakari arraroa</value>
+  </data>
+  <data name="str_Frecuencia_baja" xml:space="preserve">
+    <value>Maiztasun baxua datu historikoetan</value>
+  </data>
 </root>

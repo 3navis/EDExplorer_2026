@@ -646,6 +646,15 @@ namespace EDExplorer.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Evento Raro.
+        /// </summary>
+        public static string str_Evento_Raro {
+            get {
+                return ResourceManager.GetString("str_Evento_Raro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Exótica.
         /// </summary>
         public static string str_Ex_tica {
@@ -687,6 +696,15 @@ namespace EDExplorer.Properties {
         public static string str_Francia {
             get {
                 return ResourceManager.GetString("str_Francia", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Frecuencia baja en histórico.
+        /// </summary>
+        public static string str_Frecuencia_baja {
+            get {
+                return ResourceManager.GetString("str_Frecuencia_baja", resourceCulture);
             }
         }
         

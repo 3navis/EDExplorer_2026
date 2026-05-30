@@ -660,4 +660,10 @@
   <data name="str_atencion" xml:space="preserve">
     <value>注意：</value>
   </data>
+  <data name="str_Evento_Raro" xml:space="preserve">
+    <value>奇妙な出来事</value>
+  </data>
+  <data name="str_Frecuencia_baja" xml:space="preserve">
+    <value>過去最低の水準</value>
+  </data>
 </root>

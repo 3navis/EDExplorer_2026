@@ -36,6 +36,8 @@ namespace EDExplorer
         public Base()
         {
             //MessageBox.Show(AppDomain.CurrentDomain.BaseDirectory);
+            System.Diagnostics.Debug.WriteLine(AppDomain.CurrentDomain.BaseDirectory);
+
             alertas = new Alertas();
 
             logMonitor = new LogMonitor();
@@ -202,6 +204,7 @@ namespace EDExplorer
                 announceText.AppendLine("-------------");
                 announceText.AppendLine(tipoStar);
 
+                //OpenJumpSummaryForm(M.str_Resumen_sesi_actual + "\r\n" + announceText.ToString(), 15000);
                 OpenNotifyForm(M.str_Resumen_sesi_actual + "\r\n" + announceText.ToString(), 15000);
             }
         }
@@ -246,8 +249,8 @@ namespace EDExplorer
                         // Si el evento actual es un JUMP, abrir ventana de resumen específica
                         if (logMonitor.tipoEvento == TipoEvento.Jump)
                         {
-                            //OpenJumpSummary(M.str_Resumen_sesi_actual, resumen.ToString(), 12000);
-                            OpenNotifyForm("Salto" + "\r\n" + announceText.ToString(), 10000);
+                            //OpenJumpSummaryForm("Salto" + "\r\n" + announceText.ToString(), 10000);
+                            OpenNotifyForm(spokenName + "\r\n" + announceText.ToString(), 10000);
                         }
                         else
                         {
@@ -334,13 +337,15 @@ namespace EDExplorer
             configuracionFrm.Show();
         }
 
-        public void OpenJumpSummary(string title, string body, int mls)
+        public void OpenJumpSummaryForm(string t, int mls)
         {
             var thread = new System.Threading.Thread(() =>
             {
-                //var frm = new JumpSummaryFrm(title, body, mls);
-                //frm.ShowWithTimeout();
+                var jumpSummaryFrm = new JumpSummaryFrm(t);
+                jumpSummaryFrm.Show(mls);
+                System.Windows.Forms.Application.Run(jumpSummaryFrm);
             });
+
             thread.SetApartmentState(System.Threading.ApartmentState.STA);
             thread.IsBackground = true;
             thread.Start();
@@ -361,6 +366,7 @@ namespace EDExplorer
                 notifyFrm.Show(mls);
                 System.Windows.Forms.Application.Run(notifyFrm);
             });
+
             thread.SetApartmentState(System.Threading.ApartmentState.STA);
             thread.IsBackground = true;
             thread.Start();

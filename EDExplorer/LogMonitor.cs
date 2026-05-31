@@ -127,7 +127,7 @@ namespace EDExplorer
             //////////////
 
             ReadAllInProgress = true;
-            EventStats = new JournalEventStats();
+            //EventStats = new JournalEventStats();
             progressBar.Visible = true;
             SystemBody.Clear();
             SystemBodySignal.Clear();
@@ -277,8 +277,6 @@ namespace EDExplorer
                 const string eventos = "Scan,Location,FSDJump,CarrierJump,SAASignalsFound," +
                     "FSSDiscoveryScan,SupercruiseExit,StartJump,FSDTarget,Commander," +
                     "FSSBodySignals,";
-
-                //System.Diagnostics.Debug.WriteLine(evento);
 
                 if (eventos.Contains(evento))
                 {

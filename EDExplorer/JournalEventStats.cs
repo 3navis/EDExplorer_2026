@@ -41,10 +41,14 @@ namespace EDExplorer
             if (string.IsNullOrWhiteSpace(eventName))
                 return;
 
-            TotalEvents++;
+            //TotalEvents++;
 
             if (!Events.TryGetValue(eventName, out JournalEventStat stat))
             {
+                // Primera aparicion, es un Nuevo evento
+                System.Diagnostics.Debug.WriteLine(eventName);
+
+
                 stat = new JournalEventStat
                 {
                     FirstSeen = timestamp,
@@ -52,11 +56,28 @@ namespace EDExplorer
                 };
 
                 Events[eventName] = stat;
-            }
 
-            stat.Count++;
-            if (timestamp < stat.FirstSeen) stat.FirstSeen = timestamp;
-            if (timestamp > stat.LastSeen) stat.LastSeen = timestamp;
+                TotalEvents++;
+                stat.Count++;
+            }
+            else 
+            {
+                if (timestamp < stat.FirstSeen || timestamp > stat.LastSeen) 
+                {
+                    // Solo contabilizar si es primera aparicion (evita relecturas de log en arranque)
+                    TotalEvents++;
+                    stat.Count++;
+
+                    if (timestamp < stat.FirstSeen) stat.FirstSeen = timestamp;
+                    if (timestamp > stat.LastSeen) stat.LastSeen = timestamp;
+                }
+                ;
+            }
+            ;
+
+            //stat.Count++;
+            //if (timestamp < stat.FirstSeen) stat.FirstSeen = timestamp;
+            //if (timestamp > stat.LastSeen) stat.LastSeen = timestamp;
         }
     }
 
